@@ -72,6 +72,6 @@
 
 <div style="font-size: 0.9rem; opacity: 0.8; background: var(--vp-c-bg-soft); padding: 15px; border-radius: 8px; border-left: 3px solid #666;">
   <strong>系统框架</strong><br>
-  运行于 <strong>HongXingOS6 (3月更新)</strong><br>
-  由 <strong>Akaboshi Lab</strong> 制作
+  运行于 <strong>HongXing OS6 (6月更新)</strong><br>
+  由 <strong>HongXing (Nanjing) Dev Team</strong> 开发
 </div>
