@@ -110,3 +110,56 @@ img { border-radius: 12px; }
     margin-top: 10px; /* 手机上再紧凑一点 */
   }
 }
+/* 全局公告栏样式 */
+.global-announcement {
+  background-color: var(--vp-c-bg-soft);
+  border: 1px solid var(--vp-c-brand-1);
+  padding: 12px 20px;
+  border-radius: 8px;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.announcement-tag {
+  background-color: var(--vp-c-brand-1);
+  color: white;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.announcement-content {
+  flex: 1;
+  color: var(--vp-c-text-1);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.announcement-link {
+  color: var(--vp-c-brand-1);
+  font-weight: bold;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.announcement-link:hover {
+  text-decoration: underline;
+}
+
+/* 适配移动端 */
+@media (max-width: 640px) {
+  .global-announcement {
+    padding: 10px;
+    gap: 8px;
+  }
+  .announcement-link {
+    font-size: 13px;
+  }
+}
