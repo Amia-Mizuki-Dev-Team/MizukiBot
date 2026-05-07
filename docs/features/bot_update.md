@@ -4,6 +4,37 @@
 
 <br>
 
+<div class="custom-card" style="background: var(--vp-c-bg-soft); border-left: 5px solid #2f54eb; padding: 20px; border-radius: 12px; margin-bottom: 25px;">
+  <h3 style="margin-top: 0; color: #2f54eb;">2026.4.22 | HongXing (江苏) 工作室 5月情报与系统规划</h3>
+  <p style="font-size: 13px; opacity: 0.8; margin-bottom: 15px;">本次通报包含系统安装安排、机房建设规划、安全升级及核心人员职务调整说明。</p>
+  
+  <h4 style="color: #2f54eb; margin-top: 15px; font-size: 15px;">一、系统停机与新机房建设</h4>
+  <ul style="margin: 5px 0 15px 20px; font-size: 14px; opacity: 0.9; line-height: 1.8;">
+    <li><strong>系统停机安装安排</strong>：4月28日至30日，对 Ospalin HongXingos 8 系统进行停机安装。该系统主打营销分析与安全防护，保障用户数据隐私。</li>
+    <li><strong>新机房选址与建设</strong>：4月18日-19日确认新机房选址江苏省苏州市。预计 2026 年上半年完成建设，下半年视情况分批迁移服务。</li>
+    <li><strong>HongXingOS 7 规划</strong>：首轮内测预计 2026 年 10 月启动。内核基于 6.1 版本构建，并解决 OS6 中存在的部分重大问题。</li>
+  </ul>
+
+  <h4 style="color: #2f54eb; margin-top: 15px; font-size: 15px;">二、AuthLit 安全升级与 OS6 构建更新</h4>
+  <ul style="margin: 5px 0 15px 20px; font-size: 14px; opacity: 0.9; line-height: 1.8;">
+    <li><strong>AuthLit 4 更新说明</strong>：针对 4 月 12 日的外部攻击，于 4 月 25 日至 26 日进行更新。提升 AuthLit 权限至仅次于系统管理员，并新增主动干预固件（可拦截不明来源/危害性可交互内容）。</li>
+    <li><strong>OS6 构建版本更新</strong>：4 月 26 日提交新构建版本 (OS6 Build 2026.4.b57e205，更新代码 2e70)。</li>
+    <li><strong>OS6 修复清单</strong>：
+      <ol style="margin-top: 5px; margin-bottom: 5px;">
+        <li>修复启动过程中的内核崩溃、卡死等无法正常启动的异常。</li>
+        <li>修复构建较大文件时出现的乱码或无响应问题。</li>
+        <li>优化启动流程，缩短系统自检时间。</li>
+      </ol>
+    </li>
+  </ul>
+
+  <h4 style="color: #2f54eb; margin-top: 15px; font-size: 15px;">三、人员职务调整与排班说明</h4>
+  <ul style="margin: 5px 0 0 20px; font-size: 14px; opacity: 0.9; line-height: 1.8;">
+    <li><strong>核心人员工作调整</strong>：HX-Wrdzgzs 已于 3 月 14 日提交离职申请。自 6 月 23 日起，职责由一线开发转为二线开发（主抓系统内核维护及重大问题解决）。预计 2027 年第一季度正式退出并完成项目交接。</li>
+    <li><strong>五一期间值班安排</strong>：因特殊原因，HX-Wrdzgzs 不参与本次五一假期的值班工作，具体安排请查阅其他人员排班表。</li>
+  </ul>
+</div>
+
 <div class="custom-card" style="background: var(--vp-c-bg-soft); border-left: 5px solid #722ed1; padding: 20px; border-radius: 12px; margin-bottom: 25px;">
   <h3 style="margin-top: 0; color: #722ed1;">2026.4 | 4月核心更新与架构升级</h3>
   <p style="font-size: 13px; opacity: 0.8; margin-bottom: 15px;">此版本包含大量底层重构与功能迭代（屎山x）。目前 Mizuki Bot 日活量已达到 5w 以上，感谢大家的支持，后续将专向开发官方 Bot 及 DXPASS（已规划）。</p>
