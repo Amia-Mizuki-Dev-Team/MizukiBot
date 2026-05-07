@@ -2,7 +2,7 @@ import { defineConfig } from 'vitepress'
 
 export default defineConfig({
   title: "Mizuki Bot 帮助文档",
-  description: "专为 PJSK 与 舞萌 DX 玩家打造的 Bot 助手",
+  description: "集 PJSK、舞萌 DX、中二节奏于一体的全能型音游助手，为您提供一站式数据查询与沉浸式社群互动。",
   lang: 'zh-CN',
   
   head: [
@@ -113,7 +113,7 @@ export default defineConfig({
     },
 
     footer: {
-      message: 'Created with MizukiBot Team' 
+      message: 'Created with ♿ by HX-Wrdzgzs',
       copyright: '© 2018-2026 MizukiBot Team | HongXing Dev Studio. 保留所有权利。'
     },
     
