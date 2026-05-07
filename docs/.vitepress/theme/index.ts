@@ -6,7 +6,6 @@ export default {
   extends: DefaultTheme,
   
   Layout() {
-    // 默认给一张图防抖
     const currentAvatar = ref('/Picture/avatar.jpg') 
     const currentQuote = ref('')
 
@@ -16,7 +15,6 @@ export default {
         '/Picture/avatar.jpg',
         '/Picture/logo.gif'
       ];
-      // 随机选一张
       currentAvatar.value = images[Math.floor(Math.random() * images.length)];
 
       // 💬 随机语录逻辑
@@ -30,6 +28,7 @@ export default {
     })
 
     return h(DefaultTheme.Layout, null, {
+      // 1. 原有的首页随机头像插槽
       'home-hero-image': () => {
         return h('div', { class: 'hero-wrapper' }, [
           h('img', { 
@@ -41,6 +40,15 @@ export default {
             class: 'my-custom-quote',
             innerHTML: currentQuote.value
           })
+        ])
+      },
+
+      // 2. 新增：全局公告插槽 (显示在所有文档内容上方)
+      'doc-before': () => {
+        return h('div', { class: 'global-announcement' }, [
+          h('span', { class: 'announcement-tag' }, '公告'),
+          h('span', { class: 'announcement-content' }, 'Mizuki Bot 4月大更新已上线，欢迎查阅更新日志！'),
+          h('a', { href: '/features/bot_update', class: 'announcement-link' }, '点击查看 →')
         ])
       }
     })
