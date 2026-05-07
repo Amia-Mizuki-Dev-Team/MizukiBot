@@ -21,10 +21,6 @@ export default defineConfig({
     ['meta', { name: 'twitter:image', content: 'https://help.mizuki.top/Picture/banner.jpg' }]
   ],
 
-  sitemap: {
-    hostname: 'https://help.mizuki.top'
-  },
-
   themeConfig: {
     logo: '/Picture/logo.gif',
     siteTitle: 'Mizuki Bot 帮助文档',
@@ -113,8 +109,7 @@ export default defineConfig({
     },
 
     footer: {
-      message: 'Created with ♿ by HX-Wrdzgzs',
-      copyright: '© 2018-2026 MizukiBot Team | HongXing Dev Studio. 保留所有权利。'
+      copyright: '© 2018-2026 MizukiBot Team | HongXing (Jiangsu) Dev Team. 保留所有权利。'
     },
     
     search: {
