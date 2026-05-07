@@ -29,28 +29,49 @@ export default defineConfig({
     logo: '/Picture/logo.gif',
     siteTitle: 'Mizuki Bot 帮助文档',
 
+    // 顶部导航栏 (完全与侧边栏对齐)
     nav: [
       { text: '首页', link: '/' },
-      { text: '问题反馈', link: '/feedback' },
-      { 
-        text: '功能大全', 
+      {
+        text: '入门指南',
         items: [
-          { text: 'PJSK 相关', link: '/features/pjsk' },
-          { text: '舞萌 DX', link: '/features/maimai' },
-          { text: '中二节奏', link: '/features/chunithm' },
-          { text: '表情制作', link: '/features/meme' },
-          { text: '通用工具', link: '/features/tools' }
+          { text: '📖 如何使用', link: '/usage' },
+          { text: '🔗 落雪绑定', link: '/bind' },
+          { text: '📝 问题反馈', link: '/feedback' }
         ]
       },
-      { 
-        text: '鸣谢与赞助', 
+      {
+        text: '📢 更新与公告',
         items: [
-          { text: '👥 贡献榜', link: '/contribution' },
-          { text: '💎 赞助榜', link: '/sponsor_list' }
+          { text: '🟩 MC 服务器更新', link: '/features/mc_update' },
+          { text: '🤖 Bot 更新日志', link: '/features/bot_update' }
+        ]
+      },
+      {
+        text: '功能文档',
+        items: [
+          { text: 'PJSK 相关功能', link: '/features/pjsk' },
+          { text: '舞萌 DX 专项', link: '/features/maimai' },
+          { text: '中二节奏 (Chuni)', link: '/features/chunithm' },
+          { text: '表情制作系统', link: '/features/meme' },
+          { text: '通用工具与娱乐', link: '/features/tools' }
+        ]
+      },
+      {
+        text: '关于与规范',
+        items: [
+          { text: '👥 贡献榜名单', link: '/contribution' },
+          { text: '📋 群规与公告', link: '/rules' },
+          { text: '💡 提问的智慧', link: '/asking' },
+          { text: '⚖️ 免责声明', link: '/disclaimer' },
+          { text: '📜 用户使用协议', link: '/agreement' },
+          { text: '❤️ 赞助我们', link: '/sponsor' },
+          { text: '💎 赞助榜名单', link: '/sponsor_list' }
         ]
       }
     ],
 
+    // 左侧边栏
     sidebar: {
       '/': [
         {
@@ -64,11 +85,8 @@ export default defineConfig({
         {
           text: '📢 更新与公告',
           items: [
-            {
-              text: '<span style="display: inline-flex; align-items: center; gap: 4px;"><img src="/Picture/Grass_Block_JE7_BE6.png" width="18" style="vertical-align: middle;"> MC 服务器更新</span>',
-              link: '/features/mc_update'
-            },
-            { text: '🤖 Bot 更新日志', link: '/features/bot_update' } // 👈 就是这一行！帮您加好了！
+            { text: '🟩 MC 服务器更新', link: '/features/mc_update' },
+            { text: '🤖 Bot 更新日志', link: '/features/bot_update' }
           ]
         },
         {
