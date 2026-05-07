@@ -8,15 +8,14 @@ export default {
   Layout() {
     const currentAvatar = ref('/Picture/avatar.jpg') 
     const currentQuote = ref('')
-    // 新增：控制公告显示状态的变量
     const showAnnouncement = ref(true) 
 
     onMounted(() => {
-      // 🎲 随机头像逻辑
+      // 🎲 首页随机头像逻辑
       const images = ['/Picture/avatar.jpg', '/Picture/logo.gif'];
       currentAvatar.value = images[Math.floor(Math.random() * images.length)];
 
-      // 💬 随机语录逻辑
+      // 💬 首页随机语录逻辑
       const quotes = [
         "「 ボクは……ボクでいたいだけ 」<br>我只是……想做我自己罢了",
         "「 秘密って、なんだかワクワクしない？ 」<br>所谓秘密，不觉得令人有些兴奋吗？",
@@ -25,14 +24,14 @@ export default {
       ];
       currentQuote.value = quotes[Math.floor(Math.random() * quotes.length)];
 
-      // 检查当前会话是否已经关闭过公告
+      // 检查当前会话是否已关闭公告
       if (sessionStorage.getItem('hide_announcement')) {
         showAnnouncement.value = false;
       }
     })
 
     return h(DefaultTheme.Layout, null, {
-      // 1. 首页随机头像
+      // 1. 首页随机英雄区插槽
       'home-hero-image': () => {
         return h('div', { class: 'hero-wrapper' }, [
           h('img', { 
@@ -47,23 +46,19 @@ export default {
         ])
       },
 
-      // 2. 带有关闭按钮的全局公告
+      // 2. 全局公告栏插槽 (固定右上角关闭按钮)
       'layout-top': () => {
-        // 如果 showAnnouncement 为 false，则渲染 null（隐藏公告）
         return showAnnouncement.value ? h('div', {
           style: {
             backgroundColor: 'var(--vp-c-brand-soft)',
             color: 'var(--vp-c-brand-1)',
-            padding: '10px 40px 10px 16px', // 右侧留出 40px 给关闭按钮
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            flexWrap: 'wrap',
-            gap: '10px',
+            padding: '12px 40px 12px 15px', 
+            textAlign: 'center',
             fontSize: '14px',
             fontWeight: '500',
             borderBottom: '1px solid var(--vp-c-brand-soft)',
-            position: 'relative' // 为关闭按钮的绝对定位做参照
+            position: 'relative',
+            lineHeight: '1.6'
           }
         }, [
           h('span', {
@@ -73,32 +68,36 @@ export default {
               padding: '2px 8px',
               borderRadius: '6px',
               fontSize: '12px',
-              fontWeight: 'bold'
+              fontWeight: 'bold',
+              marginRight: '8px',
+              display: 'inline-block',
+              verticalAlign: 'middle'
             }
-          }, '📢 公告'),
-          h('span', null, 'Mizuki Bot 4月大更新已上线，欢迎查阅更新日志！'),
+          }, '公告'),
+          h('span', { style: { verticalAlign: 'middle' } }, 'Mizuki Bot 4月大更新已上线，欢迎查阅更新日志！ '),
           h('a', { 
             href: '/features/bot_update',
             style: {
               textDecoration: 'underline',
               fontWeight: 'bold',
-              color: 'var(--vp-c-brand-1)'
+              color: 'var(--vp-c-brand-1)',
+              verticalAlign: 'middle',
+              marginLeft: '4px'
             }
           }, '点击查看 →'),
-          // ✖ 关闭按钮
+          // ✖ 关闭按钮：固定在右上角
           h('button', {
             onClick: () => {
-              showAnnouncement.value = false; // 隐藏界面
-              sessionStorage.setItem('hide_announcement', 'true'); // 记录到缓存
+              showAnnouncement.value = false;
+              sessionStorage.setItem('hide_announcement', 'true');
             },
             style: {
               position: 'absolute',
-              right: '16px',
-              top: '50%',
-              transform: 'translateY(-50%)',
+              right: '12px',
+              top: '12px',
               background: 'transparent',
               border: 'none',
-              fontSize: '20px',
+              fontSize: '22px',
               cursor: 'pointer',
               color: 'var(--vp-c-brand-1)',
               lineHeight: '1',
@@ -109,7 +108,7 @@ export default {
         ]) : null
       },
 
-      // 3. 强制全局显示的页脚
+      // 3. 全局页脚插槽 (强制在所有页面底部显示)
       'layout-bottom': () => {
         return h('div', {
           style: {
