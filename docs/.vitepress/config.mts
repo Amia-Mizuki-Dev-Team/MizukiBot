@@ -29,7 +29,6 @@ export default defineConfig({
     logo: '/Picture/logo.gif',
     siteTitle: 'Mizuki Bot 帮助文档',
 
-    // 顶部导航栏 (完全与侧边栏对齐)
     nav: [
       { text: '首页', link: '/' },
       {
@@ -71,7 +70,6 @@ export default defineConfig({
       }
     ],
 
-    // 左侧边栏
     sidebar: {
       '/': [
         {
@@ -115,8 +113,8 @@ export default defineConfig({
     },
 
     footer: {
-      message: 'Created with ♿ by HX-Wrdzgzs',
-      copyright: 'Powered by Akaboshi Lab'
+      message: 'Created with MizukiBot Team' 
+      copyright: '© 2018-2026 MizukiBot Team | HongXing Dev Studio. 保留所有权利。'
     },
     
     search: {
