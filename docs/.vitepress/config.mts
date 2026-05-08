@@ -34,16 +34,16 @@ export default defineConfig({
       {
         text: '入门指南',
         items: [
-          { text: '📖 如何使用', link: '/usage' },
-          { text: '🔗 落雪绑定', link: '/bind' },
-          { text: '📝 问题反馈', link: '/feedback' }
+          { text: '如何使用', link: '/usage' },
+          { text: '落雪绑定', link: '/bind' },
+          { text: '问题反馈', link: '/feedback' }
         ]
       },
       {
-        text: '📢 更新与公告',
+        text: '更新与公告',
         items: [
-          { text: '🟩 MC 服务器更新', link: '/features/mc_update' },
-          { text: '🤖 Bot 更新日志', link: '/features/bot_update' }
+          { text: 'MC 服务器更新', link: '/features/mc_update' },
+          { text: 'Bot 更新日志', link: '/features/bot_update' }
         ]
       },
       {
@@ -59,13 +59,13 @@ export default defineConfig({
       {
         text: '关于与规范',
         items: [
-          { text: '👥 贡献榜名单', link: '/contribution' },
-          { text: '📋 群规与公告', link: '/rules' },
-          { text: '💡 提问的智慧', link: '/asking' },
-          { text: '⚖️ 免责声明', link: '/disclaimer' },
-          { text: '📜 用户使用协议', link: '/agreement' },
-          { text: '❤️ 赞助我们', link: '/sponsor' },
-          { text: '💎 赞助榜名单', link: '/sponsor_list' }
+          { text: '贡献榜名单', link: '/contribution' },
+          { text: '群规与公告', link: '/rules' },
+          { text: '提问的智慧', link: '/asking' },
+          { text: '免责声明', link: '/disclaimer' },
+          { text: '用户使用协议', link: '/agreement' },
+          { text: '赞助我们', link: '/sponsor' },
+          { text: '赞助榜名单', link: '/sponsor_list' }
         ]
       }
     ],
@@ -75,16 +75,16 @@ export default defineConfig({
         {
           text: '入门指南',
           items: [
-            { text: '📖 如何使用', link: '/usage' },
-            { text: '🔗 落雪绑定', link: '/bind' },
-            { text: '📝 问题反馈', link: '/feedback' }
+            { text: '如何使用', link: '/usage' },
+            { text: '落雪绑定', link: '/bind' },
+            { text: '问题反馈', link: '/feedback' }
           ]
         },
         {
-          text: '📢 更新与公告',
+          text: '更新与公告',
           items: [
-            { text: '🟩 MC 服务器更新', link: '/features/mc_update' },
-            { text: '🤖 Bot 更新日志', link: '/features/bot_update' }
+            { text: 'MC 服务器更新', link: '/features/mc_update' },
+            { text: 'Bot 更新日志', link: '/features/bot_update' }
           ]
         },
         {
@@ -100,13 +100,13 @@ export default defineConfig({
         {
           text: '关于与规范',
           items: [
-            { text: '👥 贡献榜名单', link: '/contribution' },
-            { text: '📋 群规与公告', link: '/rules' },
-            { text: '💡 提问的智慧', link: '/asking' },
-            { text: '⚖️ 免责声明', link: '/disclaimer' },
-            { text: '📜 用户使用协议', link: '/agreement' },
-            { text: '❤️ 赞助我们', link: '/sponsor' },
-            { text: '💎 赞助榜名单', link: '/sponsor_list' }
+            { text: '贡献榜名单', link: '/contribution' },
+            { text: '群规与公告', link: '/rules' },
+            { text: '提问的智慧', link: '/asking' },
+            { text: '免责声明', link: '/disclaimer' },
+            { text: '用户使用协议', link: '/agreement' },
+            { text: '赞助我们', link: '/sponsor' },
+            { text: '赞助榜名单', link: '/sponsor_list' }
           ]
         }
       ]
