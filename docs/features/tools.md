@@ -1,13 +1,9 @@
 # 通用工具与娱乐
-
 > 包含表情包管理、经济系统、生成器、Minecraft 及 B 站动态订阅等综合功能。
-
 <br>
-
 <div class="custom-card" style="background: var(--vp-c-bg-soft); border: 2px solid #b37feb; padding: 20px; border-radius: 15px; margin-bottom: 25px;">
   <h3 style="margin-top: 0; color: #722ed1;">📦 表情包管理系统 (Meme)</h3>
   <p style="font-size: 13px; opacity: 0.8; margin-bottom: 15px;">集成审核、溯源的表情管理系统。</p>
-
   <h4 style="color: #722ed1; margin-top: 15px;">基础指令</h4>
 
 | 指令 | 说明 | 示例 |
@@ -28,12 +24,12 @@
 | `屏蔽群 [群号]` | (管理) 禁止某群使用 |
 
 </div>
-
 <div class="custom-card" style="background: var(--vp-c-bg-soft); border-left: 5px solid #fadb14; padding: 20px; border-radius: 10px; margin-bottom: 25px;">
   <h3 style="margin-top: 0; color: #d4b106;">💰 Mizuki 25时经济</h3>
   <p style="font-size: 13px; opacity: 0.8; margin-bottom: 15px;">
     全图片化养成经济系统。<br>
-    <a href="https://list.mizuki.top" target="_blank" style="color:#d4b106; font-weight:bold;">👉 点击访问 list.mizuki.top 查看经济榜网页</a>
+    <a href="https://list.mizuki.top" target="_blank" style="color:#d4b106; font-weight:bold; margin-right: 15px;">👉 访问 list.mizuki.top 查看经济榜</a>
+    <a href="https://store.mizuki.top" target="_blank" style="color:#faad14; font-weight:bold;">👉 访问 store.mizuki.top 网页商城</a>
   </p>
 
 | 指令 | 说明 |
@@ -47,9 +43,8 @@
 | `使用 [编号]` | 使用背包中的指定物品 |
 
 </div>
-
 <div class="custom-card" style="background: var(--vp-c-bg-soft); border-left: 5px solid #ff85c0; padding: 20px; border-radius: 10px; margin-bottom: 25px;">
-  <h3 style="margin-top: 0; color: #eb2f96;">🎉 群管与生成器</h3>
+  <h3 style="margin-top: 0; color: #eb2f96;">🎉 播报与生成器</h3>
 
 | 功能/指令 | 说明 | 示例 |
 | :--- | :--- | :--- |
@@ -58,7 +53,6 @@
 | `悲报 [内容]` | 生成一张悲报风格的图片 | `悲报 服务器炸了` |
 
 </div>
-
 <div class="custom-card" style="background: var(--vp-c-bg-soft); border-left: 5px solid #1890ff; padding: 20px; border-radius: 10px; margin-bottom: 25px;">
   <h3 style="margin-top: 0; color: #1890ff;">📈 群活统计</h3>
 
@@ -70,10 +64,10 @@
 | `今日DAU` | (管理) 查看日活人数 |
 
 </div>
-
 <div class="custom-card" style="background: var(--vp-c-bg-soft); border-left: 5px solid #52c41a; padding: 20px; border-radius: 10px; margin-bottom: 25px;">
   <h3 style="margin-top: 0; color: #52c41a;">🟩 Minecraft 服务器</h3>
   
+
 | 项目 | 内容 |
 | :--- | :--- |
 | **版本** | Fabric 1.21.4 |
@@ -81,7 +75,6 @@
 | **加入** | 请在群公告获取 IP |
 
 </div>
-
 <div class="custom-card" style="background: var(--vp-c-bg-soft); border-left: 5px solid #fb7299; padding: 20px; border-radius: 12px; margin-bottom: 25px;">
   <h3 style="margin-top: 0; color: #fb7299;">📺 B站动态订阅</h3>
   <p style="font-size: 13px; opacity: 0.8; margin-bottom: 15px;">支持自动推送官方最新 B 站动态至群聊，<strong>目前需提供群号并联系管理员手动添加。</strong></p>
@@ -92,7 +85,6 @@
 | **2号机 / 4号机** | **PJSK 国服/国际服** 动态 | 请联系对应 Bot 管理员 |
 
 </div>
-
 <style>
 /* 强制表格的第一列（指令）和第三列（示例）不换行，让第二列（说明）有更多空间 */
 .custom-card table th:nth-child(1),
