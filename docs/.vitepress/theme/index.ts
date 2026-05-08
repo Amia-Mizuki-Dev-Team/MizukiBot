@@ -115,7 +115,7 @@ export default {
             width: '100%',
             marginTop: 'auto'
           }
-        }, '© 2018-2026 MizukiBot Team | HongXing (Jiangsu) Dev Team. 保留所有权利。')
+        }, '© 2020-2026 MizukiBot Team | HongXing (Jiangsu) Dev Team. 保留所有权利。')
       }
     })
   }
