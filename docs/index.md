@@ -22,8 +22,6 @@ features:
     details: PJSK、舞萌 DX 查分查榜，一站式音游助手。
   - title: 🎨 表情制作
     details: 内置 Meme 制作系统，一键生成 PJSK/Arcaea 风格对话。
-  - title: 🎙️ 拟人交互
-    details: 接入 AI 语音与回复，提供更真实的情绪价值与陪伴。
 ---
 
 <div style="margin-top: 50px;"></div>
