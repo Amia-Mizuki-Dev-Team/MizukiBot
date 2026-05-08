@@ -13,7 +13,7 @@ const qqNumber = ref('')
 // 点击跳转的逻辑
 const jumpToAuth = () => {
   if (!qqNumber.value) {
-    alert('⚠️ 请先输入您的 QQ 号！')
+    alert('请先输入您的 QQ 号！')
     return
   }
   // 拼接带有 QQ 号的授权链接
@@ -27,7 +27,7 @@ const jumpToAuth = () => {
 
 <div class="interactive-card">
   <h3 style="margin-top: 0; color: #1890ff; display: flex; align-items: center;">
-    <span style="font-size: 22px; margin-right: 8px;">🚀</span> 绑定流程
+    绑定流程
   </h3>
   <p style="font-size: 14px; opacity: 0.8; margin-bottom: 20px; line-height: 1.6;">
     请输入您的 QQ 号，点击按钮跳转至落雪 (LXNS) 授权页面。
@@ -50,14 +50,24 @@ const jumpToAuth = () => {
   <hr class="dashed-hr" />
 
   <h3 style="color: #d4b106; margin-top: 0; display: flex; align-items: center; font-size: 18px;">
-    <span style="margin-right: 8px;">⚠️</span> 获取授权码后：
+    获取授权码后：
   </h3>
   <p style="font-size: 14px; opacity: 0.8; margin-bottom: 15px; line-height: 1.6;">
-    请回到 Bot 聊天窗口（群聊或私聊），发送以下指令：
+    请回到群聊窗口（注意：该功能不支持私聊），根据您使用的 Bot 类型发送对应的指令：
   </p>
   
-  <div class="code-box">
-    <code>@Mizuki Bot 落雪确认 [授权码]</code>
+  <div style="margin-bottom: 15px;">
+    <strong style="font-size: 14px; color: var(--vp-c-text-1);">官方 Bot（带有蓝标认证）：</strong>
+    <div class="code-box" style="margin-top: 8px;">
+      <code>@Mizuki Bot 落雪确认 [授权码]</code>
+    </div>
+  </div>
+
+  <div>
+    <strong style="font-size: 14px; color: var(--vp-c-text-1);">第三方 Bot（无蓝标认证）：</strong>
+    <div class="code-box" style="margin-top: 8px;">
+      <code>落雪确认 [授权码]</code>
+    </div>
   </div>
 </div>
 
