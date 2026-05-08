@@ -1,9 +1,6 @@
 # 舞萌 DX 专项
-
 > 查分、查歌与排队服务。
-
 <br>
-
 <div class="custom-card" style="background: var(--vp-c-bg-soft); border-left: 5px solid #faad14; padding: 20px; border-radius: 12px; margin-bottom: 20px;">
   <h3 style="margin-top: 0; color: #faad14;">🟡 核心查询</h3>
 
@@ -16,7 +13,6 @@
 | `定数查歌 [范围]` | 例: `定数查歌 13.5 13.9` |
 
 </div>
-
 <div class="custom-card" style="background: var(--vp-c-bg-soft); border-left: 5px solid #52c41a; padding: 20px; border-radius: 12px; margin-bottom: 20px;">
   <h3 style="margin-top: 0; color: #52c41a;">🟢 牌子与进度</h3>
 
@@ -28,33 +24,50 @@
 | `分数线 [曲ID]` | 查询各达成率所需分数 |
 
 </div>
-
 <div class="custom-card" style="background: var(--vp-c-bg-soft); border-left: 5px solid #1890ff; padding: 20px; border-radius: 12px; margin-bottom: 20px;">
-  <h3 style="margin-top: 0; color: #1890ff;">🔵 别名与娱乐</h3>
+  <h3 style="margin-top: 0; color: #1890ff;">🔵 查询与娱乐</h3>
 
 | 指令 | 说明 |
 | :--- | :--- |
 | `是什么歌` | 查询别名对应的歌曲 |
+| `[牌名/难度]是什么谱` | 查询指定谱面信息 |
+| `查[别名] 谱面[难度]` | 精确查询特定歌曲难度谱面 |
 | `添加别名 [ID] [名]` | 提交新的歌曲别名 |
 | `mai猜歌` | 开启猜歌小游戏 |
 
 </div>
-
 <div class="custom-card" style="background: var(--vp-c-bg-soft); border-left: 5px solid #722ed1; padding: 20px; border-radius: 12px; margin-bottom: 20px;">
   <h3 style="margin-top: 0; color: #722ed1;">🖥️ 舞萌服务器状态</h3>
-  <p style="font-size: 13px; opacity: 0.8; margin-bottom: 15px;">
-    实时监控代理机连通性。<br>
-    <a href="https://status.mizuki.top" target="_blank" style="color:#722ed1; font-weight:bold;">👉 点击访问 status.mizuki.top 查看网页版</a>
-  </p>
-
-| 指令 | 说明 |
-| :--- | :--- |
-| `看看mai` | 查看所有代理机状态 |
-| `看看dlx` | 查看 DLX 代理状态 |
-| `看看华立` | 查看华立服务器状态 |
-
+  
+  <h4 style="color: #722ed1; margin-top: 15px;">🔗 查看服务器状态 (无需私钥即可查询)</h4>
+  <p style="font-size: 14px; opacity: 0.9;">发送 <code>/net</code> 、 <code>网咋样</code> 或 <code>炸了吗</code></p>
+  <h4 style="color: #722ed1; margin-top: 20px;">🔗 手动上报 (需要 Client ID + 私钥才可上报)</h4>
+  <ul style="margin: 5px 0 0 20px; font-size: 14px; opacity: 0.9;">
+    <li><code>/report 断网</code></li>
+    <li><code>/report 小黑屋</code></li>
+    <li><code>/report 被发票</code></li>
+    <li><code>/report 罚站 300</code></li>
+    <li><code>/report help</code></li>
+  </ul>
+  <h4 style="color: #722ed1; margin-top: 20px;">🔗 自动监听 (群聊)</h4>
+  <p style="font-size: 14px; opacity: 0.9; margin-bottom: 10px;">插件会自动识别群聊中的以下说法并上报，无需手动触发：</p>
+  
+  <strong style="font-size: 14px;">异常触发 (主语+动词组合)</strong>
+  <ul style="margin: 5px 0 10px 20px; font-size: 14px; opacity: 0.9;">
+    <li><strong>主语</strong>：华立、SEGA、服务器、机台、NET等</li>
+    <li><strong>动词</strong>：炸、挂、死、坏、崩等</li>
+    <li><strong>示例</strong>：「服务器又炸了」「SEGA挂了」「机台灰网」「游客了」「20min了」</li>
+  </ul>
+  <strong style="font-size: 14px;">正常触发</strong>
+  <ul style="margin: 5px 0 10px 20px; font-size: 14px; opacity: 0.9;">
+    <li><strong>示例</strong>：「服务器好了」「华立稳了」「绿网了」</li>
+  </ul>
+  <strong style="font-size: 14px;">冯氏指数</strong>
+  <ul style="margin: 5px 0 0 20px; font-size: 14px; opacity: 0.9;">
+    <li><strong>起飞 (异常)</strong>：「华立冯飞了」「SEGA老冯起飞」</li>
+    <li><strong>返航 (正常)</strong>：「华立冯返航了」「SEGA老冯落地」</li>
+  </ul>
 </div>
-
 <div class="custom-card" style="background: var(--vp-c-bg-soft); border: 2px solid #ffc069; padding: 20px; border-radius: 12px; margin-bottom: 20px;">
   <h3 style="margin-top: 0; color: #fa8c16;">🟠 骚话模式 (娱乐)</h3>
 
@@ -65,7 +78,6 @@
 | `今天mai出勤打什么` | 随机推荐 |
 
 </div>
-
 <div class="custom-card" style="background: var(--vp-c-bg-soft); border: 2px solid #ff4d4f; padding: 25px; border-radius: 15px; margin-top: 30px;">
   <h3 style="margin-top: 0; color: #ff4d4f;">✨ 舞萌DX 成绩同步助手 ✨</h3>
   
@@ -77,7 +89,6 @@
       <strong>⚠️ 注意:</strong> 落雪绑定已升级为 OAuth 2.0 链接授权，旧版 token 已失效，现支持链接授权，更加方便！
     </p>
   </div>
-
   <h4 style="color: #ff7875; margin-top: 15px;">📜 免责声明 (使用前必读)</h4>
   <p style="font-size: 12px; opacity: 0.8; margin-bottom: 10px;">发送任意指令可查看协议链接。必须同意后方可使用本功能。</p>
 
