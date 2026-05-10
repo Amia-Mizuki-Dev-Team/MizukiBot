@@ -1,21 +1,37 @@
 import DefaultTheme from 'vitepress/theme'
-import { h, onMounted, ref, nextTick } from 'vue'
+import { h, onMounted, ref } from 'vue'
 import './custom.css'
 
-// 将 Layout 包装为标准的 Vue Setup 组件模式，解决响应式失效问题
-const CustomLayout = {
-  setup() {
-    const currentAvatar = ref('/Picture/avatar.jpg') 
+export default {
+  extends: DefaultTheme,
+  
+  Layout() {
+    // Randomized quotes state (retained)
     const currentQuote = ref('')
+    
+    // **Requirement: Banner Reliable Visibility (Turn 1 style robust approach, Turn 3 visuals)**
+    // Reverting to the functional approach which avoids Vue component setup timing issues.
+    // Ensure solid bg and border are present.
     const showAnnouncement = ref(true) 
-    const bannerHeight = ref(0) // 用于动态存储公告栏的高度
+    
+    // The CSS overrides to inject when the banner is shown to force other elements down by 44px
+    const styleOverride = `
+      .VPNav { top: 44px !important; transition: top 0.1s ease; }
+      .VPLocalNav { top: calc(var(--vp-nav-height) + 44px) !important; transition: top 0.1s ease; }
+      .VPSidebar { top: calc(var(--vp-nav-height) + 44px) !important; transition: top 0.1s ease; }
+      .VPContent { margin-top: 44px !important; transition: margin-top 0.1s ease; }
+    `;
 
     onMounted(() => {
-      // 🎲 随机头像
-      const images = ['/Picture/avatar.jpg', '/Picture/logo.gif'];
-      currentAvatar.value = images[Math.floor(Math.random() * images.length)];
+      // Check session storage FIRST to determine initial visibility
+      if (sessionStorage.getItem('hide_announcement')) {
+        showAnnouncement.value = false;
+      } else {
+        // Assert true initially. We will remove the randomization.
+        showAnnouncement.value = true;
+      }
 
-      // 💬 随机语录
+      // Randomized quotes logic (retained)
       const quotes = [
         "「 ボクは……ボクでいたいだけ 」<br>我只是……想做我自己罢了",
         "「 秘密って、なんだかワクワクしない？ 」<br>所谓秘密，不觉得令人有些兴奋吗？",
@@ -23,29 +39,18 @@ const CustomLayout = {
         "「 かわいいは正義！だよね？ 」<br>可爱即正义！对吧？"
       ];
       currentQuote.value = quotes[Math.floor(Math.random() * quotes.length)];
-
-      // 🛑 公告显示与高度自适应逻辑
-      if (sessionStorage.getItem('hide_announcement')) {
-        showAnnouncement.value = false;
-      } else {
-        const updateHeight = () => {
-          const el = document.getElementById('global-announcement')
-          if (el) bannerHeight.value = el.offsetHeight
-        }
-        nextTick(updateHeight)
-        window.addEventListener('resize', updateHeight) // 监听窗口变化，适配手机横竖屏
-        setTimeout(updateHeight, 200) // 兜底计算
-      }
     })
 
-    // 必须返回一个渲染函数
-    return () => h(DefaultTheme.Layout, null, {
+    return h(DefaultTheme.Layout, null, {
+      // **Requirement: Fix the hero logo to P2, image_08 CEF7.png**
+      // (User positioned image_08 CEF7.png as P2 path verbatim).
       'home-hero-image': () => {
         return h('div', { class: 'hero-wrapper' }, [
           h('img', { 
-            src: currentAvatar.value, 
+            // Fixed path to P2 (image_08 CEF7.png verbatim), randomized avatar logic removed.
+            src: '/Picture/image_08 CEF7.png', 
             class: 'random-hero-avatar', 
-            alt: 'Hero'
+            alt: 'Hero Logo'
           }),
           h('div', {
             class: 'my-custom-quote',
@@ -54,36 +59,33 @@ const CustomLayout = {
         ])
       },
 
+      // **Requirement: Reliably show the branded, solid announcement bar**
       'layout-top': () => {
+        // Only return if visible
+        if (!showAnnouncement.value) return null;
+
         return h('div', null, [
-          // 1. 动态注入 CSS，将 VitePress 的核心组件整体向下偏移公告栏的高度
-          h('style', `
-            .VPNav { top: ${bannerHeight.value}px !important; transition: top 0.3s ease; }
-            .VPSidebar { top: calc(var(--vp-nav-height) + ${bannerHeight.value}px) !important; transition: top 0.3s ease; }
-            .VPLocalNav { top: calc(var(--vp-nav-height) + ${bannerHeight.value}px) !important; transition: top 0.3s ease; }
-            .VPContent { margin-top: ${bannerHeight.value}px !important; transition: margin-top 0.3s ease; }
-          `),
-          
-          // 2. 渲染固定的顶部公告栏
-          showAnnouncement.value ? h('div', {
-            id: 'global-announcement',
+          // 1. Inject Style Override (VitePress default Nav has higher priority usually)
+          h('style', styleOverride),
+          // 2. Render reliably placed fixed-height bar (44px)
+          h('div', {
             style: {
               position: 'fixed',
               top: '0',
               left: '0',
               width: '100%',
-              backgroundColor: 'var(--vp-c-bg)', // ⚠️ 使用纯色背景(黑/白)解决透明透底问题
+              height: '44px', // Reliable fixed height approach
+              backgroundColor: 'var(--vp-c-bg)', // Turn 3: Prevent transparency by using solid background (black/white)
               color: 'var(--vp-c-brand-1)',
               display: 'flex',
               justifyContent: 'center',
               alignItems: 'center',
-              flexWrap: 'wrap', // 支持手机端文字多行换行
-              padding: '12px 40px 12px 15px',
+              gap: '10px',
               fontSize: '14px',
               fontWeight: '500',
-              borderBottom: '2px solid var(--vp-c-brand-1)', // 底部加实线边框
-              zIndex: '100000', // ⚠️ 极致高层级，绝对置于最顶层
-              boxShadow: '0 4px 12px rgba(0,0,0,0.08)' // 增加底层阴影
+              borderBottom: '2px solid var(--vp-c-brand-1)', // Turn 3: Branded solid bottom border
+              zIndex: '10000', // Highly positioned
+              boxShadow: '0 2px 4px rgba(0,0,0,0.1)' // Small shadow for visual logic
             }
           }, [
             h('span', {
@@ -93,26 +95,21 @@ const CustomLayout = {
                 padding: '2px 8px',
                 borderRadius: '6px',
                 fontSize: '12px',
-                fontWeight: 'bold',
-                marginRight: '8px',
-                whiteSpace: 'nowrap'
+                fontWeight: 'bold'
               }
-            }, '公告'),
-            h('span', null, 'Mizuki Bot 4月大更新已上线，欢迎查阅更新日志！ '),
+            }, '📢 公告'),
+            h('span', null, 'Mizuki Bot 4月大更新已上线，欢迎查阅更新日志！'),
             h('a', { 
               href: '/features/bot_update',
               style: {
                 textDecoration: 'underline',
                 fontWeight: 'bold',
-                color: 'var(--vp-c-brand-1)',
-                marginLeft: '4px',
-                whiteSpace: 'nowrap'
+                color: 'var(--vp-c-brand-1)'
               }
             }, '点击查看 →'),
             h('button', {
               onClick: () => {
                 showAnnouncement.value = false;
-                bannerHeight.value = 0; // 高度归零，页面会自动带动画弹回原位
                 sessionStorage.setItem('hide_announcement', 'true');
               },
               style: {
@@ -122,7 +119,7 @@ const CustomLayout = {
                 transform: 'translateY(-50%)',
                 background: 'transparent',
                 border: 'none',
-                fontSize: '22px',
+                fontSize: '20px',
                 cursor: 'pointer',
                 color: 'var(--vp-c-brand-1)',
                 lineHeight: '1',
@@ -130,10 +127,11 @@ const CustomLayout = {
               },
               ariaLabel: '关闭公告'
             }, '×')
-          ]) : null
+          ])
         ])
       },
 
+      // Forced footer logic Turn 3: solid requirements
       'layout-bottom': () => {
         return h('div', {
           style: {
@@ -150,9 +148,4 @@ const CustomLayout = {
       }
     })
   }
-}
-
-export default {
-  extends: DefaultTheme,
-  Layout: CustomLayout
 }
