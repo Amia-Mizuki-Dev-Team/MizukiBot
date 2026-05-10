@@ -1,12 +1,10 @@
-<h1 style="display: flex; align-items: center; gap: 12px; margin-bottom: 30px; border-bottom: none;">
-  <img src="/Picture/Grass_Block_JE7_BE6.png" width="38" alt="草方块图标" style="margin: 0;">
-  <span>Mizuki MC 更新公告</span>
+<h1 style="display: flex; align-items: center; border: none; margin-top: 0; margin-bottom: 30px;">
+  <img src="/Picture/Grass_Block_JE7_BE6.png" style="width: 38px; height: 38px; margin: 0 12px 0 0; display: block;" alt="草方块图标">
+  <span style="font-weight: bold; line-height: 1;">Mizuki MC 更新公告</span>
 </h1>
 
-<br>
-
 <div class="custom-card" style="background: var(--vp-c-bg-soft); border-left: 5px solid #9333ea; padding: 20px; border-radius: 12px; margin-bottom: 25px; text-align: left;">
-  <h3 style="margin-top: 0; color: #9333ea; text-align: left;">v1.6.3</h3>
+  <h2 style="margin-top: 0; color: #9333ea; text-align: left;">v1.6.3</h2>
   <p style="font-size: 13px; opacity: 0.8; margin-bottom: 15px; text-align: left;">
     📅 更新日期：2026.3.8 &nbsp;|&nbsp; ✍️ 整合包作者：MC_FanBuFan
   </p>
