@@ -1,6 +1,7 @@
-# <img src="/Picture/Grass_Block_JE7_BE6.png" width="36" alt="草方块图标" style="vertical-align: middle; margin-right: 8px;"> Mizuki MC 更新公告
-
-<br>
+<h1 style="display: flex; align-items: center; gap: 12px; margin-bottom: 30px; border-bottom: none;">
+  <img src="/Picture/Grass_Block_JE7_BE6.png" width="38" alt="草方块图标" style="margin: 0;">
+  <span>Mizuki MC 更新公告</span>
+</h1>
 
 <div class="custom-card" style="background: var(--vp-c-bg-soft); border-left: 5px solid #9333ea; padding: 20px; border-radius: 12px; margin-bottom: 25px;">
   <h3 style="margin-top: 0; color: #9333ea;">v1.6.3</h3>
