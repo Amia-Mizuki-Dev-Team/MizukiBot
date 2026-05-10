@@ -48,7 +48,7 @@ export default {
         return h('div', { class: 'hero-wrapper' }, [
           h('img', { 
             // Fixed path to P2 (image_08 CEF7.png verbatim), randomized avatar logic removed.
-            src: '/Picture/image_08 CEF7.png', 
+            src: '/Picture/avatar.jpg'
             class: 'random-hero-avatar', 
             alt: 'Hero Logo'
           }),
