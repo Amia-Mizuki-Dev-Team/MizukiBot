@@ -4,7 +4,7 @@
 </h1>
 
 <div class="custom-card" style="background: var(--vp-c-bg-soft); border-left: 5px solid #9333ea; padding: 20px; border-radius: 12px; margin-bottom: 25px; text-align: left;">
-  <h2 style="margin-top: 0; color: #9333ea; text-align: left;">v1.6.3</h2>
+  <h3 style="margin-top: 0; margin-bottom: 10px; font-size: 1.25em; font-weight: 600; color: #9333ea; text-align: left;">v1.6.3</h3>
   <p style="font-size: 13px; opacity: 0.8; margin-bottom: 15px; text-align: left;">
     📅 更新日期：2026.3.8 &nbsp;|&nbsp; ✍️ 整合包作者：MC_FanBuFan
   </p>
@@ -17,7 +17,7 @@
 </div>
 
 <div class="custom-card" style="background: var(--vp-c-bg-soft); border-left: 5px solid #ef4444; padding: 20px; border-radius: 12px; margin-bottom: 25px; text-align: left;">
-  <h3 style="margin-top: 0; color: #ef4444; text-align: left;">v1.6.2</h3>
+  <h3 style="margin-top: 0; margin-bottom: 10px; font-size: 1.25em; font-weight: 600; color: #ef4444; text-align: left;">v1.6.2</h3>
   <p style="font-size: 13px; opacity: 0.8; margin-bottom: 15px; text-align: left;">
     📅 更新日期：2026.3.5 &nbsp;|&nbsp; ✍️ 整合包作者：MC_FanBuFan
   </p>
