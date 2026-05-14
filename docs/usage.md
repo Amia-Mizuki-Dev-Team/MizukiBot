@@ -1,3 +1,8 @@
+---
+title: 如何使用 Mizuki Bot
+description: 介绍如何将 Mizuki Bot 邀请加入 QQ 群并开始使用，包括加入官方交流群指引、Bot 拉取流程及指令触发基本规范。
+---
+
 # 如何使用 Mizuki Bot
 
 > 欢迎使用 Mizuki Bot！在这里您可以快速了解如何将 Bot 邀请至您的群组并开始使用。
