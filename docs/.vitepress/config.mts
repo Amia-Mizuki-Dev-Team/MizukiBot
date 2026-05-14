@@ -5,19 +5,21 @@ export default defineConfig({
   description: "集 PJSK、舞萌 DX、中二节奏于一体的全能型音游助手，为您提供一站式数据查询与沉浸式社群互动。",
   lang: 'zh-CN',
   
+  // 关键：开启 VitePress 自动生成 sitemap.xml 功能
+  sitemap: {
+    hostname: 'https://help.mizuki.top'
+  },
+
   head: [
     ['link', { rel: 'icon', href: '/favicon.ico' }],
     ['link', { rel: 'icon', href: '/Picture/avatar.jpg' }],
     ['meta', { name: 'keywords', content: 'Mizuki Bot, PJSK, Project Sekai, 舞萌DX, maimai, 中二节奏, 音游Bot, 帮助文档' }],
     ['meta', { name: 'author', content: 'HX-Wrdzgzs' }],
-    ['meta', { property: 'og:title', content: 'Mizuki Bot 帮助文档' }],
-    ['meta', { property: 'og:description', content: '专为 PJSK 与 舞萌 DX 玩家打造的一站式 Bot 助手' }],
+    // 移除了写死的 title 和 description，交由 VitePress 动态接管
     ['meta', { property: 'og:type', content: 'website' }],
     ['meta', { property: 'og:url', content: 'https://help.mizuki.top/' }],
     ['meta', { property: 'og:image', content: 'https://help.mizuki.top/Picture/banner.jpg' }], 
     ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
-    ['meta', { name: 'twitter:title', content: 'Mizuki Bot 帮助文档' }],
-    ['meta', { name: 'twitter:description', content: '专为 PJSK 与 舞萌 DX 玩家打造的一站式 Bot 助手' }],
     ['meta', { name: 'twitter:image', content: 'https://help.mizuki.top/Picture/banner.jpg' }]
   ],
 
@@ -33,13 +35,6 @@ export default defineConfig({
           { text: '如何使用', link: '/usage' },
           { text: '落雪绑定', link: '/bind' },
           { text: '问题反馈', link: '/feedback' }
-        ]
-      },
-      {
-        text: '更新与公告',
-        items: [
-          { text: 'MC 服务器更新', link: '/features/mc_update' },
-          { text: 'Bot 更新日志', link: '/features/bot_update' }
         ]
       },
       {
@@ -63,6 +58,13 @@ export default defineConfig({
           { text: '赞助我们', link: '/sponsor' },
           { text: '赞助榜名单', link: '/sponsor_list' }
         ]
+      },
+      {
+        text: '更新与公告',
+        items: [
+          { text: 'MC 服务器更新', link: '/features/mc_update' },
+          { text: 'Bot 更新日志', link: '/features/bot_update' }
+        ]
       }
     ],
 
@@ -74,13 +76,6 @@ export default defineConfig({
             { text: '如何使用', link: '/usage' },
             { text: '落雪绑定', link: '/bind' },
             { text: '问题反馈', link: '/feedback' }
-          ]
-        },
-        {
-          text: '更新与公告',
-          items: [
-            { text: 'MC 服务器更新', link: '/features/mc_update' },
-            { text: 'Bot 更新日志', link: '/features/bot_update' }
           ]
         },
         {
@@ -103,6 +98,13 @@ export default defineConfig({
             { text: '提问的智慧', link: '/asking' },
             { text: '赞助我们', link: '/sponsor' },
             { text: '赞助榜名单', link: '/sponsor_list' }
+          ]
+        },
+        {
+          text: '更新与公告',
+          items: [
+            { text: 'MC 服务器更新', link: '/features/mc_update' },
+            { text: 'Bot 更新日志', link: '/features/bot_update' }
           ]
         }
       ]
