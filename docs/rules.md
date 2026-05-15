@@ -1,3 +1,8 @@
+---
+title: 群规与全服公告
+description: Mizuki Bot 官方用户交流群群规与全服通用公告，规范群内聊天氛围与指令使用礼仪，维护安全、友好的音游交流环境。
+---
+
 # 群规与公告
 <br>
 <div class="custom-card" style="background: var(--vp-c-bg-soft); border-left: 5px solid #ff4d4f; padding: 20px; border-radius: 12px; margin-bottom: 25px;">
