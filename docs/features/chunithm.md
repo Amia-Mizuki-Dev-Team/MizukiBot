@@ -1,3 +1,8 @@
+---
+title: 中二节奏专项
+description: Mizuki Bot 中二节奏（Chunithm）专项功能说明，提供便捷的查分、查歌定数、B30 生成以及成绩分析等音游辅助工具。
+---
+
 # 🎹 中二节奏 (Chunithm)
 
 > 提供《中二节奏》(Chunithm) 的成绩查询与谱面数据查询功能。
