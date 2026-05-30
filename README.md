@@ -29,7 +29,3 @@
 
 * **HongXing (Jiangsu) Dev Team** / **Mizuki Dev Team**
 * © 2020-2026 MizukiBot Team. 保留所有权利。
-
-```
-
-```
