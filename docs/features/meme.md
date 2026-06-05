@@ -1,6 +1,6 @@
 ---
 title: 表情制作与管理系统
-description: Mizuki Bot 内置的表情包制作与管理系统说明，支持自定义生成 PJSK 等风格的梗图、群聊随机发图以及精准的上传溯源管理。
+description: PJSK 风格表情包制作教程和角色 ID 速查表。
 ---
 
 # PJSK 表情制作
