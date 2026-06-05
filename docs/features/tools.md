@@ -1,10 +1,10 @@
 ---
 title: 通用工具与娱乐
-description: Mizuki Bot 提供的通用娱乐与实用工具大全，涵盖 25 时经济系统、群活统计、入群欢迎播报生成器及 B 站动态官方订阅功能。
+description: 经济系统、表情包管理、群活统计、MC 服务器、B 站动态订阅等功能说明。
 ---
 
 # 通用工具与娱乐
-> 包含表情包管理、经济系统、生成器、Minecraft 及 B 站动态订阅等综合功能。
+> 除了音游之外的其他功能都在这里。
 <br>
 <div class="custom-card" style="background: var(--vp-c-bg-soft); border: 2px solid #b37feb; padding: 20px; border-radius: 15px; margin-bottom: 25px;">
   <h3 style="margin-top: 0; color: #722ed1;">📦 表情包管理系统 (Meme)</h3>
