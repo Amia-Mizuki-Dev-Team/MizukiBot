@@ -70,68 +70,23 @@ export default {
 
         return h('div', {
           id: 'mzk-banner',
-          style: {
-            position: 'fixed',
-            top: '0',
-            left: '0',
-            width: '100%',
-            minHeight: '44px', // 手机端会自动撑高
-            backgroundColor: 'var(--vp-c-bg)', // 纯色防透底
-            color: 'var(--vp-c-brand-1)',
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            padding: '10px 45px 10px 15px', // 右侧留出45px给关闭按钮，防止文字挤压
-            boxSizing: 'border-box',
-            borderBottom: '1px solid var(--vp-c-divider)',
-            zIndex: '100000',
-            boxShadow: '0 2px 8px rgba(0,0,0,0.05)'
-          }
+          class: 'mzk-banner'
         }, [
           h('div', { 
-            // 手机端自适应排版容器
-            style: { 
-              display: 'flex', 
-              alignItems: 'center', 
-              justifyContent: 'center',
-              flexWrap: 'wrap', 
-              gap: '6px',
-              fontSize: '13px', 
-              lineHeight: '1.6' 
-            } 
+            class: 'mzk-banner-content'
           }, [
             h('span', {
-              style: {
-                backgroundColor: 'var(--vp-c-brand-1)',
-                color: 'white',
-                padding: '2px 6px',
-                borderRadius: '4px',
-                fontSize: '12px',
-                fontWeight: 'bold',
-                whiteSpace: 'nowrap'
-              }
+              class: 'mzk-banner-tag'
             }, '📢 公告'),
             h('span', null, 'Mizuki Bot 4月大更新已上线，欢迎查阅更新日志！'),
             h('a', { 
               href: '/features/bot_update',
-              style: { textDecoration: 'underline', fontWeight: 'bold', color: 'var(--vp-c-brand-1)', whiteSpace: 'nowrap' }
+              class: 'mzk-banner-link'
             }, '点击查看 →')
           ]),
           h('button', {
             onClick: closeBanner,
-            style: {
-              position: 'absolute',
-              right: '12px',
-              top: '50%',
-              transform: 'translateY(-50%)',
-              background: 'transparent',
-              border: 'none',
-              fontSize: '22px',
-              cursor: 'pointer',
-              color: 'var(--vp-c-text-2)',
-              lineHeight: '1',
-              padding: '0'
-            },
+            class: 'mzk-banner-close',
             ariaLabel: '关闭公告'
           }, '×')
         ])
@@ -139,16 +94,7 @@ export default {
 
       'layout-bottom': () => {
         return h('div', {
-          style: {
-            textAlign: 'center',
-            padding: '30px 20px',
-            fontSize: '14px',
-            color: 'var(--vp-c-text-2)',
-            borderTop: '1px solid var(--vp-c-divider)',
-            backgroundColor: 'var(--vp-c-bg)',
-            width: '100%',
-            marginTop: 'auto'
-          }
+          class: 'mzk-footer'
         }, '© 2020-2026 MizukiBot Team | HongXing (Jiangsu) Dev Team. 保留所有权利。')
       }
     })
