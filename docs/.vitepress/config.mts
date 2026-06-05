@@ -2,7 +2,7 @@ import { defineConfig } from 'vitepress'
 
 export default defineConfig({
   title: "Mizuki Bot 帮助文档",
-  description: "集 PJSK、舞萌 DX、中二节奏于一体的全能型音游助手，为您提供一站式数据查询与沉浸式社群互动。",
+  description: "Mizuki Bot 的使用文档。支持 PJSK、舞萌 DX、中二节奏查分查榜，还有表情包、经济系统等功能。",
   lang: 'zh-CN',
   
   // 关键：开启 VitePress 自动生成 sitemap.xml 功能
