@@ -1,6 +1,6 @@
 ---
 title: 赞助榜名单感谢
-description: Mizuki Bot 赞助者感谢名单（发电榜）。由衷感谢每一位用爱发电的玩家对本项目团队与服务器运营提供的资金支持！
+description: Mizuki Bot 赞助榜，感谢各位大佬的支持！
 ---
 
 # 💎 赞助榜名单

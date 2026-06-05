@@ -1,11 +1,11 @@
 ---
 title: 赞助支持 Mizuki Bot
-description: 欢迎赞助支持 Mizuki Bot 项目的持续运营！您的赞助将直接用于支付高昂的服务器节点及 API 接口成本，保障 Bot 全天候稳定运行。
+description: 赞助 Mizuki Bot，帮 Bot 续命。服务器和 API 接口都要钱的。
 ---
 
 # ❤️ 赞助与支持
 
-> 您的支持是我们维持服务器与节点运行的最大动力！
+> 服务器和各种 API 都要花钱，赞助就是帮 Bot 续命。
 
 <br>
 
