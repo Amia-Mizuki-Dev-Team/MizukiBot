@@ -5,9 +5,11 @@ description: 官方交流群群规和公告，进群必看。
 
 # 群规与公告
 <br>
-<div class="custom-card" style="background: var(--vp-c-bg-soft); border-left: 5px solid #ff4d4f; padding: 20px; border-radius: 12px; margin-bottom: 25px;">
-  <h3 style="margin-top: 0; color: #ff4d4f;">行为红线 (违者直接移出群聊)</h3>
-  <p style="opacity:0.8; margin-bottom:15px; font-size: 14px;">底线规定，触碰即踢：</p>
+<div class="mzk-card mzk-card--red">
+  <h3>行为红线 (违者直接移出群聊)</h3>
+  <p>底线规定，触碰即踢：</p>
+
+<div class="mzk-table-wrapper">
 
 | 条目 | 禁止事项 |
 | :--- | :--- |
@@ -17,12 +19,14 @@ description: 官方交流群群规和公告，进群必看。
 | **4** | 本群 CP 自由，请保持互相尊重，严禁踩雷引战。 |
 
 </div>
-<div class="custom-card" style="background: var(--vp-c-bg-soft); border-left: 5px solid #1890ff; padding: 20px; border-radius: 12px; margin-bottom: 25px;">
-  <h3 style="margin-top: 0; color: #1890ff;">Bot 账号列表与使用规范</h3>
-  <p style="font-size: 13px; opacity: 0.8; margin-bottom: 15px;">
+</div>
+<div class="mzk-card mzk-card--blue">
+  <h3>Bot 账号列表与使用规范</h3>
+  <p>
     使用前必须完整阅读《用户使用协议》与《免责声明》。为了分流压力，Bot 进行了职能划分，请根据需求拉取。
   </p>
   
+<div class="mzk-table-wrapper">
 
 | 机号 | QQ 号 | 主要职责 |
 | :--- | :--- | :--- |
@@ -31,19 +35,23 @@ description: 官方交流群群规和公告，进群必看。
 | **3号机** | `38****8409` | **综合功能** (除 PJSK) |
 | **4号机** | `36****7244` | **PJSK 查分/查榜** |
 
-  <div style="background:rgba(24, 144, 255, 0.05); border: 1px solid rgba(24, 144, 255, 0.2); padding:15px; border-radius:8px; margin-top:15px;">
-    <p style="font-size: 14px; color:#1890ff; font-weight:bold; margin:0 0 10px 0;">
+</div>
+
+  <div class="mzk-alert">
+    <p style="font-weight:bold; margin:0 0 10px 0;">
       Bot 使用与触发限制
     </p>
-    <ul style="margin:0 0 0 20px; font-size:13px; opacity:0.9; line-height: 1.8;">
+    <ul>
       <li><strong>正确触发</strong>：触发功能请直接发送对应指令文本，<strong>严禁 @机器人！</strong></li>
       <li><strong>私聊限制</strong>：Bot 的 PJSK 功能 <strong>不支持私聊</strong>。若私聊请求过多可能触发风控导致您被系统拉黑。</li>
       <li><strong>车队限制</strong>：2号机与4号机内置车队功能，但<strong>本群不支持找车队及广播车队</strong>。如有需要，请自行将 Bot 拉入您的私人群，并使用指令 <code>打开/关闭车队广播</code>。</li>
     </ul>
   </div>
 </div>
-<div class="custom-card" style="background: var(--vp-c-bg-soft); border-left: 5px solid #52c41a; padding: 20px; border-radius: 12px; margin-bottom: 25px;">
-  <h3 style="margin-top: 0; color: #52c41a;">管理、求助与数据协助</h3>
+<div class="mzk-card mzk-card--green">
+  <h3>管理、求助与数据协助</h3>
+
+<div class="mzk-table-wrapper">
 
 | 项目 | 详细说明 |
 | :--- | :--- |
@@ -54,14 +62,17 @@ description: 官方交流群群规和公告，进群必看。
 | **国服数据协助** | 群主可协助进行“国服烤森”数据上传以便正常使用 PJSK B30/39 功能。<br><strong>条件</strong>：必须提供手机号和验证码，且在此之前必须至少打过一局。<br><strong>声明</strong>：此项协助并非义务，仅在群主空闲时处理。 |
 
 </div>
-<div class="custom-card" style="background: var(--vp-c-bg-soft); border-left: 5px solid #722ed1; padding: 20px; border-radius: 12px;">
-  <h3 style="margin-top: 0; color: #722ed1;">鸣谢与相关链接</h3>
+</div>
+<div class="mzk-card mzk-card--purple">
+  <h3>鸣谢与相关链接</h3>
   
-  <p style="font-size: 14px; font-weight: bold; margin-bottom: 10px;">特别鸣谢 (排名不分先后)：</p>
-  <ul style="margin: 0 0 20px 20px; font-size: 14px; opacity: 0.9; line-height: 1.8;">
+  <p style="font-weight: bold;">特别鸣谢 (排名不分先后)：</p>
+  <ul>
     <li>感谢 <strong>m</strong> 为 Bot 设计头像。</li>
     <li>感谢 <strong>同道中人</strong> 与 <strong>Sirius</strong> 提供软硬件技术支持。</li>
   </ul>
+
+<div class="mzk-table-wrapper">
 
 | 资源名称 | 访问地址 |
 | :--- | :--- |
@@ -72,20 +83,21 @@ description: 官方交流群群规和公告，进群必看。
 | **账号封禁申诉** | <a href="https://wrdzgzs2024.feishu.cn/share/base/form/shrcnEQdtCjp8VMXAdhdHSKKt2b" target="_blank" style="color:var(--vp-c-brand-1); text-decoration:underline;">点击填写飞书申诉表单</a> |
 
 </div>
+</div>
 <style>
 /* 优化表格移动端展示体验 */
-.custom-card table {
+.mzk-card table {
   display: table !important;
   width: 100%;
   word-break: break-word;
 }
-.custom-card table th, 
-.custom-card table td {
+.mzk-card table th, 
+.mzk-card table td {
   white-space: normal !important;
   line-height: 1.6;
 }
-.custom-card table th:nth-child(1),
-.custom-card table td:nth-child(1) {
+.mzk-card table th:nth-child(1),
+.mzk-card table td:nth-child(1) {
   min-width: 80px;
   font-weight: bold;
 }
