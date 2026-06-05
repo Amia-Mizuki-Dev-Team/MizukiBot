@@ -15,19 +15,23 @@ description: PJSK 查分、查榜、组卡、猜歌等功能的用法说明。
   <em>（示例：<code>cn绑定</code>、<code>twsk</code>、<code>en逮捕</code>）</em>
 </p>
 ---
-<div class="custom-card" style="background: var(--vp-c-bg-soft); border-left: 5px solid #39C5BB; padding: 20px; border-radius: 12px; margin-bottom: 25px;">
-  <h3 style="margin-top: 0; color: #39C5BB;">🔗 账号绑定与数据上传</h3>
-  <p style="font-size: 13px; opacity: 0.8; margin-bottom: 15px;">
-    通过游戏 UID 进行绑定。绑定后默认为「不给看」模式，无法被其他人 @ 查询。
-  </p>
+<div class="mzk-card mzk-card--cyan">
+  <h3>🔗 账号绑定与数据上传</h3>
+  <p>通过游戏 UID 进行绑定。绑定后默认为「不给看」模式，无法被其他人 @ 查询。</p>
+
+<div class="mzk-table-wrapper">
 
 | 指令 | 说明 |
 | :--- | :--- |
 | `[前缀]绑定 [ID]` | 绑定指定服务器的 PJSK 游戏 ID |
 | `给看` / `不给看` | 开放或关闭他人逮捕/查询自己的权限 |
 
-  <h4 style="color: #39C5BB; margin-top: 25px;">📥 高级数据上传 (查榜/MySekai必备)</h4>
-  <p style="font-size: 13px; opacity: 0.9; margin-bottom: 15px;">部分进阶功能需上传数据至数据库才可使用。</p>
+</div>
+
+  <h4>📥 高级数据上传 (查榜/MySekai必备)</h4>
+  <p>部分进阶功能需上传数据至数据库才可使用。</p>
+
+<div class="mzk-table-wrapper">
 
 | 数据类型 | 上传说明 |
 | :--- | :--- |
@@ -35,8 +39,11 @@ description: PJSK 查分、查榜、组卡、猜歌等功能的用法说明。
 | **MySekai 数据** | 访问 <a href="https://haruki.seiunx.com/upload-data" target="_blank" style="color:#39C5BB; font-weight:bold;">👉 MySekai 数据上传页</a>。Android 推荐「Haruki工具箱」；iOS 推荐 MitM 代理模块。 |
 
 </div>
-<div class="custom-card" style="background: var(--vp-c-bg-soft); border-left: 5px solid #722ed1; padding: 20px; border-radius: 12px; margin-bottom: 25px;">
-  <h3 style="margin-top: 0; color: #722ed1;">📝 玩家信息、查分与 MySekai</h3>
+</div>
+<div class="mzk-card mzk-card--purple">
+  <h3>📝 玩家信息、查分与 MySekai</h3>
+
+<div class="mzk-table-wrapper">
 
 | 指令 | 说明 |
 | :--- | :--- |
@@ -51,11 +58,12 @@ description: PJSK 查分、查榜、组卡、猜歌等功能的用法说明。
 | `ms照片 [序号]` | (MySekai) 下载用户在游戏内拍摄的照片 |
 
 </div>
-<div class="custom-card" style="background: var(--vp-c-bg-soft); border-left: 5px solid #1890ff; padding: 20px; border-radius: 12px; margin-bottom: 25px;">
-  <h3 style="margin-top: 0; color: #1890ff;">📈 高阶查榜与 PT 追踪</h3>
-  <p style="font-size: 13px; opacity: 0.8; margin-bottom: 15px;">
-    <strong>WL 活动特供：</strong> 在查榜指令前加 <code>wl</code>，并在末尾加 <code>-c [角色]</code> 可查单榜 (如：<code>wlsk 100 -c haruka</code>)。
-  </p>
+</div>
+<div class="mzk-card mzk-card--blue">
+  <h3>📈 高阶查榜与 PT 追踪</h3>
+  <p><strong>WL 活动特供：</strong> 在查榜指令前加 <code>wl</code>，并在末尾加 <code>-c [角色]</code> 可查单榜 (如：<code>wlsk 100 -c haruka</code>)。</p>
+
+<div class="mzk-table-wrapper">
 
 | 指令 | 说明 | 示例 |
 | :--- | :--- | :--- |
@@ -68,9 +76,11 @@ description: PJSK 查分、查榜、组卡、猜歌等功能的用法说明。
 | `追踪 [排1] [排2]` | 追踪目前特定排名在本期的 PT 与排名趋势 | `追踪 1 2` |
 
 </div>
-<div class="custom-card" style="background: var(--vp-c-bg-soft); border-left: 5px solid #d4b106; padding: 20px; border-radius: 12px; margin-bottom: 25px;">
-  <h3 style="margin-top: 0; color: #d4b106;">🎫 组卡与查卡推荐 (需上传数据)</h3>
+</div>
+<div class="mzk-card mzk-card--yellow">
+  <h3>🎫 组卡与查卡推荐 (需上传数据)</h3>
   
+<div class="mzk-table-wrapper">
 
 | 指令 | 说明 | 示例 |
 | :--- | :--- | :--- |
@@ -80,9 +90,12 @@ description: PJSK 查分、查榜、组卡、猜歌等功能的用法说明。
 | `最强组卡` | 返回您同色同队中分数最高的卡组 top7 (默认嫉妒ex)。不需要参数。 | `最强组卡` |
 
 </div>
-<div class="custom-card" style="background: var(--vp-c-bg-soft); border-left: 5px solid #f5222d; padding: 20px; border-radius: 12px; margin-bottom: 25px;">
-  <h3 style="margin-top: 0; color: #f5222d;">🎶 歌曲谱面与别名设置</h3>
-  <p style="font-size: 13px; color: #f5222d; opacity: 0.8; margin-bottom: 15px;">⚠️ 别名设置日志按日公示，违规乱设别名将被删词或封禁 Bot 使用权！</p>
+</div>
+<div class="mzk-card mzk-card--red">
+  <h3>🎶 歌曲谱面与别名设置</h3>
+  <div class="mzk-alert">⚠️ 别名设置日志按日公示，违规乱设别名将被删词或封禁 Bot 使用权！</div>
+
+<div class="mzk-table-wrapper">
 
 | 指令 | 说明 |
 | :--- | :--- |
@@ -99,9 +112,11 @@ description: PJSK 查分、查榜、组卡、猜歌等功能的用法说明。
 | `charalias [昵称]*` | 查看特定角色的所有已绑定昵称 |
 
 </div>
-<div class="custom-card" style="background: var(--vp-c-bg-soft); border-left: 5px solid #ff85c0; padding: 20px; border-radius: 12px; margin-bottom: 25px;">
-  <h3 style="margin-top: 0; color: #ff85c0;">🎫 卡牌与活动全能图鉴</h3>
+</div>
+<div class="mzk-card mzk-card--pink">
+  <h3>🎫 卡牌与活动全能图鉴</h3>
   
+<div class="mzk-table-wrapper">
 
 | 指令 | 说明 |
 | :--- | :--- |
@@ -112,8 +127,11 @@ description: PJSK 查分、查榜、组卡、猜歌等功能的用法说明。
 | `查活动 [ID/关键字]*` | 查指定活动。支持单/多关键字精细筛选 (如 `查活动 草 5v5`、`查活动 knd 蓝`) |
 
 </div>
-<div class="custom-card" style="background: var(--vp-c-bg-soft); border-left: 5px solid #52c41a; padding: 20px; border-radius: 12px;">
-  <h3 style="margin-top: 0; color: #52c41a;">🎮 互动小游戏与 5v5 活动功能</h3>
+</div>
+<div class="mzk-card mzk-card--green">
+  <h3>🎮 互动小游戏与 5v5 活动功能</h3>
+
+<div class="mzk-table-wrapper">
 
 | 指令 | 说明 |
 | :--- | :--- |
@@ -127,30 +145,31 @@ description: PJSK 查分、查榜、组卡、猜歌等功能的用法说明。
 | `葱什么*` | 返回随机歌曲 info。 |
 
 </div>
+</div>
 <style>
 /* 让表格在手机端可以左右滑动，拒绝“面条”排版 */
-.custom-card table {
+.mzk-card table {
   display: block !important;
   overflow-x: auto !important;
   white-space: nowrap !important;
   -webkit-overflow-scrolling: touch;
 }
-.custom-card table th, 
-.custom-card table td {
+.mzk-card table th, 
+.mzk-card table td {
   white-space: normal !important;
 }
-.custom-card table th:nth-child(1),
-.custom-card table td:nth-child(1) {
+.mzk-card table th:nth-child(1),
+.mzk-card table td:nth-child(1) {
   white-space: nowrap !important;
   word-break: keep-all !important;
   min-width: 120px;
 }
-.custom-card table th:nth-child(2),
-.custom-card table td:nth-child(2) {
+.mzk-card table th:nth-child(2),
+.mzk-card table td:nth-child(2) {
   min-width: 250px !important;
 }
-.custom-card table th:nth-child(3),
-.custom-card table td:nth-child(3) {
+.mzk-card table th:nth-child(3),
+.mzk-card table td:nth-child(3) {
   min-width: 150px !important;
 }
 </style>
