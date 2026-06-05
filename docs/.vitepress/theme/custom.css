@@ -476,6 +476,7 @@ img { border-radius: 12px; }
 .mzk-dev-card h4 {
   display: block !important;
   text-align: center !important;
+  margin-top: 18px !important;
 }
 
 .mzk-dev-card details, 
