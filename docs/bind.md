@@ -1,11 +1,11 @@
 ---
 title: 落雪咖啡屋账号绑定
-description: 详细说明如何通过 OAuth 2.0 链接授权等方式进行落雪咖啡屋账号与 Mizuki Bot 的绑定，实现舞萌 DX 等音游数据的无缝同步。
+description: 如何把落雪咖啡屋账号和 Mizuki Bot 绑定，绑定后就可以用舞萌 DX 查分等功能了。
 ---
 
 # 落雪 (LXNS) 账号绑定教程
 
-> 通过 OAuth 2.0 授权机制，将您的落雪账号与 Mizuki Bot 安全绑定。
+> 把落雪账号和 Bot 绑起来，后续查分就能用了。
 
 <br>
 
