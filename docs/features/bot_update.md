@@ -1,11 +1,11 @@
 ---
 title: Mizuki Bot 更新日志
-description: Mizuki Bot 核心程序更新日志，记录了每次大版本升级新增的指令功能、代码优化的模块以及各类已知 Bug 的修复详情。
+description: Bot 的更新历史和版本迭代记录。
 ---
 
 # Mizuki Bot 更新日志
 
-> 记录 Mizuki Bot 的成长与功能迭代，感谢每一位用户的支持与陪伴！
+> Bot 的每一次进化都在这里。
 
 <br>
 
