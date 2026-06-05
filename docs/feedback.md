@@ -1,6 +1,6 @@
 ---
 title: Bug 与问题反馈
-description: 提供 Mizuki Bot 使用过程中的 Bug 反馈途径与新功能建议表单，帮助开发团队快速定位问题并持续优化 Bot 体验。
+description: 遇到 Bug 或者有新功能建议？来这里提交反馈。
 ---
 
 # 📝 问题反馈
