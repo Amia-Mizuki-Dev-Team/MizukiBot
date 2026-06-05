@@ -4,9 +4,11 @@
 
 <br>
 
-<div class="custom-card" style="background: var(--vp-c-bg-soft); border: 2px solid #ff4d4f; padding: 20px; border-radius: 12px; margin-bottom: 25px;">
-  <h3 style="margin-top: 0; color: #ff4d4f;">❌ 糟糕的提问</h3>
+<div class="mzk-card mzk-card--red">
+  <h3>❌ 糟糕的提问</h3>
   
+<div class="mzk-table-wrapper">
+
 | 示例 | 为什么糟糕？ |
 | :--- | :--- |
 | “Bot 死了” | 没有描述具体情况 (无反应？报错？乱码？) |
@@ -14,19 +16,23 @@
 | [一张模糊的手机拍屏] | 难以看清报错信息，且显得不尊重开发者。 |
 
 </div>
+</div>
 
-<div class="custom-card" style="background: var(--vp-c-bg-soft); border-left: 5px solid #52c41a; padding: 20px; border-radius: 12px;">
-  <h3 style="margin-top: 0; color: #52c41a;">✅ 聪明的提问 (3 步走)</h3>
+<div class="mzk-card mzk-card--green">
+  <h3>✅ 聪明的提问 (3 步走)</h3>
 
-  <h4 style="color: #52c41a; margin-top: 15px;">1. 尝试自救</h4>
-  <p style="font-size:13px; opacity:0.8;">检查指令拼写、空格、符号是否正确；检查 Bot 是否被禁言。</p>
+  <h4>1. 尝试自救</h4>
+  <p>检查指令拼写、空格、符号是否正确；检查 Bot 是否被禁言。</p>
 
-  <h4 style="color: #52c41a; margin-top: 20px;">2. 提供关键信息</h4>
+  <h4>2. 提供关键信息</h4>
   
+<div class="mzk-table-wrapper">
+
 | 信息 | 说明 |
 | :--- | :--- |
 | **发生了什么** | "我发送了 `[完整指令]`，预期 `[结果]`，实际 `[情况]`" |
 | **报错截图** | 请使用 **截屏** (电脑/手机截图)，拒绝拍屏。 |
 | **时间点** | 是刚刚发生的，还是一直这样？ |
 
+</div>
 </div>
