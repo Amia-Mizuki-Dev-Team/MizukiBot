@@ -1,6 +1,6 @@
 ---
 title: PJSK 专项功能
-description: Mizuki Bot 啤酒烧烤（Project Sekai）专项功能说明，涵盖国服/国际服查分、查活动分数线、算分工具及各类社群数据查询指令。
+description: PJSK 查分、查榜、组卡、猜歌等功能的用法说明。
 ---
 
 # 🎵 PJSK 模块功能
