@@ -63,16 +63,3 @@
   由 <strong>HongXing (Nanjing) Dev Team</strong> 开发
 </div>
 
-<style>
-.mzk-dev-card {
-  background: var(--vp-c-bg);
-  border-radius: 10px;
-  padding: 20px 10px;
-  width: 46%;
-  min-width: 130px;
-  max-width: 200px;
-  text-align: center;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  flex-grow: 1;
-}
-</style>

@@ -384,3 +384,222 @@ img { border-radius: 12px; }
   color: var(--mzk-card-color, var(--vp-c-brand-1));
 }
 
+
+
+/* ==================== EXTRACTED FROM MD FILES ==================== */
+
+/* Extracted from bind.md */
+/* 输入框样式 */
+.qq-input {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 8px;
+  background: var(--vp-c-bg);
+  font-size: 16px;
+  color: var(--vp-c-text-1);
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+.qq-input:focus {
+  outline: none;
+  border-color: #1890ff;
+  box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+}
+
+/* 隐藏数字输入框自带的上下箭头 */
+.qq-input::-webkit-outer-spin-button,
+.qq-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* 跳转按钮样式 */
+.jump-btn {
+  width: 100%;
+  margin-top: 20px;
+  padding: 14px;
+  background-color: #1890ff;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+.jump-btn:hover {
+  background-color: #096dd9;
+}
+
+.jump-btn:active {
+  transform: scale(0.98);
+}
+
+/* 虚线分割线 */
+.dashed-hr {
+  border: none;
+  border-top: 1px dashed var(--vp-c-divider);
+  margin: 30px 0;
+}
+
+/* 指令代码框样式 */
+.code-box {
+  background: var(--vp-c-bg);
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid var(--vp-c-divider);
+}
+
+.code-box code {
+  color: #ff4d4f !important;
+  font-family: monospace;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+/* Extracted from contribution.md */
+.mzk-dev-card {
+  background: var(--vp-c-bg);
+  border-radius: 10px;
+  padding: 20px 10px;
+  width: 46%;
+  min-width: 130px;
+  max-width: 200px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  flex-grow: 1;
+}
+
+/* Extracted from index.md */
+h2 { border-bottom: none !important; text-align: center; font-size: 24px; margin-bottom: 30px; }
+ul { display: flex; flex-direction: column; align-items: center; list-style: none; padding: 0; }
+li { margin: 10px 0; font-size: 16px; }
+li a { color: var(--vp-c-brand-1); font-weight: bold; text-decoration: none; }
+
+/* Extracted from rules.md */
+/* 优化表格移动端展示体验 */
+.mzk-card table {
+  display: table !important;
+  width: 100%;
+  word-break: break-word;
+}
+.mzk-card table th, 
+.mzk-card table td {
+  white-space: normal !important;
+  line-height: 1.6;
+}
+.mzk-card table th:nth-child(1),
+.mzk-card table td:nth-child(1) {
+  min-width: 80px;
+  font-weight: bold;
+}
+
+/* Extracted from sponsor.md */
+.sponsor-btn {
+  display: inline-block;
+  background: #ff4d4f;
+  color: white;
+  padding: 14px 35px;
+  border-radius: 30px;
+  font-weight: bold;
+  font-size: 16px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 77, 79, 0.3);
+}
+.sponsor-btn:hover {
+  background: #ff7875;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 77, 79, 0.4);
+  color: white !important;
+}
+
+/* Extracted from sponsor_list.md */
+/* 赞助榜表格专属高亮样式 */
+.mzk-card table th {
+  color: #faad14;
+}
+.mzk-card table td:nth-child(1) {
+  color: #faad14;
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+.mzk-card table tr:hover td {
+  background-color: rgba(250, 173, 20, 0.08);
+  transition: background-color 0.3s;
+}
+
+/* Extracted from chunithm.md */
+/* 让表格在手机端可以左右滑动，拒绝“面条”排版 */
+.mzk-card table {
+  display: block !important;
+  overflow-x: auto !important;
+  white-space: nowrap !important;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* 恢复表格内文字的自动换行 */
+.mzk-card table th, 
+.mzk-card table td {
+  white-space: normal !important;
+}
+
+/* 第一列（指令列）坚决不换行，保持整齐 */
+.mzk-card table th:nth-child(1),
+.mzk-card table td:nth-child(1) {
+  white-space: nowrap !important;
+  word-break: keep-all !important;
+  min-width: 120px;
+}
+
+/* 第二列（说明列）强制设定最小宽度 */
+.mzk-card table th:nth-child(2),
+.mzk-card table td:nth-child(2) {
+  min-width: 250px !important;
+}
+
+/* 第三列（示例列）底线宽度 */
+.mzk-card table th:nth-child(3),
+.mzk-card table td:nth-child(3) {
+  min-width: 120px !important;
+}
+
+/* Extracted from pjsk.md */
+/* 让表格在手机端可以左右滑动，拒绝“面条”排版 */
+.mzk-card table {
+  display: block !important;
+  overflow-x: auto !important;
+  white-space: nowrap !important;
+  -webkit-overflow-scrolling: touch;
+}
+.mzk-card table th, 
+.mzk-card table td {
+  white-space: normal !important;
+}
+.mzk-card table th:nth-child(1),
+.mzk-card table td:nth-child(1) {
+  white-space: nowrap !important;
+  word-break: keep-all !important;
+  min-width: 120px;
+}
+.mzk-card table th:nth-child(2),
+.mzk-card table td:nth-child(2) {
+  min-width: 250px !important;
+}
+.mzk-card table th:nth-child(3),
+.mzk-card table td:nth-child(3) {
+  min-width: 150px !important;
+}
+
+/* Extracted from tools.md */
+/* 强制表格的第一列（指令）和第三列（示例）不换行，让第二列（说明）有更多空间 */
+.mzk-card table th:nth-child(1),
+.mzk-card table td:nth-child(1),
+.mzk-card table th:nth-child(3),
+.mzk-card table td:nth-child(3) {
+  white-space: nowrap !important;
+  word-break: keep-all !important;
+}

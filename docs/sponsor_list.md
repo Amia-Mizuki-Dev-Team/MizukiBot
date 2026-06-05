@@ -26,18 +26,4 @@ description: Mizuki Bot 赞助榜，感谢各位大佬的支持！
 
 </div>
 
-<style>
-/* 赞助榜表格专属高亮样式 */
-.mzk-card table th {
-  color: #faad14;
-}
-.mzk-card table td:nth-child(1) {
-  color: #faad14;
-  font-size: 16px;
-  letter-spacing: 1px;
-}
-.mzk-card table tr:hover td {
-  background-color: rgba(250, 173, 20, 0.08);
-  transition: background-color 0.3s;
-}
-</style>
+

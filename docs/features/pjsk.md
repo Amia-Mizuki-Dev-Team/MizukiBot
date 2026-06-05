@@ -146,30 +146,3 @@ description: PJSK 查分、查榜、组卡、猜歌等功能的用法说明。
 
 </div>
 </div>
-<style>
-/* 让表格在手机端可以左右滑动，拒绝“面条”排版 */
-.mzk-card table {
-  display: block !important;
-  overflow-x: auto !important;
-  white-space: nowrap !important;
-  -webkit-overflow-scrolling: touch;
-}
-.mzk-card table th, 
-.mzk-card table td {
-  white-space: normal !important;
-}
-.mzk-card table th:nth-child(1),
-.mzk-card table td:nth-child(1) {
-  white-space: nowrap !important;
-  word-break: keep-all !important;
-  min-width: 120px;
-}
-.mzk-card table th:nth-child(2),
-.mzk-card table td:nth-child(2) {
-  min-width: 250px !important;
-}
-.mzk-card table th:nth-child(3),
-.mzk-card table td:nth-child(3) {
-  min-width: 150px !important;
-}
-</style>

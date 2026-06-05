@@ -42,38 +42,4 @@ description: 中二节奏查分、查歌、B30 等功能的用法说明。
 </div>
 </div>
 
-<style>
-/* 让表格在手机端可以左右滑动，拒绝“面条”排版 */
-.mzk-card table {
-  display: block !important;
-  overflow-x: auto !important;
-  white-space: nowrap !important;
-  -webkit-overflow-scrolling: touch;
-}
 
-/* 恢复表格内文字的自动换行 */
-.mzk-card table th, 
-.mzk-card table td {
-  white-space: normal !important;
-}
-
-/* 第一列（指令列）坚决不换行，保持整齐 */
-.mzk-card table th:nth-child(1),
-.mzk-card table td:nth-child(1) {
-  white-space: nowrap !important;
-  word-break: keep-all !important;
-  min-width: 120px;
-}
-
-/* 第二列（说明列）强制设定最小宽度 */
-.mzk-card table th:nth-child(2),
-.mzk-card table td:nth-child(2) {
-  min-width: 250px !important;
-}
-
-/* 第三列（示例列）底线宽度 */
-.mzk-card table th:nth-child(3),
-.mzk-card table td:nth-child(3) {
-  min-width: 120px !important;
-}
-</style>

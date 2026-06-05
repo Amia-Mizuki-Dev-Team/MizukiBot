@@ -84,21 +84,3 @@ description: 官方交流群群规和公告，进群必看。
 
 </div>
 </div>
-<style>
-/* 优化表格移动端展示体验 */
-.mzk-card table {
-  display: table !important;
-  width: 100%;
-  word-break: break-word;
-}
-.mzk-card table th, 
-.mzk-card table td {
-  white-space: normal !important;
-  line-height: 1.6;
-}
-.mzk-card table th:nth-child(1),
-.mzk-card table td:nth-child(1) {
-  min-width: 80px;
-  font-weight: bold;
-}
-</style>
