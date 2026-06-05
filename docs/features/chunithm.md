@@ -13,19 +13,24 @@ description: 中二节奏查分、查歌、B30 等功能的用法说明。
 目前中二节奏模块 **仅支持国服**，所有数据均完全来源于 [水鱼查分器 (diving-fish)](https://www.diving-fish.com/)。
 :::
 
-<div class="custom-card" style="background: var(--vp-c-bg-soft); border-left: 5px solid #ffcc00; padding: 20px; border-radius: 12px; margin-bottom: 25px;">
-  <h3 style="margin-top: 0; color: #d4a000;">🏆 个人成绩与 Rating</h3>
-  <p style="font-size: 13px; opacity: 0.8; margin-bottom: 15px;">用于查询您在国服的当前个人实力数据。</p>
+<div class="mzk-card mzk-card--yellow">
+  <h3>🏆 个人成绩与 Rating</h3>
+  <p>用于查询您在国服的当前个人实力数据。</p>
+
+<div class="mzk-table-wrapper">
 
 | 指令 | 说明 | 示例 |
 | :--- | :--- | :--- |
 | `chu b30` | 查询个人 B30、R10 成绩记录以及总 Rating | `chu b30` |
 
 </div>
+</div>
 
-<div class="custom-card" style="background: var(--vp-c-bg-soft); border-left: 5px solid #ff5c5c; padding: 20px; border-radius: 12px; margin-bottom: 25px;">
-  <h3 style="margin-top: 0; color: #d32f2f;">🎶 歌曲与谱面信息</h3>
-  <p style="font-size: 13px; opacity: 0.8; margin-bottom: 15px;">⚠️ <strong>注意：</strong> <code>chuinfo</code> 和 <code>chuchart</code> <strong>必须使用歌曲 ID</strong> 进行查询。</p>
+<div class="mzk-card mzk-card--red">
+  <h3>🎶 歌曲与谱面信息</h3>
+  <div class="mzk-alert">⚠️ <strong>注意：</strong> <code>chuinfo</code> 和 <code>chuchart</code> <strong>必须使用歌曲 ID</strong> 进行查询。</div>
+
+<div class="mzk-table-wrapper">
 
 | 指令 | 说明 | 示例 |
 | :--- | :--- | :--- |
@@ -35,10 +40,11 @@ description: 中二节奏查分、查歌、B30 等功能的用法说明。
 | `chuchart [ID][难度]` | 添加 <code>ex</code>, <code>ma</code>, <code>ult</code> 后缀查看 Expert/Master/Ultima 难度 | `chuchart 1145ult` |
 
 </div>
+</div>
 
 <style>
 /* 让表格在手机端可以左右滑动，拒绝“面条”排版 */
-.custom-card table {
+.mzk-card table {
   display: block !important;
   overflow-x: auto !important;
   white-space: nowrap !important;
@@ -46,28 +52,28 @@ description: 中二节奏查分、查歌、B30 等功能的用法说明。
 }
 
 /* 恢复表格内文字的自动换行 */
-.custom-card table th, 
-.custom-card table td {
+.mzk-card table th, 
+.mzk-card table td {
   white-space: normal !important;
 }
 
 /* 第一列（指令列）坚决不换行，保持整齐 */
-.custom-card table th:nth-child(1),
-.custom-card table td:nth-child(1) {
+.mzk-card table th:nth-child(1),
+.mzk-card table td:nth-child(1) {
   white-space: nowrap !important;
   word-break: keep-all !important;
   min-width: 120px;
 }
 
 /* 第二列（说明列）强制设定最小宽度 */
-.custom-card table th:nth-child(2),
-.custom-card table td:nth-child(2) {
+.mzk-card table th:nth-child(2),
+.mzk-card table td:nth-child(2) {
   min-width: 250px !important;
 }
 
 /* 第三列（示例列）底线宽度 */
-.custom-card table th:nth-child(3),
-.custom-card table td:nth-child(3) {
+.mzk-card table th:nth-child(3),
+.mzk-card table td:nth-child(3) {
   min-width: 120px !important;
 }
 </style>
