@@ -30,13 +30,9 @@ const jumpToAuth = () => {
 }
 </script>
 
-<div class="interactive-card">
-  <h3 style="margin-top: 0; color: #1890ff; display: flex; align-items: center;">
-    绑定流程
-  </h3>
-  <p style="font-size: 14px; opacity: 0.8; margin-bottom: 20px; line-height: 1.6;">
-    请输入您的 QQ 号，点击按钮跳转至落雪 (LXNS) 授权页面。
-  </p>
+<div class="mzk-card mzk-card--blue">
+  <h3>绑定流程</h3>
+  <p>请输入您的 QQ 号，点击按钮跳转至落雪 (LXNS) 授权页面。</p>
 
   <div class="input-group">
     <label style="display: block; font-weight: bold; font-size: 15px; margin-bottom: 8px;">您的 QQ 号：</label>
@@ -54,12 +50,8 @@ const jumpToAuth = () => {
 
   <hr class="dashed-hr" />
 
-  <h3 style="color: #d4b106; margin-top: 0; display: flex; align-items: center; font-size: 18px;">
-    获取授权码后：
-  </h3>
-  <p style="font-size: 14px; opacity: 0.8; margin-bottom: 15px; line-height: 1.6;">
-    请回到群聊窗口（注意：该功能不支持私聊），根据您使用的 Bot 类型发送对应的指令：
-  </p>
+  <h3 style="color: #d4b106;">获取授权码后：</h3>
+  <p>请回到群聊窗口（注意：该功能不支持私聊），根据您使用的 Bot 类型发送对应的指令：</p>
   
   <div style="margin-bottom: 15px;">
     <strong style="font-size: 14px; color: var(--vp-c-text-1);">官方 Bot（带有蓝标认证）：</strong>
@@ -77,15 +69,6 @@ const jumpToAuth = () => {
 </div>
 
 <style>
-/* 交互卡片整体样式 */
-.interactive-card {
-  background: var(--vp-c-bg-soft);
-  border-left: 5px solid #1890ff;
-  padding: 30px 25px;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-  margin-top: 20px;
-}
 
 /* 输入框样式 */
 .qq-input {
