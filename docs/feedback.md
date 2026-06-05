@@ -9,9 +9,9 @@ description: 遇到 Bug 或者有新功能建议？来这里提交反馈。
 
 <br>
 
-<div class="custom-card" style="background: var(--vp-c-bg-soft); border: 2px solid #1890ff; padding: 30px; border-radius: 15px; text-align: center;">
-  <h3 style="color: #1890ff; margin-top:0;">📋 飞书反馈表单</h3>
-  <p style="opacity: 0.8; margin-bottom: 20px;">
+<div class="mzk-card mzk-card--blue" style="text-align: center;">
+  <h3>📋 飞书反馈表单</h3>
+  <p>
     点击下方按钮跳转至飞书表格进行填写。<br>
     请详细描述您遇到的问题，以便我们更快修复。
   </p>
