@@ -1,13 +1,13 @@
 ---
 title: 群规与全服公告
-description: Mizuki Bot 官方用户交流群群规与全服通用公告，规范群内聊天氛围与指令使用礼仪，维护安全、友好的音游交流环境。
+description: 官方交流群群规和公告，进群必看。
 ---
 
 # 群规与公告
 <br>
 <div class="custom-card" style="background: var(--vp-c-bg-soft); border-left: 5px solid #ff4d4f; padding: 20px; border-radius: 12px; margin-bottom: 25px;">
   <h3 style="margin-top: 0; color: #ff4d4f;">行为红线 (违者直接移出群聊)</h3>
-  <p style="opacity:0.8; margin-bottom:15px; font-size: 14px;">为了维护良好的交流环境，请务必遵守以下底线规定：</p>
+  <p style="opacity:0.8; margin-bottom:15px; font-size: 14px;">底线规定，触碰即踢：</p>
 
 | 条目 | 禁止事项 |
 | :--- | :--- |
