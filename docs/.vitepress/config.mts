@@ -43,7 +43,7 @@ export default defineConfig({
           { text: 'PJSK 相关功能', link: '/features/pjsk' },
           { text: '舞萌 DX 专项', link: '/features/maimai' },
           { text: '中二节奏 (Chuni)', link: '/features/chunithm' },
-          { text: '表情制作系统', link: '/features/meme' },
+
           { text: '通用工具与娱乐', link: '/features/tools' }
         ]
       },
@@ -84,7 +84,7 @@ export default defineConfig({
             { text: 'PJSK 相关功能', link: '/features/pjsk' },
             { text: '舞萌 DX 专项', link: '/features/maimai' },
             { text: '中二节奏 (Chuni)', link: '/features/chunithm' },
-            { text: '表情制作系统', link: '/features/meme' },
+
             { text: '通用工具与娱乐', link: '/features/tools' }
           ]
         },
