@@ -1,9 +1,14 @@
 import DefaultTheme from 'vitepress/theme'
 import { h, onMounted, ref, nextTick } from 'vue'
 import './custom.css'
+import SearchResult from './components/SearchResult.vue'
 
 export default {
   extends: DefaultTheme,
+  
+  enhanceApp({ app }) {
+    app.component('SearchResult', SearchResult)
+  },
   
   Layout() {
     const currentQuote = ref('')
