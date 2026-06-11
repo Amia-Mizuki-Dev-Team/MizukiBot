@@ -3,22 +3,16 @@ title: Mizuki MC 更新公告
 description: 服务器的更新和维护日志
 ---
 
-<!-- 自定义标题 -->
-<div style="margin-bottom: 2rem;">
-    <!-- 大标题 -->
-    <h1 style="display: flex; align-items: center; border: none; margin-top: 0; margin-bottom: 0.5rem;">
-        <img src="/Picture/Grass_Block_JE7_BE6.png" style="width: 38px; height: 38px; margin: 0 12px 0 0; display: block;" alt="草方块图标">
-        <span style="font-weight: bold; line-height: 1;">Mizuki MC 更新公告</span>
-    </h1>
+<!-- 自定义标题区域 -->
+<h1 style="display: flex; align-items: center; border: none; margin-top: 0; margin-bottom: 0.5rem;">
+    <img src="/Picture/Grass_Block_JE7_BE6.png" style="width: 38px; height: 38px; margin: 0 12px 0 0; display: block;" alt="草方块图标">
+    <span style="font-weight: bold; line-height: 1;">Mizuki MC 更新公告</span>
+</h1>
 
-    <!-- 副标题 -->
-    <p class="vp-doc p-subtitle" style="color: var(--vp-c-text-2); font-size: 1rem; margin-top: 0.5rem; line-height: 1.5;">
-        服务器的更新和维护日志 |
-        <a href="https://help.mizuki.top/features/minecraft.html" target="_blank" style="color: var(--vp-c-brand-1); text-decoration: underline; transition: color 0.25s;">
-            服务器信息
-        </a>
-    </p>
-</div>
+<!-- 副标题行 -->
+<p class="vp-doc p-subtitle" style="color: var(--vp-c-text-2); font-size: 1rem; margin-top: 0.5rem; line-height: 1.5;">
+服务器的更新和维护日志 | <a href="https://help.mizuki.top/features/minecraft.html" target="_blank" style="color: var(--vp-c-brand-1); text-decoration: underline; transition: color 0.25s;">服务器信息</a>
+</p>
 
 <!-- 卡片内容 -->
 
