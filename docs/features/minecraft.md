@@ -7,10 +7,9 @@ description: 介绍 MizukiBot 的 Minecraft 服务器相关功能。
 
 这里是关于 Minecraft 服务器功能的说明
 
-</div>
 <div class="mzk-card mzk-card--green">
-  <h3>🟩 Minecraft 服务器</h3>
-  
+<h3>🟩 Minecraft 服务器</h3>
+
 <div class="mzk-table-wrapper">
 
 | 项目 | 内容 |
@@ -21,9 +20,11 @@ description: 介绍 MizukiBot 的 Minecraft 服务器相关功能。
 
 </div>
 </div>
+
 <div class="mzk-card mzk-card--blue">
-  <h3>更新公告</h3>
-  <p style="font-weight:bold;">
-    <a href="https://help.mizuki.top/features/mc_update.html" target="_blank" style="color:var(--vp-c-brand-1);text-decoration:underline;">👆 点 击 查 看</a>
-  </p>
+<h3>更新公告</h3>
+
+<p style="font-weight:bold;">
+<a href="https://help.mizuki.top/features/mc_update.html" target="_blank" style="color:var(--vp-c-brand-1);text-decoration:underline;">👉 点击查看</a>
+</p>
 </div>
