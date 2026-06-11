@@ -1,6 +1,6 @@
 ---
 title: Mizuki MC 更新公告
-description: Mizuki MC 服务器的更新和维护日志。
+description: "服务器的更新和维护日志 | [服务器信息](https://help.mizuki.top/features/minecraft.html)"
 ---
 
 <h1 style="display: flex; align-items: center; border: none; margin-top: 0; margin-bottom: 30px;">
