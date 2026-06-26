@@ -65,6 +65,13 @@ export default defineConfig({
           { text: 'MC 服务器更新', link: '/features/mc_update' },
           { text: 'Bot 更新日志', link: '/features/bot_update' }
         ]
+      },
+      {
+        text: '关联项目',
+        items: [
+          { text: 'HX-Pjsk-Gateway', link: '/projects/hx-pjsk-gateway' },
+          { text: 'Mizuki Sync (已废弃)', link: '/projects/mizuki-sync' }
+        ]
       }
     ],
 
@@ -105,6 +112,13 @@ export default defineConfig({
           items: [
             { text: 'MC 服务器更新', link: '/features/mc_update' },
             { text: 'Bot 更新日志', link: '/features/bot_update' }
+          ]
+        },
+        {
+          text: '关联项目',
+          items: [
+            { text: 'HX-Pjsk-Gateway', link: '/projects/hx-pjsk-gateway' },
+            { text: 'Mizuki Sync (已废弃)', link: '/projects/mizuki-sync' }
           ]
         }
       ]

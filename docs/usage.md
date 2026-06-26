@@ -22,7 +22,7 @@ description: 介绍如何将 Mizuki Bot 邀请加入 QQ 群并开始使用，包
 <div class="mzk-card mzk-card--green">
   <h3>2. 邀请 Bot 入群</h3>
   <ul>
-    <li>选择需要添加的 Bot 机号（详见 <a href="/rules.html">群规与公告</a> 中的账号列表）。</li>
+    <li>使用 Bot QQ 号 <code>3889004352</code>（Amia_晓山瑞希）邀请入群即可。</li>
     <li>在拟添加的群聊中选择“从群聊中选择联系人”将其拉入。</li>
     <li><strong>注意：</strong> 为了保证账户安全性，所有用户在拉取 Bot 前都需要进入上方交流群，以免封禁消息通知不及时。</li>
   </ul>
