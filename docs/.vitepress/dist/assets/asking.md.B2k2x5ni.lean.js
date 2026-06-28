@@ -1,0 +1,1 @@
+import{_ as e,o as a,c as l,a3 as d}from"./chunks/framework.d0TBG0Rg.js";const f=JSON.parse('{"title":"💡 提问的智慧","description":"","frontmatter":{},"headers":[],"relativePath":"asking.md","filePath":"asking.md"}'),r={name:"asking.md"};function s(o,t,n,i,c,g){return a(),l("div",null,[...t[0]||(t[0]=[d("",5)])])}const x=e(r,[["render",s]]);export{f as __pageData,x as default};

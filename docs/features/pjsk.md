@@ -3,11 +3,12 @@ title: PJSK 专项功能
 description: PJSK 查分、查榜、组卡、猜歌等功能的用法说明。
 ---
 
-# 🎵 PJSK 模块功能
-::: warning ⚠️ 账号防丢指南
+# PJSK 模块功能
+::: warning 账号防丢指南
 **在进行账号上传或绑定操作前，请务必保存你的引继码与密码！**
 以免因意外情况、网络波动或平台风控导致游戏账号丢失。Bot 无法为您找回丢失的账号。
 :::
+
 <p style="font-size: 14px; opacity: 0.8; margin-bottom: 25px; line-height: 1.8;">
   <strong>🌐 多服务器前缀支持：</strong><br>
   在大部分查分、查榜、绑定指令前添加特定前缀，即可跨服查询：<br>
@@ -15,7 +16,7 @@ description: PJSK 查分、查榜、组卡、猜歌等功能的用法说明。
   <em>（示例：<code>cn绑定</code>、<code>twsk</code>、<code>en逮捕</code>）</em>
 </p>
 ---
-<div class="mzk-card mzk-card--cyan">
+<div class="mzk-card">
   <h3>🔗 账号绑定与数据上传</h3>
   <p>通过游戏 UID 进行绑定。绑定后默认为「不给看」模式，无法被其他人 @ 查询。</p>
 
@@ -40,7 +41,7 @@ description: PJSK 查分、查榜、组卡、猜歌等功能的用法说明。
 
 </div>
 </div>
-<div class="mzk-card mzk-card--purple">
+<div class="mzk-card">
   <h3>📝 玩家信息、查分与 MySekai</h3>
 
 <div class="mzk-table-wrapper">
@@ -59,7 +60,7 @@ description: PJSK 查分、查榜、组卡、猜歌等功能的用法说明。
 
 </div>
 </div>
-<div class="mzk-card mzk-card--blue">
+<div class="mzk-card">
   <h3>📈 高阶查榜与 PT 追踪</h3>
   <p><strong>WL 活动特供：</strong> 在查榜指令前加 <code>wl</code>，并在末尾加 <code>-c [角色]</code> 可查单榜 (如：<code>wlsk 100 -c haruka</code>)。</p>
 
@@ -77,7 +78,7 @@ description: PJSK 查分、查榜、组卡、猜歌等功能的用法说明。
 
 </div>
 </div>
-<div class="mzk-card mzk-card--yellow">
+<div class="mzk-card">
   <h3>🎫 组卡与查卡推荐 (需上传数据)</h3>
   
 <div class="mzk-table-wrapper">
@@ -91,7 +92,7 @@ description: PJSK 查分、查榜、组卡、猜歌等功能的用法说明。
 
 </div>
 </div>
-<div class="mzk-card mzk-card--red">
+<div class="mzk-card">
   <h3>🎶 歌曲谱面与别名设置</h3>
   <div class="mzk-alert">⚠️ 别名设置日志按日公示，违规乱设别名将被删词或封禁 Bot 使用权！</div>
 
@@ -145,4 +146,40 @@ description: PJSK 查分、查榜、组卡、猜歌等功能的用法说明。
 | `葱什么*` | 返回随机歌曲 info。 |
 
 </div>
+</div>
+
+## 指令示例
+
+<div class="cmd-examples">
+
+<div class="cmd-card">
+  <span class="cmd-pill">逮捕 @小明</span>
+  <span class="cmd-desc">查询目标 FC、AP 进度</span>
+</div>
+
+<div class="cmd-card">
+  <span class="cmd-pill">sk 100</span>
+  <span class="cmd-desc">查榜线第 100 名的分数</span>
+</div>
+
+<div class="cmd-card">
+  <span class="cmd-pill">b39</span>
+  <span class="cmd-desc">Rating 最高的 39 首歌与总分</span>
+</div>
+
+<div class="cmd-card">
+  <span class="cmd-pill">组卡 ln 橙</span>
+  <span class="cmd-desc">箱活 LN 橙色属性最佳卡组推荐</span>
+</div>
+
+<div class="cmd-card">
+  <span class="cmd-pill">追踪 1 50</span>
+  <span class="cmd-desc">追踪第 1 名和第 50 名的 PT 趋势</span>
+</div>
+
+<div class="cmd-card">
+  <span class="cmd-pill">cn逮捕 100</span>
+  <span class="cmd-desc">使用 cn 前缀查询国服榜线</span>
+</div>
+
 </div>

@@ -25,6 +25,17 @@ export default {
       ];
       currentQuote.value = quotes[Math.floor(Math.random() * quotes.length)];
 
+      // 首页功能卡片点击跳转
+      nextTick(() => {
+        const links = ['/features/pjsk', '/features/tools', '/features/tools', '/features/minecraft', '/usage', '/projects/hx-pjsk-gateway'];
+        document.querySelectorAll('.VPFeature').forEach((el, i) => {
+          if (i < links.length) {
+            el.style.cursor = 'pointer';
+            el.addEventListener('click', () => { window.location.href = links[i]; });
+          }
+        });
+      });
+
       // 检查是否已关闭公告
       if (!sessionStorage.getItem('hide_announcement')) {
         showAnnouncement.value = true;

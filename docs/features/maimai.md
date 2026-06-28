@@ -5,97 +5,82 @@ description: 舞萌 DX 查分、查歌、服务器状态监控和成绩同步的
 
 # 舞萌 DX 专项
 > 查分、查歌与排队服务。
-<br>
-<div class="mzk-card mzk-card--orange">
-  <h3>🟡 核心查询</h3>
+
+## 成绩核心查分
+
+<div class="mzk-table-wrapper">
+
+| 指令 | 示例 | 说明 |
+| :--- | :--- | :--- |
+| `b50` | `b50` / `b50 @玩家A` | Best 50 个人面板（可查他人） |
+| `ap50` | `ap50` | AP 50 纯收曲全成就图（落雪源） |
+| `dxpass` | `dxpass 葵巴 6 206002` | 个人 DX Pass 属性金卡名片 |
+| `minfo` | `minfo 11252` / `minfo valsq` | 单曲游玩详情与分数线 |
+| `id` | `id 11252` | 歌曲谱面数据与定数底标 |
+| `mai状态` | `mai状态` | 双端同步与档案大盘 |
+
+</div>
+
+## 曲目检索与进度完成表
+
+<div class="mzk-table-wrapper">
+
+| 指令 | 示例 | 说明 |
+| :--- | :--- | :--- |
+| `查歌 [关键词]` | `查歌 Garakuta` | 全局模糊检索歌曲 |
+| `[等级]完成表` | `14完成表` / `14+ ap完成表` | 等级定数完成表 |
+| `[版本代号][牌子类型]完成表` | `桃极完成表` / `双将完成表` | 牌子完成表 |
+| `[版本代号][牌子类型]进度` | `真舞进度` / `桃极进度` | 牌子进度查询 |
+| `[等级] [判定] 进度` | `14 sss进度` | 等级段位成绩进度 |
+
+</div>
+
+## 账户绑定与路由
 
 <div class="mzk-table-wrapper">
 
 | 指令 | 说明 |
 | :--- | :--- |
-| `今日舞萌` | 查看今日运势与推荐曲 |
-| `b50` | 查询 Best 50 成绩 |
-| `随个 [难度]` | 随机推歌 (例: `随个紫`) |
-| `查歌 [关键词]` | 查询曲目详细信息 |
-| `定数查歌 [范围]` | 例: `定数查歌 13.5 13.9` |
+| `lxbind` / `绑定落雪` | 落雪 OAuth 一键绑定，根据提示授权并发送授权码 |
+| `切换数据源 [落雪/水鱼]` | 切换默认查分输出端 |
 
 </div>
-</div>
-<div class="mzk-card mzk-card--green">
-  <h3>🟢 牌子与进度</h3>
+
+<div class="mzk-card">
+  <h3>舞萌服务器状态</h3>
+
+  <h4>查看服务器状态</h4>
+  <p>发送 <code>/net</code>、<code>网咋样</code> 或 <code>炸了吗</code>（无需私钥即可查询）</p>
+
+  <h4>手动上报</h4>
 
 <div class="mzk-table-wrapper">
 
-| 指令 | 说明 |
-| :--- | :--- |
-| `[牌子]进度` | 例: `霸者进度` / `舞舞进度` |
-| `[等级]进度` | 例: `13+进度` |
-| `完成表 [等级]` | 生成等级完成度图片 |
-| `分数线 [曲ID]` | 查询各达成率所需分数 |
+| 指令 | 示例 | 说明 |
+| :--- | :--- | :--- |
+| `/report 断网` | `/report 断网` | 上报断网状态 |
+| `/report 小黑屋` | `/report 小黑屋` | 上报小黑屋状态 |
+| `/report 被发票` | `/report 被发票` | 上报被发票状态 |
+| `/report 罚站 [秒]` | `/report 罚站 300` | 上报罚站及等待时长 |
+| `/report help` | `/report help` | 查看上报帮助 |
 
 </div>
-</div>
-<div class="mzk-card mzk-card--blue">
-  <h3>🔵 查询与娱乐</h3>
 
-<div class="mzk-table-wrapper">
-
-| 指令 | 说明 |
-| :--- | :--- |
-| `是什么歌` | 查询别名对应的歌曲 |
-| `[牌名/难度]是什么谱` | 查询指定谱面信息 |
-| `查[别名] 谱面[难度]` | 精确查询特定歌曲难度谱面 |
-| `添加别名 [ID] [名]` | 提交新的歌曲别名 |
-| `mai猜歌` | 开启猜歌小游戏 |
-
-</div>
-</div>
-<div class="mzk-card mzk-card--purple">
-  <h3>🖥️ 舞萌服务器状态</h3>
-  
-  <h4>🔗 查看服务器状态 (无需私钥即可查询)</h4>
-  <p>发送 <code>/net</code> 、 <code>网咋样</code> 或 <code>炸了吗</code></p>
-  <h4>🔗 手动上报 (需要 Client ID + 私钥才可上报)</h4>
-  <ul>
-    <li><code>/report 断网</code></li>
-    <li><code>/report 小黑屋</code></li>
-    <li><code>/report 被发票</code></li>
-    <li><code>/report 罚站 300</code></li>
-    <li><code>/report help</code></li>
-  </ul>
-  <h4>🔗 自动监听 (群聊)</h4>
-  <p>插件会自动识别群聊中的以下说法并上报，无需手动触发：</p>
-  
-  <strong>异常触发 (主语+动词组合)</strong>
-  <ul>
-    <li><strong>主语</strong>：华立、SEGA、服务器、机台、NET等</li>
-    <li><strong>动词</strong>：炸、挂、死、坏、崩等</li>
-    <li><strong>示例</strong>：「服务器又炸了」「SEGA挂了」「机台灰网」「游客了」「20min了」</li>
-  </ul>
-  <strong>正常触发</strong>
-  <ul>
-    <li><strong>示例</strong>：「服务器好了」「华立稳了」「绿网了」</li>
-  </ul>
-  <strong>冯氏指数</strong>
-  <ul>
-    <li><strong>起飞 (异常)</strong>：「华立冯飞了」「SEGA老冯起飞」</li>
-    <li><strong>返航 (正常)</strong>：「华立冯返航了」「SEGA老冯落地」</li>
-  </ul>
-</div>
-<div class="mzk-card mzk-card--orange">
-  <h3>🟠 骚话模式 (娱乐)</h3>
+  <h4>自动监听（群聊自动识别）</h4>
 
 <div class="mzk-table-wrapper">
 
-| 指令 | 说明 |
+| 类型 | 触发词示例 |
 | :--- | :--- |
-| `xxmai什么` | 例: `柚子mai什么` |
-| `我要在 [难度] 上 [分]` | 立 flag |
-| `今天mai出勤打什么` | 随机推荐 |
+| 异常触发 | 主语（华立/SEGA/服务器/机台/NET）+ 动词（炸/挂/死/坏/崩）|  |
+| 异常示例 | 「服务器又炸了」「SEGA挂了」「机台灰网」「游客了」|  |
+| 正常触发 | 「服务器好了」「华立稳了」「绿网了」|  |
+| 冯氏起飞（异常）| 「华立冯飞了」「SEGA老冯起飞」|  |
+| 冯氏返航（正常）| 「华立冯返航了」「SEGA老冯落地」|  |
 
 </div>
 </div>
-<div class="mzk-card mzk-card--red">
+<div class="mzk-card">
   <h3>✨ 舞萌DX 成绩同步助手 ✨</h3>
   
   <div class="mzk-alert">
@@ -107,64 +92,96 @@ description: 舞萌 DX 查分、查歌、服务器状态监控和成绩同步的
 
 <div class="mzk-table-wrapper">
 
-| 指令 | 说明 |
-| :--- | :--- |
-| `同意Mizuki免责声明` | 同意用户协议 |
-| `拒绝Mizuki免责声明` | 拒绝用户协议 |
-| `撤回Mizuki免责声明同意` | 撤回之前的授权同意 |
+| 指令 | 示例 | 说明 |
+| :--- | :--- | :--- |
+| `同意Mizuki免责声明` | `同意Mizuki免责声明` | 同意用户协议 |
+| `拒绝Mizuki免责声明` | `拒绝Mizuki免责声明` | 拒绝用户协议 |
+| `撤回Mizuki免责声明同意` | `撤回Mizuki免责声明同意` | 撤回之前的授权同意 |
 
 </div>
 
-  <h4>🔑 第一步：设置类型</h4>
+  <h4>第一步：设置类型</h4>
 
 <div class="mzk-table-wrapper">
 
-| 指令 | 说明 |
-| :--- | :--- |
-| `设置类型 1` | <strong>类型一</strong>：仅上传成绩到查分器后立即返回。 |
-| `设置类型 2` | <strong>类型二</strong>：上传成绩后，等待70秒并自动登出 (会上传占位曲)。 |
+| 指令 | 示例 | 说明 |
+| :--- | :--- | :--- |
+| `设置类型 1` | `设置类型 1` | 仅上传成绩到查分器后立即返回 |
+| `设置类型 2` | `设置类型 2` | 上传成绩后等待 70 秒自动登出 |
 
 </div>
 
-  <h4>🔑 第二步：绑定账号</h4>
+  <h4>第二步：绑定账号</h4>
 
 <div class="mzk-table-wrapper">
 
-| 指令 | 说明 |
-| :--- | :--- |
-| `绑定水鱼 [Token]` | 🐟 绑定水鱼查分器 |
-| `绑定落雪` | ❄️ 获取落雪认证链接 |
-| `落雪确认 [授权码]` | ✅ 确认并完成落雪绑定 |
+| 指令 | 示例 | 说明 |
+| :--- | :--- | :--- |
+| `绑定水鱼 [Token]` | `绑定水鱼 xxxxx` | 绑定水鱼查分器 |
+| `绑定落雪` | `绑定落雪` | 获取落雪 OAuth 认证链接 |
+| `落雪确认 [授权码]` | `落雪确认 XXXX-XXXX` | 确认并完成落雪绑定 |
 
 </div>
 
-  <h4>📊 第三步：同步成绩与查询</h4>
+  <h4>第三步：同步成绩与查询</h4>
 
 <div class="mzk-table-wrapper">
 
-| 指令 | 说明 |
-| :--- | :--- |
-| `上传成绩` | 开始同步 (发送指令后，再发送二维码文本) |
-| `预览mai` | 查看用户游戏账号的基本信息 (发送指令后，再发送二维码文本) |
-| `取消` | 取消当前操作，退出上传流程 |
+| 指令 | 示例 | 说明 |
+| :--- | :--- | :--- |
+| `上传成绩` | `上传成绩` | 开始同步（之后发送二维码文本） |
+| `预览mai` | `预览mai` | 查看游戏账号基本信息 |
+| `取消` | `取消` | 取消当前操作，退出上传流程 |
 
 </div>
 
-  <h4>🚦 队列系统与管理</h4>
-  <p>
-    • 队列最多容纳 10 人，同时只能处理 1 个用户。<br>
-    • 类型一用户结束后，立即开始处理下一个；<br>
-    • 类型二用户需等待其登出后 10 秒，下一个用户才开始。
-  </p>
+  <h4>队列系统与管理</h4>
+  <p>队列最多容纳 10 人，同时只能处理 1 个用户。</p>
 
 <div class="mzk-table-wrapper">
 
-| 指令 | 说明 |
-| :--- | :--- |
-| `队列状态` | 查看当前队列排队人数 |
-| `查看绑定` | 查看当前绑定状态和类型 |
-| `登出` | 强制清理异常登录状态 |
-| `设置类型` | 重新设置用户类型 (1或2) |
+| 指令 | 示例 | 说明 |
+| :--- | :--- | :--- |
+| `队列状态` | `队列状态` | 查看当前队列排队人数 |
+| `查看绑定` | `查看绑定` | 查看当前绑定状态和类型 |
+| `登出` | `登出` | 强制清理异常登录状态 |
+| `设置类型` | `设置类型 1` | 重新设置用户类型 |
 
 </div>
+</div>
+
+## 指令示例
+
+<div class="cmd-examples">
+
+<div class="cmd-card">
+  <span class="cmd-pill">今日舞萌</span>
+  <span class="cmd-desc">查看今日运势与推荐曲</span>
+</div>
+
+<div class="cmd-card">
+  <span class="cmd-pill">b50</span>
+  <span class="cmd-desc">查询 Best 50 成绩</span>
+</div>
+
+<div class="cmd-card">
+  <span class="cmd-pill">随个紫</span>
+  <span class="cmd-desc">随机推一首紫谱歌曲</span>
+</div>
+
+<div class="cmd-card">
+  <span class="cmd-pill">查歌 回转吧</span>
+  <span class="cmd-desc">查询曲目详细信息</span>
+</div>
+
+<div class="cmd-card">
+  <span class="cmd-pill">霸者进度</span>
+  <span class="cmd-desc">查询霸者牌子完成进度</span>
+</div>
+
+<div class="cmd-card">
+  <span class="cmd-pill">mai猜歌</span>
+  <span class="cmd-desc">开启猜歌小游戏</span>
+</div>
+
 </div>
