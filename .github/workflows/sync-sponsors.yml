@@ -1,0 +1,29 @@
+name: Sync Sponsors
+
+on:
+  schedule:
+    - cron: '0 2 * * *'       # 每天 UTC 2:00（北京时间 10:00）
+  workflow_dispatch:           # 支持手动触发
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm ci
+      - run: node scripts/sync-sponsors.mjs
+        env:
+          AFDIAN_USER_ID: ${{ secrets.AFDIAN_USER_ID }}
+          AFDIAN_TOKEN: ${{ secrets.AFDIAN_TOKEN }}
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add docs/sponsor_list.md
+          if ! git diff --quiet && git diff --staged --quiet; then
+            git commit -m "chore: auto sync sponsors"
+            git push
+          fi
