@@ -1,15 +1,19 @@
 ---
 title: Mizuki Sync (已废弃)
-description: MizukiSync 舞萌 DX Android 查分工具，已停止维护。
+description: MizukiSync 舞萌 DX Android 查分工具与 Android 客户端，已停止维护。
 ---
 
 # Mizuki Sync (舞萌同步) — 已废弃
+
+> MizukiSync 是一款专为舞萌 DX (maimai DX) 玩家设计的 Android 第三方客户端。
 
 ::: danger 项目废弃声明
 本项目已正式停止维护，不再提供任何更新和技术支持。以下内容仅作历史存档。
 :::
 
-> MizukiSync 是一款专为舞萌 DX (maimai DX) 玩家设计的 Android 第三方客户端，通过对接落雪查分器 (LXNS) API，为玩家提供流畅的成绩查询与曲库管理体验。
+## 仓库
+
+- GitHub: [HX-Wrdzgzs/Mizuki-Sync-Android](https://github.com/HX-Wrdzgzs/Mizuki-Sync-Android)
 
 <br>
 

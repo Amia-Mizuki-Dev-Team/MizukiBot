@@ -15,6 +15,19 @@
 
 .dark { --vp-code-block-bg: #1e1e1e; }
 
+/* 页面背景毛玻璃底纹 */
+.VPContent {
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(233,126,179,0.06) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(138,102,194,0.06) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 80%, rgba(233,126,179,0.04) 0%, transparent 50%);
+}
+.dark .VPContent {
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(233,126,179,0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(138,102,194,0.08) 0%, transparent 50%);
+}
+
 /* 卡片夜间模式 */
 .dark .custom-card {
   background-color: rgba(255, 255, 255, 0.05) !important;
@@ -243,15 +256,27 @@ img { border-radius: 12px; }
 /* --- 6. Mizuki Design System (.mzk-card) --- */
 
 .mzk-card {
-  background: var(--vp-c-bg-soft);
-  border: 1px solid var(--vp-c-divider);
-  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.8), rgba(255,255,255,0.5));
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 14px;
   padding: 20px 24px;
   margin-bottom: 20px;
-  transition: border-color 0.2s ease;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04), inset 0 1px 0 rgba(255,255,255,0.6);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.dark .mzk-card {
+  background: linear-gradient(135deg, rgba(40,40,50,0.7), rgba(30,30,40,0.4));
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.05);
 }
 .mzk-card:hover {
   border-color: var(--vp-c-brand-1);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06), inset 0 1px 0 rgba(255,255,255,0.6);
+}
+.dark .mzk-card:hover {
+  box-shadow: 0 4px 20px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.05);
 }
 
 .mzk-card h3 {

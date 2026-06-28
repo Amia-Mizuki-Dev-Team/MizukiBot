@@ -71,7 +71,11 @@ export default defineConfig({
         text: '关联项目',
         items: [
           { text: 'HX-Pjsk-Gateway', link: '/projects/hx-pjsk-gateway' },
-          { text: 'Mizuki Sync (已废弃)', link: '/projects/mizuki-sync' }
+          { text: 'Mizuki Sync (已废弃)', link: '/projects/mizuki-sync' },
+          { text: 'Meme 表情插件', link: '/projects/mizuki-plugin-meme' },
+          { text: 'HAM 无线电日志', link: '/projects/mizuki-plugin-homo-qso' },
+          { text: 'PJSK 车队广播', link: '/projects/mizuki-plugin-pjskcarteam' },
+          { text: '公告系统', link: '/projects/mizuki-plugin-group' }
         ]
       }
     ],
@@ -120,7 +124,11 @@ export default defineConfig({
           text: '关联项目',
           items: [
             { text: 'HX-Pjsk-Gateway', link: '/projects/hx-pjsk-gateway' },
-            { text: 'Mizuki Sync (已废弃)', link: '/projects/mizuki-sync' }
+            { text: 'Mizuki Sync (已废弃)', link: '/projects/mizuki-sync' },
+            { text: 'Meme 表情插件', link: '/projects/mizuki-plugin-meme' },
+            { text: 'HAM 无线电日志', link: '/projects/mizuki-plugin-homo-qso' },
+            { text: 'PJSK 车队广播', link: '/projects/mizuki-plugin-pjskcarteam' },
+            { text: '公告系统', link: '/projects/mizuki-plugin-group' }
           ]
         }
       ]
