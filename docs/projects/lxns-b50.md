@@ -7,10 +7,6 @@ description: Mizuki Bot 生态中的 NoneBot2 舞萌 DX 查分与分析插件。
 
 LXNS B50 是 MizukiBot-Develop 组织内的舞萌 DX 查分与分析插件。项目基于 NoneBot2，集成落雪 (LXNS) 与水鱼 (Diving-Fish) 双数据源，面向玩家成绩查询、战力分析、曲目检索和群内互动场景。
 
-## 仓库
-
-- GitHub: [MizukiBot-Develop/lxns_b50](https://github.com/MizukiBot-Develop/lxns_b50)
-
 ## 核心能力
 
 <div class="mzk-card">
