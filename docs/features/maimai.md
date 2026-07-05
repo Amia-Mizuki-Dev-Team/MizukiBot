@@ -152,36 +152,42 @@ description: 舞萌 DX 查分、查歌、服务器状态监控和成绩同步的
 
 ## 指令示例
 
-<div class="cmd-examples">
+<style scoped>
+.chat-demo-grid { display: grid; gap: 18px; margin: 18px 0 28px; }
+.chat-demo-card { border: 1px solid var(--vp-c-divider); border-radius: 18px; background: var(--vp-c-bg-soft); padding: 18px 18px 20px; }
+.chat-demo-row { display: flex; align-items: flex-start; gap: 12px; }
+.chat-demo-row.user { justify-content: flex-end; margin-bottom: 16px; }
+.chat-demo-row.bot { justify-content: flex-start; }
+.chat-demo-avatar { width: 42px; height: 42px; border-radius: 50%; background: var(--vp-c-brand-soft); display: flex; align-items: center; justify-content: center; font-weight: 700; color: var(--vp-c-brand-1); flex: 0 0 auto; }
+.chat-demo-bubble { max-width: 76%; border-radius: 14px; padding: 10px 14px; line-height: 1.7; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06); word-break: break-word; }
+.chat-demo-row.user .chat-demo-bubble { background: var(--vp-c-brand-soft); color: var(--vp-c-brand-1); }
+.chat-demo-row.bot .chat-demo-bubble { background: var(--vp-c-bg); }
+@media (min-width: 720px) { .chat-demo-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+</style>
 
-<div class="cmd-card">
-  <span class="cmd-pill">今日舞萌</span>
-  <span class="cmd-desc">查看今日运势与推荐曲</span>
-</div>
-
-<div class="cmd-card">
-  <span class="cmd-pill">b50</span>
-  <span class="cmd-desc">查询 Best 50 成绩</span>
-</div>
-
-<div class="cmd-card">
-  <span class="cmd-pill">随个紫</span>
-  <span class="cmd-desc">随机推一首紫谱歌曲</span>
-</div>
-
-<div class="cmd-card">
-  <span class="cmd-pill">查歌 回转吧</span>
-  <span class="cmd-desc">查询曲目详细信息</span>
-</div>
-
-<div class="cmd-card">
-  <span class="cmd-pill">霸者进度</span>
-  <span class="cmd-desc">查询霸者牌子完成进度</span>
-</div>
-
-<div class="cmd-card">
-  <span class="cmd-pill">mai猜歌</span>
-  <span class="cmd-desc">开启猜歌小游戏</span>
-</div>
-
+<div class="chat-demo-grid">
+  <div class="chat-demo-card">
+    <div class="chat-demo-row user"><div class="chat-demo-bubble">b50</div><div class="chat-demo-avatar">我</div></div>
+    <div class="chat-demo-row bot"><div class="chat-demo-avatar">Bot</div><div class="chat-demo-bubble">[生成你的 Best 50 成绩面板]</div></div>
+  </div>
+  <div class="chat-demo-card">
+    <div class="chat-demo-row user"><div class="chat-demo-bubble">ap50</div><div class="chat-demo-avatar">我</div></div>
+    <div class="chat-demo-row bot"><div class="chat-demo-avatar">Bot</div><div class="chat-demo-bubble">[生成 AP 50 纯收曲全成就图]</div></div>
+  </div>
+  <div class="chat-demo-card">
+    <div class="chat-demo-row user"><div class="chat-demo-bubble">查歌 回转吧</div><div class="chat-demo-avatar">我</div></div>
+    <div class="chat-demo-row bot"><div class="chat-demo-avatar">Bot</div><div class="chat-demo-bubble">[匹配到的舞萌 DX 曲目信息]</div></div>
+  </div>
+  <div class="chat-demo-card">
+    <div class="chat-demo-row user"><div class="chat-demo-bubble">14+ ap完成表</div><div class="chat-demo-avatar">我</div></div>
+    <div class="chat-demo-row bot"><div class="chat-demo-avatar">Bot</div><div class="chat-demo-bubble">[14+ 等级 AP 完成表]</div></div>
+  </div>
+  <div class="chat-demo-card">
+    <div class="chat-demo-row user"><div class="chat-demo-bubble">mai状态</div><div class="chat-demo-avatar">我</div></div>
+    <div class="chat-demo-row bot"><div class="chat-demo-avatar">Bot</div><div class="chat-demo-bubble">[双端同步与档案状态概览]</div></div>
+  </div>
+  <div class="chat-demo-card">
+    <div class="chat-demo-row user"><div class="chat-demo-bubble">上传成绩</div><div class="chat-demo-avatar">我</div></div>
+    <div class="chat-demo-row bot"><div class="chat-demo-avatar">Bot</div><div class="chat-demo-bubble">[进入成绩同步流程，等待二维码文本]</div></div>
+  </div>
 </div>
