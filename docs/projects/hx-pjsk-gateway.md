@@ -1,41 +1,57 @@
 ---
 title: HX-Pjsk-Gateway
-description: Project Sekai 高性能 Web 查询网关，提供网页端 PJSK 查分、查榜服务。
+description: Project Sekai Web 查询网关，将 OneBot v11 数据能力转换为 RESTful 与 SSE API 服务。
 ---
 
-# HX-Pjsk-Gateway (PJSK Web Bridge)
+# HX-Pjsk-Gateway
 
-> Mizuki PJSK 查分终端 — 基于 Web 的无缝鉴权与数据可视化网关，作为 OneBot v11 / Napcat 机器人的前端延伸，让玩家通过网页端优雅、直观地获取《Project Sekai》游戏数据。
+HX-Pjsk-Gateway 是 Mizuki 生态里的 Project Sekai Web 查询网关。它把 Haruki / Sakura Client 一类 OneBot v11 数据节点转换为面向网页端的 RESTful 与 SSE API 服务，让玩家可以通过 Web 页面查询 Suite 抓包数据。
 
+## 仓库
+
+- GitHub: [HX-Wrdzgzs/hx-pjsk-gateway](https://github.com/HX-Wrdzgzs/hx-pjsk-gateway)
+
+## 项目定位
+
+这个项目不是普通 Bot 插件，而是 Web 查询链路里的桥接层。它负责把 QQ / OneBot 侧已有的数据能力包装成前后端分离的 Web 服务，并处理认证、并发查询、图片转码和边缘防护。
 
 ## 技术栈
 
 | 层级 | 技术选型 |
-|:---|:---|
-| **前端** | React + Vite + TypeScript + Zustand |
-| **中间层** | FastAPI (Python + uvloop) |
-| **数据引擎** | Haruki / Sakura Client (OneBot v11) |
-| **鉴权节点** | NoneBot2 |
-| **存储** | MySQL, Redis |
+| :--- | :--- |
+| 前端 | React, Vite, TypeScript, Zustand |
+| 中间层 | FastAPI, uvloop |
+| 数据引擎 | Haruki / Sakura Client, OneBot v11 |
+| 鉴权节点 | NoneBot2 |
+| 存储与状态 | MySQL, Redis |
+| 边缘防护 | Cloudflare Pages, CF Tunnel, Turnstile, WAF |
 
-<br>
+## 核心机制
 
-## 核心流程
+<div class="mzk-card">
 
-### 1. QQ 强身份认证
-彻底弃用传统账号密码，利用 QQ 实现设备与游戏数据的双重绑定。用户发送验证码至 Bot，通过 SSE 实时推送 Token，无缝继承已有 Suite 数据。
+### QQ 强身份认证
 
-### 2. 异步 Echo 查询
-利用 OneBot 协议的 `echo` 字段解决单点 WebSocket 多并发上下文错乱问题。请求挂起为 `asyncio.Future`，收到对应返回包后精确唤醒，同时支持 15 秒软超时降级。
+前端生成验证码并建立 SSE 通道，用户把验证码发送给 NoneBot2 验证节点。验证节点把真实 QQ 号回传给 FastAPI，FastAPI 完成映射并向前端下发 JWT。
 
-### 3. 图片旁路极速渲染
-拦截 Haruki 响应中的本地图片绝对路径，实时转码为 WebP 格式（体积缩减约 80%），通过浏览器原生缓存实现秒开。
+</div>
 
-<br>
+<div class="mzk-card">
 
-## 纵深防御
+### 异步 Echo 查询
 
-- 物理隔离风控：高频查询不连接腾讯服务器，由本地 Haruki 节点消化 OneBot 数据包，实现 0 冻结风险
-- 设备级熔断：单账户上限 5 台设备的 LRU 淘汰队列
-- 边缘安全：CF Tunnel 隐藏源站 + Turnstile 人机验证 + 雷池 WAF
+Web 请求会被包装成 OneBot JSON 数据包，并注入 UUID 作为 `echo` 字段。FastAPI 挂起对应 Future，等 Haruki 返回同一 `echo` 后精确唤醒 HTTP 响应。
 
+</div>
+
+<div class="mzk-card">
+
+### 图片旁路渲染
+
+网关会拦截 Haruki 响应里的本地图片路径，将图片转码为 WebP 后作为静态资源下发，减少 Web 端加载体积并改善图片展示速度。
+
+</div>
+
+## 开发阶段
+
+项目 README 里规划了协议层 POC、并发控制、认证状态中心和业务全量接入四个阶段。文档站只保留架构说明和项目入口，具体部署细节应以仓库 README 为准。
