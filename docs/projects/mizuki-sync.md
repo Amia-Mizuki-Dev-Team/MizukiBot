@@ -7,10 +7,6 @@ description: 面向舞萌 DX 玩家设计的 Android 第三方客户端，基于
 
 Mizuki Sync Android 是面向舞萌 DX 玩家设计的 Android 第三方客户端。项目通过对接落雪查分器 (LXNS) API，为玩家提供成绩查询、曲库筛选、玩家状态同步和数据展示能力。
 
-## 仓库
-
-- GitHub: [HX-Wrdzgzs/Mizuki-Sync-Android](https://github.com/HX-Wrdzgzs/Mizuki-Sync-Android)
-
 ## 项目定位
 
 这个项目采用前后端分离架构。Android 客户端只负责 UI 渲染、本地缓存和请求发起；后端负责数据清洗、版本去重、公共数据分发和涉密 API Key 管理，避免客户端直接暴露第三方开发者密钥。
