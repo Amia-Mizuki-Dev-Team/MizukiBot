@@ -4,36 +4,36 @@ layout: home
 hero:
   name: "Mizuki Bot"
   text: "帮助文档"
-  tagline: "查功能、看规则、找入口。"
+  tagline: "选择您需要的功能，快速上手 Mizuki Bot"
   
   actions:
     - theme: brand
       text: QQ 官方 Bot
       link: /usage
     - theme: alt
-      text: PJSK 功能
+      text: 🎵 PJSK 功能
       link: /features/pjsk
     - theme: alt
-      text: 开发者招募
-      link: /recruiting
+      text: 📝 问题反馈
+      link: /feedback
 
 features:
-  - title: 音游专项
+  - title: 🎵 音游专项
     details: PJSK 查分查榜、舞萌 DX 成绩查询、中二节奏数据一览。
     link: /features/pjsk
-  - title: 表情制作
+  - title: 🎨 表情制作
     details: 使用 Meme 制作系统生成 PJSK、Arcaea 等风格的对话图片。
     link: /features/tools
-  - title: 通用工具
+  - title: 🛠️ 通用工具
     details: 娱乐功能、GPT 对话和常用工具。
     link: /features/tools
-  - title: Minecraft
+  - title: ⛏️ Minecraft
     details: Mizuki 公益 MC 服务器资讯与白名单申请。
     link: /features/minecraft
-  - title: 项目总览
+  - title: 📦 关联项目
     details: 查看 MizukiBot-Develop 组织内的插件、网关和工具项目。
     link: /projects/
-  - title: 开发者招募
+  - title: 🧩 开发者招募
     details: 参与文档、插件、网关和工具维护。
     link: /recruiting
 ---
@@ -48,6 +48,13 @@ features:
     <div class="support-info">
       <strong>用户交流群</strong>
       <span>加入群聊获取即时帮助</span>
+    </div>
+  </a>
+
+  <a href="https://wrdzgzs2024.feishu.cn/share/base/form/shrcnAK9hJGLF40ga1frnQo7XLg" target="_blank" class="support-card">
+    <div class="support-info">
+      <strong>问题反馈</strong>
+      <span>遇到 Bug 或有新建议？告诉我们</span>
     </div>
   </a>
 
