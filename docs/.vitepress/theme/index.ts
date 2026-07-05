@@ -4,7 +4,6 @@ import './custom.css'
 
 export default {
   extends: DefaultTheme,
-  
   Layout() {
     const currentQuote = ref('')
     const showAnnouncement = ref(false)
@@ -38,7 +37,6 @@ export default {
 
       if (!sessionStorage.getItem('hide_announcement')) {
         showAnnouncement.value = true
-        
         nextTick(() => {
           const banner = document.getElementById('mzk-banner')
           if (banner) {
@@ -63,52 +61,22 @@ export default {
     }
 
     return h(DefaultTheme.Layout, null, {
-      'home-hero-image': () => {
-        return h('div', { class: 'hero-wrapper' }, [
-          h('img', { 
-            src: '/Picture/avatar.jpg', 
-            class: 'random-hero-avatar', 
-            alt: 'Mizuki Bot'
-          }),
-          h('div', {
-            class: 'my-custom-quote',
-            innerHTML: currentQuote.value
-          })
-        ])
-      },
-
+      'home-hero-image': () => h('div', { class: 'hero-wrapper' }, [
+        h('img', { src: '/Picture/avatar.jpg', class: 'random-hero-avatar', alt: 'Mizuki Bot' }),
+        h('div', { class: 'my-custom-quote', innerHTML: currentQuote.value })
+      ]),
       'layout-top': () => {
         if (!showAnnouncement.value) return null
-
-        return h('div', {
-          id: 'mzk-banner',
-          class: 'mzk-banner'
-        }, [
-          h('div', { 
-            class: 'mzk-banner-content'
-          }, [
-            h('span', {
-              class: 'mzk-banner-tag'
-            }, '公告'),
+        return h('div', { id: 'mzk-banner', class: 'mzk-banner' }, [
+          h('div', { class: 'mzk-banner-content' }, [
+            h('span', { class: 'mzk-banner-tag' }, '公告'),
             h('span', null, 'Mizuki Bot 4 月更新已上线。'),
-            h('a', { 
-              href: '/features/bot_update',
-              class: 'mzk-banner-link'
-            }, '查看更新')
+            h('a', { href: '/features/bot_update', class: 'mzk-banner-link' }, '查看更新')
           ]),
-          h('button', {
-            onClick: closeBanner,
-            class: 'mzk-banner-close',
-            ariaLabel: '关闭公告'
-          }, '×')
+          h('button', { onClick: closeBanner, class: 'mzk-banner-close', ariaLabel: '关闭公告' }, '×')
         ])
       },
-
-      'layout-bottom': () => {
-        return h('div', {
-          class: 'mzk-footer'
-        }, '© 2020-2026 MizukiBot Team | HongXing (Jiangsu) Dev Team. 保留所有权利。')
-      }
+      'layout-bottom': () => h('div', { class: 'mzk-footer' }, '© 2021-2026 MizukiBot Team | HongXing (Jiangsu) Dev Team. 保留所有权利。')
     })
   }
 }
