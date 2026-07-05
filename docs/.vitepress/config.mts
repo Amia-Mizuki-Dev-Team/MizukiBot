@@ -30,7 +30,7 @@ export default defineConfig({
       {
         text: '入门指南',
         items: [
-          { text: '如何使用', link: '/usage' },
+          { text: 'QQ 官方 Bot', link: '/usage' },
           { text: '问题反馈', link: '/feedback' }
         ]
       },
@@ -54,8 +54,7 @@ export default defineConfig({
           { text: '用户使用协议', link: '/agreement' },
           { text: '群规与公告', link: '/rules' },
           { text: '提问的智慧', link: '/asking' },
-          { text: '赞助我们', link: '/sponsor' },
-          { text: '赞助榜名单', link: '/sponsor_list' }
+          { text: '赞助我们', link: '/sponsor' }
         ]
       },
       {
@@ -68,12 +67,16 @@ export default defineConfig({
       {
         text: '关联项目',
         items: [
+          { text: '项目总览', link: '/projects/' },
+          { text: 'Mizuki Sync Android', link: '/projects/mizuki-sync' },
           { text: 'HX-Pjsk-Gateway', link: '/projects/hx-pjsk-gateway' },
-          { text: 'Mizuki Sync (已废弃)', link: '/projects/mizuki-sync' },
+          { text: 'Mizuki Economy', link: '/features/economy' },
+          { text: 'QBind 绑定插件', link: '/projects/mizuki-plugin-qbind' },
+          { text: 'Gensokyo NewQQ', link: '/projects/gensokyo-newqq' },
+          { text: 'LXNS B50', link: '/projects/lxns-b50' },
           { text: 'Meme 表情插件', link: '/projects/mizuki-plugin-meme' },
-          { text: 'HAM 无线电日志', link: '/projects/mizuki-plugin-homo-qso' },
           { text: 'PJSK 车队广播', link: '/projects/mizuki-plugin-pjskcarteam' },
-          { text: '公告系统', link: '/projects/mizuki-plugin-group' }
+          { text: 'HAM 无线电日志', link: '/projects/mizuki-plugin-homo-qso' }
         ]
       }
     ],
@@ -83,7 +86,7 @@ export default defineConfig({
         {
           text: '入门指南',
           items: [
-            { text: '如何使用', link: '/usage' },
+            { text: 'QQ 官方 Bot', link: '/usage' },
             { text: '问题反馈', link: '/feedback' }
           ]
         },
@@ -107,8 +110,7 @@ export default defineConfig({
             { text: '用户使用协议', link: '/agreement' },
             { text: '群规与公告', link: '/rules' },
             { text: '提问的智慧', link: '/asking' },
-            { text: '赞助我们', link: '/sponsor' },
-            { text: '赞助榜名单', link: '/sponsor_list' }
+            { text: '赞助我们', link: '/sponsor' }
           ]
         },
         {
@@ -121,12 +123,16 @@ export default defineConfig({
         {
           text: '关联项目',
           items: [
+            { text: '项目总览', link: '/projects/' },
+            { text: 'Mizuki Sync Android', link: '/projects/mizuki-sync' },
             { text: 'HX-Pjsk-Gateway', link: '/projects/hx-pjsk-gateway' },
-            { text: 'Mizuki Sync (已废弃)', link: '/projects/mizuki-sync' },
+            { text: 'Mizuki Economy', link: '/features/economy' },
+            { text: 'QBind 绑定插件', link: '/projects/mizuki-plugin-qbind' },
+            { text: 'Gensokyo NewQQ', link: '/projects/gensokyo-newqq' },
+            { text: 'LXNS B50', link: '/projects/lxns-b50' },
             { text: 'Meme 表情插件', link: '/projects/mizuki-plugin-meme' },
-            { text: 'HAM 无线电日志', link: '/projects/mizuki-plugin-homo-qso' },
             { text: 'PJSK 车队广播', link: '/projects/mizuki-plugin-pjskcarteam' },
-            { text: '公告系统', link: '/projects/mizuki-plugin-group' }
+            { text: 'HAM 无线电日志', link: '/projects/mizuki-plugin-homo-qso' }
           ]
         }
       ]
