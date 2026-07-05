@@ -8,7 +8,7 @@ hero:
   
   actions:
     - theme: brand
-      text: QQ 官方 Bot
+      text: 如何使用
       link: /usage
     - theme: alt
       text: 🎵 PJSK 功能
@@ -21,14 +21,11 @@ features:
   - title: 🎵 音游专项
     details: PJSK 查分查榜、舞萌 DX 成绩查询、中二节奏数据一览。
     link: /features/pjsk
-  - title: 🎨 表情制作
-    details: 使用 Meme 制作系统生成 PJSK、Arcaea 等风格的对话图片。
-    link: /features/tools
   - title: 🛠️ 通用工具
-    details: 娱乐功能、GPT 对话和常用工具。
+    details: 娱乐功能和常用工具。
     link: /features/tools
   - title: ⛏️ Minecraft
-    details: Mizuki 公益 MC 服务器资讯与白名单申请。
+    details: Mizuki 公益 MC 服务器资讯。
     link: /features/minecraft
   - title: 📦 关联项目
     details: 查看 Mizuki Bot 生态相关插件、网关和工具项目。
@@ -46,7 +43,7 @@ features:
 
   <a href="/usage" class="support-card">
     <div class="support-info">
-      <strong>QQ 官方 Bot</strong>
+      <strong>如何使用</strong>
       <span>查看添加方式与基础说明</span>
     </div>
   </a>
