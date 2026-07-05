@@ -1,29 +1,150 @@
 import { defineConfig } from 'vitepress'
 
+const siteUrl = 'https://help.mizuki.top'
+const siteName = 'Mizuki Bot 帮助文档'
+const siteDescription = 'Mizuki Bot 官方帮助文档，提供 PJSK、舞萌 DX、中二节奏、经济系统、Minecraft 服务器和群聊工具的使用说明。'
+
+const mainSections = [
+  { name: '如何使用', url: `${siteUrl}/usage` },
+  { name: 'PJSK 专项功能', url: `${siteUrl}/features/pjsk` },
+  { name: '舞萌 DX 专项', url: `${siteUrl}/features/maimai` },
+  { name: '中二节奏专项', url: `${siteUrl}/features/chunithm` },
+  { name: 'Mizuki 25时经济系统', url: `${siteUrl}/features/economy` },
+  { name: 'Mizuki Bot 更新日志', url: `${siteUrl}/features/bot_update` }
+]
+
+const websiteStructuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  '@id': `${siteUrl}/#website`,
+  name: siteName,
+  alternateName: ['Mizuki Bot', 'Mizuki Bot Docs', 'Mizuki 帮助文档'],
+  url: `${siteUrl}/`,
+  inLanguage: 'zh-CN',
+  description: siteDescription,
+  publisher: {
+    '@id': `${siteUrl}/#organization`
+  },
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: `${siteUrl}/?q={search_term_string}`,
+    'query-input': 'required name=search_term_string'
+  }
+}
+
+const organizationStructuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  '@id': `${siteUrl}/#organization`,
+  name: 'MizukiBot Team',
+  alternateName: ['Mizuki Bot', 'HongXing Dev Team'],
+  url: `${siteUrl}/`,
+  logo: `${siteUrl}/Picture/avatar.jpg`,
+  sameAs: [
+    'https://github.com/MizukiBot-Develop/MizukiBot'
+  ]
+}
+
+const homeItemListStructuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  '@id': `${siteUrl}/#main-sections`,
+  name: 'Mizuki Bot 帮助文档主要入口',
+  itemListElement: mainSections.map((item, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    name: item.name,
+    url: item.url
+  }))
+}
+
+function normalizeUrl(relativePath: string) {
+  const normalizedPath = relativePath
+    .replace(/(^|\/)index\.md$/, '$1')
+    .replace(/\.md$/, '')
+
+  const path = normalizedPath === '' ? '/' : `/${normalizedPath}`
+  return new URL(path, siteUrl).href
+}
+
 export default defineConfig({
-  title: "Mizuki Bot 帮助文档",
-  description: "Mizuki Bot 的使用文档。支持 PJSK、舞萌 DX、中二节奏查分查榜，还有表情包、经济系统等功能。",
+  title: siteName,
+  titleTemplate: ':title | Mizuki Bot 帮助文档',
+  description: siteDescription,
   lang: 'zh-CN',
-  
+  cleanUrls: true,
   sitemap: {
-    hostname: 'https://help.mizuki.top'
+    hostname: siteUrl
+  },
+
+  transformHead({ pageData }) {
+    const canonicalUrl = normalizeUrl(pageData.relativePath)
+    const pageTitle = pageData.title || siteName
+    const pageDescription = pageData.description || siteDescription
+    const breadcrumbs = canonicalUrl === `${siteUrl}/`
+      ? []
+      : [
+          {
+            '@type': 'ListItem',
+            position: 1,
+            name: siteName,
+            item: `${siteUrl}/`
+          },
+          {
+            '@type': 'ListItem',
+            position: 2,
+            name: pageTitle,
+            item: canonicalUrl
+          }
+        ]
+
+    return [
+      ['link', { rel: 'canonical', href: canonicalUrl }],
+      ['meta', { property: 'og:title', content: pageTitle }],
+      ['meta', { property: 'og:description', content: pageDescription }],
+      ['meta', { property: 'og:url', content: canonicalUrl }],
+      ['meta', { name: 'twitter:title', content: pageTitle }],
+      ['meta', { name: 'twitter:description', content: pageDescription }],
+      ...(breadcrumbs.length
+        ? [[
+            'script',
+            { type: 'application/ld+json' },
+            JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'BreadcrumbList',
+              itemListElement: breadcrumbs
+            })
+          ] as const]
+        : [])
+    ]
   },
 
   head: [
     ['link', { rel: 'icon', href: '/favicon.ico' }],
     ['link', { rel: 'icon', href: '/Picture/avatar.jpg' }],
-    ['meta', { name: 'keywords', content: 'Mizuki Bot, PJSK, Project Sekai, 舞萌DX, maimai, 中二节奏, 音游Bot, 帮助文档' }],
-    ['meta', { name: 'author', content: 'HX-Wrdzgzs' }],
+    ['link', { rel: 'apple-touch-icon', href: '/Picture/avatar.jpg' }],
+    ['meta', { name: 'robots', content: 'index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1' }],
+    ['meta', { name: 'googlebot', content: 'index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1' }],
+    ['meta', { name: 'theme-color', content: '#E97EB3' }],
+    ['meta', { name: 'application-name', content: siteName }],
+    ['meta', { name: 'apple-mobile-web-app-title', content: siteName }],
+    ['meta', { name: 'keywords', content: 'Mizuki Bot, PJSK, Project Sekai, 舞萌DX, maimai, 中二节奏, 音游Bot, QQ Bot, 经济系统, Minecraft, 帮助文档' }],
+    ['meta', { name: 'author', content: 'MizukiBot Team' }],
     ['meta', { property: 'og:type', content: 'website' }],
-    ['meta', { property: 'og:url', content: 'https://help.mizuki.top/' }],
-    ['meta', { property: 'og:image', content: 'https://help.mizuki.top/Picture/banner.jpg' }], 
+    ['meta', { property: 'og:site_name', content: siteName }],
+    ['meta', { property: 'og:locale', content: 'zh_CN' }],
+    ['meta', { property: 'og:image', content: `${siteUrl}/Picture/banner.jpg` }],
+    ['meta', { property: 'og:image:alt', content: 'Mizuki Bot 帮助文档' }],
     ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
-    ['meta', { name: 'twitter:image', content: 'https://help.mizuki.top/Picture/banner.jpg' }]
+    ['meta', { name: 'twitter:image', content: `${siteUrl}/Picture/banner.jpg` }],
+    ['script', { type: 'application/ld+json' }, JSON.stringify(websiteStructuredData)],
+    ['script', { type: 'application/ld+json' }, JSON.stringify(organizationStructuredData)],
+    ['script', { type: 'application/ld+json' }, JSON.stringify(homeItemListStructuredData)]
   ],
 
   themeConfig: {
     logo: '/Picture/logo.gif',
-    siteTitle: 'Mizuki Bot 帮助文档',
+    siteTitle: siteName,
 
     nav: [
       { text: '首页', link: '/' },
