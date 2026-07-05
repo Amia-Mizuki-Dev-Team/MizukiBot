@@ -1,13 +1,17 @@
 name: Deploy to Cloudflare Pages
 
-# 触发条件
 on:
   push:
     branches:
-      - main  # 监听主分支的自动推送（如果是 master 请自行修改）
-  
-  # 关键点：支持在 GitHub 仓库的 Actions 页面手动点击按钮触发
+      - main
+  pull_request:
+    branches:
+      - main
   workflow_dispatch:
+
+concurrency:
+  group: cloudflare-pages-${{ github.event_name }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   build-and-deploy:
@@ -20,7 +24,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0 # 保留完整历史，用于 VitePress 计算页面的最后更新时间
+          fetch-depth: 0
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -35,10 +39,12 @@ jobs:
         run: npm run docs:build
 
       - name: Deploy to Cloudflare Pages
+        if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
         uses: cloudflare/pages-action@v1
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          projectName: mizuki-bot-docs # 改成你在 Cloudflare Pages 创建的项目名称
-          directory: docs/.vitepress/dist # VitePress 的输出目录
+          projectName: mizuki-bot-docs
+          directory: docs/.vitepress/dist
+          branch: ${{ github.head_ref || github.ref_name }}
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
