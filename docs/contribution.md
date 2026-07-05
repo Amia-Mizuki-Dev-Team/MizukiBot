@@ -50,7 +50,7 @@
 | :--- | :--- |
 | **底层框架** | Nonebot / Haruki NEO / HongXingOS7 |
 | **网站设计** | Te:River / HX-Wrdzgzs / uni_mayu |
-| **美术设计** | uni_mayu (Logo & Bot头像) / HX-Wrdzgzs (UI) |
+| **美术设计** | uni_mayu (Logo & Bot头像) |
 | **数据支持** | Te:River / HX-Wrdzgzs |
 | **软硬件支持** | Te:River / _清凛 / HX-Wrdzgzs |
 | **特别鸣谢** | MC_FanBuFan |
