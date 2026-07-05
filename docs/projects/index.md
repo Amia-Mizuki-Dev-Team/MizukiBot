@@ -41,26 +41,6 @@ Mizuki Bot 的表情包管理插件，支持本地图库、图片上传、删除
 
 <div class="mzk-card">
 
-### Help 插件
-
-面向 Mizuki Bot 帮助能力的插件项目。当前仓库未提供 README，文档站仅保留项目入口和维护提示。
-
-[查看项目说明](/projects/mizuki-plugin-help)
-
-</div>
-
-<div class="mzk-card">
-
-### 群管公告插件
-
-面向群管理和公告分发的插件项目。当前仓库未提供 README，文档站仅保留项目入口和维护提示。
-
-[查看项目说明](/projects/mizuki-plugin-group)
-
-</div>
-
-<div class="mzk-card">
-
 ### PJSK 车队广播
 
 面向 PJSK 车队场景的广播和协作插件。当前 README 信息较少，后续可补充使用说明和维护边界。
