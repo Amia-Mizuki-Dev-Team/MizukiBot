@@ -30,7 +30,7 @@ export default defineConfig({
       {
         text: '入门指南',
         items: [
-          { text: 'QQ 官方 Bot', link: '/usage' },
+          { text: '如何使用', link: '/usage' },
           { text: '问题反馈', link: '/feedback' }
         ]
       },
@@ -86,7 +86,7 @@ export default defineConfig({
         {
           text: '入门指南',
           items: [
-            { text: 'QQ 官方 Bot', link: '/usage' },
+            { text: '如何使用', link: '/usage' },
             { text: '问题反馈', link: '/feedback' }
           ]
         },
