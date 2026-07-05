@@ -10,20 +10,22 @@ export default {
 
     onMounted(() => {
       const quotes = [
-        "ボクは……ボクでいたいだけ。<br>我只是想做我自己。",
-        "秘密って、なんだかワクワクしない？<br>秘密，总会让人有点期待。",
-        "25時、ナイトコードで。<br>25 时，在 Nightcord 见。",
-        "かわいいは正義。<br>可爱即正义。"
+        'ボクは……ボクでいたいだけ。<br>我只是想做我自己。',
+        '秘密って、なんだかワクワクしない？<br>秘密，总会让人有点期待。',
+        '25時、ナイトコードで。<br>25 时，在 Nightcord 见。',
+        'かわいいは正義。<br>可爱即正义。'
       ]
       currentQuote.value = quotes[Math.floor(Math.random() * quotes.length)]
 
       nextTick(() => {
-        const links = ['/features/pjsk', '/features/tools', '/features/tools', '/features/minecraft', '/usage', '/recruiting']
+        const links = ['/features/pjsk', '/features/tools', '/features/minecraft', '/projects/', '/recruiting']
         document.querySelectorAll('.VPFeature').forEach((el, i) => {
           if (i < links.length) {
             el.setAttribute('role', 'link')
             el.setAttribute('tabindex', '0')
-            el.addEventListener('click', () => { window.location.href = links[i] })
+            el.addEventListener('click', () => {
+              window.location.href = links[i]
+            })
             el.addEventListener('keydown', event => {
               const keyboardEvent = event as KeyboardEvent
               if (keyboardEvent.key === 'Enter' || keyboardEvent.key === ' ') {
@@ -50,14 +52,14 @@ export default {
           }
         })
       } else {
-        document.documentElement.style.setProperty('--vp-layout-top-height', `0px`)
+        document.documentElement.style.setProperty('--vp-layout-top-height', '0px')
       }
     })
 
     const closeBanner = () => {
       showAnnouncement.value = false
       sessionStorage.setItem('hide_announcement', 'true')
-      document.documentElement.style.setProperty('--vp-layout-top-height', `0px`)
+      document.documentElement.style.setProperty('--vp-layout-top-height', '0px')
     }
 
     return h(DefaultTheme.Layout, null, {
