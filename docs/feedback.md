@@ -17,6 +17,6 @@ description: 遇到 Bug 或者有新功能建议？来这里提交反馈。
   </p>
   
   <a href="https://wrdzgzs2024.feishu.cn/share/base/form/shrcnAK9hJGLF40ga1frnQo7XLg" target="_blank" style="display: inline-block; background: #1890ff; color: white; padding: 12px 30px; border-radius: 25px; text-decoration: none; font-weight: bold; font-size: 16px; transition: opacity 0.2s;">
-    🚀 点击前往填写反馈
+    点击前往填写反馈
   </a>
 </div>
