@@ -30,8 +30,7 @@ export default defineConfig({
       {
         text: '入门指南',
         items: [
-          { text: '如何使用', link: '/usage' },
-          { text: '问题反馈', link: '/feedback' }
+          { text: 'QQ 官方 Bot', link: '/usage' }
         ]
       },
       {
@@ -54,8 +53,7 @@ export default defineConfig({
           { text: '用户使用协议', link: '/agreement' },
           { text: '群规与公告', link: '/rules' },
           { text: '提问的智慧', link: '/asking' },
-          { text: '赞助我们', link: '/sponsor' },
-          { text: '赞助榜名单', link: '/sponsor_list' }
+          { text: '赞助我们', link: '/sponsor' }
         ]
       },
       {
@@ -68,12 +66,15 @@ export default defineConfig({
       {
         text: '关联项目',
         items: [
-          { text: 'HX-Pjsk-Gateway', link: '/projects/hx-pjsk-gateway' },
-          { text: 'Mizuki Sync (已废弃)', link: '/projects/mizuki-sync' },
+          { text: '项目总览', link: '/projects/' },
           { text: 'Meme 表情插件', link: '/projects/mizuki-plugin-meme' },
-          { text: 'HAM 无线电日志', link: '/projects/mizuki-plugin-homo-qso' },
+          { text: '舞萌扩展插件', link: '/projects/mizuki-plugin-maimai-expand' },
+          { text: '经济系统插件', link: '/projects/mizuki-plugin-economy' },
+          { text: '群管公告插件', link: '/projects/mizuki-plugin-group' },
           { text: 'PJSK 车队广播', link: '/projects/mizuki-plugin-pjskcarteam' },
-          { text: '公告系统', link: '/projects/mizuki-plugin-group' }
+          { text: 'HAM 无线电日志', link: '/projects/mizuki-plugin-homo-qso' },
+          { text: 'MC 服务器项目', link: '/projects/mizuki-mc-server' },
+          { text: 'Sekai API', link: '/projects/mizuki-sekai-api-haruki' }
         ]
       }
     ],
@@ -83,8 +84,7 @@ export default defineConfig({
         {
           text: '入门指南',
           items: [
-            { text: '如何使用', link: '/usage' },
-            { text: '问题反馈', link: '/feedback' }
+            { text: 'QQ 官方 Bot', link: '/usage' }
           ]
         },
         {
@@ -107,8 +107,7 @@ export default defineConfig({
             { text: '用户使用协议', link: '/agreement' },
             { text: '群规与公告', link: '/rules' },
             { text: '提问的智慧', link: '/asking' },
-            { text: '赞助我们', link: '/sponsor' },
-            { text: '赞助榜名单', link: '/sponsor_list' }
+            { text: '赞助我们', link: '/sponsor' }
           ]
         },
         {
@@ -121,12 +120,15 @@ export default defineConfig({
         {
           text: '关联项目',
           items: [
-            { text: 'HX-Pjsk-Gateway', link: '/projects/hx-pjsk-gateway' },
-            { text: 'Mizuki Sync (已废弃)', link: '/projects/mizuki-sync' },
+            { text: '项目总览', link: '/projects/' },
             { text: 'Meme 表情插件', link: '/projects/mizuki-plugin-meme' },
-            { text: 'HAM 无线电日志', link: '/projects/mizuki-plugin-homo-qso' },
+            { text: '舞萌扩展插件', link: '/projects/mizuki-plugin-maimai-expand' },
+            { text: '经济系统插件', link: '/projects/mizuki-plugin-economy' },
+            { text: '群管公告插件', link: '/projects/mizuki-plugin-group' },
             { text: 'PJSK 车队广播', link: '/projects/mizuki-plugin-pjskcarteam' },
-            { text: '公告系统', link: '/projects/mizuki-plugin-group' }
+            { text: 'HAM 无线电日志', link: '/projects/mizuki-plugin-homo-qso' },
+            { text: 'MC 服务器项目', link: '/projects/mizuki-mc-server' },
+            { text: 'Sekai API', link: '/projects/mizuki-sekai-api-haruki' }
           ]
         }
       ]
