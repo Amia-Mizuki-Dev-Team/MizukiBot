@@ -1,185 +1,356 @@
 ---
 title: PJSK 专项功能
-description: PJSK 查分、查榜、组卡、猜歌等功能的用法说明。
+description: Project Sekai 查分、查榜、绑定、歌曲、卡牌、MySekai 与活动功能说明。
 ---
 
-# PJSK 模块功能
-::: warning 账号防丢指南
-**在进行账号上传或绑定操作前，请务必保存你的引继码与密码！**
-以免因意外情况、网络波动或平台风控导致游戏账号丢失。Bot 无法为您找回丢失的账号。
+# Project Sekai 专项功能
+
+Project Sekai 是 Mizuki Bot 最早开始研发的模块，也是目前功能和特性最多的模块。本页以 Sakura 功能清单为主参考，按使用场景重新整理；完整指令、别名和区服支持以 Bot 内帮助为准。
+
+::: warning 账号防丢提醒
+绑定或上传数据前，请先保存自己的引继码与密码。Bot 不能找回丢失账号。
 :::
 
-<p style="font-size: 14px; opacity: 0.8; margin-bottom: 25px; line-height: 1.8;">
-  <strong>🌐 多服务器前缀支持：</strong><br>
-  在大部分查分、查榜、绑定指令前添加特定前缀，即可跨服查询：<br>
-  <code>cn</code> (国服) | <code>tw</code> (台服) | <code>en</code> (国际服) | <code>kr</code> (韩服) | 不加前缀默认日服<br>
-  <em>（示例：<code>cn绑定</code>、<code>twsk</code>、<code>en逮捕</code>）</em>
-</p>
----
+## 基础规则
+
 <div class="mzk-card">
-  <h3>🔗 账号绑定与数据上传</h3>
-  <p>通过游戏 UID 进行绑定。绑定后默认为「不给看」模式，无法被其他人 @ 查询。</p>
 
-<div class="mzk-table-wrapper">
+### 区服前缀
 
-| 指令 | 说明 |
-| :--- | :--- |
-| `[前缀]绑定 [ID]` | 绑定指定服务器的 PJSK 游戏 ID |
-| `给看` / `不给看` | 开放或关闭他人逮捕/查询自己的权限 |
-
-</div>
-
-  <h4>📥 高级数据上传 (查榜/MySekai必备)</h4>
-  <p>部分进阶功能需上传数据至数据库才可使用。</p>
-
-<div class="mzk-table-wrapper">
-
-| 数据类型 | 上传说明 |
-| :--- | :--- |
-| **基础数据 (日/台等)** | 访问 <a href="http://go.mikuware.top" target="_blank" style="color:#39C5BB; font-weight:bold;">👉 数据上传页面</a> 获取 Suite。（日服玩家可直接私聊 Bot 发送引继码，需重新引继） |
-| **MySekai 数据** | 访问 <a href="https://haruki.seiunx.com/upload-data" target="_blank" style="color:#39C5BB; font-weight:bold;">👉 MySekai 数据上传页</a>。Android 推荐「Haruki工具箱」；iOS 推荐 MitM 代理模块。 |
-
-</div>
-</div>
-<div class="mzk-card">
-  <h3>📝 玩家信息、查分与 MySekai</h3>
-
-<div class="mzk-table-wrapper">
-
-| 指令 | 说明 |
-| :--- | :--- |
-| `个人信息` | 生成日服/默认账号的个人信息卡片图 |
-| `[前缀]个人信息` | 生成指定外服的个人信息卡片（如：`cn个人信息` 或 `cnpjskprofile`） |
-| `[前缀]逮捕 [@/ID]` | 查询目标 Ex/Ma/Apd 难度的 FC、AP 进度 |
-| `rk` | 获取玩家排位信息 |
-| `b39` | 获取 Rating 最高的 39 首歌与总分 (需上传数据，仅供参考) |
-| `pjsk b30` | 获取 Rating 最高的 30 首歌与平均分 (需上传数据，算法不同) |
-| `ms分析` / `msa2` | (MySekai) 分析现存材料情况 (msa2 为新版 UI) |
-| `ms地图 [1-4]` | (MySekai) 生成资源分布图 (1草原/2花田/3沙滩/4废墟) |
-| `ms照片 [序号]` | (MySekai) 下载用户在游戏内拍摄的照片 |
-
-</div>
-</div>
-<div class="mzk-card">
-  <h3>📈 高阶查榜与 PT 追踪</h3>
-  <p><strong>WL 活动特供：</strong> 在查榜指令前加 <code>wl</code>，并在末尾加 <code>-c [角色]</code> 可查单榜 (如：<code>wlsk 100 -c haruka</code>)。</p>
-
-<div class="mzk-table-wrapper">
-
-| 指令 | 说明 | 示例 |
-| :--- | :--- | :--- |
-| `sk [排名/ID]` | 查指定排名/玩家分数 (支持同时查最多7人) | `sk 100` |
-| `sk预测*` | 获取预测线信息 (仅日服单榜，不一定能获取到所有档线，数据源于33) | `sk预测` |
-| `查房 [排名]` | 查询特定排名最近 1 小时的活动情况 | `查房 50` |
-| `分数线 [排名]` | 查看本期活动中特定排名的分数趋势 | `分数线 1000` |
-| `时速 [分钟]` | 查各榜线特定时间内 PT 增长时速 (最大1440) | `时速 10` |
-| `半日速` / `日速` | 查看近半天 / 近一天各榜线的 PT 增长速度 | `日速` |
-| `追踪 [排1] [排2]` | 追踪目前特定排名在本期的 PT 与排名趋势 | `追踪 1 2` |
-
-</div>
-</div>
-<div class="mzk-card">
-  <h3>🎫 组卡与查卡推荐 (需上传数据)</h3>
-  
-<div class="mzk-table-wrapper">
-
-| 指令 | 说明 | 示例 |
-| :--- | :--- | :--- |
-| `组卡 [队名] [属性]` | 指定箱活中推荐最佳卡组 top7 (默认嫉妒ex)。队名含(ln/mmj/vbs/ws/25/vs)，属性含(绿/粉/橙/蓝/紫)。 | `组卡 ln 橙` |
-| `活动组卡 [歌名] [难度]` | 当前活动推荐最佳卡组 top7。不填默认嫉妒ex。WL活第一参数识别为角色。 | `活动组卡 龙 hard` |
-| `挑战组卡 [角色] [歌名] [难度]` | 每日挑战推荐最佳卡组 top7。 | `挑战组卡 ick 10th master` |
-| `最强组卡` | 返回您同色同队中分数最高的卡组 top7 (默认嫉妒ex)。不需要参数。 | `最强组卡` |
-
-</div>
-</div>
-<div class="mzk-card">
-  <h3>🎶 歌曲谱面与别名设置</h3>
-  <div class="mzk-alert">⚠️ 别名设置日志按日公示，违规乱设别名将被删词或封禁 Bot 使用权！</div>
-
-<div class="mzk-table-wrapper">
-
-| 指令 | 说明 |
-| :--- | :--- |
-| `pinfo [曲名]*` | 查询歌曲信息 |
-| `pjskbpm [曲名]*` | 查看当前歌曲的 BPM |
-| `查bpm [数字]*` | 查询对应 BPM 的所有歌曲 |
-| `查物量 [数字]*` | 查询所有歌曲难度中，谱面物量等于指定物量的歌曲及难度 |
-| `[歌名]谱面预览*` | 默认 master 难度。可加 <code>ex</code> 或 <code>apd</code> 前缀查看其他难度。 |
-| `[歌名]技能预览*` | 默认 master 难度。返回谱面技能分布及分数占比。 |
-| `难度排行*` | 格式：<code>难度排行 level [难度]</code>。可加 <code>fc/ap</code> 前缀。目前仅支持紫谱及早期红谱。 |
-| `musicset [新] to [旧]` | 设置歌曲全局昵称 (删除用 `musicdel [昵称]`) |
-| `charaset [新] to [旧]` | 设置角色全局昵称 (如: `charaset knd to 宵崎奏`) |
-| `grcharaset [新] to [旧]` | 设置**仅当前群可用**的角色昵称 |
-| `charalias [昵称]*` | 查看特定角色的所有已绑定昵称 |
-
-</div>
-</div>
-<div class="mzk-card mzk-card--pink">
-  <h3>🎫 卡牌与活动全能图鉴</h3>
-  
-<div class="mzk-table-wrapper">
-
-| 指令 | 说明 |
-| :--- | :--- |
-| `查卡 [角色/卡面ID]*` | 查角色所有卡牌，或查特定 ID 卡牌的详细信息 |
-| `card [编号]*` | 返回指定卡面图片 |
-| `cardinfo [编号]*` | 返回卡面基础信息（属性、技能、当期活动等） |
-| `活动总览*` | 返回当前所有活动的概要 (因图片较大，部分频道不可用) |
-| `查活动 [ID/关键字]*` | 查指定活动。支持单/多关键字精细筛选 (如 `查活动 草 5v5`、`查活动 knd 蓝`) |
-
-</div>
-</div>
-<div class="mzk-card mzk-card--green">
-  <h3>🎮 互动小游戏与 5v5 活动功能</h3>
-
-<div class="mzk-table-wrapper">
-
-| 指令 | 说明 |
-| :--- | :--- |
-| `5v5胜率 / 分数` | (5v5活动限定) 返回双方胜率/分数。 |
-| `tf启动` | (5v5活动限定) 送3次无偿火给绑定 ID 的用户。 |
-| `pjsk听歌识曲*` | 发送片段猜歌名/花名 (40s限时)。输入 <code>结束猜曲</code> 中断。 |
-| `pjsk猜卡面*` | 发送卡面局部截图猜角色 (40s限时)。输入 <code>结束猜卡面</code> 中断。 |
-| `pjsk抽卡*` | 格式：<code>pjsk抽卡/pjskXX连/pjsk反抽卡 [当期卡池编号]</code>。模拟抽卡体验。 |
-| `看 [角色]*` | 返回该角色随机卡图。 |
-| `随个 [组合] [level]*` | 返回随机指定等级歌曲 info。如果有组合名，会从该组合中随机。 |
-| `葱什么*` | 返回随机歌曲 info。 |
-
-</div>
-</div>
-
-## 指令示例
+用户数据相关功能可以加 `tw` / `cn` 前缀触发台服或国服对应功能。不加前缀时通常按默认区服处理。部分国服、台服功能有独立特性，具体以功能说明和 Bot 返回为准。
 
 <div class="cmd-examples">
 
-<div class="cmd-card">
-  <span class="cmd-pill">逮捕 @小明</span>
-  <span class="cmd-desc">查询目标 FC、AP 进度</span>
+<div class="cmd-card"><span class="cmd-pill">cn绑定 123456789</span><span class="cmd-desc">绑定国服账号</span></div>
+<div class="cmd-card"><span class="cmd-pill">tw个人信息</span><span class="cmd-desc">查看台服个人信息</span></div>
+<div class="cmd-card"><span class="cmd-pill">cn逮捕 @用户</span><span class="cmd-desc">查询国服进度</span></div>
+
 </div>
 
-<div class="cmd-card">
-  <span class="cmd-pill">sk 100</span>
-  <span class="cmd-desc">查榜线第 100 名的分数</span>
 </div>
 
-<div class="cmd-card">
-  <span class="cmd-pill">b39</span>
-  <span class="cmd-desc">Rating 最高的 39 首歌与总分</span>
+<div class="mzk-card">
+
+### @ 查询
+
+没有参数的用户数据功能通常可以被 @ 使用。查询他人前请注意对方是否开启 `给看`。
+
 </div>
 
-<div class="cmd-card">
-  <span class="cmd-pill">组卡 ln 橙</span>
-  <span class="cmd-desc">箱活 LN 橙色属性最佳卡组推荐</span>
+## 用户数据
+
+<div class="mzk-card">
+
+### 绑定与权限
+
+通过 `绑定 ID` 绑定账号。ID 可在游戏内个人信息页查看。绑定后默认为 `不给看`，无法被他人 @ 查询。
+
+已支持多 ID 绑定，可用 `切绑定` / `解绑` 管理默认 ID。
+
+<div class="cmd-examples">
+
+<div class="cmd-card"><span class="cmd-pill">绑定 123456789</span><span class="cmd-desc">绑定默认区服账号</span></div>
+<div class="cmd-card"><span class="cmd-pill">切绑定</span><span class="cmd-desc">切换默认绑定 ID</span></div>
+<div class="cmd-card"><span class="cmd-pill">解绑</span><span class="cmd-desc">管理已绑定账号</span></div>
+<div class="cmd-card"><span class="cmd-pill">给看 / 不给看</span><span class="cmd-desc">开放或关闭他人查询权限</span></div>
+
 </div>
 
-<div class="cmd-card">
-  <span class="cmd-pill">追踪 1 50</span>
-  <span class="cmd-desc">追踪第 1 名和第 50 名的 PT 趋势</span>
 </div>
 
-<div class="cmd-card">
-  <span class="cmd-pill">cn逮捕 100</span>
-  <span class="cmd-desc">使用 cn 前缀查询国服榜线</span>
+<div class="mzk-card">
+
+### 基础信息
+
+<div class="cmd-examples">
+
+<div class="cmd-card"><span class="cmd-pill">id</span><span class="cmd-desc">返回当前 QQ 号绑定 ID</span></div>
+<div class="cmd-card"><span class="cmd-pill">pjskprofile</span><span class="cmd-desc">获取个人信息图</span></div>
+<div class="cmd-card"><span class="cmd-pill">视奸</span><span class="cmd-desc">查看当前队伍综合力及构成</span></div>
+<div class="cmd-card"><span class="cmd-pill">查时间</span><span class="cmd-desc">查询当前绑定 ID 注册时间</span></div>
+
 </div>
+
+</div>
+
+<div class="mzk-card">
+
+### 进度与 Rating
+
+`逮捕` 可查询 Expert / Master 的 FC、AP 进度。上传数据后，可查询更完整的高难度 FC / AP、排位与统计信息。
+
+<div class="cmd-examples">
+
+<div class="cmd-card"><span class="cmd-pill">逮捕 @用户</span><span class="cmd-desc">查询 FC / AP 进度</span></div>
+<div class="cmd-card"><span class="cmd-pill">rk</span><span class="cmd-desc">获取玩家排位信息</span></div>
+<div class="cmd-card"><span class="cmd-pill">b39</span><span class="cmd-desc">查看 Rating 最高 39 首曲目</span></div>
+<div class="cmd-card"><span class="cmd-pill">pjsk b30</span><span class="cmd-desc">查看另一套 Rating 统计</span></div>
+
+</div>
+
+`b39` 和 `pjsk b30` 算法不同，仅供参考。
+
+</div>
+
+<div class="mzk-card">
+
+### b30 / b39 排除列表
+
+可将指定歌曲从当前绑定 ID 的 `b30` / `b39` 统计中排除，支持曲名或歌曲 ID。
+
+<div class="cmd-examples">
+
+<div class="cmd-card"><span class="cmd-pill">b30删歌 曲名</span><span class="cmd-desc">排除指定歌曲</span></div>
+<div class="cmd-card"><span class="cmd-pill">b30恢复歌 曲名</span><span class="cmd-desc">恢复被排除歌曲</span></div>
+<div class="cmd-card"><span class="cmd-pill">b30还原歌 曲名</span><span class="cmd-desc">恢复被排除歌曲</span></div>
+<div class="cmd-card"><span class="cmd-pill">b30删歌列表</span><span class="cmd-desc">查看当前排除列表</span></div>
+
+</div>
+
+</div>
+
+<div class="mzk-card">
+
+### 详细数据
+
+<div class="cmd-examples">
+
+<div class="cmd-card"><span class="cmd-pill">pjsk进度</span><span class="cmd-desc">查询 Master 完成情况</span></div>
+<div class="cmd-card"><span class="cmd-pill">pjsk进度ex</span><span class="cmd-desc">查询 Expert 完成情况</span></div>
+<div class="cmd-card"><span class="cmd-pill">pjsk进度apd</span><span class="cmd-desc">查询 Append 完成情况</span></div>
+<div class="cmd-card"><span class="cmd-pill">pjskdetail</span><span class="cmd-desc">获取个人详细信息</span></div>
+<div class="cmd-card"><span class="cmd-pill">pjskcard</span><span class="cmd-desc">获取个人卡牌图鉴</span></div>
+<div class="cmd-card"><span class="cmd-pill">pjskevent</span><span class="cmd-desc">获取个人活动记录</span></div>
+
+</div>
+
+`pjsk进度` 支持 AP、FC、Clear、All 状态统计；Expert / Append 可分别使用 `pjsk进度ex` 和 `pjsk进度apd`。`pjskdetail` 可能包含金币、水晶、家具练度、每日挑战进度等信息，介意公开展示时建议私聊查询。`pjskcard` 可追加角色花名查看单角色图鉴。
+
+</div>
+
+## 数据上传
+
+<div class="mzk-card">
+
+上传数据后，可使用查榜、Rating、组卡、MySekai 等进阶功能。
+
+- 日服 / 台服：进入上传页面查看教程。
+- 日服：可直接把引继信息复制给 Bot 完成上传，需要重新引继一次。
+- 上传 suite 后，可查询上传时的数据；后续说明不再重复标注。
+
+</div>
+
+## MySekai
+
+<div class="mzk-card">
+
+上传 MySekai 数据后可使用以下功能。当前仅 JP 完整支持；TW / CN 目前仅预留指令入口，上传接口和完整业务逻辑尚未实现。
+
+<div class="cmd-examples">
+
+<div class="cmd-card"><span class="cmd-pill">msg / msgate</span><span class="cmd-desc">查询 gate 升级材料与进度</span></div>
+<div class="cmd-card"><span class="cmd-pill">msf</span><span class="cmd-desc">查看家具列表或详情</span></div>
+<div class="cmd-card"><span class="cmd-pill">msr / msmap / msa</span><span class="cmd-desc">查询资源与地图总览</span></div>
+<div class="cmd-card"><span class="cmd-pill">msp / mysekai照片</span><span class="cmd-desc">查看照片列表或指定照片</span></div>
+<div class="cmd-card"><span class="cmd-pill">msm / mss / mssong</span><span class="cmd-desc">查询音乐记录与收藏</span></div>
+
+</div>
+
+补充：`msgate` 可带 gateId；`msmap` 可带 `all` 显示全部资源；`msp -1` 可查看最新一张照片。
+
+</div>
+
+## 组卡
+
+<div class="mzk-card">
+
+### 活动组卡
+
+组卡功能需要上传数据。结果按活动点数或分数排序，返回推荐卡组 top7。
+
+<div class="cmd-examples">
+
+<div class="cmd-card"><span class="cmd-pill">组卡 ln 橙</span><span class="cmd-desc">指定队伍和属性组卡</span></div>
+<div class="cmd-card"><span class="cmd-pill">活动组卡 龙 hard</span><span class="cmd-desc">按当前活动组卡</span></div>
+<div class="cmd-card"><span class="cmd-pill">活动组卡 角色=ick 10th master</span><span class="cmd-desc">指定队长或角色参数</span></div>
+<div class="cmd-card"><span class="cmd-pill">挑战组卡 ick 10th master</span><span class="cmd-desc">每日挑战组卡</span></div>
+<div class="cmd-card"><span class="cmd-pill">最强组卡</span><span class="cmd-desc">查看同色同队高分卡组</span></div>
+
+</div>
+
+常用队伍：`ln`、`mmj`、`vbs`、`ws`、`25`、`vs`。常用属性：绿、粉、橙、蓝、紫。
+
+</div>
+
+## 活动与查榜
+
+<div class="mzk-card">
+
+### 活动排名
+
+<div class="cmd-examples">
+
+<div class="cmd-card"><span class="cmd-pill">sk 100</span><span class="cmd-desc">查询活动排名或档线</span></div>
+<div class="cmd-card"><span class="cmd-pill">sk预测</span><span class="cmd-desc">查看预测线，仅日服单榜</span></div>
+<div class="cmd-card"><span class="cmd-pill">分数线 1000</span><span class="cmd-desc">查看指定排名分数趋势</span></div>
+<div class="cmd-card"><span class="cmd-pill">sk线 1000</span><span class="cmd-desc">同类档线查询</span></div>
+<div class="cmd-card"><span class="cmd-pill">查房 100</span><span class="cmd-desc">查看最近一小时活动情况</span></div>
+
+</div>
+
+`sk预测` 数据源于 33，不一定能覆盖全部档线。档线数据可能有延迟。
+
+</div>
+
+<div class="mzk-card">
+
+### 时速与 WL
+
+<div class="cmd-examples">
+
+<div class="cmd-card"><span class="cmd-pill">ss</span><span class="cmd-desc">查看当前档线时速</span></div>
+<div class="cmd-card"><span class="cmd-pill">wlss 角色</span><span class="cmd-desc">查看角色单榜时速</span></div>
+<div class="cmd-card"><span class="cmd-pill">wlsk 100 -c haruka</span><span class="cmd-desc">查询 WL 角色单榜</span></div>
+
+</div>
+
+`wlss` 暂时为日服限定。`ss` 与 `wlss` 的速度计算以 Bot 当前实现为准。
+
+</div>
+
+## 歌曲与谱面
+
+<div class="mzk-card">
+
+### 歌曲资料
+
+<div class="cmd-examples">
+
+<div class="cmd-card"><span class="cmd-pill">pinfo 曲名</span><span class="cmd-desc">查询歌曲信息</span></div>
+<div class="cmd-card"><span class="cmd-pill">活动 86</span><span class="cmd-desc">查询指定活动</span></div>
+<div class="cmd-card"><span class="cmd-pill">findevent help</span><span class="cmd-desc">查看活动筛选说明</span></div>
+<div class="cmd-card"><span class="cmd-pill">查bpm 180</span><span class="cmd-desc">按 BPM 查询歌曲</span></div>
+<div class="cmd-card"><span class="cmd-pill">查物量 1000</span><span class="cmd-desc">按谱面物量查询</span></div>
+
+</div>
+
+</div>
+
+<div class="mzk-card">
+
+### 谱面与难度
+
+<div class="cmd-examples">
+
+<div class="cmd-card"><span class="cmd-pill">难度排行 level 31</span><span class="cmd-desc">查看定数排行</span></div>
+<div class="cmd-card"><span class="cmd-pill">fc难度排行 level 31</span><span class="cmd-desc">查看 FC 难度排行</span></div>
+<div class="cmd-card"><span class="cmd-pill">曲名谱面预览</span><span class="cmd-desc">查看 Master 谱面</span></div>
+<div class="cmd-card"><span class="cmd-pill">曲名ex谱面预览</span><span class="cmd-desc">查看 Expert 谱面</span></div>
+<div class="cmd-card"><span class="cmd-pill">曲名apd谱面预览</span><span class="cmd-desc">查看 Append 谱面</span></div>
+<div class="cmd-card"><span class="cmd-pill">曲名技能预览</span><span class="cmd-desc">查看技能分布与分数占比</span></div>
+
+</div>
+
+定数目前主要支持紫谱与早期红谱。2023-02-20 之后的歌曲定数以 AP 难度为准。
+
+</div>
+
+## 卡牌与角色
+
+<div class="mzk-card">
+
+### 卡牌查询
+
+<div class="cmd-examples">
+
+<div class="cmd-card"><span class="cmd-pill">findcard 25 紫</span><span class="cmd-desc">按条件查卡</span></div>
+<div class="cmd-card"><span class="cmd-pill">查卡 宵崎奏</span><span class="cmd-desc">查询角色卡牌</span></div>
+<div class="cmd-card"><span class="cmd-pill">card 123</span><span class="cmd-desc">返回指定卡面图片</span></div>
+<div class="cmd-card"><span class="cmd-pill">cardinfo 123</span><span class="cmd-desc">查看卡牌基础信息</span></div>
+
+</div>
+
+`findcard` 最多支持 3 个参数，可按队伍、角色、稀有度、属性筛选。
+
+</div>
+
+<div class="mzk-card">
+
+### 角色与别名
+
+<div class="cmd-examples">
+
+<div class="cmd-card"><span class="cmd-pill">charinfo 宵崎奏</span><span class="cmd-desc">查询角色花名</span></div>
+<div class="cmd-card"><span class="cmd-pill">pset 新 to 旧</span><span class="cmd-desc">设置歌曲花名</span></div>
+<div class="cmd-card"><span class="cmd-pill">pdel 昵称</span><span class="cmd-desc">删除歌曲花名</span></div>
+<div class="cmd-card"><span class="cmd-pill">charset 新 to 旧</span><span class="cmd-desc">设置角色花名</span></div>
+<div class="cmd-card"><span class="cmd-pill">chardel 昵称</span><span class="cmd-desc">删除角色花名</span></div>
+
+</div>
+
+</div>
+
+## 5v5 与活动辅助
+
+<div class="mzk-card">
+
+5v5 相关功能仅在对应活动期间有意义，部分功能可能临时不可用或存在限制。
+
+<div class="cmd-examples">
+
+<div class="cmd-card"><span class="cmd-pill">5v5胜率</span><span class="cmd-desc">查看双方队伍胜率</span></div>
+<div class="cmd-card"><span class="cmd-pill">5v5分数</span><span class="cmd-desc">查看双方结算分数</span></div>
+<div class="cmd-card"><span class="cmd-pill">tf启动</span><span class="cmd-desc">给绑定 ID 用户送火</span></div>
+
+</div>
+
+</div>
+
+## 轻量互动
+
+<div class="mzk-card">
+
+这些功能用于群内娱乐和随机推荐，不影响游戏账号数据。
+
+<div class="cmd-examples">
+
+<div class="cmd-card"><span class="cmd-pill">pjsk听歌识曲</span><span class="cmd-desc">听片段猜歌，可用结束猜曲中断</span></div>
+<div class="cmd-card"><span class="cmd-pill">pjsk猜卡面</span><span class="cmd-desc">看局部猜角色，可用结束猜卡面中断</span></div>
+<div class="cmd-card"><span class="cmd-pill">pjsk抽卡 123</span><span class="cmd-desc">按卡池编号模拟抽卡</span></div>
+<div class="cmd-card"><span class="cmd-pill">看 宵崎奏</span><span class="cmd-desc">返回该角色随机卡图</span></div>
+<div class="cmd-card"><span class="cmd-pill">随个 31</span><span class="cmd-desc">随机指定等级歌曲</span></div>
+<div class="cmd-card"><span class="cmd-pill">葱什么</span><span class="cmd-desc">返回随机歌曲信息</span></div>
+
+</div>
+
+</div>
+
+## 订阅与推送
+
+<div class="mzk-card">
+
+群主或管理员可以为当前群开启或关闭结活 live 通知。每天 10 点还会检测是否有更新；如果有更新，会推送到订阅群聊。
+
+<div class="cmd-examples">
+
+<div class="cmd-card"><span class="cmd-pill">开启live订阅</span><span class="cmd-desc">开启结活 live 通知</span></div>
+<div class="cmd-card"><span class="cmd-pill">开启live推送</span><span class="cmd-desc">兼容写法</span></div>
+<div class="cmd-card"><span class="cmd-pill">开启live通知</span><span class="cmd-desc">兼容写法</span></div>
+<div class="cmd-card"><span class="cmd-pill">关闭live订阅</span><span class="cmd-desc">关闭当前群订阅</span></div>
+
+</div>
+
+</div>
+
+## 使用建议
+
+<div class="mzk-card">
+
+- 查自己：先 `绑定 ID`，再用 `pjskprofile` 或 `pjskdetail`。
+- 查他人：确认对方已 `给看`，再 @ 查询。
+- 查榜线：用 `sk`、`分数线`、`ss`、`查房`。
+- 查歌曲：用 `pinfo`、`查bpm`、`查物量`、`谱面预览`。
+- 查卡牌：用 `findcard`、`card`、`cardinfo`。
+- 组卡与 MySekai：先上传数据，再使用对应功能。
 
 </div>
