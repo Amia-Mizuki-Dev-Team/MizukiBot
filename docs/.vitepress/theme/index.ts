@@ -18,7 +18,14 @@ export default {
       currentQuote.value = quotes[Math.floor(Math.random() * quotes.length)]
 
       nextTick(() => {
-        const links = ['/features/pjsk', '/features/tools', '/features/minecraft', '/projects/', '/recruiting']
+        const links = [
+          '/features/pjsk',
+          '/features/economy',
+          '/features/tools',
+          '/features/minecraft',
+          '/features/bot_update',
+          '/projects/'
+        ]
         document.querySelectorAll('.VPFeature').forEach((el, i) => {
           if (i < links.length) {
             el.setAttribute('role', 'link')
