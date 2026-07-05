@@ -226,6 +226,156 @@ MySekai 功能依赖 MySekai 数据上传。当前 JP 支持最完整；TW / CN 
 - `开启live通知`
 - `关闭live订阅`
 
+## 指令示例
+
+<style scoped>
+.pjsk-demo-grid {
+  display: grid;
+  gap: 18px;
+  margin: 18px 0 28px;
+}
+.pjsk-demo-card {
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 18px;
+  background: var(--vp-c-bg-soft);
+  padding: 18px 18px 20px;
+}
+.pjsk-demo-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+.pjsk-demo-row.user {
+  justify-content: flex-end;
+  margin-bottom: 16px;
+}
+.pjsk-demo-row.bot {
+  justify-content: flex-start;
+}
+.pjsk-demo-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--vp-c-brand-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: var(--vp-c-brand-1);
+  flex: 0 0 auto;
+}
+.pjsk-demo-bubble {
+  max-width: 76%;
+  border-radius: 14px;
+  padding: 10px 14px;
+  line-height: 1.7;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+  word-break: break-word;
+}
+.pjsk-demo-row.user .pjsk-demo-bubble {
+  background: var(--vp-c-brand-soft);
+  color: var(--vp-c-brand-1);
+}
+.pjsk-demo-row.bot .pjsk-demo-bubble {
+  background: var(--vp-c-bg);
+}
+@media (min-width: 720px) {
+  .pjsk-demo-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+</style>
+
+<div class="pjsk-demo-grid">
+  <div class="pjsk-demo-card">
+    <div class="pjsk-demo-row user">
+      <div class="pjsk-demo-bubble">/绑定 123456789</div>
+      <div class="pjsk-demo-avatar">我</div>
+    </div>
+    <div class="pjsk-demo-row bot">
+      <div class="pjsk-demo-avatar">Bot</div>
+      <div class="pjsk-demo-bubble">[已绑定该 Project Sekai 账号]</div>
+    </div>
+  </div>
+
+  <div class="pjsk-demo-card">
+    <div class="pjsk-demo-row user">
+      <div class="pjsk-demo-bubble">/个人信息</div>
+      <div class="pjsk-demo-avatar">我</div>
+    </div>
+    <div class="pjsk-demo-row bot">
+      <div class="pjsk-demo-avatar">Bot</div>
+      <div class="pjsk-demo-bubble">[当前绑定账号的个人信息图]</div>
+    </div>
+  </div>
+
+  <div class="pjsk-demo-card">
+    <div class="pjsk-demo-row user">
+      <div class="pjsk-demo-bubble">/sk线</div>
+      <div class="pjsk-demo-avatar">我</div>
+    </div>
+    <div class="pjsk-demo-row bot">
+      <div class="pjsk-demo-avatar">Bot</div>
+      <div class="pjsk-demo-bubble">[当期活动各排名的分数线]</div>
+    </div>
+  </div>
+
+  <div class="pjsk-demo-card">
+    <div class="pjsk-demo-row user">
+      <div class="pjsk-demo-bubble">/查曲 六兆年</div>
+      <div class="pjsk-demo-avatar">我</div>
+    </div>
+    <div class="pjsk-demo-row bot">
+      <div class="pjsk-demo-avatar">Bot</div>
+      <div class="pjsk-demo-bubble">[匹配到的歌曲详情]</div>
+    </div>
+  </div>
+
+  <div class="pjsk-demo-card">
+    <div class="pjsk-demo-row user">
+      <div class="pjsk-demo-bubble">/查卡 25h</div>
+      <div class="pjsk-demo-avatar">我</div>
+    </div>
+    <div class="pjsk-demo-row bot">
+      <div class="pjsk-demo-avatar">Bot</div>
+      <div class="pjsk-demo-bubble">[25h 所属卡牌的列表]</div>
+    </div>
+  </div>
+
+  <div class="pjsk-demo-card">
+    <div class="pjsk-demo-row user">
+      <div class="pjsk-demo-bubble">/卡牌列表 mmj 4</div>
+      <div class="pjsk-demo-avatar">我</div>
+    </div>
+    <div class="pjsk-demo-row bot">
+      <div class="pjsk-demo-avatar">Bot</div>
+      <div class="pjsk-demo-bubble">[包含所有 mmj 四星卡牌的卡牌列表]</div>
+    </div>
+  </div>
+
+  <div class="pjsk-demo-card">
+    <div class="pjsk-demo-row user">
+      <div class="pjsk-demo-bubble">/bjsk 1-5</div>
+      <div class="pjsk-demo-avatar">我</div>
+    </div>
+    <div class="pjsk-demo-row bot">
+      <div class="pjsk-demo-avatar">Bot</div>
+      <div class="pjsk-demo-bubble">[当前烤森百景 1 到 5 名的投稿与评价数据]</div>
+    </div>
+  </div>
+
+  <div class="pjsk-demo-card">
+    <div class="pjsk-demo-row user">
+      <div class="pjsk-demo-bubble">/组卡 ln 橙</div>
+      <div class="pjsk-demo-avatar">我</div>
+    </div>
+    <div class="pjsk-demo-row bot">
+      <div class="pjsk-demo-avatar">Bot</div>
+      <div class="pjsk-demo-bubble">[按队伍与属性生成的组卡结果]</div>
+    </div>
+  </div>
+</div>
+
 ## 使用建议
 
 - 查自己：先 `绑定 ID`，再用 `pjskprofile`、`个人信息` 或 `pjskdetail`。
