@@ -71,9 +71,7 @@ export default defineConfig({
           { text: 'Meme 表情插件', link: '/projects/mizuki-plugin-meme' },
           { text: 'LXNS B50', link: '/projects/lxns-b50' },
           { text: 'PJSK 车队广播', link: '/projects/mizuki-plugin-pjskcarteam' },
-          { text: 'HAM 无线电日志', link: '/projects/mizuki-plugin-homo-qso' },
-          { text: 'Auto Markdown', link: '/projects/mizuki-plugin-auto-markdown' },
-          { text: 'MC 服务器项目', link: '/projects/mizuki-mc-server' }
+          { text: 'HAM 无线电日志', link: '/projects/mizuki-plugin-homo-qso' }
         ]
       }
     ],
@@ -124,9 +122,7 @@ export default defineConfig({
             { text: 'Meme 表情插件', link: '/projects/mizuki-plugin-meme' },
             { text: 'LXNS B50', link: '/projects/lxns-b50' },
             { text: 'PJSK 车队广播', link: '/projects/mizuki-plugin-pjskcarteam' },
-            { text: 'HAM 无线电日志', link: '/projects/mizuki-plugin-homo-qso' },
-            { text: 'Auto Markdown', link: '/projects/mizuki-plugin-auto-markdown' },
-            { text: 'MC 服务器项目', link: '/projects/mizuki-mc-server' }
+            { text: 'HAM 无线电日志', link: '/projects/mizuki-plugin-homo-qso' }
           ]
         }
       ]
