@@ -16,7 +16,7 @@
   </div>
   <div class="mzk-dev-card">
     <img src="/Picture/Sirius.jpg" style="width: 70px; height: 70px; border-radius: 50%; border: 2px solid #ccc; object-fit: cover; margin: 0 auto;">
-    <h4 style="margin: 10px 0 5px; font-size: 1rem;">Sirius</h4>
+    <h4 style="margin: 10px 0 5px; font-size: 1rem;">_清凛</h4>
     <span style="font-size: 12px; opacity: 0.6; font-weight: bold; display:block; margin-bottom: 5px;">硬件支持</span>
     <details style="font-size: 12px; opacity: 0.8;"><summary>介绍</summary><p>提供硬件技术支持<br>物理链路维护</p></details>
   </div>
@@ -48,18 +48,17 @@
 
 | 项目 | 贡献者 / 内容 |
 | :--- | :--- |
-| **底层框架** | Nonebot / Haruki NEO / HongXingOS |
+| **底层框架** | Nonebot / Haruki NEO / HongXingOS7 |
 | **网站设计** | Te:River / HX-Wrdzgzs / uni_mayu |
 | **美术设计** | uni_mayu (Logo & Bot头像) / HX-Wrdzgzs (UI) |
 | **数据支持** | Te:River / HX-Wrdzgzs |
-| **软硬件支持** | Te:River / Sirius / HX-Wrdzgzs |
+| **软硬件支持** | Te:River / _清凛 / HX-Wrdzgzs |
 | **特别鸣谢** | MC_FanBuFan |
 
 </div>
 </div>
 <div style="font-size: 0.9rem; opacity: 0.8; background: var(--vp-c-bg-soft); padding: 15px; border-radius: 8px; border-left: 3px solid #666;">
   <strong>系统框架</strong><br>
-  运行于 <strong>HongXing OS6 (6月更新)</strong><br>
+  运行于 <strong>HongXingOS7</strong><br>
   由 <strong>HongXing (Nanjing) Dev Team</strong> 开发
 </div>
-
