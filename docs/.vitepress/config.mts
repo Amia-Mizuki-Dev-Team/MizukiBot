@@ -30,7 +30,8 @@ export default defineConfig({
       {
         text: '入门指南',
         items: [
-          { text: 'QQ 官方 Bot', link: '/usage' }
+          { text: 'QQ 官方 Bot', link: '/usage' },
+          { text: '问题反馈', link: '/feedback' }
         ]
       },
       {
@@ -68,13 +69,13 @@ export default defineConfig({
         items: [
           { text: '项目总览', link: '/projects/' },
           { text: 'Meme 表情插件', link: '/projects/mizuki-plugin-meme' },
-          { text: '舞萌扩展插件', link: '/projects/mizuki-plugin-maimai-expand' },
-          { text: '经济系统插件', link: '/projects/mizuki-plugin-economy' },
+          { text: 'LXNS B50', link: '/projects/lxns-b50' },
+          { text: 'Help 插件', link: '/projects/mizuki-plugin-help' },
           { text: '群管公告插件', link: '/projects/mizuki-plugin-group' },
           { text: 'PJSK 车队广播', link: '/projects/mizuki-plugin-pjskcarteam' },
           { text: 'HAM 无线电日志', link: '/projects/mizuki-plugin-homo-qso' },
-          { text: 'MC 服务器项目', link: '/projects/mizuki-mc-server' },
-          { text: 'Sekai API', link: '/projects/mizuki-sekai-api-haruki' }
+          { text: 'Auto Markdown', link: '/projects/mizuki-plugin-auto-markdown' },
+          { text: 'MC 服务器项目', link: '/projects/mizuki-mc-server' }
         ]
       }
     ],
@@ -84,7 +85,8 @@ export default defineConfig({
         {
           text: '入门指南',
           items: [
-            { text: 'QQ 官方 Bot', link: '/usage' }
+            { text: 'QQ 官方 Bot', link: '/usage' },
+            { text: '问题反馈', link: '/feedback' }
           ]
         },
         {
@@ -122,13 +124,13 @@ export default defineConfig({
           items: [
             { text: '项目总览', link: '/projects/' },
             { text: 'Meme 表情插件', link: '/projects/mizuki-plugin-meme' },
-            { text: '舞萌扩展插件', link: '/projects/mizuki-plugin-maimai-expand' },
-            { text: '经济系统插件', link: '/projects/mizuki-plugin-economy' },
+            { text: 'LXNS B50', link: '/projects/lxns-b50' },
+            { text: 'Help 插件', link: '/projects/mizuki-plugin-help' },
             { text: '群管公告插件', link: '/projects/mizuki-plugin-group' },
             { text: 'PJSK 车队广播', link: '/projects/mizuki-plugin-pjskcarteam' },
             { text: 'HAM 无线电日志', link: '/projects/mizuki-plugin-homo-qso' },
-            { text: 'MC 服务器项目', link: '/projects/mizuki-mc-server' },
-            { text: 'Sekai API', link: '/projects/mizuki-sekai-api-haruki' }
+            { text: 'Auto Markdown', link: '/projects/mizuki-plugin-auto-markdown' },
+            { text: 'MC 服务器项目', link: '/projects/mizuki-mc-server' }
           ]
         }
       ]
