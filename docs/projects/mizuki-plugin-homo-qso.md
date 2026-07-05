@@ -7,10 +7,6 @@ description: Mizuki Bot 无线电日志插件，HAM 通联记录管理工具。
 
 > 无线电日志 (QSO) 通联管理插件，支持呼号注册、通联记录、中继查询等功能。
 
-## 仓库
-
-- GitHub: [MizukiBot-Develop/Mizuki-plugin-homo-qso](https://github.com/MizukiBot-Develop/Mizuki-plugin-homo-qso)
-
 ## 功能特性
 
 - 呼号注册与管理
