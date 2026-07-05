@@ -7,10 +7,6 @@ description: QQ 官方机器人环境下的真实 QQ 号绑定插件，依赖 Ge
 
 Mizuki Plugin QBind 是 Mizuki 官方 Bot 环境下的账号绑定插件。它用于解决 QQ 官方机器人场景中 `event.get_user_id()` 不等于真实 QQ 号的问题，通过 `qbind` / `qunbind` 指令建立会话 ID 与真实 QQ 号的映射。
 
-## 仓库
-
-- GitHub: [HX-Wrdzgzs/Mizuki-plugin-qbind](https://github.com/HX-Wrdzgzs/Mizuki-plugin-qbind)
-
 ## 项目定位
 
 这个插件属于官方 Bot 基础设施，不面向普通功能展示。它会在全局预处理阶段检查用户是否已绑定；未绑定用户只能使用绑定相关指令，其他功能会被拦截并提示先完成绑定。
