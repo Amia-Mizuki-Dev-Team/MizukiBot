@@ -1,6 +1,6 @@
 # Mizuki Bot Help Documentation
 
-MizukiBot-Develop/MizukiBot 是 [Mizuki Bot 帮助文档](https://help.mizuki.top) 的源码仓库。
+Amia-Mizuki-Dev-Team/MizukiBot 是 [Mizuki Bot 帮助文档](https://help.mizuki.top) 的源码仓库。
 
 它承载 Mizuki Bot 的用户文档、功能说明、使用规范、更新公告和关联项目介绍。站点基于 [VitePress](https://vitepress.dev/) 构建，通过 GitHub Actions 与 Cloudflare Pages 自动部署。
 
@@ -37,7 +37,7 @@ MizukiBot-Develop/MizukiBot 是 [Mizuki Bot 帮助文档](https://help.mizuki.to
 
 ## 开发团队
 
+- Amia-Mizuki Dev Team
 - HongXing (Jiangsu) Dev Team
-- Mizuki Dev Team
 
-© 2021-2026 MizukiBot Team. All rights reserved.
+© 2021-2026 Amia-Mizuki Dev Team. All rights reserved.
