@@ -36,7 +36,7 @@ const organizationStructuredData = {
   url: `${siteUrl}/`,
   logo: `${siteUrl}/Picture/avatar.jpg`,
   sameAs: [
-    'https://github.com/MizukiBot-Develop/MizukiBot'
+    'https://github.com/Amia-Mizuki-Dev-Team/MizukiBot'
   ]
 }
 
