@@ -184,15 +184,15 @@ export default defineConfig({
         text: '关联项目',
         items: [
           { text: '项目总览', link: '/projects/' },
-          { text: 'Mizuki Sync Android', link: '/projects/mizuki-sync' },
+          { text: 'Amia Sync Android', link: '/projects/mizuki-sync' },
           { text: 'HX-Pjsk-Gateway', link: '/projects/hx-pjsk-gateway' },
-          { text: 'Mizuki Economy', link: '/features/economy' },
-          { text: 'QBind 绑定插件', link: '/projects/mizuki-plugin-qbind' },
+          { text: 'Amia Economy', link: '/features/economy' },
+          { text: 'QBind 绑定插件', link: '/projects/amia-plugin-qbind' },
           { text: 'Gensokyo NewQQ', link: '/projects/gensokyo-newqq' },
           { text: 'LXNS B50', link: '/projects/lxns-b50' },
-          { text: 'Meme 表情插件', link: '/projects/mizuki-plugin-meme' },
-          { text: 'PJSK 车队广播', link: '/projects/mizuki-plugin-pjskcarteam' },
-          { text: 'HAM 无线电日志', link: '/projects/mizuki-plugin-homo-qso' }
+          { text: 'Meme 表情插件', link: '/projects/amia-plugin-meme' },
+          { text: 'PJSK 车队广播', link: '/projects/amia-plugin-pjskcarteam' },
+          { text: 'HAM 无线电日志', link: '/projects/amia-plugin-homo-qso' }
         ]
       }
     ],
@@ -240,15 +240,15 @@ export default defineConfig({
           text: '关联项目',
           items: [
             { text: '项目总览', link: '/projects/' },
-            { text: 'Mizuki Sync Android', link: '/projects/mizuki-sync' },
+            { text: 'Amia Sync Android', link: '/projects/mizuki-sync' },
             { text: 'HX-Pjsk-Gateway', link: '/projects/hx-pjsk-gateway' },
-            { text: 'Mizuki Economy', link: '/features/economy' },
-            { text: 'QBind 绑定插件', link: '/projects/mizuki-plugin-qbind' },
+            { text: 'Amia Economy', link: '/features/economy' },
+            { text: 'QBind 绑定插件', link: '/projects/amia-plugin-qbind' },
             { text: 'Gensokyo NewQQ', link: '/projects/gensokyo-newqq' },
             { text: 'LXNS B50', link: '/projects/lxns-b50' },
-            { text: 'Meme 表情插件', link: '/projects/mizuki-plugin-meme' },
-            { text: 'PJSK 车队广播', link: '/projects/mizuki-plugin-pjskcarteam' },
-            { text: 'HAM 无线电日志', link: '/projects/mizuki-plugin-homo-qso' }
+            { text: 'Meme 表情插件', link: '/projects/amia-plugin-meme' },
+            { text: 'PJSK 车队广播', link: '/projects/amia-plugin-pjskcarteam' },
+            { text: 'HAM 无线电日志', link: '/projects/amia-plugin-homo-qso' }
           ]
         }
       ]
