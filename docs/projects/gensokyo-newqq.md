@@ -53,4 +53,4 @@ Gensokyo NewQQ 是 Mizuki 官方 Bot 使用的 QQ 官方机器人客户端与协
 
 Gensokyo NewQQ 是 QBind 插件的底层依赖之一。相关说明见：
 
-[Mizuki Plugin QBind](/projects/mizuki-plugin-qbind)
+[Amia Plugin QBind](/projects/amia-plugin-qbind)
