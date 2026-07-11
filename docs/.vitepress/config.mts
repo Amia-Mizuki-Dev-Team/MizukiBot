@@ -2,7 +2,7 @@ import { defineConfig } from 'vitepress'
 
 const siteUrl = 'https://help.mizuki.top'
 const siteName = 'Mizuki Bot 帮助文档'
-const siteDescription = 'Mizuki Bot 官方帮助文档，提供 PJSK、舞萌 DX、中二节奏、经济系统、表情包、群聊公告、欢迎提示、活动统计、Minecraft 服务器和关联项目说明。'
+const siteDescription = 'Mizuki Bot 官方帮助文档，提供 PJSK、舞萌 DX、中二节奏、经济系统、群聊工具、Minecraft 服务器和关联项目说明。'
 const siteImage = `${siteUrl}/Picture/banner.jpg`
 const siteLogo = `${siteUrl}/Picture/logo.gif`
 
@@ -14,6 +14,14 @@ const mainSections = [
   { name: 'Mizuki 25时经济系统', url: `${siteUrl}/features/economy` },
   { name: '通用工具与群聊能力', url: `${siteUrl}/features/tools` },
   { name: '关联项目', url: `${siteUrl}/projects/` }
+]
+
+const relatedProjects = [
+  { text: '项目总览', link: '/projects/' },
+  { text: 'Amia-plugin-maimaidx', link: '/projects/amia-plugin-maimaidx' },
+  { text: 'Amia Sync Android', link: '/projects/mizuki-sync' },
+  { text: 'HX-Pjsk-Gateway', link: '/projects/hx-pjsk-gateway' },
+  { text: 'Gensokyo NewQQ', link: '/projects/gensokyo-newqq' }
 ]
 
 const websiteStructuredData = {
@@ -113,14 +121,7 @@ const nav = [
   },
   {
     text: '关联项目',
-    items: [
-      { text: '项目总览', link: '/projects/' },
-      { text: 'Amia Sync Android', link: '/projects/mizuki-sync' },
-      { text: 'HX-Pjsk-Gateway', link: '/projects/hx-pjsk-gateway' },
-      { text: 'Amia Economy', link: '/features/economy' },
-      { text: 'Gensokyo NewQQ', link: '/projects/gensokyo-newqq' },
-      { text: 'LXNS B50', link: '/projects/lxns-b50' }
-    ]
+    items: relatedProjects
   }
 ]
 
@@ -164,14 +165,7 @@ const sidebar = [
   },
   {
     text: '关联项目',
-    items: [
-      { text: '项目总览', link: '/projects/' },
-      { text: 'Amia Sync Android', link: '/projects/mizuki-sync' },
-      { text: 'HX-Pjsk-Gateway', link: '/projects/hx-pjsk-gateway' },
-      { text: 'Amia Economy', link: '/features/economy' },
-      { text: 'Gensokyo NewQQ', link: '/projects/gensokyo-newqq' },
-      { text: 'LXNS B50', link: '/projects/lxns-b50' }
-    ]
+    items: relatedProjects
   }
 ]
 
@@ -274,7 +268,7 @@ export default defineConfig({
     ['meta', { name: 'theme-color', content: '#E97EB3' }],
     ['meta', { name: 'application-name', content: siteName }],
     ['meta', { name: 'apple-mobile-web-app-title', content: siteName }],
-    ['meta', { name: 'keywords', content: 'Mizuki Bot, PJSK, Project Sekai, 舞萌DX, maimai, 中二节奏, 音游Bot, QQ Bot, 经济系统, 表情包, 群聊公告, 群活统计, Minecraft, 帮助文档' }],
+    ['meta', { name: 'keywords', content: 'Mizuki Bot, PJSK, Project Sekai, 舞萌DX, maimai, 中二节奏, 音游Bot, QQ Bot, 经济系统, 群聊工具, Minecraft, 帮助文档' }],
     ['meta', { name: 'author', content: 'Amia-Mizuki Dev Team' }],
     ['meta', { property: 'og:type', content: 'website' }],
     ['meta', { property: 'og:site_name', content: siteName }],
