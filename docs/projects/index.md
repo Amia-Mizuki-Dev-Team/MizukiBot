@@ -1,125 +1,99 @@
 ---
 title: 关联项目
-description: Mizuki Bot / Amia-Mizuki Dev Team 相关插件、客户端、网关和基础设施项目总览。
+description: Mizuki Bot 与 Amia-Mizuki Dev Team 的业务插件、客户端、网关、统计组件和基础设施项目总览。
 ---
 
 # 关联项目
 
-这里收录 Mizuki Bot 与 Amia-Mizuki Dev Team 生态中与用户功能、官方 Bot 基础设施、Web 查询和移动端工具相关的项目。页面用于帮助用户和开发者了解各项目的职责、维护状态和文档入口。
+这里整理 Mizuki Bot 与 Amia-Mizuki Dev Team 生态中的主要项目。内容仅说明职责和维护边界，不附带外部仓库链接；部分组件只服务于开发组现有机器人环境，不代表可以直接独立部署。
 
-## 状态说明
+## 用户功能与内容工具
 
-- **公开文档**：可以作为功能说明或项目介绍阅读。
-- **开发组内部维护**：代码面向现有机器人环境和开发组服务，不代表外部环境可直接部署。
-- **实验中**：仍在验证架构或交互方式，接口和实现可能变化。
-- **暂不提供部署说明**：文档只描述边界和维护信息，不提供完整部署流程或公开调用方式。
+### Amia-plugin-maimaidx
 
-## 推荐查看
+舞萌 DX 查询与分析组件，承担成绩、曲目、B50、AP50、单曲详情、战力分析和相关推荐能力。
 
-<div class="mzk-card">
+### Mizuki-plugin-Maimai-sync
 
-### LXNS B50
+舞萌 DX 成绩同步组件，用于在现有 Bot 环境中完成用户成绩同步和数据整理。
 
-舞萌 DX 查分与分析插件，集成落雪 (LXNS) 与水鱼 (Diving-Fish) 双数据源，覆盖 B50、AP50、单曲详情、战力分析、上分推荐和群内猜歌等场景。
+### Mizuki-plugin-Maimai-Expand
 
-状态：公开文档；开发组内部维护。
+舞萌 DX 扩展能力集合，用于补充主查询插件之外的分析和交互场景。
 
-[查看项目说明](/projects/lxns-b50)
+### Amia-plugin-meme
 
-</div>
+表情包与图库管理插件，支持本地图库、图片上传、删除、来源记录、分类锁定和多格式缓存整理。
 
-<div class="mzk-card">
+### Amia-plugin-economy
 
-### Amia Sync Android
+群聊经济与社交互动系统，覆盖签到、任务、红包、商店、股市、拍卖、抽卡、农场、宠物、副本和成就等玩法。
 
-面向舞萌 DX 玩家设计的 Android 第三方客户端，使用 LXNS API 与后端数据清洗服务提供成绩查询、曲库筛选和玩家状态同步。
+### Amia-plugin-homo-qso
 
-状态：实验中；开发组内部维护。
+HAM 通联日志组件，提供呼号注册、QSO 记录、中继查询、时区处理和数据导出。
 
-[查看项目说明](/projects/mizuki-sync)
+## 群聊与帮助能力
 
-</div>
+### Amia-plugin-help
 
-<div class="mzk-card">
+帮助指令的文字前置插件，在完整图片帮助或分类帮助执行前发送简短说明，并保持后续帮助链路继续处理。
 
-### HX-Pjsk-Gateway
+### Amia-plugin-group
 
-Project Sekai Web 查询网关，把 OneBot v11 数据节点转换为网页端可用的查询与展示能力。
+群聊公告管理与自动分发插件，支持公告增删改查、统计，以及向尚未收到最新公告的群聊或私聊目标补发一次。
 
-状态：开发组内部维护；暂不提供公开部署说明。
+### Amia-plugin-welcome
 
-[查看项目说明](/projects/hx-pjsk-gateway)
+群成员加入与离开提示插件，负责欢迎文案、离群提示和相关消息格式适配。
 
-</div>
+### Amia-plugin-send
 
-<div class="mzk-card">
+消息活动统计插件，记录群聊和私聊活动，提供今日、本月、年度排行、群活跃汇总和统计数据接口。
 
-### Amia Plugin Economy
+## 核心与治理组件
 
-群聊经济与社交互动插件，处于 `Amia-plugin-*` 新命名体系迁移中。当前以开发组现有机器人环境为主要维护对象。
+### amia-core
 
-状态：开发组内部维护；暂未选择 License。
+Amia 插件体系的核心注册与共享能力层，为身份、统计、权限和其他 Provider 提供统一接入位置。
 
-[查看功能文档](/features/economy)
+### Amia-plugin-permission
 
-</div>
+权限能力组件，用于逐步替代只依赖超管身份的粗粒度权限判断。
 
-<div class="mzk-card">
+### Amia-plugin-audit
 
-### Amia Plugin QBind
+审计能力组件，用于记录公告、权限和其他管理操作的结构化日志。
 
-机器人侧账号绑定插件，用于建立 QQ 用户与业务系统账号之间的统一身份映射。
+### Amia-plugin-profile
 
-状态：开发组内部维护；身份入口能力，需保持较严格的安全边界。
+用户资料与个人摘要组件，整合身份、活动和业务侧信息。
 
-[查看项目说明](/projects/amia-plugin-qbind)
+### Amia-plugin-group-insight
 
-</div>
+群聊洞察组件，读取统计 Provider，生成群活跃、成员参与和趋势摘要。
 
-<div class="mzk-card">
+## 客户端、网关与基础设施
 
 ### Gensokyo NewQQ
 
-Mizuki 官方 Bot 使用的 QQ 官方机器人客户端与协议桥接组件，承载 BotGo、HTTP API、WebSocket、WebUI 和 ID 映射等能力。
+Mizuki 官方 Bot 使用的 QQ 官方机器人客户端与协议桥接组件，承担 BotGo、HTTP API、WebSocket、WebUI 和 ID 映射等能力。
 
-状态：开发组内部维护；兼容性持续整理中。
+### HX-Pjsk-Gateway
 
-[查看项目说明](/projects/gensokyo-newqq)
+Project Sekai Web 查询网关，把 OneBot 数据节点转换为网页端可使用的查询与展示能力。
 
-</div>
+### Amia Sync Android
 
-<div class="mzk-card">
+面向舞萌 DX 玩家设计的 Android 客户端，用于成绩查询、曲库筛选和玩家状态同步。
 
-### Meme 表情插件
+### LXNS B50
 
-Mizuki Bot 的表情包管理插件，支持本地图库、图片上传、删除、溯源、文件夹锁定和多格式缓存管理。
+舞萌 DX 查分与分析组件，覆盖 B50、AP50、单曲详情、战力分析、上分建议和群内互动场景。
 
-状态：开发组内部维护。
+## 维护说明
 
-[查看项目说明](/projects/amia-plugin-meme)
-
-</div>
-
-<div class="mzk-card">
-
-### PJSK 车队广播
-
-面向 PJSK 找车和车队广播场景的辅助插件，用于车牌识别、状态管理和群内消息整理。
-
-状态：开发组内部维护；不作为公开通用服务发布。
-
-[查看项目说明](/projects/amia-plugin-pjskcarteam)
-
-</div>
-
-<div class="mzk-card">
-
-### HAM 无线电日志
-
-HAM 通联记录管理插件，支持呼号注册、QSO 日志、中继查询和导出等开发组内部功能整理。
-
-状态：开发组内部维护。
-
-[查看项目说明](/projects/amia-plugin-homo-qso)
-
-</div>
+- 文档只描述项目定位、功能边界和当前维护方向。
+- 内部组件不会公开运行地址、密钥、数据库结构或完整部署流程。
+- 项目名称、职责和状态发生变化时，应同步更新首页、导航和本页说明。
+- 尚未稳定或仍在迁移的组件，不应在用户文档中描述为已经完整上线。
