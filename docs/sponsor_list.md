@@ -10,7 +10,7 @@ description: Mizuki Bot 赞助榜，感谢各位大佬的支持！
 <div class="sponsor-hero">
   <div class="sponsor-hero-stats">
     <div class="sponsor-stat">
-      <span class="sponsor-stat-num">2</span>
+      <span class="sponsor-stat-num">3</span>
       <span class="sponsor-stat-label">赞助者</span>
     </div>
     <div class="sponsor-stat">
