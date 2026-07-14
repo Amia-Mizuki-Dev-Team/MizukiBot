@@ -2,28 +2,55 @@ name: Sync Sponsors
 
 on:
   schedule:
-    - cron: '0 2 * * *'       # 每天 UTC 2:00（北京时间 10:00）
-  workflow_dispatch:           # 支持手动触发
+    - cron: '0 2 * * *' # 每天 UTC 02:00（北京时间 10:00）
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-sponsors
+  cancel-in-progress: true
 
 jobs:
   sync:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
+
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: 20
-      - run: npm ci
-      - run: node scripts/sync-sponsors.mjs
+
+      - name: Validate API token
         env:
-          AFDIAN_USER_ID: ${{ secrets.AFDIAN_USER_ID }}
           AFDIAN_TOKEN: ${{ secrets.AFDIAN_TOKEN }}
-      - name: Commit changes
         run: |
-          git config user.name "github-actions"
-          git config user.email "github-actions@github.com"
-          git add docs/sponsor_list.md
-          if ! git diff --quiet && git diff --staged --quiet; then
-            git commit -m "chore: auto sync sponsors"
-            git push
+          if [ -z "$AFDIAN_TOKEN" ]; then
+            echo "::error::缺少仓库 Secret：AFDIAN_TOKEN"
+            exit 1
           fi
+
+      - name: Sync sponsors from Afdian
+        run: node scripts/sync-sponsors.mjs
+        env:
+          AFDIAN_USER_ID: c34c76c0537211f188d952540025c377
+          AFDIAN_TOKEN: ${{ secrets.AFDIAN_TOKEN }}
+
+      - name: Commit synchronized sponsor list
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/sponsor_list.md
+
+          if git diff --cached --quiet; then
+            echo "赞助榜没有变化，无需提交"
+            exit 0
+          fi
+
+          git commit -m "chore: auto sync sponsors"
+          git push origin "HEAD:${GITHUB_REF_NAME}"
