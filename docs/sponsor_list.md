@@ -58,12 +58,21 @@ description: Mizuki Bot 赞助榜，感谢各位大佬的支持！
 <!-- 爱发电赞助自动同步区，由 scripts/sync-sponsors.mjs 维护 -->
 <!-- SPONSORS_START -->
 <div class="sponsor-grid">
-
+  <div class="sponsor-card">
+    <div class="sponsor-card-avatar">
+      <img src="https://pic1.afdiancdn.com/default/avatar/avatar-yellow.png" alt="爱发电用户_DBr5" class="sponsor-card-avatar-img" />
+    </div>
+    <div class="sponsor-card-body">
+      <h3>爱发电用户_DBr5</h3>
+      <span class="sponsor-tag sponsor-tag--bronze">支持者</span>
+      <p>累计赞助 ¥5.00</p>
+    </div>
+  </div>
 </div>
 <!-- SPONSORS_END -->
 
 <div style="margin-top: 40px; text-align: center; color: var(--vp-c-text-2); font-size: 14px;">
-  <p>名单由爱发电 API 自动同步，更新时间：2026/6/28 21:38:42</p>
+  <p>名单由爱发电 API 自动同步，更新时间：2026/7/14 10:52:14</p>
   <p style="margin-top: 8px;">
     <a href="https://ifdian.net/a/wrdzgzs" target="_blank" style="color: var(--vp-c-brand-1); font-weight: bold;">
       前往爱发电赞助 →
