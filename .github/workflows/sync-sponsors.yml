@@ -7,6 +7,7 @@ on:
 
 permissions:
   contents: write
+  actions: write
 
 concurrency:
   group: sync-sponsors
@@ -42,6 +43,7 @@ jobs:
           AFDIAN_TOKEN: ${{ secrets.AFDIAN_TOKEN }}
 
       - name: Commit synchronized sponsor list
+        id: commit
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -49,8 +51,16 @@ jobs:
 
           if git diff --cached --quiet; then
             echo "赞助榜没有变化，无需提交"
+            echo "changed=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
 
           git commit -m "chore: auto sync sponsors"
           git push origin "HEAD:${GITHUB_REF_NAME}"
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+
+      - name: Trigger documentation deployment
+        if: steps.commit.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run deploy.yml --ref "${GITHUB_REF_NAME}"
