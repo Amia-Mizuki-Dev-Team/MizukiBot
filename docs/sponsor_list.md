@@ -72,7 +72,7 @@ description: Mizuki Bot 赞助榜，感谢各位大佬的支持！
 <!-- SPONSORS_END -->
 
 <div style="margin-top: 40px; text-align: center; color: var(--vp-c-text-2); font-size: 14px;">
-  <p>名单由爱发电 API 自动同步，更新时间：2026/7/16 13:10:54</p>
+  <p>名单由爱发电 API 自动同步，更新时间：2026/7/17 13:13:56</p>
   <p style="margin-top: 8px;">
     <a href="https://ifdian.net/a/wrdzgzs" target="_blank" style="color: var(--vp-c-brand-1); font-weight: bold;">
       前往爱发电赞助 →
