@@ -1,6 +1,6 @@
 ---
 title: Amia Plugin Homo QSO
-description: Mizuki Bot 无线电日志插件，HAM 通联记录管理工具。
+description: Amia_晓山瑞希 无线电日志插件，HAM 通联记录管理工具。
 ---
 
 # Amia Plugin Homo QSO

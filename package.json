@@ -1,7 +1,7 @@
 {
   "name": "mizuki-bot-docs",
   "version": "1.0.0",
-  "description": "Mizuki Bot Documentation",
+  "description": "Amia_晓山瑞希 Documentation",
   "main": "index.js",
   "scripts": {
     "docs:dev": "vitepress dev docs",

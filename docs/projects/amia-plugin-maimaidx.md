@@ -1,6 +1,6 @@
 ---
 title: Amia-plugin-maimaidx
-description: Mizuki Bot 生态中的舞萌 DX 查分、分析与互动插件。
+description: Amia_晓山瑞希 生态中的舞萌 DX 查分、分析与互动插件。
 ---
 
 # Amia-plugin-maimaidx

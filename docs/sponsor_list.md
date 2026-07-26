@@ -1,11 +1,11 @@
 ---
 title: 赞助榜名单感谢
-description: Mizuki Bot 赞助榜，感谢各位大佬的支持！
+description: Amia_晓山瑞希赞助者名单与支持记录。
 ---
 
 # 赞助者名单
 
-> 衷心感谢每一位赞助者！正是因为你们的慷慨支持，Mizuki Bot 才能持续稳定运行。
+> 感谢每一位赞助者。相关支持将用于 Amia_晓山瑞希的服务器、接口与维护成本。
 
 <div class="sponsor-hero">
   <div class="sponsor-hero-stats">

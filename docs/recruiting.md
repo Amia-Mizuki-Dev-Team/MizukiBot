@@ -1,11 +1,11 @@
 ---
-title: 开发者招募
-description: Mizuki Bot 生态的开发、文档和维护协作入口。
+title: 开发者招募与协作
+description: Amia_晓山瑞希 生态的开发、文档和维护协作入口。
 ---
 
-# 开发者招募
+# 开发者招募与协作
 
-Mizuki Bot 长期维护文档、插件、网关服务和周边工具。我们欢迎能稳定协作的人加入，而不是短期堆功能。
+Amia_晓山瑞希 长期维护文档、插件、网关服务和周边工具。我们欢迎能稳定协作的人加入，而不是短期堆功能。
 
 ## Amia 仓库开发认领清单
 
@@ -172,7 +172,7 @@ Mizuki Bot 长期维护文档、插件、网关服务和周边工具。我们欢
 
 ### 插件与服务
 
-参与 Mizuki Bot 生态插件、数据网关、自动化工具和运维脚本。适合熟悉 JavaScript、TypeScript、Node.js、Python 或后端服务的人。
+参与 Amia_晓山瑞希 生态插件、数据网关、自动化工具和运维脚本。适合熟悉 JavaScript、TypeScript、Node.js、Python 或后端服务的人。
 
 </div>
 

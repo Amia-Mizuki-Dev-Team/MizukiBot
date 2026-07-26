@@ -1,6 +1,6 @@
 ---
 title: 开发团队
-description: Mizuki Bot 开发团队、技术支持、美术设计、数据支持、软硬件支持和项目致谢信息。
+description: Amia_晓山瑞希维护团队、技术支持、美术设计、数据支持、软硬件支持和项目致谢信息。
 ---
 
 # 开发团队
@@ -29,7 +29,7 @@ description: Mizuki Bot 开发团队、技术支持、美术设计、数据支�
     <img src="/Picture/uni_mayu.jpg" alt="uni mayu 头像" style="width: 70px; height: 70px; border-radius: 50%; border: 2px solid #E97EB3; object-fit: cover; margin: 0 auto;">
     <h4 style="margin: 10px 0 5px; font-size: 1rem;">uni_mayu</h4>
     <span style="font-size: 12px; color: #E97EB3; font-weight: bold; display:block; margin-bottom: 5px;">美术与设计</span>
-    <details style="font-size: 12px; opacity: 0.8;"><summary>介绍</summary><p>Logo 与 Bot 头像设计<br>网站设计<br>提供情绪价值(x)</p></details>
+    <details style="font-size: 12px; opacity: 0.8;"><summary>介绍</summary><p>Logo 与 Bot 头像设计<br>网站设计<br>参与视觉设计与内容审校</p></details>
   </div>
   <div class="mzk-dev-card">
     <img src="/Picture/HZK_CN.jpg" alt="HZK CN 头像" style="width: 70px; height: 70px; border-radius: 50%; border: 2px solid #faad14; object-fit: cover; margin: 0 auto;">

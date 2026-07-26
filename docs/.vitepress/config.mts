@@ -1,8 +1,8 @@
 import { defineConfig } from 'vitepress'
 
 const siteUrl = 'https://help.mizuki.top'
-const siteName = 'Mizuki Bot 帮助文档'
-const siteDescription = 'Mizuki Bot 官方帮助文档，提供 PJSK、舞萌 DX、中二节奏、经济系统、群聊工具、Minecraft 服务器和关联项目说明。'
+const siteName = 'Amia_晓山瑞希帮助文档'
+const siteDescription = 'Amia_晓山瑞希官方帮助文档，提供 PJSK、舞萌 DX、中二节奏、经济系统、群聊工具、Minecraft 服务器和项目生态说明。'
 const siteImage = `${siteUrl}/Picture/banner.jpg`
 const siteLogo = `${siteUrl}/Picture/logo.gif`
 
@@ -11,7 +11,7 @@ const mainSections = [
   { name: 'PJSK 专项功能', url: `${siteUrl}/features/pjsk` },
   { name: '舞萌 DX 专项', url: `${siteUrl}/features/maimai` },
   { name: '中二节奏专项', url: `${siteUrl}/features/chunithm` },
-  { name: 'Mizuki 25时经济系统', url: `${siteUrl}/features/economy` },
+  { name: 'Amia 25时经济系统', url: `${siteUrl}/features/economy` },
   { name: '通用工具与群聊能力', url: `${siteUrl}/features/tools` },
   { name: '关联项目', url: `${siteUrl}/projects/` }
 ]
@@ -29,7 +29,7 @@ const websiteStructuredData = {
   '@type': 'WebSite',
   '@id': `${siteUrl}/#website`,
   name: siteName,
-  alternateName: ['Mizuki Bot', 'Mizuki Bot Docs', 'Mizuki 帮助文档'],
+  alternateName: ['Amia Bot', 'Mizuki Bot', 'Mizuki Bot Docs', 'Mizuki 帮助文档'],
   url: `${siteUrl}/`,
   inLanguage: 'zh-CN',
   description: siteDescription,
@@ -46,7 +46,7 @@ const organizationStructuredData = {
   '@type': 'Organization',
   '@id': `${siteUrl}/#organization`,
   name: 'Amia-Mizuki Dev Team',
-  alternateName: ['Mizuki Bot', 'HongXing Dev Team'],
+  alternateName: ['Mizuki Bot 开发组', 'HongXing Dev Team'],
   url: `${siteUrl}/`,
   logo: siteLogo,
   image: siteImage,
@@ -63,7 +63,7 @@ const imageStructuredData = {
   contentUrl: siteImage,
   width: 1200,
   height: 630,
-  caption: 'Mizuki Bot 帮助文档',
+  caption: 'Amia_晓山瑞希帮助文档',
   representativeOfPage: true
 }
 
@@ -71,7 +71,7 @@ const homeItemListStructuredData = {
   '@context': 'https://schema.org',
   '@type': 'ItemList',
   '@id': `${siteUrl}/#main-sections`,
-  name: 'Mizuki Bot 帮助文档主要入口',
+  name: 'Amia_晓山瑞希帮助文档主要入口',
   itemListElement: mainSections.map((item, index) => ({
     '@type': 'ListItem',
     position: index + 1,
@@ -115,12 +115,13 @@ const nav = [
   {
     text: '更新与公告',
     items: [
+      { text: '服务状态与公告', link: '/service-announcements' },
       { text: 'MC 服务器更新', link: '/features/mc_update' },
       { text: 'Bot 更新日志', link: '/features/bot_update' }
     ]
   },
   {
-    text: '关联项目',
+    text: '项目生态',
     items: relatedProjects
   }
 ]
@@ -159,12 +160,13 @@ const sidebar = [
   {
     text: '更新与公告',
     items: [
+      { text: '服务状态与公告', link: '/service-announcements' },
       { text: 'MC 服务器更新', link: '/features/mc_update' },
       { text: 'Bot 更新日志', link: '/features/bot_update' }
     ]
   },
   {
-    text: '关联项目',
+    text: '项目生态',
     items: relatedProjects
   }
 ]
@@ -180,7 +182,7 @@ function normalizeUrl(relativePath: string) {
 
 export default defineConfig({
   title: siteName,
-  titleTemplate: ':title | Mizuki Bot 帮助文档',
+  titleTemplate: ':title | Amia_晓山瑞希帮助文档',
   description: siteDescription,
   lang: 'zh-CN',
   cleanUrls: true,
@@ -236,12 +238,12 @@ export default defineConfig({
       ['meta', { property: 'og:image:type', content: 'image/jpeg' }],
       ['meta', { property: 'og:image:width', content: '1200' }],
       ['meta', { property: 'og:image:height', content: '630' }],
-      ['meta', { property: 'og:image:alt', content: 'Mizuki Bot 帮助文档预览图' }],
+      ['meta', { property: 'og:image:alt', content: 'Amia_晓山瑞希帮助文档预览图' }],
       ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
       ['meta', { name: 'twitter:title', content: pageTitle }],
       ['meta', { name: 'twitter:description', content: pageDescription }],
       ['meta', { name: 'twitter:image', content: siteImage }],
-      ['meta', { name: 'twitter:image:alt', content: 'Mizuki Bot 帮助文档预览图' }],
+      ['meta', { name: 'twitter:image:alt', content: 'Amia_晓山瑞希帮助文档预览图' }],
       ['meta', { itemprop: 'image', content: siteImage }],
       ['meta', { name: 'thumbnail', content: siteImage }],
       ['script', { type: 'application/ld+json' }, JSON.stringify(webPageStructuredData)],
@@ -268,7 +270,7 @@ export default defineConfig({
     ['meta', { name: 'theme-color', content: '#E97EB3' }],
     ['meta', { name: 'application-name', content: siteName }],
     ['meta', { name: 'apple-mobile-web-app-title', content: siteName }],
-    ['meta', { name: 'keywords', content: 'Mizuki Bot, PJSK, Project Sekai, 舞萌DX, maimai, 中二节奏, 音游Bot, QQ Bot, 经济系统, 群聊工具, Minecraft, 帮助文档' }],
+    ['meta', { name: 'keywords', content: 'Amia_晓山瑞希, Amia Bot, Mizuki Bot, PJSK, Project Sekai, 舞萌DX, maimai, 中二节奏, 音游Bot, QQ Bot, 经济系统, 群聊工具, Minecraft, 帮助文档' }],
     ['meta', { name: 'author', content: 'Amia-Mizuki Dev Team' }],
     ['meta', { property: 'og:type', content: 'website' }],
     ['meta', { property: 'og:site_name', content: siteName }],

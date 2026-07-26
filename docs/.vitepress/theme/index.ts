@@ -71,7 +71,7 @@ export default {
 
     return h(DefaultTheme.Layout, null, {
       'home-hero-image': () => h('div', { class: 'hero-wrapper' }, [
-        h('img', { src: '/Picture/avatar.jpg', class: 'random-hero-avatar', alt: 'Mizuki Bot' }),
+        h('img', { src: '/Picture/logo.gif', class: 'random-hero-avatar', alt: 'Amia_晓山瑞希' }),
         h('div', { class: 'my-custom-quote', innerHTML: currentQuote.value })
       ]),
       'layout-top': () => {
@@ -79,13 +79,13 @@ export default {
         return h('div', { id: 'mzk-banner', class: 'mzk-banner' }, [
           h('div', { class: 'mzk-banner-content' }, [
             h('span', { class: 'mzk-banner-tag' }, '公告'),
-            h('span', null, 'Mizuki Bot 4 月更新已上线。'),
-            h('a', { href: '/features/bot_update', class: 'mzk-banner-link' }, '查看更新')
+            h('span', null, '请查看最新功能更新与服务公告。'),
+            h('a', { href: '/service-announcements', class: 'mzk-banner-link' }, '查看公告')
           ]),
           h('button', { onClick: closeBanner, class: 'mzk-banner-close', ariaLabel: '关闭公告' }, '×')
         ])
       },
-      'layout-bottom': () => h('div', { class: 'mzk-footer' }, '© 2021-2026 MizukiBot Team | HongXing (Jiangsu) Dev Team. 保留所有权利。')
+      'layout-bottom': () => h('div', { class: 'mzk-footer' }, '© 2021-2026 Amia-Mizuki Dev Team. 保留所有权利。')
     })
   }
 }

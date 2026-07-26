@@ -1,6 +1,6 @@
 ---
 title: Amia Plugin PJSK CarTeam
-description: Mizuki Bot PJSK 协力车队自动广播插件。
+description: Amia_晓山瑞希 PJSK 协力车队自动广播插件。
 ---
 
 # Amia Plugin PJSK CarTeam

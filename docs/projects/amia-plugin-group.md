@@ -1,11 +1,11 @@
 ---
 title: Amia Plugin Group (公告)
-description: Mizuki Bot 智能公告系统，支持公告管理、自动广播、发送统计。
+description: Amia_晓山瑞希 智能公告系统，支持公告管理、自动广播、发送统计。
 ---
 
 # Amia Plugin Group (公告)
 
-> Mizuki Bot 智能公告系统插件，支持公告管理、多群自动广播与发送统计。
+> Amia_晓山瑞希 智能公告系统插件，支持公告管理、多群自动广播与发送统计。
 
 当前状态：公告主体已实现；PermissionProvider、AuditLogger、多实例/多进程事务存储和统一群级配置仍需完善。本项目不是完整群管理插件。
 

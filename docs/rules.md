@@ -30,7 +30,7 @@ description: 官方交流群群规和公告，进群必看。
 
 | Bot 名称 | QQ 号 |
 | :--- | :--- |
-| **Mizuki Bot (Amia_晓山瑞希)** | `3889004352` |
+| **Amia_晓山瑞希** | `3889004352` |
 
 </div>
 
@@ -39,7 +39,7 @@ description: 官方交流群群规和公告，进群必看。
       Bot 使用与触发限制
     </p>
     <ul>
-      <li><strong>正确触发</strong>：触发功能请直接发送对应指令文本，<strong>严禁 @机器人！</strong></li>
+      <li><strong>正确触发</strong>：请直接发送对应指令文本，无需 @机器人；部分功能在 @机器人时可能无法正确识别。</li>
       <li><strong>私聊限制</strong>：Bot 的 PJSK 功能 <strong>不支持私聊</strong>。若私聊请求过多可能触发风控导致您被系统拉黑。</li>
     </ul>
   </div>

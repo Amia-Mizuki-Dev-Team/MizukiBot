@@ -1,18 +1,18 @@
 ---
 layout: home
-title: Mizuki Bot 帮助文档
-description: Mizuki Bot 官方帮助文档，提供 PJSK、舞萌 DX、中二节奏、经济系统、群聊工具、Minecraft 服务器和关联项目说明。
+title: Amia_晓山瑞希帮助文档
+description: Amia_晓山瑞希官方帮助文档，提供 PJSK、舞萌 DX、中二节奏、经济系统、群聊工具、Minecraft 服务器和项目生态说明。
 
 hero:
-  name: "Mizuki Bot"
-  text: "帮助文档"
-  tagline: "音游查询、群聊工具与经济系统的官方使用说明"
+  name: "Amia_晓山瑞希"
+  text: "官方帮助文档"
+  tagline: "音游查询、群聊工具与经济系统的使用说明"
   actions:
     - theme: brand
-      text: 如何使用
+      text: 开始使用
       link: /usage
     - theme: alt
-      text: PJSK 功能
+      text: 功能文档
       link: /features/pjsk
     - theme: alt
       text: 问题反馈
@@ -29,28 +29,28 @@ features:
     details: 表情包、公告、欢迎提示和活动统计。
     link: /features/tools
   - title: Minecraft
-    details: Mizuki 公益 Minecraft 服务器说明。
+    details: 公益 Minecraft 服务器说明。
     link: /features/minecraft
-  - title: 更新日志
-    details: 查看 Bot 与相关功能模块的更新记录。
+  - title: 更新与公告
+    details: 查看 Bot 更新、服务状态和维护安排。
     link: /features/bot_update
-  - title: 关联项目
-    details: 查看客户端、网关和基础设施项目。
+  - title: 项目生态
+    details: 查看插件、网关、客户端与基础组件。
     link: /projects/
 ---
 
 <div class="home-section mzk-home-overview">
 
-## Mizuki Bot 官方帮助入口
+## 官方帮助入口
 
-本站集中整理 Mizuki Bot 的使用说明、功能文档、更新公告和问题反馈入口。
+本站集中整理 Amia_晓山瑞希的使用说明、功能文档、更新记录和问题反馈入口。项目原名为 **Mizuki Bot**；旧名称仅作为历史名称和搜索别名保留。
 
 <div class="support-grid support-grid--compact">
 
   <a href="/usage" class="support-card">
     <div class="support-info">
-      <strong>如何使用 Mizuki Bot</strong>
-      <span>邀请 Bot 入群、配置权限并开始使用</span>
+      <strong>开始使用</strong>
+      <span>邀请 Bot 入群、配置权限并触发常用指令</span>
     </div>
   </a>
 
@@ -77,15 +77,15 @@ features:
 
   <a href="/features/economy" class="support-card">
     <div class="support-info">
-      <strong>Mizuki 25时经济系统</strong>
+      <strong>Amia 25时经济系统</strong>
       <span>群内积分、任务、收集与互动玩法</span>
     </div>
   </a>
 
   <a href="/projects/" class="support-card">
     <div class="support-info">
-      <strong>关联项目</strong>
-      <span>查看客户端、网关和基础设施项目</span>
+      <strong>项目生态</strong>
+      <span>查看插件、网关、客户端和基础组件</span>
     </div>
   </a>
 
@@ -94,28 +94,28 @@ features:
 
 <div class="home-section">
 
-## 获取更多支持
+## 支持与维护
 
 <div class="support-grid support-grid--compact">
 
   <a href="/feedback" class="support-card">
     <div class="support-info">
       <strong>问题反馈</strong>
-      <span>遇到 Bug 或有新建议时提交反馈</span>
+      <span>提交可复现的故障信息或功能建议</span>
     </div>
   </a>
 
-  <a href="/asking" class="support-card">
+  <a href="/service-announcements" class="support-card">
     <div class="support-info">
-      <strong>提问的智慧</strong>
-      <span>查看如何提交更容易被定位的问题描述</span>
+      <strong>服务状态与公告</strong>
+      <span>查看维护、迁移和关联基础设施安排</span>
     </div>
   </a>
 
   <a href="/recruiting" class="support-card">
     <div class="support-info">
-      <strong>开发者招募</strong>
-      <span>参与文档、插件和工具维护</span>
+      <strong>开发者专区</strong>
+      <span>查看仓库职责、协作规范和参与方式</span>
     </div>
   </a>
 

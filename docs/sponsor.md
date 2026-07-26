@@ -1,11 +1,11 @@
 ---
-title: 赞助支持 Mizuki Bot
-description: 赞助 Mizuki Bot，帮 Bot 续命。服务器和 API 接口都要钱的。
+title: 赞助支持 Amia_晓山瑞希
+description: 支持 Amia_晓山瑞希的服务器、代理节点、API 与文档维护。
 ---
 
 # 赞助与支持
 
-> Mizuki Bot 的服务器、代理节点以及各种 API 接口都需要持续的资金投入。每一份赞助都会帮助 Bot 继续稳定运行。
+> Amia_晓山瑞希的服务器、代理节点、API 与文档维护会产生持续成本。赞助将用于保障服务运行和必要的基础设施支出。
 
 > 赞助名单通过爱发电 Webhook 自动更新，感谢每一位赞助者！
 
