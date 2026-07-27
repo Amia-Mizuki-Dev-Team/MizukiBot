@@ -71,7 +71,7 @@ export default {
 
     return h(DefaultTheme.Layout, null, {
       'home-hero-image': () => h('div', { class: 'hero-wrapper' }, [
-        h('img', { src: '/Picture/logo.gif', class: 'random-hero-avatar', alt: 'Amia_晓山瑞希' }),
+        h('img', { src: '/Picture/avatar.jpg', class: 'random-hero-avatar', alt: 'Amia_晓山瑞希' }),
         h('div', { class: 'my-custom-quote', innerHTML: currentQuote.value })
       ]),
       'layout-top': () => {
