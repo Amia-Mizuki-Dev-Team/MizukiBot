@@ -1,5 +1,6 @@
 import DefaultTheme from 'vitepress/theme'
 import { h, onMounted, ref, nextTick } from 'vue'
+import HomeSponsorBanner from './HomeSponsorBanner.vue'
 import './custom.css'
 
 export default {
@@ -70,6 +71,7 @@ export default {
     }
 
     return h(DefaultTheme.Layout, null, {
+      'home-hero-before': () => h(HomeSponsorBanner),
       'home-hero-image': () => h('div', { class: 'hero-wrapper' }, [
         h('img', { src: '/Picture/avatar.jpg', class: 'random-hero-avatar', alt: 'Amia_晓山瑞希' }),
         h('div', { class: 'my-custom-quote', innerHTML: currentQuote.value })
