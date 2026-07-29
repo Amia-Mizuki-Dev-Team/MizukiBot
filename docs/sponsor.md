@@ -1,63 +1,47 @@
 ---
 title: 赞助支持 Amia_晓山瑞希
 description: 支持 Amia_晓山瑞希的服务器、代理节点、API 与文档维护。
+pageClass: amia-sponsor-page
 ---
 
 # 赞助与支持
 
-> Amia_晓山瑞希的服务器、代理节点、API 与文档维护会产生持续成本。赞助将用于保障服务运行和必要的基础设施支出。
+Amia_晓山瑞希的服务器、代理节点、API 与文档维护会产生持续成本。赞助将优先用于保障服务运行和必要的基础设施支出。
 
-> 赞助名单通过爱发电 Webhook 自动更新，感谢每一位赞助者！
+<DocCallout title="赞助说明">
+赞助用于支持项目运行与维护，不等同于购买具体功能、服务等级或开发排期。公开文档和开源内容不会因是否赞助而改变正常访问范围。
+</DocCallout>
 
-<div class="sponsor-hero">
-  <div class="sponsor-hero-stats">
-    <div class="sponsor-stat">
-      <span class="sponsor-stat-num">2</span>
-      <span class="sponsor-stat-label">赞助者</span>
-    </div>
-    <div class="sponsor-stat">
-      <span class="sponsor-stat-num">2</span>
-      <span class="sponsor-stat-label">核心赞助</span>
-    </div>
-    <div class="sponsor-stat">
-      <span class="sponsor-stat-num">∞</span>
-      <span class="sponsor-stat-label">感谢有您</span>
-    </div>
-  </div>
+<SponsorCompact />
 
-  <div class="sponsor-hero-actions">
-    <a href="https://ifdian.net/a/wrdzgzs" target="_blank" class="sponsor-btn sponsor-btn--primary">
-      前往爱发电赞助
-    </a>
-    <a href="/sponsor_list" class="sponsor-btn sponsor-btn--secondary">
-      赞助者名单
-    </a>
-  </div>
+<div class="amia-sponsor-panel">
+  <section>
+    <h2>赞助方式</h2>
+    <p>当前主要通过爱发电接收持续或一次性赞助。付款前请核对页面主体与项目名称，避免向非官方入口付款。</p>
+    <p><a class="amia-page-cta" href="https://ifdian.net/a/wrdzgzs" target="_blank" rel="noopener noreferrer">前往爱发电赞助</a></p>
+  </section>
+
+  <section>
+    <h2>资金用途</h2>
+    <ul>
+      <li>Bot 与文档站服务器支出；</li>
+      <li>代理节点和必要网络资源；</li>
+      <li>第三方 API 与接口调用成本；</li>
+      <li>项目维护、备份和基础设施恢复。</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>赞助者名单</h2>
+    <p>赞助者名单通过爱发电 API 自动同步。页面会展示公开昵称、赞助等级与累计赞助信息。</p>
+    <p><a href="/sponsor_list">查看赞助者名单 →</a></p>
+  </section>
+
+  <section>
+    <h2>公开致谢</h2>
+    <p>赞助者昵称会展示在赞助者名单页面；符合现有等级规则的核心赞助将获得对应致谢标识。</p>
+    <p>名单和等级以自动同步页面显示为准。</p>
+  </section>
 </div>
 
-<div class="sponsor-info">
-  <div class="mzk-card mzk-card--red">
-    <h3>赞助方式</h3>
-    <p>您可以通过以下方式支持我们：</p>
-    <ul>
-      <li><strong>爱发电</strong>：每月赞助，持续支持 Bot 运营（推荐）</li>
-      <li><strong>一次性赞助</strong>：通过下方链接进行一次性赞助</li>
-    </ul>
-    <div style="margin-top: 16px;">
-      <a href="https://ifdian.net/a/wrdzgzs" target="_blank" class="sponsor-btn sponsor-btn--primary" style="display: inline-block;">
-        前往爱发电赞助
-      </a>
-    </div>
-  </div>
-
-  <div class="mzk-card mzk-card--orange">
-    <h3>赞助权益</h3>
-    <ul>
-      <li>您的昵称将展示在 <a href="/sponsor_list">赞助者名单</a> 页面</li>
-      <li>核心赞助商将获得专属致谢位置</li>
-      <li>您的支持将直接用于服务器和 API 开销</li>
-    </ul>
-  </div>
-</div>
-
-
+历史赞助统计和最近同步时间请查看[赞助者名单](/sponsor_list)。
