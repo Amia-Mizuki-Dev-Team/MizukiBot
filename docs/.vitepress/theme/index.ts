@@ -16,6 +16,7 @@ import './styles/base.css'
 import './styles/home.css'
 import './styles/components.css'
 import './styles/docs.css'
+import './styles/pages.css'
 import './styles/responsive.css'
 
 const theme = {
