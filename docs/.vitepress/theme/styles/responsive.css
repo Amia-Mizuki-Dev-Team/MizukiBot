@@ -1,0 +1,187 @@
+@media (max-width: 960px) {
+  .amia-entry-grid,
+  .amia-ecosystem-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .amia-site-footer-inner {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .amia-site-footer-brand {
+    grid-column: 1 / -1;
+  }
+
+  .VPHero .image {
+    margin-top: 30px;
+  }
+
+  .amia-hero-visual {
+    width: 280px;
+    min-width: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .amia-home-status-wrap {
+    padding: 14px 16px 0;
+  }
+
+  .amia-home-status {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+    padding: 12px 14px;
+  }
+
+  .amia-home-status-meta {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .VPHero {
+    padding-top: 42px !important;
+    padding-bottom: 24px !important;
+  }
+
+  .VPHero .name {
+    font-size: 34px !important;
+  }
+
+  .VPHero .text {
+    font-size: 23px !important;
+  }
+
+  .VPHero .tagline {
+    font-size: 15px !important;
+    line-height: 1.7 !important;
+  }
+
+  .VPHero .actions {
+    display: grid !important;
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
+
+  .VPHero .VPButton {
+    width: 100%;
+    min-height: 46px;
+  }
+
+  .VPHero .image {
+    margin-top: 26px;
+  }
+
+  .amia-hero-visual {
+    width: min(68vw, 220px);
+  }
+
+  .amia-hero-visual img {
+    max-height: 260px;
+    border-radius: 18px;
+  }
+
+  .amia-home {
+    padding: 0 16px 56px;
+  }
+
+  .amia-home-section {
+    margin-top: 54px;
+  }
+
+  .amia-section-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .amia-entry-grid,
+  .amia-ecosystem-grid,
+  .amia-popular-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .amia-entry-card {
+    min-height: 0;
+  }
+
+  .amia-entry-icon {
+    margin-bottom: 20px;
+  }
+
+  .amia-popular-link,
+  .amia-popular-link:nth-child(odd),
+  .amia-popular-link:nth-last-child(-n + 2) {
+    border-right: 0;
+    border-bottom: 1px solid var(--amia-border);
+  }
+
+  .amia-popular-link:last-child {
+    border-bottom: 0;
+  }
+
+  .amia-update-item {
+    grid-template-columns: 1fr 24px;
+    gap: 8px 12px;
+  }
+
+  .amia-update-date,
+  .amia-update-tag {
+    grid-column: 1;
+  }
+
+  .amia-update-copy {
+    grid-column: 1;
+  }
+
+  .amia-update-arrow {
+    grid-column: 2;
+    grid-row: 1 / span 3;
+    align-self: center;
+  }
+
+  .amia-ecosystem-card p {
+    min-height: 0;
+  }
+
+  .amia-sponsor-compact {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .amia-sponsor-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .amia-sponsor-actions a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+  }
+
+  .amia-site-footer-inner {
+    grid-template-columns: 1fr 1fr;
+    gap: 28px 20px;
+    padding: 38px 16px 26px;
+  }
+
+  .amia-site-footer-bottom {
+    padding: 18px 16px 24px;
+  }
+
+  .VPDoc.amia-update-log .vp-doc > h2,
+  .amia-update-log .vp-doc > h2,
+  .VPDoc.amia-service-log .vp-doc > h2,
+  .amia-service-log .vp-doc > h2 {
+    margin-top: 42px;
+    padding: 15px 16px;
+    font-size: 19px;
+  }
+
+  .vp-doc table {
+    display: block;
+    overflow-x: auto;
+  }
+}
