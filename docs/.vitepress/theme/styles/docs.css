@@ -1,0 +1,136 @@
+.VPDoc.amia-update-log .vp-doc,
+.amia-update-log .vp-doc,
+.VPDoc.amia-service-log .vp-doc,
+.amia-service-log .vp-doc {
+  max-width: 900px;
+}
+
+.VPDoc.amia-update-log .vp-doc > h1,
+.amia-update-log .vp-doc > h1,
+.VPDoc.amia-service-log .vp-doc > h1,
+.amia-service-log .vp-doc > h1 {
+  margin-bottom: 14px;
+  font-size: clamp(30px, 5vw, 40px);
+  letter-spacing: -0.025em;
+}
+
+.VPDoc.amia-update-log .vp-doc > h2,
+.amia-update-log .vp-doc > h2,
+.VPDoc.amia-service-log .vp-doc > h2,
+.amia-service-log .vp-doc > h2 {
+  position: relative;
+  margin-top: 56px;
+  padding: 18px 20px;
+  border: 1px solid var(--amia-border);
+  border-radius: var(--amia-radius-md);
+  background: var(--amia-surface);
+  color: var(--amia-text-1);
+  font-size: 22px;
+  line-height: 1.45;
+  box-shadow: var(--amia-shadow-sm);
+}
+
+.VPDoc.amia-update-log .vp-doc > h2::before,
+.amia-update-log .vp-doc > h2::before {
+  position: absolute;
+  top: 18px;
+  bottom: 18px;
+  left: 0;
+  width: 3px;
+  border-radius: 3px;
+  background: var(--amia-brand);
+  content: "";
+}
+
+.VPDoc.amia-service-log .vp-doc > h2::before,
+.amia-service-log .vp-doc > h2::before {
+  position: absolute;
+  top: 18px;
+  bottom: 18px;
+  left: 0;
+  width: 3px;
+  border-radius: 3px;
+  background: var(--amia-info);
+  content: "";
+}
+
+.VPDoc.amia-update-log .vp-doc > h3,
+.amia-update-log .vp-doc > h3,
+.VPDoc.amia-service-log .vp-doc > h3,
+.amia-service-log .vp-doc > h3 {
+  margin-top: 30px;
+  padding-bottom: 9px;
+  border-bottom: 1px solid var(--amia-border);
+  color: var(--amia-text-1);
+  font-size: 18px;
+}
+
+.VPDoc.amia-update-log .vp-doc > h4,
+.amia-update-log .vp-doc > h4,
+.VPDoc.amia-service-log .vp-doc > h4,
+.amia-service-log .vp-doc > h4 {
+  color: var(--amia-text-1);
+  font-size: 16px;
+}
+
+.VPDoc.amia-update-log .vp-doc > ul,
+.amia-update-log .vp-doc > ul,
+.VPDoc.amia-service-log .vp-doc > ul,
+.amia-service-log .vp-doc > ul {
+  margin: 14px 0 24px;
+  padding: 0 0 0 22px;
+}
+
+.VPDoc.amia-update-log .vp-doc > ul > li,
+.amia-update-log .vp-doc > ul > li,
+.VPDoc.amia-service-log .vp-doc > ul > li,
+.amia-service-log .vp-doc > ul > li {
+  margin: 8px 0;
+  padding-left: 4px;
+  line-height: 1.75;
+}
+
+.vp-doc table {
+  display: table;
+  width: 100%;
+  border: 1px solid var(--amia-border);
+  border-radius: var(--amia-radius-md);
+  background: var(--amia-surface);
+}
+
+.vp-doc th {
+  background: var(--amia-surface-soft);
+  color: var(--amia-text-1);
+  font-size: 13px;
+}
+
+.vp-doc td {
+  color: var(--amia-text-2);
+  font-size: 14px;
+}
+
+.vp-doc blockquote {
+  border-left-color: var(--amia-brand);
+  border-radius: 0 var(--amia-radius-sm) var(--amia-radius-sm) 0;
+  background: var(--amia-surface-soft);
+}
+
+.vp-doc div[class*="language-"] {
+  border: 1px solid var(--amia-border);
+  border-radius: var(--amia-radius-md);
+  box-shadow: none;
+}
+
+.vp-doc .mzk-card {
+  border: 1px solid var(--amia-border) !important;
+  border-radius: var(--amia-radius-md) !important;
+  background: var(--amia-surface) !important;
+  box-shadow: var(--amia-shadow-sm) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+.vp-doc .mzk-card:hover {
+  border-color: var(--amia-border) !important;
+  box-shadow: var(--amia-shadow-sm) !important;
+}
