@@ -1,0 +1,172 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: var(--amia-text-1);
+  font-family: Inter, "SF Pro Text", "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", system-ui, sans-serif;
+}
+
+.VPContent {
+  background: var(--amia-bg) !important;
+}
+
+.vp-doc {
+  color: var(--amia-text-1);
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.vp-doc p,
+.vp-doc li {
+  color: var(--amia-text-2);
+}
+
+.vp-doc a {
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.vp-doc img {
+  border: 1px solid var(--amia-border);
+  border-radius: var(--amia-radius-md);
+  box-shadow: var(--amia-shadow-sm);
+}
+
+.VPNavBarTitle .title {
+  font-weight: 650;
+  letter-spacing: -0.01em;
+}
+
+.VPNavBarMenuLink,
+.VPNavBarMenuGroup .text {
+  font-size: 14px;
+  font-weight: 520;
+}
+
+.VPHero {
+  padding-top: 68px !important;
+  padding-bottom: 44px !important;
+}
+
+.VPHero .container {
+  max-width: 1180px;
+}
+
+.VPHero .main {
+  max-width: 650px;
+}
+
+.VPHero .name {
+  background: none !important;
+  color: var(--amia-text-1) !important;
+  -webkit-text-fill-color: currentColor !important;
+  font-size: clamp(38px, 6vw, 58px) !important;
+  line-height: 1.08 !important;
+  letter-spacing: -0.035em;
+}
+
+.VPHero .text {
+  margin-top: 10px;
+  color: var(--amia-brand-strong) !important;
+  font-size: clamp(24px, 3.5vw, 34px) !important;
+  line-height: 1.25 !important;
+}
+
+.VPHero .tagline {
+  display: block !important;
+  max-width: 620px;
+  margin-top: 18px !important;
+  color: var(--amia-text-2) !important;
+  font-size: 17px !important;
+  line-height: 1.75 !important;
+}
+
+.VPHero .actions {
+  flex-wrap: wrap !important;
+  justify-content: flex-start !important;
+  gap: 10px !important;
+  padding-top: 26px !important;
+}
+
+.VPHero .action {
+  margin: 0 !important;
+}
+
+.VPButton {
+  min-height: 44px;
+  border-radius: 10px !important;
+  padding: 0 20px !important;
+  font-size: 14px !important;
+  font-weight: 650 !important;
+  transition: background-color 160ms ease, border-color 160ms ease, color 160ms ease, transform 160ms ease !important;
+}
+
+.VPButton.brand {
+  border-color: var(--amia-brand) !important;
+  background: var(--amia-brand) !important;
+  box-shadow: none !important;
+}
+
+.VPButton.brand:hover {
+  border-color: var(--amia-brand-strong) !important;
+  background: var(--amia-brand-strong) !important;
+  transform: translateY(-1px);
+}
+
+.VPButton.alt {
+  border-color: var(--amia-border) !important;
+  background: var(--amia-surface) !important;
+  color: var(--amia-text-1) !important;
+}
+
+.VPButton.alt:hover {
+  border-color: var(--amia-brand) !important;
+  color: var(--amia-brand-strong) !important;
+}
+
+.amia-hero-visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: min(34vw, 350px);
+  min-width: 260px;
+  margin: 0 auto;
+}
+
+.amia-hero-visual img {
+  display: block;
+  width: 100%;
+  max-height: 390px;
+  border: 0;
+  border-radius: 22px;
+  object-fit: cover;
+  object-position: center top;
+  box-shadow: var(--amia-shadow-md);
+}
+
+:focus-visible {
+  outline: 3px solid var(--amia-brand-soft);
+  outline-offset: 3px;
+}
+
+code,
+pre,
+.vp-code {
+  font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
