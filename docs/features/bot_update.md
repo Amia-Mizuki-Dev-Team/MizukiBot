@@ -1,6 +1,7 @@
 ---
 title: Amia_晓山瑞希更新日志
 description: Amia_晓山瑞希的功能新增、兼容性修改、问题修复和历史版本记录。
+pageClass: amia-update-log
 ---
 
 # Amia_晓山瑞希更新日志
