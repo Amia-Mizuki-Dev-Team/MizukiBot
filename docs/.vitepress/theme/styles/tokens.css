@@ -1,0 +1,54 @@
+:root {
+  --amia-bg: #fcfbfd;
+  --amia-surface: #ffffff;
+  --amia-surface-soft: #f7f4f8;
+  --amia-text-1: #28242b;
+  --amia-text-2: #6d6671;
+  --amia-text-3: #938b97;
+  --amia-border: #e8e1e9;
+  --amia-brand: #e97eb3;
+  --amia-brand-strong: #c95f94;
+  --amia-brand-soft: #faeaf2;
+  --amia-accent: #8a66c2;
+  --amia-success: #3f8f6b;
+  --amia-warning: #b5792f;
+  --amia-danger: #c65b64;
+  --amia-info: #507fad;
+  --amia-radius-sm: 8px;
+  --amia-radius-md: 12px;
+  --amia-radius-lg: 16px;
+  --amia-shadow-sm: 0 1px 2px rgba(35, 28, 38, 0.04);
+  --amia-shadow-md: 0 8px 24px rgba(35, 28, 38, 0.07);
+
+  --vp-c-brand-1: var(--amia-brand);
+  --vp-c-brand-2: var(--amia-brand-strong);
+  --vp-c-brand-3: #b94f85;
+  --vp-c-brand-soft: var(--amia-brand-soft);
+  --vp-c-bg: var(--amia-bg);
+  --vp-c-bg-soft: var(--amia-surface-soft);
+  --vp-c-bg-mute: #f1edf3;
+  --vp-c-divider: var(--amia-border);
+  --vp-home-hero-name-color: var(--amia-text-1);
+  --vp-home-hero-name-background: none;
+}
+
+.dark {
+  --amia-bg: #171519;
+  --amia-surface: #201d23;
+  --amia-surface-soft: #29252d;
+  --amia-text-1: #f1edf2;
+  --amia-text-2: #c0b7c3;
+  --amia-text-3: #918895;
+  --amia-border: #3b353e;
+  --amia-brand: #ee91bf;
+  --amia-brand-strong: #f0a4ca;
+  --amia-brand-soft: rgba(233, 126, 179, 0.14);
+  --amia-accent: #a98bd5;
+  --amia-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.18);
+  --amia-shadow-md: 0 10px 28px rgba(0, 0, 0, 0.24);
+
+  --vp-c-bg: var(--amia-bg);
+  --vp-c-bg-soft: var(--amia-surface-soft);
+  --vp-c-bg-mute: #302b33;
+  --vp-c-divider: var(--amia-border);
+}
