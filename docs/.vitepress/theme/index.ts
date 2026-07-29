@@ -5,6 +5,7 @@ import HomePage from './components/HomePage.vue'
 import HomeStatusBar from './components/HomeStatusBar.vue'
 import SiteFooter from './components/SiteFooter.vue'
 import StatusBadge from './components/StatusBadge.vue'
+import SponsorCompact from './components/SponsorCompact.vue'
 import CommandExample from './components/CommandExample.vue'
 import DocCallout from './components/DocCallout.vue'
 import UpdateEntry from './components/UpdateEntry.vue'
@@ -25,6 +26,7 @@ const theme = {
   enhanceApp({ app }) {
     app.component('HomePage', HomePage)
     app.component('StatusBadge', StatusBadge)
+    app.component('SponsorCompact', SponsorCompact)
     app.component('CommandExample', CommandExample)
     app.component('DocCallout', DocCallout)
     app.component('UpdateEntry', UpdateEntry)
