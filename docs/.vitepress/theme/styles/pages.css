@@ -1,0 +1,161 @@
+.amia-guide-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 18px 0 28px;
+}
+
+.amia-guide-meta span {
+  padding: 6px 10px;
+  border: 1px solid var(--amia-border);
+  border-radius: 999px;
+  background: var(--amia-surface-soft);
+  color: var(--amia-text-2);
+  font-size: 12px;
+}
+
+.amia-step-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin: 24px 0 34px;
+}
+
+.amia-step-card {
+  padding: 20px;
+  border: 1px solid var(--amia-border);
+  border-radius: var(--amia-radius-md);
+  background: var(--amia-surface);
+  box-shadow: var(--amia-shadow-sm);
+}
+
+.amia-step-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  margin-bottom: 16px;
+  border-radius: 9px;
+  background: var(--amia-brand-soft);
+  color: var(--amia-brand-strong);
+  font-size: 13px;
+  font-weight: 750;
+}
+
+.amia-step-card h2,
+.amia-step-card h3 {
+  margin: 0 0 10px !important;
+  border: 0 !important;
+  color: var(--amia-text-1);
+  font-size: 18px !important;
+}
+
+.amia-step-card p,
+.amia-step-card li {
+  color: var(--amia-text-2);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.amia-step-card ul {
+  margin: 10px 0 0;
+  padding-left: 20px;
+}
+
+.amia-page-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 10px 18px;
+  border: 1px solid var(--amia-brand);
+  border-radius: 10px;
+  background: var(--amia-brand);
+  color: #fff !important;
+  font-size: 14px;
+  font-weight: 650;
+  text-decoration: none !important;
+}
+
+.amia-page-cta:hover {
+  border-color: var(--amia-brand-strong);
+  background: var(--amia-brand-strong);
+}
+
+.amia-feedback-checklist {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin: 20px 0 30px;
+}
+
+.amia-feedback-item {
+  padding: 14px 16px;
+  border: 1px solid var(--amia-border);
+  border-radius: var(--amia-radius-sm);
+  background: var(--amia-surface);
+  color: var(--amia-text-2);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.amia-feedback-item strong {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--amia-text-1);
+}
+
+.amia-project-section {
+  margin: 34px 0 48px;
+}
+
+.amia-project-section > h2 {
+  margin-bottom: 18px;
+}
+
+.amia-project-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.amia-project-grid .amia-project-card {
+  margin: 0;
+}
+
+.amia-sponsor-panel {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin: 28px 0;
+}
+
+.amia-sponsor-panel > section {
+  padding: 20px;
+  border: 1px solid var(--amia-border);
+  border-radius: var(--amia-radius-md);
+  background: var(--amia-surface);
+}
+
+.amia-sponsor-panel h2 {
+  margin: 0 0 12px;
+  border: 0;
+  font-size: 18px;
+}
+
+.amia-sponsor-panel p,
+.amia-sponsor-panel li {
+  color: var(--amia-text-2);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+@media (max-width: 640px) {
+  .amia-step-grid,
+  .amia-feedback-checklist,
+  .amia-project-grid,
+  .amia-sponsor-panel {
+    grid-template-columns: 1fr;
+  }
+}
