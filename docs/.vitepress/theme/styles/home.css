@@ -1,0 +1,301 @@
+.amia-home-status-wrap {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 24px 24px 0;
+}
+
+.amia-home-status {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 12px 16px;
+  border: 1px solid var(--amia-border);
+  border-radius: var(--amia-radius-md);
+  background: var(--amia-surface);
+  box-shadow: var(--amia-shadow-sm);
+}
+
+.amia-home-status-main,
+.amia-home-status-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.amia-home-status-title {
+  color: var(--amia-text-1);
+  font-size: 14px;
+  font-weight: 650;
+}
+
+.amia-home-status-copy,
+.amia-home-status-meta {
+  color: var(--amia-text-2);
+  font-size: 13px;
+}
+
+.amia-home-status a {
+  color: var(--amia-brand-strong);
+  font-size: 13px;
+  font-weight: 650;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.amia-home {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 8px 24px 80px;
+}
+
+.amia-home-section {
+  margin-top: 72px;
+}
+
+.amia-home-section--compact {
+  margin-top: 48px;
+}
+
+.amia-section-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.amia-section-kicker {
+  margin: 0 0 6px;
+  color: var(--amia-brand-strong);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.amia-section-heading h2 {
+  margin: 0;
+  border: 0;
+  color: var(--amia-text-1);
+  font-size: clamp(24px, 3vw, 30px);
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+}
+
+.amia-section-heading p {
+  max-width: 620px;
+  margin: 8px 0 0;
+  color: var(--amia-text-2);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.amia-section-more {
+  color: var(--amia-brand-strong);
+  font-size: 14px;
+  font-weight: 650;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.amia-entry-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.amia-entry-card {
+  display: flex;
+  min-height: 190px;
+  flex-direction: column;
+  padding: 22px;
+  border: 1px solid var(--amia-border);
+  border-radius: var(--amia-radius-lg);
+  background: var(--amia-surface);
+  box-shadow: var(--amia-shadow-sm);
+  color: var(--amia-text-1);
+  text-decoration: none !important;
+  transition: border-color 160ms ease, background-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+}
+
+.amia-entry-card:hover {
+  border-color: color-mix(in srgb, var(--amia-brand) 65%, var(--amia-border));
+  background: var(--amia-surface-soft);
+  box-shadow: var(--amia-shadow-md);
+  transform: translateY(-2px);
+}
+
+.amia-entry-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  margin-bottom: 28px;
+  border: 1px solid var(--amia-border);
+  border-radius: 11px;
+  background: var(--amia-brand-soft);
+  color: var(--amia-brand-strong);
+  font-size: 16px;
+  font-weight: 750;
+}
+
+.amia-entry-card h3 {
+  margin: 0 0 8px;
+  color: var(--amia-text-1);
+  font-size: 18px;
+  line-height: 1.4;
+}
+
+.amia-entry-card p {
+  margin: 0;
+  color: var(--amia-text-2);
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.amia-entry-arrow {
+  margin-top: auto;
+  padding-top: 18px;
+  color: var(--amia-brand-strong);
+  font-size: 18px;
+}
+
+.amia-popular-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  overflow: hidden;
+  border: 1px solid var(--amia-border);
+  border-radius: var(--amia-radius-lg);
+  background: var(--amia-surface);
+}
+
+.amia-popular-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 68px;
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--amia-border);
+  color: var(--amia-text-1);
+  text-decoration: none !important;
+}
+
+.amia-popular-link:nth-child(odd) {
+  border-right: 1px solid var(--amia-border);
+}
+
+.amia-popular-link:nth-last-child(-n + 2) {
+  border-bottom: 0;
+}
+
+.amia-popular-link:hover {
+  background: var(--amia-surface-soft);
+}
+
+.amia-popular-link strong {
+  display: block;
+  margin-bottom: 3px;
+  font-size: 15px;
+}
+
+.amia-popular-link span {
+  color: var(--amia-text-2);
+  font-size: 13px;
+}
+
+.amia-popular-link > b {
+  color: var(--amia-text-3);
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.amia-update-list {
+  overflow: hidden;
+  border: 1px solid var(--amia-border);
+  border-radius: var(--amia-radius-lg);
+  background: var(--amia-surface);
+}
+
+.amia-update-item {
+  display: grid;
+  grid-template-columns: 110px 112px minmax(0, 1fr) 24px;
+  gap: 16px;
+  align-items: start;
+  padding: 20px;
+  border-bottom: 1px solid var(--amia-border);
+  color: var(--amia-text-1);
+  text-decoration: none !important;
+}
+
+.amia-update-item:last-child {
+  border-bottom: 0;
+}
+
+.amia-update-item:hover {
+  background: var(--amia-surface-soft);
+}
+
+.amia-update-date {
+  color: var(--amia-text-3);
+  font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+  font-size: 12px;
+}
+
+.amia-update-copy strong {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--amia-text-1);
+  font-size: 15px;
+}
+
+.amia-update-copy span {
+  color: var(--amia-text-2);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.amia-update-arrow {
+  color: var(--amia-text-3);
+}
+
+.amia-ecosystem-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.amia-ecosystem-card {
+  padding: 20px;
+  border: 1px solid var(--amia-border);
+  border-radius: var(--amia-radius-md);
+  background: var(--amia-surface);
+}
+
+.amia-ecosystem-card h3 {
+  margin: 14px 0 8px;
+  color: var(--amia-text-1);
+  font-size: 16px;
+}
+
+.amia-ecosystem-card p {
+  min-height: 68px;
+  margin: 0;
+  color: var(--amia-text-2);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.amia-ecosystem-card a {
+  display: inline-block;
+  margin-top: 14px;
+  color: var(--amia-brand-strong);
+  font-size: 13px;
+  font-weight: 650;
+  text-decoration: none;
+}
