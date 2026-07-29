@@ -1,6 +1,7 @@
 ---
 title: 服务状态与公告
 description: Amia_晓山瑞希及关联基础设施的维护、迁移、停服和服务调整公告。
+pageClass: amia-service-log
 ---
 
 # 服务状态与公告
