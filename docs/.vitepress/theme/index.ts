@@ -1,3 +1,4 @@
+import type { Theme } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
 import { h } from 'vue'
 import HomePage from './components/HomePage.vue'
@@ -17,7 +18,7 @@ import './styles/components.css'
 import './styles/docs.css'
 import './styles/responsive.css'
 
-export default {
+const theme = {
   extends: DefaultTheme,
 
   enhanceApp({ app }) {
@@ -44,4 +45,6 @@ export default {
       'layout-bottom': () => h(SiteFooter)
     })
   }
-}
+} satisfies Theme
+
+export default theme
