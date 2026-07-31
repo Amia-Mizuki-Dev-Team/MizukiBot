@@ -1,12 +1,12 @@
 ---
 layout: home
-title: Amia_晓山瑞希帮助文档
-description: Amia_晓山瑞希官方帮助文档，提供 PJSK、舞萌 DX、中二节奏、经济系统、群聊工具、Minecraft 服务器和项目生态说明。
+title: Amia_晓山瑞希｜PJSK 与舞萌 DX 综合 QQ Bot
+description: Amia_晓山瑞希，原 Mizuki Bot，支持 PJSK 查询与车队辅助、舞萌 DX 成绩同步、B50、AP50、成绩分析及群聊娱乐功能。
 
 hero:
   name: "Amia_晓山瑞希"
-  text: "官方帮助文档"
-  tagline: "音游查询、群聊工具与经济系统的使用说明"
+  text: "PJSK 与舞萌 DX 综合 QQ Bot"
+  tagline: "支持 PJSK 查询、舞萌成绩同步与分析，以及群聊娱乐和经济系统"
   actions:
     - theme: brand
       text: 开始使用
@@ -43,7 +43,7 @@ features:
 
 ## 官方帮助入口
 
-本站集中整理 Amia_晓山瑞希的使用说明、功能文档、更新记录和问题反馈入口。项目原名为 **Mizuki Bot**；旧名称仅作为历史名称和搜索别名保留。
+Amia_晓山瑞希，原名 **Mizuki Bot**，是由 Amia-Mizuki Dev Team 维护的综合型 QQ Bot，提供 PJSK 查询与车队辅助、舞萌 DX 成绩同步、B50 与 AP50、成绩分析、音游互动、经济系统及群聊管理功能。本站集中整理使用说明、功能文档、更新记录和问题反馈入口。
 
 <div class="support-grid support-grid--compact">
 
