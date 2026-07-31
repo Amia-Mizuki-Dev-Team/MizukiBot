@@ -5,8 +5,8 @@ description: Amia_晓山瑞希，原 Mizuki Bot，支持 PJSK 查询与车队辅
 
 hero:
   name: "Amia_晓山瑞希"
-  text: "PJSK 与舞萌 DX 综合 QQ Bot"
-  tagline: "支持 PJSK 查询、舞萌成绩同步与分析，以及群聊娱乐和经济系统"
+  text: "PJSK × 舞萌 DX"
+  tagline: "成绩同步、查询分析与群聊娱乐"
   actions:
     - theme: brand
       text: 开始使用
