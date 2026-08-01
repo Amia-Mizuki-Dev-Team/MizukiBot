@@ -35,7 +35,7 @@ for (const file of htmlFiles) {
   }
 
   for (const image of html.matchAll(/<img\b[^>]*>/gi)) {
-    if (getAttribute(image[0], 'alt') === null) {
+    if (!hasAttribute(image[0], 'alt')) {
       errors.push(`${page}: 图片缺少 alt 属性：${image[0].slice(0, 160)}`)
     }
   }
@@ -98,6 +98,11 @@ function walk(directory) {
     }
   }
   return files
+}
+
+function hasAttribute(tag, name) {
+  const pattern = new RegExp(`\\s${escapeRegExp(name)}(?=\\s|=|/?>)`, 'i')
+  return pattern.test(tag)
 }
 
 function getAttribute(tag, name) {
