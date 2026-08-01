@@ -22,18 +22,21 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
-          node-version: 20
-          cache: 'npm'
+          node-version-file: .node-version
+          cache: npm
 
       - name: Install dependencies
         run: npm ci
+
+      - name: Audit dependency vulnerabilities
+        run: npm audit --audit-level=moderate
 
       - name: Build and audit VitePress site
         run: npm run docs:build
@@ -51,6 +54,7 @@ jobs:
             pages deploy docs/.vitepress/dist
             --project-name=mizuki-bot-docs
             --branch=${{ github.head_ref || github.ref_name }}
+            --commit-dirty=true
 
       - name: Submit changed URLs to IndexNow
         if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
