@@ -4,6 +4,11 @@ on:
   push:
     branches:
       - main
+    paths-ignore:
+      - README.md
+      - LICENSE
+      - .github/workflows/sync-sponsors.yml
+      - .github/workflows/refresh-vue-lock.yml
   workflow_dispatch:
 
 concurrency:
