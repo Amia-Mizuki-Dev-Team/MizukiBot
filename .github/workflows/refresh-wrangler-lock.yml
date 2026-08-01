@@ -30,8 +30,8 @@ jobs:
           node-version-file: .node-version
           cache: npm
 
-      - name: Regenerate package lock
-        run: npm install --package-lock-only
+      - name: Regenerate package lock without lifecycle scripts
+        run: npm install --package-lock-only --ignore-scripts
 
       - name: Commit lockfile update
         run: |
