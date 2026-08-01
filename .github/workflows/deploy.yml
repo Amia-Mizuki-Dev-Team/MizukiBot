@@ -35,7 +35,7 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build VitePress site
+      - name: Build and audit VitePress site
         run: npm run docs:build
 
       - name: Deploy to Cloudflare Pages
@@ -48,3 +48,11 @@ jobs:
           directory: docs/.vitepress/dist
           branch: ${{ github.head_ref || github.ref_name }}
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Submit changed URLs to IndexNow
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+        continue-on-error: true
+        env:
+          INDEXNOW_BEFORE_SHA: ${{ github.event.before }}
+          INDEXNOW_AFTER_SHA: ${{ github.sha }}
+        run: npm run seo:indexnow
