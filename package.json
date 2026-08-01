@@ -5,8 +5,11 @@
   "main": "index.js",
   "scripts": {
     "docs:dev": "vitepress dev docs",
-    "docs:build": "vitepress build docs",
+    "docs:build": "vitepress build docs && node scripts/prepare-seo.mjs && node scripts/audit-seo.mjs",
     "docs:preview": "vitepress preview docs",
+    "seo:prepare": "node scripts/prepare-seo.mjs",
+    "seo:audit": "node scripts/audit-seo.mjs",
+    "seo:indexnow": "node scripts/submit-indexnow.mjs",
     "sync:sponsors": "node scripts/sync-sponsors.mjs"
   },
   "devDependencies": {
