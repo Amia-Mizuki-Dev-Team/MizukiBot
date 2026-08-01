@@ -1,8 +1,10 @@
 # Amia_晓山瑞希 Help Documentation
 
-`Amia-Mizuki-Dev-Team/MizukiBot` 是 [Amia_晓山瑞希帮助文档](https://help.mizuki.top) 的源码仓库。仓库名称沿用历史项目名；对外产品名称统一为 **Amia_晓山瑞希**。
+`Amia-Mizuki-Dev-Team/MizukiBot` 是 [Amia_晓山瑞希帮助文档](https://help.mizuki.top/) 的源码仓库。仓库名称沿用历史项目名；对外产品名称统一为 **Amia_晓山瑞希**。
 
-站点承载用户文档、功能说明、使用规范、Bot 更新日志、服务公告和项目生态介绍，基于 [VitePress](https://vitepress.dev/) 构建，并通过 GitHub Actions 与 Cloudflare Pages 自动部署。
+Amia_晓山瑞希，原名 Mizuki Bot，是支持 PJSK 查询与车队辅助、舞萌 DX 成绩同步、B50、AP50、成绩分析、群聊娱乐和经济系统的综合型 QQ Bot。本仓库负责其公开帮助文档、服务公告与项目生态说明。
+
+站点基于 [VitePress](https://vitepress.dev/) 构建，通过 GitHub Actions 完成依赖审计、SEO 输出验证和 Cloudflare Pages 自动部署。
 
 ## 项目定位
 
@@ -25,23 +27,36 @@
 
 ## 技术概览
 
-- 文档框架：VitePress
+- 文档框架：VitePress 1.6.4
 - 前端基础：Vue 3
-- 运行环境：Node.js 20+
-- 部署平台：Cloudflare Pages
-- 自动化流程：GitHub Actions
+- 运行环境：Node.js 24、npm 11
+- 部署工具：Wrangler 4 / Cloudflare Pages
+- 自动化流程：GitHub Actions、Dependabot、npm audit、SEO 构建审计
 
 ## 本地开发
 
+安装锁定依赖：
+
 ```bash
-npm install
+npm ci
+```
+
+启动本地文档服务：
+
+```bash
 npm run docs:dev
 ```
 
-构建生产版本：
+构建并执行 SEO 输出审计：
 
 ```bash
 npm run docs:build
+```
+
+检查依赖安全状态：
+
+```bash
+npm audit --audit-level=moderate
 ```
 
 ## 维护团队
