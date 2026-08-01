@@ -56,10 +56,7 @@ jobs:
             --branch=${{ github.head_ref || github.ref_name }}
             --commit-dirty=true
 
-      - name: Submit changed URLs to IndexNow
-        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
-        continue-on-error: true
+      - name: Verify IndexNow submission
         env:
-          INDEXNOW_BEFORE_SHA: ${{ github.event.before }}
-          INDEXNOW_AFTER_SHA: ${{ github.sha }}
+          INDEXNOW_FORCE_ALL: 'true'
         run: npm run seo:indexnow
