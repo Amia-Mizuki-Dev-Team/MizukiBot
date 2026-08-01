@@ -18,10 +18,16 @@
   },
   "devDependencies": {
     "vitepress": "1.6.4",
-    "vue": "^3.4.0"
+    "vue": "^3.4.0",
+    "wrangler": "4.118.0"
   },
   "overrides": {
     "vite": "6.4.3",
     "postcss": "8.5.23"
+  },
+  "allowScripts": {
+    "esbuild@0.25.12": true,
+    "esbuild@0.28.1": true,
+    "workerd@1.20260730.1": true
   }
 }
