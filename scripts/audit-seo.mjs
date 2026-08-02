@@ -97,11 +97,31 @@ if (!existsSync(homepage)) {
     '/features/tools',
     '/features/minecraft',
     '/features/bot_update',
-    '/projects/'
+    '/projects/',
+    '/friends'
   ]) {
     if (!new RegExp(`<a\\b[^>]*href=["']${escapeRegExp(href)}["']`, 'i').test(homepageHtml)) {
       errors.push(`首页缺少可抓取链接：${href}`)
     }
+  }
+}
+
+const friendsPage = resolve(DIST_DIR, 'friends.html')
+if (!existsSync(friendsPage)) {
+  errors.push('缺少友情链接页面 friends.html')
+} else {
+  const friendsHtml = readFileSync(friendsPage, 'utf8')
+
+  if (!friendsHtml.includes('https://help.mizuki.top/friends#friend-sites')) {
+    errors.push('友情链接页面缺少 ItemList 结构化数据')
+  }
+
+  if (!/<a\b[^>]*href=["']https:\/\/mzyyun\.com\/?["']/i.test(friendsHtml)) {
+    errors.push('友情链接页面缺少墨染辉夜链接')
+  }
+
+  if (!/<img\b[^>]*width=["']64["'][^>]*height=["']64["']/i.test(friendsHtml)) {
+    warnings.push('friends.html: 友链头像未保留固定尺寸，可能产生布局抖动')
   }
 }
 
