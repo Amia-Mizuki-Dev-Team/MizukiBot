@@ -109,7 +109,8 @@ const nav = [
       { text: '用户使用协议', link: '/agreement' },
       { text: '群规与公告', link: '/rules' },
       { text: '提问的智慧', link: '/asking' },
-      { text: '赞助我们', link: '/sponsor' }
+      { text: '赞助我们', link: '/sponsor' },
+      { text: '友情链接', link: '/friends' }
     ]
   },
   {
@@ -154,7 +155,8 @@ const sidebar = [
       { text: '用户使用协议', link: '/agreement' },
       { text: '群规与公告', link: '/rules' },
       { text: '提问的智慧', link: '/asking' },
-      { text: '赞助我们', link: '/sponsor' }
+      { text: '赞助我们', link: '/sponsor' },
+      { text: '友情链接', link: '/friends' }
     ]
   },
   {
