@@ -18,33 +18,6 @@ export default {
       ]
       currentQuote.value = quotes[Math.floor(Math.random() * quotes.length)]
 
-      nextTick(() => {
-        const links = [
-          '/features/pjsk',
-          '/features/economy',
-          '/features/tools',
-          '/features/minecraft',
-          '/features/bot_update',
-          '/projects/'
-        ]
-        document.querySelectorAll('.VPFeature').forEach((el, i) => {
-          if (i < links.length) {
-            el.setAttribute('role', 'link')
-            el.setAttribute('tabindex', '0')
-            el.addEventListener('click', () => {
-              window.location.href = links[i]
-            })
-            el.addEventListener('keydown', event => {
-              const keyboardEvent = event as KeyboardEvent
-              if (keyboardEvent.key === 'Enter' || keyboardEvent.key === ' ') {
-                keyboardEvent.preventDefault()
-                window.location.href = links[i]
-              }
-            })
-          }
-        })
-      })
-
       if (!sessionStorage.getItem('hide_announcement')) {
         showAnnouncement.value = true
         nextTick(() => {
