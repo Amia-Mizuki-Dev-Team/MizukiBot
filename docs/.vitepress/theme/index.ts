@@ -2,6 +2,7 @@ import DefaultTheme from 'vitepress/theme'
 import { h, onMounted, ref, nextTick } from 'vue'
 import HomeSponsorBanner from './HomeSponsorBanner.vue'
 import './custom.css'
+import './friends.css'
 
 export default {
   extends: DefaultTheme,
@@ -46,18 +47,36 @@ export default {
     return h(DefaultTheme.Layout, null, {
       'home-hero-before': () => h(HomeSponsorBanner),
       'home-hero-image': () => h('div', { class: 'hero-wrapper' }, [
-        h('img', { src: '/Picture/avatar.jpg', class: 'random-hero-avatar', alt: 'Amia_晓山瑞希' }),
+        h('img', {
+          src: '/Picture/avatar.jpg',
+          class: 'random-hero-avatar',
+          alt: 'Amia_晓山瑞希',
+          width: 350,
+          height: 350,
+          decoding: 'async',
+          fetchpriority: 'high'
+        }),
         h('div', { class: 'my-custom-quote', innerHTML: currentQuote.value })
       ]),
       'layout-top': () => {
         if (!showAnnouncement.value) return null
-        return h('div', { id: 'mzk-banner', class: 'mzk-banner' }, [
+        return h('div', {
+          id: 'mzk-banner',
+          class: 'mzk-banner',
+          role: 'region',
+          'aria-label': '站点公告'
+        }, [
           h('div', { class: 'mzk-banner-content' }, [
             h('span', { class: 'mzk-banner-tag' }, '公告'),
             h('span', null, '请查看最新功能更新与服务公告。'),
             h('a', { href: '/service-announcements', class: 'mzk-banner-link' }, '查看公告')
           ]),
-          h('button', { onClick: closeBanner, class: 'mzk-banner-close', ariaLabel: '关闭公告' }, '×')
+          h('button', {
+            type: 'button',
+            onClick: closeBanner,
+            class: 'mzk-banner-close',
+            'aria-label': '关闭公告'
+          }, '×')
         ])
       },
       'layout-bottom': () => h('div', { class: 'mzk-footer' }, '© 2021-2026 Amia-Mizuki Dev Team. 保留所有权利。')
