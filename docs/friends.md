@@ -1,6 +1,10 @@
 ---
 title: 友情链接
 description: Amia_晓山瑞希帮助文档的友情链接页面，收录与技术、开源、个人开发及相关社区有关的网站。
+head:
+  - - script
+    - type: application/ld+json
+    - '{"@context":"https://schema.org","@type":"ItemList","@id":"https://help.mizuki.top/friends#friend-sites","name":"Amia_晓山瑞希友情链接","itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"WebSite","name":"墨染辉夜","url":"https://mzyyun.com/","description":"分享技术、日常与思考","image":"https://blog.mzyyun.com/images/avatar.jpg"}}]}'
 ---
 
 # 友情链接
