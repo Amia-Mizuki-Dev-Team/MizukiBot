@@ -55,11 +55,26 @@ checkPublicFile('robots.txt', content => {
 })
 
 checkPublicFile('sitemap.xml', content => {
-  const urls = [...content.matchAll(/<loc>(.*?)<\/loc>/g)].map(match => match[1])
-  if (urls.length === 0) return '站点地图没有 URL'
-  if (urls.some(url => !url.startsWith('https://help.mizuki.top/'))) {
-    return '站点地图包含非规范域名 URL'
+  const entries = [...content.matchAll(/<url>([\s\S]*?)<\/url>/gi)]
+  if (entries.length === 0) return '站点地图没有 URL'
+
+  for (const entry of entries) {
+    const loc = entry[1].match(/<loc>([\s\S]*?)<\/loc>/i)?.[1]?.trim() || ''
+    const lastmod = entry[1].match(/<lastmod>([\s\S]*?)<\/lastmod>/i)?.[1]?.trim() || ''
+
+    if (!loc.startsWith('https://help.mizuki.top/')) {
+      return `站点地图包含非规范域名 URL：${loc || '未知 URL'}`
+    }
+
+    if (!lastmod) {
+      return `站点地图 URL 缺少 lastmod：${loc}`
+    }
+
+    if (Number.isNaN(Date.parse(lastmod))) {
+      return `站点地图 lastmod 无效：${loc}`
+    }
   }
+
   return null
 })
 
@@ -70,8 +85,24 @@ checkPublicFile(`${INDEXNOW_KEY}.txt`, content => {
 const homepage = resolve(DIST_DIR, 'index.html')
 if (!existsSync(homepage)) {
   errors.push('缺少首页 index.html')
-} else if (!readFileSync(homepage, 'utf8').includes('https://help.mizuki.top/#software')) {
-  errors.push('首页缺少 SoftwareApplication 结构化数据')
+} else {
+  const homepageHtml = readFileSync(homepage, 'utf8')
+  if (!homepageHtml.includes('https://help.mizuki.top/#software')) {
+    errors.push('首页缺少 SoftwareApplication 结构化数据')
+  }
+
+  for (const href of [
+    '/features/pjsk',
+    '/features/economy',
+    '/features/tools',
+    '/features/minecraft',
+    '/features/bot_update',
+    '/projects/'
+  ]) {
+    if (!new RegExp(`<a\\b[^>]*href=["']${escapeRegExp(href)}["']`, 'i').test(homepageHtml)) {
+      errors.push(`首页缺少可抓取链接：${href}`)
+    }
+  }
 }
 
 for (const warning of warnings) {
