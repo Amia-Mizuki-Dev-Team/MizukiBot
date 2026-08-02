@@ -1,7 +1,10 @@
+import { execFileSync } from 'node:child_process'
 import { existsSync, readFileSync, readdirSync, statSync, writeFileSync } from 'node:fs'
 import { join, relative, resolve } from 'node:path'
 
 const DIST_DIR = resolve(process.argv[2] || 'docs/.vitepress/dist')
+const DOCS_DIR = resolve('docs')
+const REPO_DIR = resolve('.')
 const MIN_DESCRIPTION_LENGTH = 56
 const MAX_DESCRIPTION_LENGTH = 150
 const SITE_URL = 'https://help.mizuki.top'
@@ -66,9 +69,82 @@ for (const file of walk(DIST_DIR).filter(path => path.endsWith('.html'))) {
   }
 }
 
+const sitemapLastmodCount = updateSitemapLastmod()
+
 console.log(
-  `SEO 输出处理完成：更新 ${changedPages} 个页面，扩展 ${expandedDescriptions} 个过短描述。`
+  `SEO 输出处理完成：更新 ${changedPages} 个页面，扩展 ${expandedDescriptions} 个过短描述，为 ${sitemapLastmodCount} 个 sitemap URL 写入 lastmod。`
 )
+
+function updateSitemapLastmod() {
+  const sitemapPath = resolve(DIST_DIR, 'sitemap.xml')
+  if (!existsSync(sitemapPath)) {
+    throw new Error('缺少 sitemap.xml，无法写入 lastmod')
+  }
+
+  const original = readFileSync(sitemapPath, 'utf8')
+  let updatedEntries = 0
+
+  const sitemap = original.replace(/<url>([\s\S]*?)<\/url>/g, block => {
+    const locMatch = block.match(/<loc>([\s\S]*?)<\/loc>/i)
+    if (!locMatch) return block
+
+    const sourceFile = resolveSourceFile(decodeXml(locMatch[1]))
+    const lastmod = sourceFile ? getGitLastmod(sourceFile) : null
+    if (!lastmod) return block
+
+    const lastmodTag = `<lastmod>${lastmod}</lastmod>`
+    let nextBlock
+
+    if (/<lastmod>[\s\S]*?<\/lastmod>/i.test(block)) {
+      nextBlock = block.replace(/<lastmod>[\s\S]*?<\/lastmod>/i, lastmodTag)
+    } else {
+      nextBlock = block.replace(/(<loc>[\s\S]*?<\/loc>)/i, `$1\n    ${lastmodTag}`)
+    }
+
+    if (nextBlock !== block) updatedEntries += 1
+    return nextBlock
+  })
+
+  if (sitemap !== original) {
+    writeFileSync(sitemapPath, sitemap, 'utf8')
+  }
+
+  return updatedEntries
+}
+
+function resolveSourceFile(loc) {
+  let pathname
+  try {
+    pathname = decodeURIComponent(new URL(loc).pathname)
+  } catch {
+    return null
+  }
+
+  const normalized = pathname.replace(/^\/+|\/+$/g, '')
+  const candidates = normalized
+    ? [resolve(DOCS_DIR, `${normalized}.md`), resolve(DOCS_DIR, normalized, 'index.md')]
+    : [resolve(DOCS_DIR, 'index.md')]
+
+  return candidates.find(file => file.startsWith(DOCS_DIR) && existsSync(file)) || null
+}
+
+function getGitLastmod(sourceFile) {
+  const repoPath = relative(REPO_DIR, sourceFile).replaceAll('\\', '/')
+
+  try {
+    const timestamp = execFileSync(
+      'git',
+      ['log', '-1', '--format=%cI', '--', repoPath],
+      { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] }
+    ).trim()
+
+    if (!timestamp) return null
+    const date = new Date(timestamp)
+    return Number.isNaN(date.getTime()) ? null : date.toISOString()
+  } catch {
+    return null
+  }
+}
 
 function walk(directory) {
   const files = []
@@ -111,6 +187,16 @@ function decodeHtml(value) {
     .replace(/&lt;/g, '<')
     .replace(/&gt;/g, '>')
     .replace(/&amp;/g, '&')
+}
+
+function decodeXml(value) {
+  return String(value)
+    .replace(/&quot;/g, '"')
+    .replace(/&apos;/g, "'")
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&amp;/g, '&')
+    .trim()
 }
 
 function escapeHtmlAttribute(value) {
