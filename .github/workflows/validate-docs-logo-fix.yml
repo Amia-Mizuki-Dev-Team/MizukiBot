@@ -1,0 +1,88 @@
+name: Validate Docs And Animated Logo Fix
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/validate-docs-logo-fix.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: .node-version
+          cache: npm
+          cache-dependency-path: package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Ensure FFmpeg is available
+        run: |
+          if ! command -v ffmpeg >/dev/null 2>&1; then
+            sudo apt-get update
+            sudo apt-get install --yes --no-install-recommends ffmpeg
+          fi
+
+      - name: Generate and inspect animated WebP
+        run: |
+          mkdir -p .github/validation
+          ffmpeg -hide_banner -loglevel error -y \
+            -i docs/public/Picture/logo.gif \
+            -vf "scale=128:128:force_original_aspect_ratio=decrease:flags=lanczos,pad=128:128:(ow-iw)/2:(oh-ih)/2:color=0x00000000,format=rgba" \
+            -c:v libwebp_anim \
+            -lossless 0 \
+            -q:v 72 \
+            -compression_level 6 \
+            -loop 0 \
+            -an \
+            docs/public/Picture/logo.webp
+
+          grep -a -q 'ANIM' docs/public/Picture/logo.webp
+          frames="$(grep -a -o 'ANMF' docs/public/Picture/logo.webp | wc -l | tr -d ' ')"
+          bytes="$(stat -c '%s' docs/public/Picture/logo.webp)"
+          test "${frames}" -gt 1
+          test "${bytes}" -lt 524288
+
+          {
+            echo "animated_webp_frames=${frames}"
+            echo "animated_webp_bytes=${bytes}"
+          } > .github/validation/docs-logo-fix.txt
+
+      - name: Run complete build and audits
+        run: |
+          set +e
+          npm run docs:build >> .github/validation/docs-logo-fix.txt 2>&1
+          status=$?
+          echo "docs_build_exit=${status}" >> .github/validation/docs-logo-fix.txt
+          exit "${status}"
+
+      - name: Confirm generated pages
+        run: |
+          test -f docs/.vitepress/dist/faq.html
+          test -f docs/.vitepress/dist/status.html
+          grep -q '功能状态与数据来源' docs/.vitepress/dist/status.html
+          grep -q '30 秒快速判断' docs/.vitepress/dist/faq.html
+          echo 'generated_pages=faq,status' >> .github/validation/docs-logo-fix.txt
+
+      - name: Commit validation report
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .github/validation/docs-logo-fix.txt
+          git commit -m "test: record docs and animated logo validation"
+          git push origin HEAD:main
