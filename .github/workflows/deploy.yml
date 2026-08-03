@@ -47,6 +47,27 @@ jobs:
       - name: Audit dependency vulnerabilities
         run: npm audit --audit-level=moderate
 
+      - name: Generate animated WebP logo
+        run: |
+          ffmpeg -hide_banner -loglevel error -y \
+            -i docs/public/Picture/logo.gif \
+            -vf "scale=128:128:force_original_aspect_ratio=decrease:flags=lanczos,pad=128:128:(ow-iw)/2:(oh-ih)/2:color=0x00000000,format=rgba" \
+            -c:v libwebp_anim \
+            -lossless 0 \
+            -q:v 75 \
+            -compression_level 6 \
+            -loop 0 \
+            -an \
+            docs/public/Picture/logo.webp
+
+          frames="$(ffprobe -v error -select_streams v:0 -count_frames \
+            -show_entries stream=nb_read_frames \
+            -of default=nokey=1:noprint_wrappers=1 \
+            docs/public/Picture/logo.webp)"
+
+          echo "Animated WebP frames: ${frames}"
+          test "${frames}" -gt 1
+
       - name: Build and audit VitePress site
         run: npm run docs:build
 
