@@ -49,7 +49,7 @@ jobs:
 
       - name: Ensure FFmpeg is available
         run: |
-          if command -v ffmpeg >/dev/null 2>&1 && command -v ffprobe >/dev/null 2>&1; then
+          if command -v ffmpeg >/dev/null 2>&1; then
             ffmpeg -version | head -n 1
             exit 0
           fi
@@ -64,22 +64,20 @@ jobs:
             -vf "scale=128:128:force_original_aspect_ratio=decrease:flags=lanczos,pad=128:128:(ow-iw)/2:(oh-ih)/2:color=0x00000000,format=rgba" \
             -c:v libwebp_anim \
             -lossless 0 \
-            -q:v 75 \
+            -q:v 72 \
             -compression_level 6 \
             -loop 0 \
             -an \
             docs/public/Picture/logo.webp
 
-          frames="$(ffprobe -v error -select_streams v:0 -count_frames \
-            -show_entries stream=nb_read_frames \
-            -of default=nokey=1:noprint_wrappers=1 \
-            docs/public/Picture/logo.webp)"
-
+          grep -a -q 'ANIM' docs/public/Picture/logo.webp
+          frames="$(grep -a -o 'ANMF' docs/public/Picture/logo.webp | wc -l | tr -d ' ')"
           bytes="$(stat -c '%s' docs/public/Picture/logo.webp)"
+
           echo "Animated WebP frames: ${frames}"
           echo "Animated WebP bytes: ${bytes}"
           test "${frames}" -gt 1
-          test "${bytes}" -lt 1048576
+          test "${bytes}" -lt 524288
 
       - name: Build and audit VitePress site
         run: npm run docs:build
