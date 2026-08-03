@@ -1,0 +1,47 @@
+commit=a3d1b3a2df7416cdb514e9f377fd862ff37a789b
+node=v24.18.0
+npm=11.16.0
+
+===== npm ci =====
+
+added 163 packages, and audited 164 packages in 5s
+
+47 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+
+npm_ci_exit=0
+
+===== npm run docs:build =====
+
+> mizuki-bot-docs@1.0.0 docs:build
+> vitepress build docs && node scripts/prepare-seo.mjs && node scripts/prepare-performance.mjs && node scripts/audit-seo.mjs && node scripts/audit-performance.mjs
+
+
+  [32m[1mvitepress[22m v1.6.4[39m
+
+- building client + server bundles...
+[32m✓[0m building client + server bundles...
+- rendering pages...
+[32m✓[0m rendering pages...
+- generating sitemap...
+[32m✓[0m generating sitemap...
+build complete in 3.85s.
+file:///home/runner/work/MizukiBot/MizukiBot/scripts/prepare-seo.mjs:277
+    `\\s${escapeRegExp(name)}\\s*=\\s*(?:"([^"]*)"|'([^']*)'|([^\\s>]+))`,
+    ^
+
+ReferenceError: escapeRegExp is not defined
+    at getAttribute (file:///home/runner/work/MizukiBot/MizukiBot/scripts/prepare-seo.mjs:277:5)
+    at findMetaTag (file:///home/runner/work/MizukiBot/MizukiBot/scripts/prepare-seo.mjs:301:14)
+    at getMetaContent (file:///home/runner/work/MizukiBot/MizukiBot/scripts/prepare-seo.mjs:311:15)
+    at file:///home/runner/work/MizukiBot/MizukiBot/scripts/prepare-seo.mjs:53:30
+    at ModuleJob.run (node:internal/modules/esm/module_job:439:25)
+    at async node:internal/modules/esm/loader:643:26
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)
+
+Node.js v24.18.0
+
+docs_build_exit=1
+final_exit=1
