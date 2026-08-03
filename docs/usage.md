@@ -27,7 +27,7 @@ description: 介绍如何将 Amia_晓山瑞希直接拉入 QQ 群、开启群消
 
 <div class="mzk-card mzk-card--orange">
   <h3>3. 开启群消息权限</h3>
-  <p>群主需要在机器人管理中为 Bot 开启“获取群内全部消息”权限。开启后，群成员可以直接发送指令文本触发本触发功能。</p>
+  <p>群主需要在机器人管理中为 Bot 开启“获取群内全部消息”权限。开启后，群成员可以直接发送指令文本触发功能。</p>
 </div>
 
 <div class="mzk-card mzk-card--purple">
