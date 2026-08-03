@@ -1,7 +1,8 @@
 import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs'
-import { join, relative, resolve } from 'node:path'
+import { extname, join, relative, resolve } from 'node:path'
 
 const DIST_DIR = resolve(process.argv[2] || 'docs/.vitepress/dist')
+const SITE_URL = 'https://help.mizuki.top'
 const MIN_DESCRIPTION_LENGTH = 56
 const INDEXNOW_KEY = 'e79ceab2280c3e9a4d8cdd92ec2fba44'
 const errors = []
@@ -12,26 +13,57 @@ if (!existsSync(DIST_DIR)) {
 }
 
 const htmlFiles = walk(DIST_DIR).filter(path => path.endsWith('.html'))
+const validRoutes = buildRouteSet(htmlFiles)
+const descriptions = new Map()
 
 for (const file of htmlFiles) {
   const html = readFileSync(file, 'utf8')
   const page = relative(DIST_DIR, file).replaceAll('\\', '/')
-  const description = decodeHtml(getMetaContent(html, 'name', 'description') || '')
+  const route = routeForFile(file)
+  const description = decodeHtml(getMetaContent(html, 'name', 'description') || '').trim()
   const canonicalTags = [...html.matchAll(/<link\b[^>]*>/gi)].filter(
     match => String(getAttribute(match[0], 'rel') || '').toLowerCase() === 'canonical'
   )
 
-  if ([...description.trim()].length < MIN_DESCRIPTION_LENGTH) {
-    errors.push(`${page}: meta description 过短或缺失（${[...description.trim()].length} 字符）`)
+  if ([...description].length < MIN_DESCRIPTION_LENGTH) {
+    errors.push(`${page}: meta description 过短或缺失（${[...description].length} 字符）`)
+  }
+
+  if (description) {
+    const pages = descriptions.get(description) || []
+    pages.push(page)
+    descriptions.set(description, pages)
   }
 
   if (canonicalTags.length !== 1) {
     errors.push(`${page}: canonical 数量应为 1，实际为 ${canonicalTags.length}`)
   }
 
+  const canonical = canonicalTags.length === 1 ? getAttribute(canonicalTags[0][0], 'href') : null
+  if (canonical && !canonical.startsWith(`${SITE_URL}/`)) {
+    errors.push(`${page}: canonical 不属于正式域名：${canonical}`)
+  }
+
   const robots = String(getMetaContent(html, 'name', 'robots') || '').toLowerCase()
   if (robots.includes('noindex')) {
     errors.push(`${page}: 页面包含 noindex`)
+  }
+
+  if (page !== '404.html') {
+    const modifiedTime = getMetaContent(html, 'property', 'article:modified_time') || ''
+    if (!modifiedTime || Number.isNaN(Date.parse(modifiedTime))) {
+      errors.push(`${page}: 缺少有效的 article:modified_time`)
+    }
+    if (!hasJsonLdDateModified(html)) {
+      errors.push(`${page}: WebPage 结构化数据缺少 dateModified`)
+    }
+  }
+
+  const h1Count = [...html.matchAll(/<h1\b/gi)].length
+  if (h1Count === 0) {
+    errors.push(`${page}: 页面缺少 H1`)
+  } else if (h1Count > 1) {
+    warnings.push(`${page}: 页面包含 ${h1Count} 个 H1`)
   }
 
   for (const image of html.matchAll(/<img\b[^>]*>/gi)) {
@@ -40,8 +72,22 @@ for (const file of htmlFiles) {
     }
   }
 
-  if ([...description.trim()].length > 160) {
+  for (const anchor of html.matchAll(/<a\b[^>]*>/gi)) {
+    const href = getAttribute(anchor[0], 'href')
+    const brokenTarget = findBrokenInternalTarget(href, canonical || `${SITE_URL}${route}`, validRoutes)
+    if (brokenTarget) {
+      errors.push(`${page}: 站内链接目标不存在：${href} → ${brokenTarget}`)
+    }
+  }
+
+  if ([...description].length > 160) {
     warnings.push(`${page}: meta description 超过 160 字符`)
+  }
+}
+
+for (const [description, pages] of descriptions) {
+  if (pages.length > 1) {
+    warnings.push(`重复 meta description（${pages.length} 页）：${pages.join(', ')}；内容：${description.slice(0, 90)}`)
   }
 }
 
@@ -62,7 +108,7 @@ checkPublicFile('sitemap.xml', content => {
     const loc = entry[1].match(/<loc>([\s\S]*?)<\/loc>/i)?.[1]?.trim() || ''
     const lastmod = entry[1].match(/<lastmod>([\s\S]*?)<\/lastmod>/i)?.[1]?.trim() || ''
 
-    if (!loc.startsWith('https://help.mizuki.top/')) {
+    if (!loc.startsWith(`${SITE_URL}/`)) {
       return `站点地图包含非规范域名 URL：${loc || '未知 URL'}`
     }
 
@@ -87,7 +133,7 @@ if (!existsSync(homepage)) {
   errors.push('缺少首页 index.html')
 } else {
   const homepageHtml = readFileSync(homepage, 'utf8')
-  if (!homepageHtml.includes('https://help.mizuki.top/#software')) {
+  if (!homepageHtml.includes(`${SITE_URL}/#software`)) {
     errors.push('首页缺少 SoftwareApplication 结构化数据')
   }
 
@@ -112,7 +158,7 @@ if (!existsSync(friendsPage)) {
 } else {
   const friendsHtml = readFileSync(friendsPage, 'utf8')
 
-  if (!friendsHtml.includes('https://help.mizuki.top/friends#friend-sites')) {
+  if (!friendsHtml.includes(`${SITE_URL}/friends#friend-sites`)) {
     errors.push('友情链接页面缺少 ItemList 结构化数据')
   }
 
@@ -136,7 +182,7 @@ if (errors.length > 0) {
   throw new Error(`SEO 验证失败，共 ${errors.length} 项错误`)
 }
 
-console.log(`SEO 验证通过：${htmlFiles.length} 个 HTML 页面，未发现阻止收录的输出问题。`)
+console.log(`SEO 验证通过：${htmlFiles.length} 个 HTML 页面，发现 ${warnings.length} 项非阻断提示。`)
 
 function walk(directory) {
   const files = []
@@ -149,6 +195,70 @@ function walk(directory) {
     }
   }
   return files
+}
+
+function buildRouteSet(files) {
+  const routes = new Set(['/'])
+  for (const file of files) {
+    const route = routeForFile(file)
+    routes.add(route)
+    if (route !== '/') {
+      routes.add(route.endsWith('/') ? route.slice(0, -1) : `${route}/`)
+    }
+  }
+  return routes
+}
+
+function routeForFile(file) {
+  const page = relative(DIST_DIR, file).replaceAll('\\', '/')
+  if (page === 'index.html') return '/'
+  if (page.endsWith('/index.html')) return `/${page.slice(0, -'index.html'.length)}`
+  return `/${page.replace(/\.html$/i, '')}`
+}
+
+function findBrokenInternalTarget(href, baseUrl, routes) {
+  if (!href || /^(#|mailto:|tel:|javascript:|data:)/i.test(href)) return null
+
+  let url
+  try {
+    url = new URL(decodeHtml(href), baseUrl)
+  } catch {
+    return null
+  }
+
+  if (url.origin !== new URL(SITE_URL).origin) return null
+
+  let pathname
+  try {
+    pathname = decodeURIComponent(url.pathname)
+  } catch {
+    pathname = url.pathname
+  }
+
+  if (pathname === '') pathname = '/'
+  const extension = extname(pathname).toLowerCase()
+
+  if (extension && extension !== '.html') {
+    const targetFile = resolve(DIST_DIR, pathname.replace(/^\/+/, ''))
+    return existsSync(targetFile) ? null : pathname
+  }
+
+  const cleanPath = extension === '.html' ? pathname.slice(0, -5) || '/' : pathname
+  return routes.has(cleanPath) ? null : cleanPath
+}
+
+function hasJsonLdDateModified(html) {
+  for (const match of html.matchAll(/<script\b[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi)) {
+    try {
+      const data = JSON.parse(match[1])
+      if (data?.['@type'] === 'WebPage' && data.dateModified && !Number.isNaN(Date.parse(data.dateModified))) {
+        return true
+      }
+    } catch {
+      // 其他 JSON-LD 块由单独检查负责。
+    }
+  }
+  return false
 }
 
 function hasAttribute(tag, name) {
@@ -192,9 +302,9 @@ function decodeHtml(value) {
   return String(value)
     .replace(/&quot;/g, '"')
     .replace(/&#39;/g, "'")
+    .replace(/&amp;/g, '&')
     .replace(/&lt;/g, '<')
     .replace(/&gt;/g, '>')
-    .replace(/&amp;/g, '&')
 }
 
 function escapeRegExp(value) {
