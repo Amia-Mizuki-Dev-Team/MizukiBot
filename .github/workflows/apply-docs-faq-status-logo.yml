@@ -1,0 +1,153 @@
+name: Apply FAQ Status And Animated Logo
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/apply-docs-faq-status-logo.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: .node-version
+          cache: npm
+          cache-dependency-path: package-lock.json
+
+      - name: Install isolated image optimizer
+        run: |
+          mkdir -p /tmp/mizuki-image-tools
+          cd /tmp/mizuki-image-tools
+          npm init -y >/dev/null 2>&1
+          npm install --no-audit --no-fund sharp@0.35.3
+
+      - name: Generate animated WebP and update navigation
+        run: |
+          mkdir -p .github/validation
+          node <<'NODE'
+          const fs = require('node:fs')
+          const sharp = require('/tmp/mizuki-image-tools/node_modules/sharp')
+
+          function replaceRequired(content, before, after, label) {
+            if (!content.includes(before)) {
+              throw new Error(`未找到待替换内容：${label}`)
+            }
+            return content.replace(before, after)
+          }
+
+          ;(async () => {
+            const logoPath = 'docs/public/Picture/logo.webp'
+            const tempLogoPath = 'docs/public/Picture/logo.animated.webp'
+
+            const sourceMeta = await sharp('docs/public/Picture/logo.gif', { animated: true }).metadata()
+            await sharp('docs/public/Picture/logo.gif', { animated: true })
+              .resize(128, 128, {
+                fit: 'contain',
+                withoutEnlargement: true,
+                background: { r: 0, g: 0, b: 0, alpha: 0 }
+              })
+              .webp({
+                quality: 78,
+                alphaQuality: 88,
+                effort: 6,
+                loop: 0
+              })
+              .toFile(tempLogoPath)
+
+            const outputMeta = await sharp(tempLogoPath, { animated: true }).metadata()
+            if ((outputMeta.pages || 1) < 2) {
+              throw new Error(`animated WebP 帧数异常：${outputMeta.pages || 1}`)
+            }
+            fs.renameSync(tempLogoPath, logoPath)
+
+            const configPath = 'docs/.vitepress/config.mts'
+            let config = fs.readFileSync(configPath, 'utf8')
+
+            config = replaceRequired(
+              config,
+              "  { name: '如何使用', url: `${siteUrl}/usage` },\n  { name: 'PJSK 专项功能'",
+              "  { name: '如何使用', url: `${siteUrl}/usage` },\n  { name: '常见问题与故障排查', url: `${siteUrl}/faq` },\n  { name: '功能状态与数据来源', url: `${siteUrl}/status` },\n  { name: 'PJSK 专项功能'",
+              'mainSections'
+            )
+
+            config = config.replaceAll(
+              "      { text: '如何使用', link: '/usage' },\n      { text: '问题反馈', link: '/feedback' }",
+              "      { text: '如何使用', link: '/usage' },\n      { text: '常见问题与故障排查', link: '/faq' },\n      { text: '问题反馈', link: '/feedback' }"
+            )
+
+            config = config.replaceAll(
+              "      { text: '服务状态与公告', link: '/service-announcements' },\n      { text: 'MC 服务器更新'",
+              "      { text: '服务状态与公告', link: '/service-announcements' },\n      { text: '功能状态与数据来源', link: '/status' },\n      { text: 'MC 服务器更新'"
+            )
+
+            fs.writeFileSync(configPath, config, 'utf8')
+
+            const usagePath = 'docs/usage.md'
+            let usage = fs.readFileSync(usagePath, 'utf8')
+            usage = replaceRequired(
+              usage,
+              "| [服务状态与公告](/service-announcements) | 维护、迁移和关联基础设施调整。 |",
+              "| [常见问题与故障排查](/faq) | Bot 无响应、PJSK、舞萌同步、权限和图片问题的排查步骤。 |\n| [功能状态与数据来源](/status) | 查看模块依赖、数据更新方式、维护窗口和隐私边界。 |\n| [服务状态与公告](/service-announcements) | 维护、迁移和关联基础设施调整。 |",
+              'usage common links'
+            )
+            fs.writeFileSync(usagePath, usage, 'utf8')
+
+            const feedbackPath = 'docs/feedback.md'
+            let feedback = fs.readFileSync(feedbackPath, 'utf8')
+            feedback = replaceRequired(
+              feedback,
+              "为了缩短定位时间，请在提交前确认问题能够稳定复现，并尽量提供完整上下文。账号凭证、Token、登录二维码和其他敏感信息不得提交到公开表单。",
+              "为了缩短定位时间，请先阅读[常见问题与故障排查](/faq)，确认问题能够稳定复现，并尽量提供完整上下文。账号凭证、Token、登录二维码和其他敏感信息不得提交到公开表单。",
+              'feedback introduction'
+            )
+            fs.writeFileSync(feedbackPath, feedback, 'utf8')
+
+            const report = [
+              `source_frames=${sourceMeta.pages || 1}`,
+              `output_frames=${outputMeta.pages || 1}`,
+              `output_width=${outputMeta.width || 0}`,
+              `output_page_height=${outputMeta.pageHeight || outputMeta.height || 0}`,
+              `output_size=${fs.statSync(logoPath).size}`,
+              'faq=/faq',
+              'status=/status'
+            ].join('\n') + '\n'
+            fs.writeFileSync('.github/validation/faq-status-logo.txt', report, 'utf8')
+          })().catch(error => {
+            console.error(error)
+            process.exit(1)
+          })
+          NODE
+
+      - name: Install project dependencies
+        run: npm ci
+
+      - name: Run full build and audits
+        run: npm run docs:build
+
+      - name: Commit verified changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add \
+            docs/public/Picture/logo.webp \
+            docs/.vitepress/config.mts \
+            docs/usage.md \
+            docs/feedback.md \
+            .github/validation/faq-status-logo.txt
+          git commit -m "docs: link FAQ status pages and restore animated WebP logo"
+          git push origin HEAD:main
