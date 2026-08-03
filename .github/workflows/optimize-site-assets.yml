@@ -1,0 +1,178 @@
+name: One-time Site Asset Optimization
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/optimize-site-assets.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  optimize:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: .node-version
+          cache: npm
+          cache-dependency-path: package-lock.json
+
+      - name: Install isolated image optimizer
+        run: |
+          mkdir -p /tmp/mizuki-image-tools
+          cd /tmp/mizuki-image-tools
+          npm init -y >/dev/null 2>&1
+          npm install --no-audit --no-fund sharp@0.35.3
+
+      - name: Download friend avatar
+        run: |
+          curl --fail --location --retry 3 --retry-delay 2 \
+            'https://blog.mzyyun.com/images/avatar.jpg' \
+            --output /tmp/mzyyun-avatar.jpg
+
+      - name: Optimize responsive assets
+        run: |
+          mkdir -p docs/public/Picture/friends .github/validation
+          node <<'NODE'
+          const fs = require('node:fs')
+          const path = require('node:path')
+          const sharp = require('/tmp/mizuki-image-tools/node_modules/sharp')
+
+          const formatBytes = bytes => {
+            if (bytes < 1024) return `${bytes} B`
+            if (bytes < 1024 * 1024) return `${(bytes / 1024).toFixed(1)} KiB`
+            return `${(bytes / 1024 / 1024).toFixed(2)} MiB`
+          }
+
+          async function replaceWith(input, output, transform) {
+            const before = fs.statSync(input).size
+            const temp = `${output}.tmp`
+            await transform(sharp(input, { page: 0 })).toFile(temp)
+            const after = fs.statSync(temp).size
+            fs.renameSync(temp, output)
+            return { before, after }
+          }
+
+          ;(async () => {
+            const report = []
+
+            const avatar = await replaceWith(
+              'docs/public/Picture/avatar.jpg',
+              'docs/public/Picture/avatar.jpg',
+              image => image
+                .rotate()
+                .resize(700, 700, { fit: 'cover', position: 'centre', withoutEnlargement: true })
+                .jpeg({ quality: 84, progressive: true, mozjpeg: true })
+            )
+            report.push(`avatar.jpg: ${formatBytes(avatar.before)} -> ${formatBytes(avatar.after)} (700x700)`)
+
+            const banner = await replaceWith(
+              'docs/public/Picture/banner.jpg',
+              'docs/public/Picture/banner.jpg',
+              image => image
+                .rotate()
+                .resize(1200, 630, { fit: 'cover', position: 'centre', withoutEnlargement: true })
+                .jpeg({ quality: 82, progressive: true, mozjpeg: true })
+            )
+            report.push(`banner.jpg: ${formatBytes(banner.before)} -> ${formatBytes(banner.after)} (1200x630)`)
+
+            const logoMetadata = await sharp('docs/public/Picture/logo.gif', { animated: true }).metadata()
+            await sharp('docs/public/Picture/logo.gif', { page: 0 })
+              .resize(128, 128, { fit: 'contain', withoutEnlargement: true })
+              .webp({ quality: 86, alphaQuality: 90, effort: 6 })
+              .toFile('docs/public/Picture/logo.webp')
+            await sharp('docs/public/Picture/logo.gif', { page: 0 })
+              .resize(180, 180, { fit: 'contain', withoutEnlargement: true })
+              .png({ compressionLevel: 9, adaptiveFiltering: true })
+              .toFile('docs/public/Picture/logo-180.png')
+            report.push(
+              `logo.gif: ${logoMetadata.width}x${logoMetadata.height}, frames=${logoMetadata.pages || 1}, ` +
+              `source=${formatBytes(fs.statSync('docs/public/Picture/logo.gif').size)}, ` +
+              `webp=${formatBytes(fs.statSync('docs/public/Picture/logo.webp').size)}, ` +
+              `touch=${formatBytes(fs.statSync('docs/public/Picture/logo-180.png').size)}`
+            )
+
+            await sharp('/tmp/mzyyun-avatar.jpg')
+              .rotate()
+              .resize(128, 128, { fit: 'cover', position: 'centre' })
+              .webp({ quality: 84, effort: 6 })
+              .toFile('docs/public/Picture/friends/mzyyun.webp')
+            report.push(`mzyyun.webp: ${formatBytes(fs.statSync('docs/public/Picture/friends/mzyyun.webp').size)} (128x128)`)
+
+            fs.writeFileSync(
+              '.github/validation/site-assets.txt',
+              `${report.join('\n')}\n`,
+              'utf8'
+            )
+          })().catch(error => {
+            console.error(error)
+            process.exit(1)
+          })
+          NODE
+
+      - name: Update asset references
+        run: |
+          node <<'NODE'
+          const fs = require('node:fs')
+
+          const configPath = 'docs/.vitepress/config.mts'
+          let config = fs.readFileSync(configPath, 'utf8')
+          config = config
+            .replace("const siteLogo = `${siteUrl}/Picture/logo.gif`", "const siteLogo = `${siteUrl}/Picture/logo.webp`")
+            .replace("['link', { rel: 'apple-touch-icon', href: '/Picture/logo.gif' }]", "['link', { rel: 'apple-touch-icon', type: 'image/png', href: '/Picture/logo-180.png' }]")
+            .replace("logo: '/Picture/logo.gif'", "logo: '/Picture/logo.webp'")
+          fs.writeFileSync(configPath, config, 'utf8')
+
+          const friendsPath = 'docs/friends.md'
+          let friends = fs.readFileSync(friendsPath, 'utf8')
+          friends = friends
+            .replace(
+              '"image":"https://blog.mzyyun.com/images/avatar.jpg"',
+              '"image":"https://help.mizuki.top/Picture/friends/mzyyun.webp"'
+            )
+            .replace(
+              'src="https://blog.mzyyun.com/images/avatar.jpg"',
+              'src="/Picture/friends/mzyyun.webp"'
+            )
+            .replace(/\n\s*referrerpolicy="no-referrer"/g, '')
+            .replace(
+              'https://help.mizuki.top/Picture/logo.gif',
+              'https://help.mizuki.top/Picture/logo.webp'
+            )
+          fs.writeFileSync(friendsPath, friends, 'utf8')
+          NODE
+
+      - name: Install project dependencies
+        run: npm ci
+
+      - name: Run full build and audits
+        run: npm run docs:build
+
+      - name: Commit optimized assets
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add \
+            docs/public/Picture/avatar.jpg \
+            docs/public/Picture/banner.jpg \
+            docs/public/Picture/logo.webp \
+            docs/public/Picture/logo-180.png \
+            docs/public/Picture/friends/mzyyun.webp \
+            docs/.vitepress/config.mts \
+            docs/friends.md \
+            .github/validation/site-assets.txt
+
+          git commit -m "perf: optimize site-wide image delivery"
+          git push origin HEAD:main
