@@ -1,0 +1,127 @@
+name: One-time Image Optimization
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/optimize-images.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  optimize:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: .node-version
+          cache: npm
+          cache-dependency-path: package-lock.json
+
+      - name: Install isolated image optimizer
+        run: |
+          mkdir -p /tmp/mizuki-image-tools
+          cd /tmp/mizuki-image-tools
+          npm init -y >/dev/null 2>&1
+          npm install --no-audit --no-fund sharp@0.35.3
+
+      - name: Optimize large JPEG assets
+        run: |
+          mkdir -p .github/validation
+          node <<'NODE'
+          const fs = require('node:fs')
+          const path = require('node:path')
+          const sharp = require('/tmp/mizuki-image-tools/node_modules/sharp')
+
+          const targets = [
+            { file: 'docs/public/Picture/avatar.jpg', quality: 85 },
+            { file: 'docs/public/Picture/banner.jpg', quality: 82 }
+          ]
+
+          const report = []
+          const formatBytes = bytes => {
+            if (bytes < 1024) return `${bytes} B`
+            if (bytes < 1024 * 1024) return `${(bytes / 1024).toFixed(1)} KiB`
+            return `${(bytes / 1024 / 1024).toFixed(2)} MiB`
+          }
+
+          ;(async () => {
+            for (const target of targets) {
+              const input = path.resolve(target.file)
+              const output = path.resolve(`${target.file}.optimized.jpg`)
+              const before = fs.statSync(input).size
+              const beforeMeta = await sharp(input).metadata()
+
+              await sharp(input)
+                .rotate()
+                .jpeg({
+                  quality: target.quality,
+                  progressive: true,
+                  mozjpeg: true
+                })
+                .toFile(output)
+
+              const after = fs.statSync(output).size
+              const afterMeta = await sharp(output).metadata()
+
+              if (after >= before) {
+                fs.unlinkSync(output)
+                report.push(`${target.file}: 保留原文件，优化结果未减小（${formatBytes(before)}）`)
+                continue
+              }
+
+              fs.renameSync(output, input)
+              const reduction = ((1 - after / before) * 100).toFixed(1)
+              report.push(
+                `${target.file}: ${beforeMeta.width}x${beforeMeta.height}, ` +
+                `${formatBytes(before)} -> ${formatBytes(after)}，减少 ${reduction}%（quality=${target.quality}）`
+              )
+              report.push(
+                `  output: ${afterMeta.width}x${afterMeta.height}, format=${afterMeta.format}, progressive=${afterMeta.isProgressive}`
+              )
+            }
+
+            fs.writeFileSync(
+              '.github/validation/image-optimization.txt',
+              `${report.join('\n')}\n`,
+              'utf8'
+            )
+          })().catch(error => {
+            console.error(error)
+            process.exit(1)
+          })
+          NODE
+
+      - name: Install project dependencies
+        run: npm ci
+
+      - name: Run full build and audits
+        run: npm run docs:build
+
+      - name: Commit optimized images and report
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add \
+            docs/public/Picture/avatar.jpg \
+            docs/public/Picture/banner.jpg \
+            .github/validation/image-optimization.txt
+
+          if git diff --cached --quiet; then
+            echo "图片无需更新"
+            exit 0
+          fi
+
+          git commit -m "perf: optimize homepage and social images"
+          git push origin HEAD:main
