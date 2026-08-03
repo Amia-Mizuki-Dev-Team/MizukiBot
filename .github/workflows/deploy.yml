@@ -23,7 +23,7 @@ concurrency:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 20
     permissions:
       contents: read
       deployments: write
@@ -47,6 +47,16 @@ jobs:
       - name: Audit dependency vulnerabilities
         run: npm audit --audit-level=moderate
 
+      - name: Ensure FFmpeg is available
+        run: |
+          if command -v ffmpeg >/dev/null 2>&1 && command -v ffprobe >/dev/null 2>&1; then
+            ffmpeg -version | head -n 1
+            exit 0
+          fi
+
+          sudo apt-get update
+          sudo apt-get install --yes --no-install-recommends ffmpeg
+
       - name: Generate animated WebP logo
         run: |
           ffmpeg -hide_banner -loglevel error -y \
@@ -65,8 +75,11 @@ jobs:
             -of default=nokey=1:noprint_wrappers=1 \
             docs/public/Picture/logo.webp)"
 
+          bytes="$(stat -c '%s' docs/public/Picture/logo.webp)"
           echo "Animated WebP frames: ${frames}"
+          echo "Animated WebP bytes: ${bytes}"
           test "${frames}" -gt 1
+          test "${bytes}" -lt 1048576
 
       - name: Build and audit VitePress site
         run: npm run docs:build
