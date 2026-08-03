@@ -1,33 +1,33 @@
 ---
 title: 如何使用 Amia_晓山瑞希
-description: 介绍如何将 Amia_晓山瑞希邀请加入 QQ 群、开启群消息权限、完成基础配置并触发常用指令。
+description: 介绍如何将 Amia_晓山瑞希直接拉入 QQ 群、开启群消息权限、完成基础配置并触发常用指令。
 ---
 
 # 如何使用 Amia_晓山瑞希
 
-> 本页介绍邀请 Bot、配置群消息权限和触发常用指令的基本流程。
+> 本页介绍将 Bot 拉入群聊、配置群消息权限和触发常用指令的基本流程。
 
 <div class="mzk-card mzk-card--blue">
   <h3>1. 加入用户交流群</h3>
-  <p>建议在邀请 Bot 前加入用户交流群，以便接收服务状态、维护安排和封禁通知，并获得使用支持。</p>
+  <p>建议在使用 Bot 前加入用户交流群，以便接收服务状态、维护安排和封禁通知，并获得使用支持。</p>
   <p style="font-weight: bold;">
     用户交流群：<a href="https://qun.qq.com/universal-share/share?ac=1&authKey=sZzYueQrNCiaA55yoYVJ2%2BqgW3iCEo5t2OwRFNaWkbh5z1kZYbTt1ZufA1DXODSP&busi_data=eyJncm91cENvZGUiOiIxMDUzOTY0NDMxIiwidG9rZW4iOiJZYkRneTFGR1dTY2NWVFpTcHVKVGFzRUs4T1BJaVVGUzE1bUFybS9nL3psQ044YS9PY1Z6aE5kT2cwcTBxcEpaIiwidWluIjoiMjMzODY4MDE0OCJ9&data=PHQXSsjB5M1bHiDjdzUMazkBeM4ZFkFRmmmvVA7EmJn8yFUJRUyHMZ1aT9NzSny0GPN8rkwUQ5aAWSn8L-aL_w&svctype=4&tempid=h5_group_info" target="_blank" style="color: var(--vp-c-brand-1); text-decoration: underline;">国 立 中 央 大 学 政 教 处 音 游 组（1053964431）</a>
   </p>
 </div>
 
 <div class="mzk-card mzk-card--green">
-  <h3>2. 邀请 Bot 入群</h3>
+  <h3>2. 将 Bot 拉入群聊</h3>
   <ul>
     <li>QQ 官方 Bot 号：<code>3889004352</code>。</li>
     <li>显示名称：<strong>Amia_晓山瑞希</strong>。</li>
-    <li>在目标群聊中选择“从群聊中选择联系人”，完成邀请。</li>
-    <li>为保证通知可达，未加入用户交流群的邀请请求可能无法通过审核。</li>
+    <li>由群主或有相应权限的群管理员，直接将 Bot 拉入目标群聊。</li>
+    <li>无需使用“从群聊中选择联系人”等旧版邀请流程。</li>
   </ul>
 </div>
 
 <div class="mzk-card mzk-card--orange">
   <h3>3. 开启群消息权限</h3>
-  <p>群主需要在机器人管理中为 Bot 开启“获取群内全部消息”权限。开启后，群成员可以直接发送指令文本触发功能。</p>
+  <p>群主需要在机器人管理中为 Bot 开启“获取群内全部消息”权限。开启后，群成员可以直接发送指令文本触发本触发功能。</p>
 </div>
 
 <div class="mzk-card mzk-card--purple">
@@ -49,7 +49,7 @@ description: 介绍如何将 Amia_晓山瑞希邀请加入 QQ 群、开启群消
 | [中二节奏专项](/features/chunithm) | 中二节奏 B30、歌曲信息和谱面查询。 |
 | [Amia 25时经济系统](/features/economy) | 群内虚拟积分、任务、收集与互动系统说明。 |
 | [通用工具与娱乐](/features/tools) | 群活统计、播报和常用生成器。 |
-| [常见问题与故障排查](/faq) | Bot 无响应、PJSK、舞萌同步、权限和图片问题的排查步骤。 |
+| [常见问题与故障排查](/faq) | Bot 无响应、PJSK、舞萌同步、权限和图片问题的完整排查步骤。 |
 | [功能状态与数据来源](/status) | 查看模块依赖、数据更新方式、维护窗口和隐私边界。 |
 | [Bot 更新日志](/features/bot_update) | Bot 功能、兼容性和问题修复记录。 |
 | [服务状态与公告](/service-announcements) | 维护、迁移和关联基础设施调整。 |
