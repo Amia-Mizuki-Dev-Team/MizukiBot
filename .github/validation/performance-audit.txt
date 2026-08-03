@@ -1,0 +1,50 @@
+commit=aae943a030e46d2d57ed5cd6ced095f95cf24be8
+node=v24.18.0
+npm=11.16.0
+
+===== npm ci =====
+
+added 163 packages, and audited 164 packages in 4s
+
+47 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+
+npm_ci_exit=0
+
+===== npm run docs:build =====
+
+> mizuki-bot-docs@1.0.0 docs:build
+> vitepress build docs && node scripts/prepare-seo.mjs && node scripts/prepare-performance.mjs && node scripts/audit-seo.mjs && node scripts/audit-performance.mjs
+
+
+  [32m[1mvitepress[22m v1.6.4[39m
+
+- building client + server bundles...
+[32m✓[0m building client + server bundles...
+- rendering pages...
+[32m✓[0m rendering pages...
+- generating sitemap...
+[32m✓[0m generating sitemap...
+build complete in 2.69s.
+SEO 输出处理完成：更新 34 个页面，扩展 33 个过短描述，为 33 个 sitemap URL 写入 lastmod。
+性能输出处理完成：已为 /Picture/avatar.jpg 添加首页预加载。
+SEO 验证通过：34 个 HTML 页面，未发现阻止收录的输出问题。
+::warning::Picture/avatar.jpg: 2.49 MiB 超过建议预算 1.00 MiB
+::warning::Picture/banner.jpg: 1.91 MiB 超过建议预算 1.00 MiB
+构建产物中体积最大的资源：
+- Picture/avatar.jpg: 2.49 MiB
+- Picture/banner.jpg: 1.91 MiB
+- Picture/pjsk_all.jpg: 825.0 KiB
+- Picture/maimai_status.jpg: 644.4 KiB
+- Picture/logo.gif: 393.7 KiB
+- Picture/TeRiver.jpg: 292.7 KiB
+- assets/chunks/@localSearchIndexroot.GE1LayHW.js: 182.0 KiB
+- Picture/uni_mayu.jpg: 128.4 KiB
+- assets/style.CDgDUsZY.css: 127.0 KiB
+- assets/chunks/framework.PNwFIU_N.js: 109.5 KiB
+性能验证通过：检查 140 个构建文件，发现 2 项非阻断预算警告。
+
+docs_build_exit=0
+final_exit=0
