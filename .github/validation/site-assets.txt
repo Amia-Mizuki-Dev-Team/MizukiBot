@@ -1,4 +1,0 @@
-avatar.jpg: 42.0 KiB -> 41.4 KiB (700x700)
-banner.jpg: 103.9 KiB -> 102.7 KiB (1200x630)
-logo.gif: 300x17100, frames=57, source=393.7 KiB, webp=4.7 KiB, touch=25.6 KiB
-mzyyun.webp: 2.8 KiB (128x128)
