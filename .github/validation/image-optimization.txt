@@ -1,4 +1,0 @@
-docs/public/Picture/avatar.jpg: 2048x2048, 2.49 MiB -> 187.5 KiB，减少 92.7%（quality=85）
-  output: 2048x2048, format=jpeg, progressive=true
-docs/public/Picture/banner.jpg: 1731x909, 1.91 MiB -> 187.0 KiB，减少 90.4%（quality=82）
-  output: 1731x909, format=jpeg, progressive=true
