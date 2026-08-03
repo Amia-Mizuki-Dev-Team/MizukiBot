@@ -10,8 +10,11 @@ if (!existsSync(DIST_DIR)) {
 }
 
 const homepage = resolve(DIST_DIR, 'index.html')
+const friendsPage = resolve(DIST_DIR, 'friends.html')
 const headersFile = resolve(DIST_DIR, '_headers')
 const heroImagePath = '/Picture/avatar.jpg'
+const logoImagePath = '/Picture/logo.webp'
+const criticalImages = new Set([heroImagePath, logoImagePath])
 
 if (!existsSync(homepage)) {
   errors.push('缺少首页 index.html')
@@ -46,6 +49,25 @@ if (!existsSync(homepage)) {
   if (!hasPreload) {
     errors.push(`首页缺少 ${heroImagePath} 的图片预加载标签`)
   }
+
+  if (!html.includes(logoImagePath)) {
+    errors.push(`首页没有使用轻量导航 Logo：${logoImagePath}`)
+  }
+  if (/<img\b[^>]*src=["']\/Picture\/logo\.gif["']/i.test(html)) {
+    errors.push('首页仍在直接加载高体积动画 logo.gif')
+  }
+}
+
+if (!existsSync(friendsPage)) {
+  errors.push('缺少友情链接页面 friends.html')
+} else {
+  const html = readFileSync(friendsPage, 'utf8')
+  if (!html.includes('/Picture/friends/mzyyun.webp')) {
+    errors.push('友情链接页面没有使用本地化的墨染辉夜头像')
+  }
+  if (html.includes('blog.mzyyun.com/images/avatar.jpg')) {
+    errors.push('友情链接页面仍依赖第三方头像地址')
+  }
 }
 
 if (!existsSync(headersFile)) {
@@ -61,6 +83,47 @@ if (!existsSync(headersFile)) {
 }
 
 const files = walk(DIST_DIR)
+const htmlFiles = files.filter(file => extname(file).toLowerCase() === '.html')
+for (const file of htmlFiles) {
+  const html = readFileSync(file, 'utf8')
+  const page = relative(DIST_DIR, file).replaceAll('\\', '/')
+
+  for (const match of html.matchAll(/<img\b[^>]*>/gi)) {
+    const tag = match[0]
+    const src = getAttribute(tag, 'src') || ''
+    if (!src || src.startsWith('data:')) continue
+
+    if (String(getAttribute(tag, 'decoding') || '').toLowerCase() !== 'async') {
+      errors.push(`${page}: 图片缺少 decoding="async"：${src}`)
+    }
+
+    if (!criticalImages.has(src) && String(getAttribute(tag, 'loading') || '').toLowerCase() !== 'lazy') {
+      errors.push(`${page}: 非首屏图片缺少 loading="lazy"：${src}`)
+    }
+  }
+}
+
+const requiredAssetBudgets = {
+  'Picture/avatar.jpg': 100 * 1024,
+  'Picture/banner.jpg': 180 * 1024,
+  'Picture/logo.webp': 32 * 1024,
+  'Picture/logo-180.png': 64 * 1024,
+  'Picture/friends/mzyyun.webp': 32 * 1024
+}
+
+for (const [name, limit] of Object.entries(requiredAssetBudgets)) {
+  const file = resolve(DIST_DIR, name)
+  if (!existsSync(file)) {
+    errors.push(`缺少性能关键资源：${name}`)
+    continue
+  }
+
+  const size = statSync(file).size
+  if (size > limit) {
+    errors.push(`${name}: ${formatBytes(size)} 超过关键资源预算 ${formatBytes(limit)}`)
+  }
+}
+
 const assetFiles = files.filter(file => relative(DIST_DIR, file).replaceAll('\\', '/').startsWith('assets/'))
 const cssText = assetFiles
   .filter(file => extname(file).toLowerCase() === '.css')
