@@ -86,6 +86,7 @@ const homeItemListStructuredData = {
 const nav = [
   { text: '首页', link: '/' },
   { text: '功能状态', link: '/status' },
+  { text: '服务监控', link: 'https://komari.mizuki.top' },
   {
     text: '入门指南',
     items: [
@@ -122,6 +123,7 @@ const nav = [
     text: '更新与公告',
     items: [
       { text: '服务状态与公告', link: '/service-announcements' },
+      { text: '服务器监控', link: 'https://komari.mizuki.top' },
       { text: 'MC 服务器更新', link: '/features/mc_update' },
       { text: 'Bot 更新日志', link: '/features/bot_update' }
     ]
@@ -170,6 +172,7 @@ const sidebar = [
     text: '更新与公告',
     items: [
       { text: '服务状态与公告', link: '/service-announcements' },
+      { text: '服务器监控', link: 'https://komari.mizuki.top' },
       { text: 'MC 服务器更新', link: '/features/mc_update' },
       { text: 'Bot 更新日志', link: '/features/bot_update' }
     ]
