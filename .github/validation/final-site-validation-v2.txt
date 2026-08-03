@@ -1,0 +1,48 @@
+commit=3eb020aac12679f23bbf4abb9c3a2c4fbf73a090
+node=v24.18.0
+npm=11.16.0
+
+===== npm ci =====
+
+added 163 packages, and audited 164 packages in 4s
+
+47 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+
+npm_ci_exit=0
+
+===== npm run docs:build =====
+
+> mizuki-bot-docs@1.0.0 docs:build
+> vitepress build docs && node scripts/run-prepare-seo.mjs && node scripts/prepare-performance.mjs && node scripts/audit-seo.mjs && node scripts/audit-performance.mjs
+
+
+  [32m[1mvitepress[22m v1.6.4[39m
+
+- building client + server bundles...
+[32m✓[0m building client + server bundles...
+- rendering pages...
+[32m✓[0m rendering pages...
+- generating sitemap...
+[32m✓[0m generating sitemap...
+build complete in 4.12s.
+SEO 输出处理完成：更新 34 个页面，扩展 33 个过短描述，其中 31 个使用正文摘要；为 33 个页面写入 dateModified，并为 33 个 sitemap URL 写入 lastmod。
+性能输出处理完成：更新 33 个页面，为 10 张非首屏图片补充懒加载，并确保 /Picture/avatar.jpg 预加载。
+::error::404.html: meta description 过短或缺失（53 字符）
+::error::404.html: 页面缺少 H1
+file:///home/runner/work/MizukiBot/MizukiBot/scripts/audit-seo.mjs:182
+  throw new Error(`SEO 验证失败，共 ${errors.length} 项错误`)
+        ^
+
+Error: SEO 验证失败，共 2 项错误
+    at file:///home/runner/work/MizukiBot/MizukiBot/scripts/audit-seo.mjs:182:9
+    at ModuleJob.run (node:internal/modules/esm/module_job:439:25)
+    at async node:internal/modules/esm/loader:643:26
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)
+
+Node.js v24.18.0
+
+docs_build_exit=1
+final_exit=1
