@@ -1,0 +1,14 @@
+# VitePress 生成的 /assets/ 文件名包含内容哈希，可以安全长期缓存。
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# 避免 Cloudflare Pages 默认域名与正式域名形成重复收录。
+https://mizuki-bot-docs.pages.dev/*
+  X-Robots-Tag: noindex, nofollow
+
+https://:branch.mizuki-bot-docs.pages.dev/*
+  X-Robots-Tag: noindex, nofollow
+
+# 文档站不需要访问这些浏览器能力。
+/*
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=()
