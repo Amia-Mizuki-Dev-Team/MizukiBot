@@ -43,21 +43,37 @@ const softwareStructuredData = {
 
 let changedPages = 0
 let expandedDescriptions = 0
+let bodyDerivedDescriptions = 0
+let datedPages = 0
 
 for (const file of walk(DIST_DIR).filter(path => path.endsWith('.html'))) {
   const original = readFileSync(file, 'utf8')
   let html = original
   const title = getPageTitle(html)
   const currentDescription = getMetaContent(html, 'name', 'description')
-  const description = normalizeDescription(title, currentDescription)
+  const currentNormalized = normalizeWhitespace(decodeHtml(currentDescription || ''))
+  const bodySummary = extractPageSummary(html)
+  const description = normalizeDescription(title, currentDescription, bodySummary)
+  const sourceFile = resolveSourceFileFromBuiltFile(file)
+  const lastmod = sourceFile ? getGitLastmod(sourceFile) : null
 
-  if (description !== normalizeWhitespace(decodeHtml(currentDescription || ''))) {
+  if (description !== currentNormalized) {
     expandedDescriptions += 1
+    if (bodySummary && description.includes([...bodySummary].slice(0, 28).join(''))) {
+      bodyDerivedDescriptions += 1
+    }
   }
 
   html = upsertMeta(html, 'name', 'description', description)
   html = upsertMeta(html, 'property', 'og:description', description)
   html = upsertMeta(html, 'name', 'twitter:description', description)
+
+  if (lastmod) {
+    html = upsertMeta(html, 'property', 'article:modified_time', lastmod)
+    html = upsertMeta(html, 'property', 'og:updated_time', lastmod)
+    html = updateJsonLdByType(html, 'WebPage', data => ({ ...data, dateModified: lastmod }))
+    datedPages += 1
+  }
 
   if (relative(DIST_DIR, file).replaceAll('\\', '/') === 'index.html') {
     html = upsertJsonLd(html, softwareStructuredData)
@@ -72,7 +88,7 @@ for (const file of walk(DIST_DIR).filter(path => path.endsWith('.html'))) {
 const sitemapLastmodCount = updateSitemapLastmod()
 
 console.log(
-  `SEO 输出处理完成：更新 ${changedPages} 个页面，扩展 ${expandedDescriptions} 个过短描述，为 ${sitemapLastmodCount} 个 sitemap URL 写入 lastmod。`
+  `SEO 输出处理完成：更新 ${changedPages} 个页面，扩展 ${expandedDescriptions} 个过短描述，其中 ${bodyDerivedDescriptions} 个使用正文摘要；为 ${datedPages} 个页面写入 dateModified，并为 ${sitemapLastmodCount} 个 sitemap URL 写入 lastmod。`
 )
 
 function updateSitemapLastmod() {
@@ -128,6 +144,22 @@ function resolveSourceFile(loc) {
   return candidates.find(file => file.startsWith(DOCS_DIR) && existsSync(file)) || null
 }
 
+function resolveSourceFileFromBuiltFile(file) {
+  const builtPath = relative(DIST_DIR, file).replaceAll('\\', '/')
+  const candidates = []
+
+  if (builtPath === 'index.html') {
+    candidates.push(resolve(DOCS_DIR, 'index.md'))
+  } else if (builtPath.endsWith('/index.html')) {
+    const directory = builtPath.slice(0, -'/index.html'.length)
+    candidates.push(resolve(DOCS_DIR, directory, 'index.md'))
+  } else {
+    candidates.push(resolve(DOCS_DIR, builtPath.replace(/\.html$/i, '.md')))
+  }
+
+  return candidates.find(candidate => candidate.startsWith(DOCS_DIR) && existsSync(candidate)) || null
+}
+
 function getGitLastmod(sourceFile) {
   const repoPath = relative(REPO_DIR, sourceFile).replaceAll('\\', '/')
 
@@ -165,15 +197,47 @@ function getPageTitle(html) {
   return title.replace(/\s*[|｜]\s*Amia_晓山瑞希帮助文档\s*$/u, '') || 'Amia_晓山瑞希'
 }
 
-function normalizeDescription(title, currentDescription) {
+function normalizeDescription(title, currentDescription, bodySummary) {
   const current = normalizeWhitespace(decodeHtml(currentDescription || ''))
   if ([...current].length >= MIN_DESCRIPTION_LENGTH) {
     return [...current].slice(0, MAX_DESCRIPTION_LENGTH).join('')
   }
 
-  const base = current.replace(/[。.!！?？]+$/u, '') || `${title}相关说明`
-  const expanded = `${base}。本页整理“${title}”相关内容、适用范围、操作入口与维护信息，属于 Amia_晓山瑞希官方帮助文档。`
+  const base = current.replace(/[。.!！?？]+$/u, '')
+  const summary = normalizeWhitespace(bodySummary)
+  const parts = []
+
+  if (base) parts.push(base)
+  if (summary && !base.includes(summary) && !summary.includes(base)) parts.push(summary)
+
+  let expanded = parts.join('。')
+  if (!expanded) expanded = `${title}相关说明`
+
+  if ([...expanded].length < MIN_DESCRIPTION_LENGTH) {
+    expanded = `${expanded.replace(/[。.!！?？]+$/u, '')}。本页属于 Amia_晓山瑞希官方帮助文档，提供相关功能、适用范围、操作入口与维护信息。`
+  }
+
   return [...expanded].slice(0, MAX_DESCRIPTION_LENGTH).join('')
+}
+
+function extractPageSummary(html) {
+  const main = html.match(/<main\b[^>]*>([\s\S]*?)<\/main>/i)?.[1] || html
+
+  for (const match of main.matchAll(/<p\b[^>]*>([\s\S]*?)<\/p>/gi)) {
+    const text = normalizeWhitespace(decodeHtml(stripTags(match[1])))
+    if ([...text].length < 24) continue
+    if (/^(©|版权所有|上一页|下一页)/u.test(text)) continue
+    return [...text].slice(0, 110).join('')
+  }
+
+  return ''
+}
+
+function stripTags(value) {
+  return String(value)
+    .replace(/<script\b[\s\S]*?<\/script>/gi, ' ')
+    .replace(/<style\b[\s\S]*?<\/style>/gi, ' ')
+    .replace(/<[^>]+>/g, ' ')
 }
 
 function normalizeWhitespace(value) {
@@ -184,6 +248,7 @@ function decodeHtml(value) {
   return String(value)
     .replace(/&quot;/g, '"')
     .replace(/&#39;/g, "'")
+    .replace(/&nbsp;/g, ' ')
     .replace(/&lt;/g, '<')
     .replace(/&gt;/g, '>')
     .replace(/&amp;/g, '&')
@@ -265,13 +330,25 @@ function upsertJsonLd(html, data) {
   return injectIntoHead(html, `<script type="application/ld+json">${json}</script>`)
 }
 
+function updateJsonLdByType(html, type, mutate) {
+  return html.replace(
+    /<script\b([^>]*)type=["']application\/ld\+json["']([^>]*)>([\s\S]*?)<\/script>/gi,
+    (full, before, after, jsonText) => {
+      try {
+        const data = JSON.parse(jsonText)
+        if (data?.['@type'] !== type) return full
+        const updated = JSON.stringify(mutate(data)).replace(/</g, '\\u003c')
+        return `<script${before}type="application/ld+json"${after}>${updated}</script>`
+      } catch {
+        return full
+      }
+    }
+  )
+}
+
 function injectIntoHead(html, tag) {
   if (!/<\/head>/i.test(html)) {
     throw new Error('生成页面缺少 </head>，无法写入 SEO 标签')
   }
   return html.replace(/<\/head>/i, `  ${tag}\n</head>`)
-}
-
-function escapeRegExp(value) {
-  return String(value).replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
 }
