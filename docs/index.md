@@ -15,8 +15,8 @@ hero:
       text: 功能状态
       link: /status
     - theme: alt
-      text: 故障排查
-      link: /faq
+      text: 服务监控
+      link: https://komari.mizuki.top
 
 features:
   - title: 音游专项
@@ -102,6 +102,13 @@ Amia_晓山瑞希，原名 **Mizuki Bot**，是由 Amia-Mizuki Dev Team 维护�
     <div class="support-info">
       <strong>功能状态与数据来源</strong>
       <span>查看模块状态、依赖服务、更新方式和已知限制</span>
+    </div>
+  </a>
+
+  <a href="https://komari.mizuki.top" class="support-card" target="_blank" rel="noopener noreferrer">
+    <div class="support-info">
+      <strong>服务器监控</strong>
+      <span>打开 Komari 面板，查看服务器在线状态与资源指标</span>
     </div>
   </a>
 
