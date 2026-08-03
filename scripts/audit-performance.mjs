@@ -13,7 +13,7 @@ const homepage = resolve(DIST_DIR, 'index.html')
 const friendsPage = resolve(DIST_DIR, 'friends.html')
 const headersFile = resolve(DIST_DIR, '_headers')
 const heroImagePath = '/Picture/avatar.jpg'
-const logoImagePath = '/Picture/logo.webp'
+const logoImagePath = '/Picture/logo.webp?v=animated-20260803c'
 const criticalImages = new Set([heroImagePath, logoImagePath])
 
 if (!existsSync(homepage)) {
@@ -51,7 +51,7 @@ if (!existsSync(homepage)) {
   }
 
   if (!html.includes(logoImagePath)) {
-    errors.push(`首页没有使用轻量导航 Logo：${logoImagePath}`)
+    errors.push(`首页没有使用 animated WebP 导航 Logo：${logoImagePath}`)
   }
   if (/<img\b[^>]*src=["']\/Picture\/logo\.gif["']/i.test(html)) {
     errors.push('首页仍在直接加载高体积动画 logo.gif')
@@ -106,7 +106,7 @@ for (const file of htmlFiles) {
 const requiredAssetBudgets = {
   'Picture/avatar.jpg': 100 * 1024,
   'Picture/banner.jpg': 180 * 1024,
-  'Picture/logo.webp': 32 * 1024,
+  'Picture/logo.webp': 512 * 1024,
   'Picture/logo-180.png': 64 * 1024,
   'Picture/friends/mzyyun.webp': 32 * 1024
 }
