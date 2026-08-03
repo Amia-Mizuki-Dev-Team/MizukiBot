@@ -8,6 +8,8 @@ const siteLogo = `${siteUrl}/Picture/logo.webp`
 
 const mainSections = [
   { name: '如何使用', url: `${siteUrl}/usage` },
+  { name: '常见问题与故障排查', url: `${siteUrl}/faq` },
+  { name: '功能状态与数据来源', url: `${siteUrl}/status` },
   { name: 'PJSK 专项功能', url: `${siteUrl}/features/pjsk` },
   { name: '舞萌 DX 专项', url: `${siteUrl}/features/maimai` },
   { name: '中二节奏专项', url: `${siteUrl}/features/chunithm` },
@@ -86,6 +88,7 @@ const nav = [
     text: '入门指南',
     items: [
       { text: '如何使用', link: '/usage' },
+      { text: '常见问题与故障排查', link: '/faq' },
       { text: '问题反馈', link: '/feedback' }
     ]
   },
@@ -117,6 +120,7 @@ const nav = [
     text: '更新与公告',
     items: [
       { text: '服务状态与公告', link: '/service-announcements' },
+      { text: '功能状态与数据来源', link: '/status' },
       { text: 'MC 服务器更新', link: '/features/mc_update' },
       { text: 'Bot 更新日志', link: '/features/bot_update' }
     ]
@@ -132,6 +136,7 @@ const sidebar = [
     text: '入门指南',
     items: [
       { text: '如何使用', link: '/usage' },
+      { text: '常见问题与故障排查', link: '/faq' },
       { text: '问题反馈', link: '/feedback' }
     ]
   },
@@ -163,6 +168,7 @@ const sidebar = [
     text: '更新与公告',
     items: [
       { text: '服务状态与公告', link: '/service-announcements' },
+      { text: '功能状态与数据来源', link: '/status' },
       { text: 'MC 服务器更新', link: '/features/mc_update' },
       { text: 'Bot 更新日志', link: '/features/bot_update' }
     ]
