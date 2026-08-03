@@ -29,6 +29,17 @@ jobs:
           cache: npm
           cache-dependency-path: package-lock.json
 
+      - name: Restore missing SEO helper
+        run: |
+          if ! grep -q '^function escapeRegExp' scripts/prepare-seo.mjs; then
+            cat >> scripts/prepare-seo.mjs <<'EOF'
+
+function escapeRegExp(value) {
+  return String(value).replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+}
+EOF
+          fi
+
       - name: Run complete validation
         id: validation
         run: |
@@ -72,12 +83,12 @@ jobs:
           echo "status=${final_status}" >> "$GITHUB_OUTPUT"
           exit 0
 
-      - name: Commit validation report
+      - name: Commit repair and validation report
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add .github/validation/final-site-validation.txt
-          git commit -m "test: record final site validation"
+          git add scripts/prepare-seo.mjs .github/validation/final-site-validation.txt
+          git commit -m "fix: restore SEO regex helper and validation report"
           git push origin HEAD:main
 
       - name: Fail when validation failed
