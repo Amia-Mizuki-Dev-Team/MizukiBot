@@ -4,7 +4,8 @@ const siteUrl = 'https://help.mizuki.top'
 const siteName = 'Amia_晓山瑞希帮助文档'
 const siteDescription = 'Amia_晓山瑞希官方帮助文档，提供 PJSK、舞萌 DX、中二节奏、经济系统、群聊工具、Minecraft 服务器和项目生态说明。'
 const siteImage = `${siteUrl}/Picture/banner.jpg`
-const siteLogo = `${siteUrl}/Picture/logo.webp`
+const siteLogoPath = '/Picture/logo.webp?v=animated-20260803c'
+const siteLogo = `${siteUrl}${siteLogoPath}`
 
 const mainSections = [
   { name: '如何使用', url: `${siteUrl}/usage` },
@@ -84,6 +85,7 @@ const homeItemListStructuredData = {
 
 const nav = [
   { text: '首页', link: '/' },
+  { text: '功能状态', link: '/status' },
   {
     text: '入门指南',
     items: [
@@ -120,7 +122,6 @@ const nav = [
     text: '更新与公告',
     items: [
       { text: '服务状态与公告', link: '/service-announcements' },
-      { text: '功能状态与数据来源', link: '/status' },
       { text: 'MC 服务器更新', link: '/features/mc_update' },
       { text: 'Bot 更新日志', link: '/features/bot_update' }
     ]
@@ -136,6 +137,7 @@ const sidebar = [
     text: '入门指南',
     items: [
       { text: '如何使用', link: '/usage' },
+      { text: '功能状态与数据来源', link: '/status' },
       { text: '常见问题与故障排查', link: '/faq' },
       { text: '问题反馈', link: '/feedback' }
     ]
@@ -168,7 +170,6 @@ const sidebar = [
     text: '更新与公告',
     items: [
       { text: '服务状态与公告', link: '/service-announcements' },
-      { text: '功能状态与数据来源', link: '/status' },
       { text: 'MC 服务器更新', link: '/features/mc_update' },
       { text: 'Bot 更新日志', link: '/features/bot_update' }
     ]
@@ -290,7 +291,7 @@ export default defineConfig({
   ],
 
   themeConfig: {
-    logo: '/Picture/logo.webp',
+    logo: siteLogoPath,
     siteTitle: siteName,
     nav,
     sidebar: {
