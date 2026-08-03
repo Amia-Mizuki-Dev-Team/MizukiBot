@@ -1,0 +1,31 @@
+/* 首屏与长页面渲染优化。 */
+
+/* 原样式持续动画 filter: drop-shadow，会反复触发绘制。
+   保留静态阴影，只使用合成层可处理的轻微位移动画。 */
+.random-hero-avatar {
+  animation: hero-float 6s ease-in-out infinite !important;
+  filter: drop-shadow(0 0 24px rgba(233, 126, 179, 0.45)) !important;
+  will-change: transform;
+}
+
+@keyframes hero-float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+/* 首页首屏之外的内容按需渲染，减少初始样式与绘制工作。 */
+.home-section {
+  content-visibility: auto;
+  contain-intrinsic-size: 420px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .random-hero-avatar {
+    animation: none !important;
+    will-change: auto;
+  }
+}
