@@ -12,11 +12,11 @@ hero:
       text: 开始使用
       link: /usage
     - theme: alt
-      text: 功能文档
-      link: /features/pjsk
+      text: 功能状态
+      link: /status
     - theme: alt
-      text: 问题反馈
-      link: /feedback
+      text: 故障排查
+      link: /faq
 
 features:
   - title: 音游专项
@@ -31,9 +31,9 @@ features:
   - title: Minecraft
     details: 公益 Minecraft 服务器说明。
     link: /features/minecraft
-  - title: 更新与公告
-    details: 查看 Bot 更新、服务状态和维护安排。
-    link: /features/bot_update
+  - title: 功能状态
+    details: 查看模块依赖、数据来源、维护窗口与部署差异。
+    link: /status
   - title: 项目生态
     details: 查看插件、网关、客户端与基础组件。
     link: /projects/
@@ -50,7 +50,7 @@ Amia_晓山瑞希，原名 **Mizuki Bot**，是由 Amia-Mizuki Dev Team 维护�
   <a href="/usage" class="support-card">
     <div class="support-info">
       <strong>开始使用</strong>
-      <span>邀请 Bot 入群、配置权限并触发常用指令</span>
+      <span>将 Bot 拉入群聊、配置权限并触发常用指令</span>
     </div>
   </a>
 
@@ -97,6 +97,20 @@ Amia_晓山瑞希，原名 **Mizuki Bot**，是由 Amia-Mizuki Dev Team 维护�
 ## 支持与维护
 
 <div class="support-grid support-grid--compact">
+
+  <a href="/status" class="support-card">
+    <div class="support-info">
+      <strong>功能状态与数据来源</strong>
+      <span>查看模块状态、依赖服务、更新方式和已知限制</span>
+    </div>
+  </a>
+
+  <a href="/faq" class="support-card">
+    <div class="support-info">
+      <strong>常见问题与故障排查</strong>
+      <span>按接入、PJSK、舞萌、权限和图片问题逐项排查</span>
+    </div>
+  </a>
 
   <a href="/feedback" class="support-card">
     <div class="support-info">
