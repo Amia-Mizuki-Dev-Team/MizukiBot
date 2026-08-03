@@ -49,6 +49,8 @@ description: 介绍如何将 Amia_晓山瑞希邀请加入 QQ 群、开启群消
 | [中二节奏专项](/features/chunithm) | 中二节奏 B30、歌曲信息和谱面查询。 |
 | [Amia 25时经济系统](/features/economy) | 群内虚拟积分、任务、收集与互动系统说明。 |
 | [通用工具与娱乐](/features/tools) | 群活统计、播报和常用生成器。 |
+| [常见问题与故障排查](/faq) | Bot 无响应、PJSK、舞萌同步、权限和图片问题的排查步骤。 |
+| [功能状态与数据来源](/status) | 查看模块依赖、数据更新方式、维护窗口和隐私边界。 |
 | [Bot 更新日志](/features/bot_update) | Bot 功能、兼容性和问题修复记录。 |
 | [服务状态与公告](/service-announcements) | 维护、迁移和关联基础设施调整。 |
 
