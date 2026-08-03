@@ -3,6 +3,7 @@ import { h, onMounted, ref, nextTick } from 'vue'
 import HomeSponsorBanner from './HomeSponsorBanner.vue'
 import './custom.css'
 import './friends.css'
+import './performance.css'
 
 export default {
   extends: DefaultTheme,
@@ -53,6 +54,7 @@ export default {
           alt: 'Amia_晓山瑞希',
           width: 350,
           height: 350,
+          loading: 'eager',
           decoding: 'async',
           fetchpriority: 'high'
         }),
