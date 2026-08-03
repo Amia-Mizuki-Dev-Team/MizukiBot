@@ -4,7 +4,7 @@ const siteUrl = 'https://help.mizuki.top'
 const siteName = 'Amia_晓山瑞希帮助文档'
 const siteDescription = 'Amia_晓山瑞希官方帮助文档，提供 PJSK、舞萌 DX、中二节奏、经济系统、群聊工具、Minecraft 服务器和项目生态说明。'
 const siteImage = `${siteUrl}/Picture/banner.jpg`
-const siteLogo = `${siteUrl}/Picture/logo.gif`
+const siteLogo = `${siteUrl}/Picture/logo.webp`
 
 const mainSections = [
   { name: '如何使用', url: `${siteUrl}/usage` },
@@ -265,7 +265,7 @@ export default defineConfig({
 
   head: [
     ['link', { rel: 'icon', type: 'image/x-icon', href: '/Picture/favicon.ico' }],
-    ['link', { rel: 'apple-touch-icon', href: '/Picture/logo.gif' }],
+    ['link', { rel: 'apple-touch-icon', type: 'image/png', href: '/Picture/logo-180.png' }],
     ['meta', { name: 'robots', content: 'index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1' }],
     ['meta', { name: 'googlebot', content: 'index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1' }],
     ['meta', { name: 'baiduspider', content: 'index,follow,max-snippet:-1,max-image-preview:large' }],
@@ -284,7 +284,7 @@ export default defineConfig({
   ],
 
   themeConfig: {
-    logo: '/Picture/logo.gif',
+    logo: '/Picture/logo.webp',
     siteTitle: siteName,
     nav,
     sidebar: {

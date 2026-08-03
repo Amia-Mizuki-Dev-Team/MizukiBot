@@ -4,7 +4,7 @@ description: Amia_晓山瑞希帮助文档的友情链接页面，收录与技�
 head:
   - - script
     - type: application/ld+json
-    - '{"@context":"https://schema.org","@type":"ItemList","@id":"https://help.mizuki.top/friends#friend-sites","name":"Amia_晓山瑞希友情链接","itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"WebSite","name":"墨染辉夜","url":"https://mzyyun.com/","description":"分享技术、日常与思考","image":"https://blog.mzyyun.com/images/avatar.jpg"}}]}'
+    - '{"@context":"https://schema.org","@type":"ItemList","@id":"https://help.mizuki.top/friends#friend-sites","name":"Amia_晓山瑞希友情链接","itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"WebSite","name":"墨染辉夜","url":"https://mzyyun.com/","description":"分享技术、日常与思考","image":"https://help.mizuki.top/Picture/friends/mzyyun.webp"}}]}'
 ---
 
 # 友情链接
@@ -21,13 +21,12 @@ head:
       aria-label="访问墨染辉夜的网站：分享技术、日常与思考"
     >
       <img
-        src="https://blog.mzyyun.com/images/avatar.jpg"
+        src="/Picture/friends/mzyyun.webp"
         alt="墨染辉夜头像"
         width="64"
         height="64"
         loading="lazy"
         decoding="async"
-        referrerpolicy="no-referrer"
         class="friend-avatar"
       />
       <span class="friend-content">
@@ -54,4 +53,4 @@ head:
 - 名称：Amia_晓山瑞希帮助文档
 - 地址：<https://help.mizuki.top/>
 - 简介：提供 PJSK、舞萌 DX、群聊工具及 Amia 项目生态说明。
-- 图标：<https://help.mizuki.top/Picture/logo.gif>
+- 图标：<https://help.mizuki.top/Picture/logo.webp>
