@@ -37,8 +37,11 @@ jobs:
           npm install --no-audit --no-fund sharp@0.35.3
 
       - name: Download friend avatar
+        continue-on-error: true
         run: |
           curl --fail --location --retry 3 --retry-delay 2 \
+            --user-agent 'Mozilla/5.0 (compatible; MizukiBotDocs/1.0)' \
+            --header 'Referer: https://blog.mzyyun.com/' \
             'https://blog.mzyyun.com/images/avatar.jpg' \
             --output /tmp/mzyyun-avatar.jpg
 
@@ -58,7 +61,8 @@ jobs:
 
           async function replaceWith(input, output, transform) {
             const before = fs.statSync(input).size
-            const temp = `${output}.tmp`
+            const extension = path.extname(output)
+            const temp = output.slice(0, -extension.length) + `.tmp${extension}`
             await transform(sharp(input, { page: 0 })).toFile(temp)
             const after = fs.statSync(temp).size
             fs.renameSync(temp, output)
@@ -104,12 +108,16 @@ jobs:
               `touch=${formatBytes(fs.statSync('docs/public/Picture/logo-180.png').size)}`
             )
 
-            await sharp('/tmp/mzyyun-avatar.jpg')
-              .rotate()
-              .resize(128, 128, { fit: 'cover', position: 'centre' })
-              .webp({ quality: 84, effort: 6 })
-              .toFile('docs/public/Picture/friends/mzyyun.webp')
-            report.push(`mzyyun.webp: ${formatBytes(fs.statSync('docs/public/Picture/friends/mzyyun.webp').size)} (128x128)`)
+            if (fs.existsSync('/tmp/mzyyun-avatar.jpg')) {
+              await sharp('/tmp/mzyyun-avatar.jpg')
+                .rotate()
+                .resize(128, 128, { fit: 'cover', position: 'centre' })
+                .webp({ quality: 84, effort: 6 })
+                .toFile('docs/public/Picture/friends/mzyyun.webp')
+              report.push(`mzyyun.webp: ${formatBytes(fs.statSync('docs/public/Picture/friends/mzyyun.webp').size)} (128x128)`)
+            } else {
+              report.push('mzyyun.webp: 下载失败，保留远程头像，不阻塞其他资源优化')
+            }
 
             fs.writeFileSync(
               '.github/validation/site-assets.txt',
@@ -137,20 +145,22 @@ jobs:
 
           const friendsPath = 'docs/friends.md'
           let friends = fs.readFileSync(friendsPath, 'utf8')
-          friends = friends
-            .replace(
-              '"image":"https://blog.mzyyun.com/images/avatar.jpg"',
-              '"image":"https://help.mizuki.top/Picture/friends/mzyyun.webp"'
-            )
-            .replace(
-              'src="https://blog.mzyyun.com/images/avatar.jpg"',
-              'src="/Picture/friends/mzyyun.webp"'
-            )
-            .replace(/\n\s*referrerpolicy="no-referrer"/g, '')
-            .replace(
-              'https://help.mizuki.top/Picture/logo.gif',
-              'https://help.mizuki.top/Picture/logo.webp'
-            )
+          if (fs.existsSync('docs/public/Picture/friends/mzyyun.webp')) {
+            friends = friends
+              .replace(
+                '"image":"https://blog.mzyyun.com/images/avatar.jpg"',
+                '"image":"https://help.mizuki.top/Picture/friends/mzyyun.webp"'
+              )
+              .replace(
+                'src="https://blog.mzyyun.com/images/avatar.jpg"',
+                'src="/Picture/friends/mzyyun.webp"'
+              )
+              .replace(/\n\s*referrerpolicy="no-referrer"/g, '')
+          }
+          friends = friends.replace(
+            'https://help.mizuki.top/Picture/logo.gif',
+            'https://help.mizuki.top/Picture/logo.webp'
+          )
           fs.writeFileSync(friendsPath, friends, 'utf8')
           NODE
 
@@ -165,14 +175,15 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add \
-            docs/public/Picture/avatar.jpg \
-            docs/public/Picture/banner.jpg \
-            docs/public/Picture/logo.webp \
-            docs/public/Picture/logo-180.png \
-            docs/public/Picture/friends/mzyyun.webp \
+            docs/public/Picture \
             docs/.vitepress/config.mts \
             docs/friends.md \
             .github/validation/site-assets.txt
+
+          if git diff --cached --quiet; then
+            echo "资源无需更新"
+            exit 0
+          fi
 
           git commit -m "perf: optimize site-wide image delivery"
           git push origin HEAD:main
