@@ -4,6 +4,7 @@ import HomeSponsorBanner from './HomeSponsorBanner.vue'
 import './custom.css'
 import './friends.css'
 import './performance.css'
+import './overflow-fix.css'
 
 export default {
   extends: DefaultTheme,
