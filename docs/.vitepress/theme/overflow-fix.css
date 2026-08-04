@@ -1,0 +1,74 @@
+/* Prevent root-level horizontal overflow without affecting local table scrollers. */
+html,
+body,
+#app {
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+.VPContent,
+.VPHome,
+.VPHomeHero,
+.VPHero,
+.VPHero .container,
+.home-sponsor-wrap,
+.home-sponsor-banner,
+.home-section,
+.mzk-footer {
+  max-width: 100%;
+}
+
+/* width: 100% plus padding previously made the footer wider than the viewport. */
+.mzk-footer {
+  box-sizing: border-box;
+}
+
+/* Allow the two Hero columns and their children to shrink normally. */
+.VPHero .container,
+.VPHero .main,
+.VPHero .image,
+.VPHero .actions,
+.VPHero .action {
+  min-width: 0;
+}
+
+/* Do not force all Hero actions onto one line at intermediate desktop widths. */
+.VPHero .actions {
+  flex-wrap: wrap !important;
+  max-width: 100%;
+}
+
+.VPHero .VPButton {
+  max-width: 100%;
+}
+
+/* Keep sponsor content shrinkable even when the available width is narrow. */
+.home-sponsor-wrap,
+.home-sponsor-banner,
+.home-sponsor-copy,
+.home-sponsor-links {
+  min-width: 0;
+}
+
+.home-sponsor-copy p,
+.home-sponsor-links {
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 1100px) {
+  .VPHero .actions {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 640px) {
+  .VPHero .actions {
+    justify-content: center;
+  }
+
+  .home-section {
+    box-sizing: border-box;
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+}
