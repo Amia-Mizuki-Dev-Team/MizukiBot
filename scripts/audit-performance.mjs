@@ -12,7 +12,7 @@ if (!existsSync(DIST_DIR)) {
 const homepage = resolve(DIST_DIR, 'index.html')
 const friendsPage = resolve(DIST_DIR, 'friends.html')
 const headersFile = resolve(DIST_DIR, '_headers')
-const heroImagePath = '/Picture/avatar-transparent.svg?v=20260806b'
+const heroImagePath = '/Picture/avatar.jpg?v=masked-20260806d'
 const logoImagePath = '/Picture/logo.webp?v=animated-20260803c'
 const criticalImages = new Set([heroImagePath, logoImagePath])
 
@@ -105,7 +105,6 @@ for (const file of htmlFiles) {
 
 const requiredAssetBudgets = {
   'Picture/avatar.jpg': 100 * 1024,
-  'Picture/avatar-transparent.svg': 32 * 1024,
   'Picture/banner.jpg': 180 * 1024,
   'Picture/logo.webp': 512 * 1024,
   'Picture/logo-180.png': 64 * 1024,
@@ -134,10 +133,13 @@ const cssText = assetFiles
 if (!cssText.includes('content-visibility:auto')) {
   errors.push('构建 CSS 未包含首页延迟渲染规则 content-visibility:auto')
 }
+if (!cssText.includes('data:image/svg+xml;base64,')) {
+  errors.push('构建 CSS 未包含首页头像的内嵌透明遮罩')
+}
 
 const budgets = {
   '.js': { warn: 500 * 1024, fail: 2 * 1024 * 1024 },
-  '.css': { warn: 180 * 1024, fail: 1024 * 1024 },
+  '.css': { warn: 220 * 1024, fail: 1024 * 1024 },
   '.jpg': { warn: 1024 * 1024, fail: 8 * 1024 * 1024 },
   '.jpeg': { warn: 1024 * 1024, fail: 8 * 1024 * 1024 },
   '.png': { warn: 1024 * 1024, fail: 8 * 1024 * 1024 },
