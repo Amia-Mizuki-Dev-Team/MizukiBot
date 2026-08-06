@@ -55,19 +55,10 @@ body,
   overflow-wrap: anywhere;
 }
 
-/* The optimized JPEG lost its original alpha channel. Apply the extracted
-   silhouette as a real mask so the black fill is removed without altering
-   the character colours or internal linework. */
+/* The homepage now uses a genuinely transparent SVG asset. */
 .random-hero-avatar {
   border-radius: 0 !important;
-  -webkit-mask-image: url('/Picture/avatar-mask.svg?v=20260806');
-  mask-image: url('/Picture/avatar-mask.svg?v=20260806');
-  -webkit-mask-position: center;
-  mask-position: center;
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
-  -webkit-mask-size: 100% 100%;
-  mask-size: 100% 100%;
+  object-fit: contain !important;
 }
 
 @media (max-width: 1100px) {
