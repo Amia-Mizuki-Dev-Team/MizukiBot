@@ -12,7 +12,7 @@ if (!existsSync(DIST_DIR)) {
 const homepage = resolve(DIST_DIR, 'index.html')
 const friendsPage = resolve(DIST_DIR, 'friends.html')
 const headersFile = resolve(DIST_DIR, '_headers')
-const heroImagePath = '/Picture/avatar-transparent.svg?v=20260807a'
+const heroImagePath = '/Picture/avatar.webp?v=20260807b'
 const logoImagePath = '/Picture/logo.webp?v=animated-20260803c'
 const criticalImages = new Set([heroImagePath, logoImagePath])
 
@@ -105,7 +105,7 @@ for (const file of htmlFiles) {
 
 const requiredAssetBudgets = {
   'Picture/avatar.jpg': 100 * 1024,
-  'Picture/avatar-transparent.svg': 16 * 1024,
+  'Picture/avatar.webp': 300 * 1024,
   'Picture/banner.jpg': 180 * 1024,
   'Picture/logo.webp': 512 * 1024,
   'Picture/logo-180.png': 64 * 1024,
@@ -133,16 +133,6 @@ const cssText = assetFiles
 
 if (!cssText.includes('content-visibility:auto')) {
   errors.push('构建 CSS 未包含首页延迟渲染规则 content-visibility:auto')
-}
-
-const transparentAvatar = resolve(DIST_DIR, 'Picture/avatar-transparent.svg')
-if (!existsSync(transparentAvatar)) {
-  errors.push('构建输出缺少透明首页头像资源')
-} else {
-  const svg = readFileSync(transparentAvatar, 'utf8')
-  if (!svg.includes('<clipPath') || !svg.includes('/Picture/avatar.jpg')) {
-    errors.push('透明首页头像资源缺少人物轮廓裁剪或原图引用')
-  }
 }
 
 const budgets = {

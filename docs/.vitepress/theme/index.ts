@@ -50,7 +50,7 @@ export default {
       'home-hero-before': () => h(HomeSponsorBanner),
       'home-hero-image': () => h('div', { class: 'hero-wrapper' }, [
         h('img', {
-          src: '/Picture/avatar-transparent.svg?v=20260807a',
+          src: '/Picture/avatar.webp?v=20260807b',
           class: 'random-hero-avatar',
           alt: 'Amia_晓山瑞希',
           width: 350,
