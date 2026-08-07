@@ -1,0 +1,242 @@
+name: Apply Transparent Homepage Avatar
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/apply-home-avatar-webp.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  repair:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: .node-version
+          cache: npm
+          cache-dependency-path: package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate transparent WebP avatar and update references
+        run: |
+          node <<'NODE'
+          const fs = require('node:fs')
+          const sharp = require('sharp')
+
+          const sourcePath = 'docs/public/Picture/avatar.jpg'
+          const outputPath = 'docs/public/Picture/avatar.webp'
+
+          function replaceRequired(content, before, after, label) {
+            if (!content.includes(before)) {
+              throw new Error(`Missing replacement target (${label}): ${before}`)
+            }
+            return content.replace(before, after)
+          }
+
+          ;(async () => {
+            const { data: raw, info } = await sharp(sourcePath)
+              .ensureAlpha()
+              .raw()
+              .toBuffer({ resolveWithObject: true })
+
+            const data = Buffer.from(raw)
+            const { width, height, channels } = info
+            if (channels !== 4) throw new Error(`Expected RGBA input, got ${channels} channels`)
+
+            const indexOf = (x, y) => (y * width + x) * 4
+            const rgbAt = (x, y) => {
+              const i = indexOf(x, y)
+              return [data[i], data[i + 1], data[i + 2]]
+            }
+
+            const borderSamples = [
+              [0, 0], [width - 1, 0], [0, height - 1], [width - 1, height - 1],
+              [Math.floor(width / 2), 0], [Math.floor(width / 2), height - 1],
+              [0, Math.floor(height / 2)], [width - 1, Math.floor(height / 2)]
+            ].map(([x, y]) => rgbAt(x, y))
+
+            const background = [0, 1, 2].map(channel =>
+              borderSamples.reduce((sum, rgb) => sum + rgb[channel], 0) / borderSamples.length
+            )
+
+            const distanceFromBackground = (r, g, b) => Math.sqrt(
+              (r - background[0]) ** 2 +
+              (g - background[1]) ** 2 +
+              (b - background[2]) ** 2
+            )
+
+            const isBackgroundCandidate = (x, y) => {
+              const [r, g, b] = rgbAt(x, y)
+              const max = Math.max(r, g, b)
+              const min = Math.min(r, g, b)
+              const distance = distanceFromBackground(r, g, b)
+
+              // Only remove the dark, near-neutral matte connected to the image edge.
+              // Saturated reddish linework is intentionally excluded.
+              return distance < 100 && max < 115 && (max - min) < 58
+            }
+
+            const visited = new Uint8Array(width * height)
+            const queueX = new Int32Array(width * height)
+            const queueY = new Int32Array(width * height)
+            let head = 0
+            let tail = 0
+
+            const enqueue = (x, y) => {
+              const p = y * width + x
+              if (visited[p] || !isBackgroundCandidate(x, y)) return
+              visited[p] = 1
+              queueX[tail] = x
+              queueY[tail] = y
+              tail += 1
+            }
+
+            for (let x = 0; x < width; x += 1) {
+              enqueue(x, 0)
+              enqueue(x, height - 1)
+            }
+            for (let y = 0; y < height; y += 1) {
+              enqueue(0, y)
+              enqueue(width - 1, y)
+            }
+
+            while (head < tail) {
+              const x = queueX[head]
+              const y = queueY[head]
+              head += 1
+              if (x > 0) enqueue(x - 1, y)
+              if (x + 1 < width) enqueue(x + 1, y)
+              if (y > 0) enqueue(x, y - 1)
+              if (y + 1 < height) enqueue(x, y + 1)
+            }
+
+            let transparentPixels = 0
+            for (let y = 0; y < height; y += 1) {
+              for (let x = 0; x < width; x += 1) {
+                const p = y * width + x
+                if (!visited[p]) continue
+
+                const i = p * 4
+                const r = data[i]
+                const g = data[i + 1]
+                const b = data[i + 2]
+                const distance = distanceFromBackground(r, g, b)
+
+                // Fully remove the matte while retaining a short antialias transition.
+                const alpha = distance <= 24
+                  ? 0
+                  : Math.max(0, Math.min(255, Math.round(((distance - 24) / 76) * 255)))
+                data[i + 3] = alpha
+                if (alpha === 0) transparentPixels += 1
+              }
+            }
+
+            if (transparentPixels < width * height * 0.05) {
+              throw new Error(`Background removal sanity check failed: only ${transparentPixels} transparent pixels`)
+            }
+
+            await sharp(data, { raw: { width, height, channels: 4 } })
+              .resize(700, 700, { fit: 'contain', withoutEnlargement: true })
+              .webp({ quality: 92, alphaQuality: 95, effort: 6 })
+              .toFile(outputPath)
+
+            const outputMeta = await sharp(outputPath).metadata()
+            if (!outputMeta.hasAlpha) throw new Error('Generated avatar.webp has no alpha channel')
+            if (fs.statSync(outputPath).size > 300 * 1024) {
+              throw new Error(`avatar.webp exceeds 300 KiB: ${fs.statSync(outputPath).size}`)
+            }
+
+            const indexPath = 'docs/.vitepress/theme/index.ts'
+            let index = fs.readFileSync(indexPath, 'utf8')
+            index = replaceRequired(
+              index,
+              "src: '/Picture/avatar-transparent.svg?v=20260807a'",
+              "src: '/Picture/avatar.webp?v=20260807b'",
+              'theme avatar source'
+            )
+            fs.writeFileSync(indexPath, index, 'utf8')
+
+            const preparePath = 'scripts/prepare-performance.mjs'
+            let prepare = fs.readFileSync(preparePath, 'utf8')
+            prepare = replaceRequired(
+              prepare,
+              "const heroImage = '/Picture/avatar-transparent.svg?v=20260807a'",
+              "const heroImage = '/Picture/avatar.webp?v=20260807b'",
+              'performance preload target'
+            )
+            fs.writeFileSync(preparePath, prepare, 'utf8')
+
+            const auditPath = 'scripts/audit-performance.mjs'
+            let audit = fs.readFileSync(auditPath, 'utf8')
+            audit = replaceRequired(
+              audit,
+              "const heroImagePath = '/Picture/avatar-transparent.svg?v=20260807a'",
+              "const heroImagePath = '/Picture/avatar.webp?v=20260807b'",
+              'performance audit target'
+            )
+            audit = replaceRequired(
+              audit,
+              "  'Picture/avatar-transparent.svg': 16 * 1024,",
+              "  'Picture/avatar.webp': 300 * 1024,",
+              'avatar asset budget'
+            )
+            audit = audit.replace(
+              /\nconst transparentAvatar = resolve\(DIST_DIR, 'Picture\/avatar-transparent\.svg'\)[\s\S]*?\n}\n\nconst budgets =/,
+              '\nconst budgets ='
+            )
+            if (audit.includes("const transparentAvatar = resolve(DIST_DIR, 'Picture/avatar-transparent.svg')")) {
+              throw new Error('Failed to remove obsolete transparent SVG audit block')
+            }
+            fs.writeFileSync(auditPath, audit, 'utf8')
+
+            if (fs.existsSync('docs/public/Picture/avatar-transparent.svg')) {
+              fs.unlinkSync('docs/public/Picture/avatar-transparent.svg')
+            }
+
+            console.log(JSON.stringify({
+              source: `${width}x${height}`,
+              output: `${outputMeta.width}x${outputMeta.height}`,
+              hasAlpha: outputMeta.hasAlpha,
+              transparentPixels,
+              bytes: fs.statSync(outputPath).size
+            }, null, 2))
+          })().catch(error => {
+            console.error(error)
+            process.exit(1)
+          })
+          NODE
+
+      - name: Audit dependencies
+        run: npm audit --audit-level=moderate
+
+      - name: Build and audit documentation
+        run: npm run docs:build
+
+      - name: Commit verified avatar repair
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add \
+            docs/public/Picture/avatar.webp \
+            docs/.vitepress/theme/index.ts \
+            scripts/prepare-performance.mjs \
+            scripts/audit-performance.mjs
+          git add -u docs/public/Picture/avatar-transparent.svg
+
+          git commit -m "fix: replace homepage avatar with transparent WebP"
+          git push origin HEAD:main
