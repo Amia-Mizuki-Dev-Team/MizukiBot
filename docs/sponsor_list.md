@@ -60,20 +60,20 @@ description: Amia_晓山瑞希赞助者名单与支持记录。
 <div class="sponsor-grid">
   <div class="sponsor-card">
     <div class="sponsor-card-avatar">
-      <img src="https://pic1.afdiancdn.com/default/avatar/avatar-purple.png" alt="Haxino" class="sponsor-card-avatar-img" />
-    </div>
-    <div class="sponsor-card-body">
-      <h3>Haxino</h3>
-      <span class="sponsor-tag sponsor-tag--silver">赞助商</span>
-      <p>累计赞助 ¥10.00</p>
-    </div>
-  </div>
-  <div class="sponsor-card">
-    <div class="sponsor-card-avatar">
       <img src="https://pic1.afdiancdn.com/default/avatar/avatar-blue.png" alt="kinnk" class="sponsor-card-avatar-img" />
     </div>
     <div class="sponsor-card-body">
       <h3>kinnk</h3>
+      <span class="sponsor-tag sponsor-tag--silver">赞助商</span>
+      <p>累计赞助 ¥40.00</p>
+    </div>
+  </div>
+  <div class="sponsor-card">
+    <div class="sponsor-card-avatar">
+      <img src="https://pic1.afdiancdn.com/default/avatar/avatar-purple.png" alt="Haxino" class="sponsor-card-avatar-img" />
+    </div>
+    <div class="sponsor-card-body">
+      <h3>Haxino</h3>
       <span class="sponsor-tag sponsor-tag--silver">赞助商</span>
       <p>累计赞助 ¥10.00</p>
     </div>
@@ -92,7 +92,7 @@ description: Amia_晓山瑞希赞助者名单与支持记录。
 <!-- SPONSORS_END -->
 
 <div style="margin-top: 40px; text-align: center; color: var(--vp-c-text-2); font-size: 14px;">
-  <p>名单由爱发电 API 自动同步，更新时间：2026/8/6 13:16:46</p>
+  <p>名单由爱发电 API 自动同步，更新时间：2026/8/7 12:25:34</p>
   <p style="margin-top: 8px;">
     <a href="https://ifdian.net/a/wrdzgzs" target="_blank" style="color: var(--vp-c-brand-1); font-weight: bold;">
       前往爱发电赞助 →
