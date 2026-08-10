@@ -92,7 +92,7 @@ description: Amia_晓山瑞希赞助者名单与支持记录。
 <!-- SPONSORS_END -->
 
 <div style="margin-top: 40px; text-align: center; color: var(--vp-c-text-2); font-size: 14px;">
-  <p>名单由爱发电 API 自动同步，更新时间：2026/8/9 11:42:10</p>
+  <p>名单由爱发电 API 自动同步，更新时间：2026/8/10 11:54:14</p>
   <p style="margin-top: 8px;">
     <a href="https://ifdian.net/a/wrdzgzs" target="_blank" style="color: var(--vp-c-brand-1); font-weight: bold;">
       前往爱发电赞助 →
