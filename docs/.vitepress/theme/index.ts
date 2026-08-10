@@ -1,6 +1,7 @@
 import DefaultTheme from 'vitepress/theme'
 import { h, onMounted, ref, nextTick } from 'vue'
 import HomeSponsorBanner from './HomeSponsorBanner.vue'
+import HongXingLifecycle from './HongXingLifecycle.vue'
 import './custom.css'
 import './friends.css'
 import './performance.css'
@@ -8,6 +9,9 @@ import './overflow-fix.css'
 
 export default {
   extends: DefaultTheme,
+  enhanceApp({ app }) {
+    app.component('HongXingLifecycle', HongXingLifecycle)
+  },
   Layout() {
     const currentQuote = ref('')
     const showAnnouncement = ref(false)
