@@ -1,6 +1,6 @@
 ---
 title: 功能状态与数据来源
-description: 说明 Amia_晓山瑞希各功能模块的公开状态、数据来源、更新方式、依赖关系与已知限制，并提供服务器监控入口。
+description: 说明 Amia_晓山瑞希各功能模块的公开状态、数据来源、更新方式、依赖关系与已知限制，并提供服务器监控入口与 HongXing 产品生命周期。
 ---
 
 # 功能状态与数据来源
@@ -27,6 +27,12 @@ description: 说明 Amia_晓山瑞希各功能模块的公开状态、数据来�
 </div>
 
 维护、迁移和计划停机仍以[服务状态与公告](/service-announcements)为准。监控面板显示在线，也不代表所有插件和第三方数据源均可正常使用。
+
+## HongXing 产品与服务生命周期
+
+以下时间轴展示 HongXing Online、HongXingOS、HongXing Firmware、HongXing AuthLit 以及相关实验服务的公开生命周期信息。HongXing Online 3 当前没有规划，因此不纳入时间轴；未知的未来生命周期阶段不会推测填写。
+
+<HongXingLifecycle />
 
 ## 状态说明
 
