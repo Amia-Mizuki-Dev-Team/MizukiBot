@@ -1,6 +1,6 @@
 /* HongXing 生命周期：只调整组件自身，不覆盖 VitePress 页面骨架。 */
 
-/* 分组标题属于左侧信息层，不跟随时间轴横向滚动。 */
+/* 分组标题属于信息层，不跟随时间轴横向移动。 */
 .hx-group-row {
   position: sticky !important;
   left: 0 !important;
@@ -8,7 +8,7 @@
   background: var(--vp-c-bg-soft) !important;
 }
 
-/* 桌面端：组件自身扩展到可用视口，页面主体结构保持 VitePress 默认行为。 */
+/* 桌面端：允许组件利用右侧空间，但不修改 VitePress 的 container/content/main。 */
 @media (min-width: 1101px) {
   .hx-life-card {
     width: min(1360px, calc(100vw - 380px)) !important;
@@ -29,186 +29,63 @@
     min-width: 0 !important;
   }
 
-  .hx-life-summary {
-    max-width: 720px !important;
-    margin-top: 5px !important;
-    font-size: 12px !important;
-  }
-
   .hx-life-legend {
     flex: 0 1 520px !important;
     max-width: 520px !important;
     justify-content: flex-end !important;
-    gap: 7px 14px !important;
   }
 
   .hx-life-scroll {
     overflow-x: auto !important;
-    overscroll-behavior-inline: contain;
   }
 
   .hx-life-chart {
     width: 100% !important;
-    min-width: 1040px !important;
+    min-width: 980px !important;
   }
 
   .hx-axis-row,
   .hx-product-row {
-    grid-template-columns: 190px minmax(850px, 1fr) !important;
+    grid-template-columns: 176px minmax(0, 1fr) !important;
   }
 
-  .hx-axis-row {
-    min-height: 50px !important;
-  }
-
-  .hx-name-axis {
-    padding: 0 13px !important;
-    font-size: 11px !important;
-  }
-
-  .hx-axis-track {
-    min-height: 50px !important;
-  }
-
-  .hx-year {
-    top: 28px !important;
-    font-size: 9.5px !important;
-    transform: translateX(5px) !important;
-  }
-
-  .hx-today-label {
-    top: 3px !important;
-    padding: 3px 7px !important;
-    font-size: 8.5px !important;
-  }
-
-  .hx-today-line {
-    top: 22px !important;
-    width: 1px !important;
-  }
-
-  .hx-today-line--row {
-    top: 0 !important;
-  }
-
-  .hx-group-row {
-    padding: 6px 13px !important;
-    font-size: 9.5px !important;
-    line-height: 1.35 !important;
-  }
-
-  .hx-product-row,
-  .hx-track {
-    min-height: 43px !important;
-  }
-
-  .hx-product-name {
-    gap: 1px !important;
-    padding: 7px 10px 7px 13px !important;
-  }
-
-  .hx-product-name strong {
-    font-size: 10.5px !important;
-  }
-
-  .hx-product-name small {
-    font-size: 8px !important;
-  }
-
-  .hx-segment {
-    height: 16px !important;
-    min-width: 8px !important;
-  }
-
-  .hx-segment > span {
-    padding: 0 6px !important;
-    font-size: 8px !important;
-  }
-
-  .hx-milestone i {
-    width: 7px !important;
-    height: 7px !important;
-  }
-
-  .hx-milestone em {
-    left: 8px !important;
-    top: 5px !important;
-    max-width: 112px !important;
-    font-size: 7.5px !important;
-  }
-
-  /* 2030 一类最右侧节点文字向左展开，避免看起来像被卡片裁断。 */
   .hx-track .hx-milestone:last-child em {
     left: auto !important;
     right: 8px !important;
     text-align: right !important;
   }
-
-  .hx-life-footnote {
-    padding: 10px 13px 12px !important;
-    font-size: 9px !important;
-  }
 }
 
-/* 平板 / 窄桌面：不改页面布局，只让时间轴在卡片内部滚动。 */
+/* 平板端：保持传统横向时间轴，但只在组件内部滚动。 */
 @media (min-width: 761px) and (max-width: 1100px) {
-  .hx-life-card {
-    width: 100% !important;
-    max-width: none !important;
-  }
-
-  .hx-life-header {
-    flex-direction: column !important;
-    gap: 9px !important;
-    padding: 16px !important;
-  }
-
-  .hx-life-legend {
-    width: 100% !important;
-    max-width: none !important;
-    justify-content: flex-start !important;
-  }
-
   .hx-life-scroll {
     overflow-x: auto !important;
   }
 
   .hx-life-chart {
-    width: 100% !important;
-    min-width: 920px !important;
+    min-width: 900px !important;
   }
 
   .hx-axis-row,
   .hx-product-row {
-    grid-template-columns: 160px minmax(760px, 1fr) !important;
-  }
-
-  .hx-product-row,
-  .hx-track {
-    min-height: 43px !important;
-  }
-
-  .hx-product-name strong {
-    font-size: 10px !important;
-  }
-
-  .hx-year {
-    font-size: 8.5px !important;
-  }
-
-  .hx-segment > span {
-    font-size: 7px !important;
+    grid-template-columns: 160px minmax(740px, 1fr) !important;
   }
 }
 
-/* 手机端：保持紧凑横向时间轴。 */
+/*
+ * 手机端不再使用“一整张 780px+ 大表横向拖动”的方案。
+ * 每个产品改成“名称在上、时间轴在下”，各分组自然分段，2022–2030 一屏展示。
+ */
 @media (max-width: 760px) {
   .hx-life-card {
-    margin: 12px -6px 20px !important;
+    width: 100% !important;
+    margin: 12px 0 20px !important;
+    overflow: hidden !important;
     border-radius: 12px !important;
   }
 
   .hx-life-header {
+    flex-direction: column !important;
     gap: 8px !important;
     padding: 12px !important;
   }
@@ -252,54 +129,44 @@
     height: 6px !important;
   }
 
-  .legend.planning {
-    height: 8px !important;
-  }
-
-  .legend.eol {
-    width: 7px !important;
-    height: 7px !important;
-  }
-
   .hx-life-scroll {
-    overflow-x: auto !important;
+    overflow-x: visible !important;
   }
 
   .hx-life-chart {
-    min-width: 780px !important;
+    width: 100% !important;
+    min-width: 0 !important;
   }
 
-  .hx-axis-row,
-  .hx-product-row {
-    grid-template-columns: 145px minmax(635px, 1fr) !important;
-  }
-
+  /* 年份轴独占一行，不再保留左侧“产品”空列。 */
   .hx-axis-row {
-    min-height: 40px !important;
+    display: block !important;
+    min-height: 38px !important;
   }
 
   .hx-name-axis {
-    padding: 0 10px !important;
-    font-size: 10px !important;
+    display: none !important;
   }
 
   .hx-axis-track {
-    min-height: 40px !important;
+    width: 100% !important;
+    min-height: 38px !important;
   }
 
   .hx-year {
-    top: 22px !important;
-    font-size: 9px !important;
+    top: 20px !important;
+    font-size: 8px !important;
+    transform: translateX(2px) !important;
   }
 
   .hx-today-label {
     top: 2px !important;
     padding: 2px 5px !important;
-    font-size: 8px !important;
+    font-size: 7.5px !important;
   }
 
   .hx-today-line {
-    top: 18px !important;
+    top: 17px !important;
     width: 1px !important;
   }
 
@@ -307,54 +174,89 @@
     top: 0 !important;
   }
 
+  /* 每个大类独立成一个清晰的小节。 */
   .hx-group-row {
-    padding: 4px 10px !important;
-    font-size: 9px !important;
-    line-height: 1.3 !important;
+    position: static !important;
+    display: block !important;
+    margin-top: 10px !important;
+    padding: 7px 10px !important;
+    border-top: 1px solid var(--vp-c-divider) !important;
+    border-bottom: 1px solid var(--vp-c-divider) !important;
+    background: var(--vp-c-bg-soft) !important;
+    color: var(--vp-c-text-2) !important;
+    font-size: 10px !important;
+    font-weight: 800 !important;
+    letter-spacing: .03em !important;
   }
 
-  .hx-product-row,
-  .hx-track {
-    min-height: 38px !important;
+  .hx-group-row:first-of-type {
+    margin-top: 0 !important;
+  }
+
+  /* 产品名称和时间轴上下分开，避免左侧名称吃掉一半屏幕。 */
+  .hx-product-row {
+    display: block !important;
+    min-height: 0 !important;
+    border-bottom: 1px solid var(--vp-c-divider) !important;
   }
 
   .hx-product-name {
-    gap: 1px !important;
-    padding: 6px 8px 6px 10px !important;
+    position: static !important;
+    display: flex !important;
+    width: 100% !important;
+    min-height: 31px !important;
+    justify-content: center !important;
+    padding: 6px 10px 4px !important;
+    border-right: 0 !important;
+    border-bottom: 0 !important;
+    background: var(--vp-c-bg) !important;
   }
 
   .hx-product-name strong {
-    font-size: 10.5px !important;
+    font-size: 11px !important;
+    line-height: 1.25 !important;
   }
 
   .hx-product-name small {
     font-size: 8px !important;
   }
 
+  .hx-track {
+    width: 100% !important;
+    min-height: 34px !important;
+    border-left: 0 !important;
+  }
+
   .hx-segment {
-    height: 14px !important;
-    min-width: 7px !important;
+    height: 13px !important;
+    min-width: 5px !important;
   }
 
   .hx-segment > span {
-    padding: 0 5px !important;
-    font-size: 7.5px !important;
+    padding: 0 4px !important;
+    font-size: 6.8px !important;
   }
 
   .hx-milestone i {
-    width: 7px !important;
-    height: 7px !important;
+    width: 6px !important;
+    height: 6px !important;
   }
 
   .hx-milestone em {
-    left: 8px !important;
-    top: 5px !important;
-    max-width: 92px !important;
-    font-size: 7px !important;
+    left: 7px !important;
+    top: 4px !important;
+    max-width: 82px !important;
+    font-size: 6.5px !important;
+  }
+
+  .hx-track .hx-milestone:last-child em {
+    left: auto !important;
+    right: 7px !important;
+    text-align: right !important;
   }
 
   .hx-life-footnote {
-    padding: 8px 10px 9px !important;
+    padding: 9px 10px 10px !important;
     font-size: 8.5px !important;
     line-height: 1.5 !important;
   }
