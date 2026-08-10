@@ -1,4 +1,4 @@
-/* HongXing 生命周期：桌面端优先利用可用宽度，手机端保留横向时间轴 */
+/* HongXing 生命周期：只调整组件自身，不覆盖 VitePress 页面骨架。 */
 
 /* 分组标题属于左侧信息层，不跟随时间轴横向滚动。 */
 .hx-group-row {
@@ -8,31 +8,10 @@
   background: var(--vp-c-bg-soft) !important;
 }
 
-/* 桌面端：status 页去掉右侧目录，并把正文真正扩到剩余可用区域。 */
+/* 桌面端：组件自身扩展到可用视口，页面主体结构保持 VitePress 默认行为。 */
 @media (min-width: 1101px) {
-  .VPDoc:has(.hx-life-card) .aside {
-    display: none !important;
-  }
-
-  .VPDoc:has(.hx-life-card) .container {
-    width: 100% !important;
-    max-width: 1540px !important;
-    margin: 0 auto !important;
-  }
-
-  .VPDoc:has(.hx-life-card) .content {
-    width: 100% !important;
-    max-width: none !important;
-    flex: 1 1 auto !important;
-  }
-
-  .VPDoc:has(.hx-life-card) .content-container {
-    width: 100% !important;
-    max-width: none !important;
-  }
-
   .hx-life-card {
-    width: 100% !important;
+    width: min(1360px, calc(100vw - 380px)) !important;
     max-width: none !important;
     margin: 18px 0 28px !important;
     border-radius: 14px !important;
@@ -46,12 +25,12 @@
   }
 
   .hx-life-header > div:first-child {
-    flex: 1 1 540px !important;
+    flex: 1 1 520px !important;
     min-width: 0 !important;
   }
 
   .hx-life-summary {
-    max-width: 760px !important;
+    max-width: 720px !important;
     margin-top: 5px !important;
     font-size: 12px !important;
   }
@@ -64,17 +43,18 @@
   }
 
   .hx-life-scroll {
-    overflow-x: visible !important;
+    overflow-x: auto !important;
+    overscroll-behavior-inline: contain;
   }
 
   .hx-life-chart {
     width: 100% !important;
-    min-width: 0 !important;
+    min-width: 1040px !important;
   }
 
   .hx-axis-row,
   .hx-product-row {
-    grid-template-columns: 176px minmax(0, 1fr) !important;
+    grid-template-columns: 190px minmax(850px, 1fr) !important;
   }
 
   .hx-axis-row {
@@ -153,8 +133,15 @@
   .hx-milestone em {
     left: 8px !important;
     top: 5px !important;
-    max-width: 110px !important;
+    max-width: 112px !important;
     font-size: 7.5px !important;
+  }
+
+  /* 2030 一类最右侧节点文字向左展开，避免看起来像被卡片裁断。 */
+  .hx-track .hx-milestone:last-child em {
+    left: auto !important;
+    right: 8px !important;
+    text-align: right !important;
   }
 
   .hx-life-footnote {
@@ -163,14 +150,9 @@
   }
 }
 
-/* 中等宽度：仍尽量一次显示完整时间轴。 */
+/* 平板 / 窄桌面：不改页面布局，只让时间轴在卡片内部滚动。 */
 @media (min-width: 761px) and (max-width: 1100px) {
-  .VPDoc:has(.hx-life-card) .aside {
-    display: none !important;
-  }
-
-  .VPDoc:has(.hx-life-card) .content,
-  .VPDoc:has(.hx-life-card) .content-container {
+  .hx-life-card {
     width: 100% !important;
     max-width: none !important;
   }
@@ -188,17 +170,17 @@
   }
 
   .hx-life-scroll {
-    overflow-x: visible !important;
+    overflow-x: auto !important;
   }
 
   .hx-life-chart {
     width: 100% !important;
-    min-width: 0 !important;
+    min-width: 920px !important;
   }
 
   .hx-axis-row,
   .hx-product-row {
-    grid-template-columns: 155px minmax(0, 1fr) !important;
+    grid-template-columns: 160px minmax(760px, 1fr) !important;
   }
 
   .hx-product-row,
@@ -219,7 +201,7 @@
   }
 }
 
-/* 手机端：9 年跨度保留紧凑横向滚动。 */
+/* 手机端：保持紧凑横向时间轴。 */
 @media (max-width: 760px) {
   .hx-life-card {
     margin: 12px -6px 20px !important;
