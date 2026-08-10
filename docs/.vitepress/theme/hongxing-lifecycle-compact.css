@@ -1,5 +1,21 @@
 /* HongXing 生命周期图：桌面端铺满内容区，移动端保留横向滚动 */
 
+/*
+ * status 页包含生命周期图时，桌面端隐藏右侧 On this page，
+ * 把原本留给 aside 的宽度还给生命周期时间轴。
+ */
+@media (min-width: 1101px) {
+  .VPDoc:has(.hx-life-card) .aside {
+    display: none !important;
+  }
+
+  .VPDoc:has(.hx-life-card) .content,
+  .VPDoc:has(.hx-life-card) .content-container {
+    width: 100% !important;
+    max-width: 1000px !important;
+  }
+}
+
 /* 分组标题属于左侧信息层，不属于时间轴本身。 */
 .hx-group-row {
   position: sticky !important;
