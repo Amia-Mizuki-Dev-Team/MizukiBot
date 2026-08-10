@@ -1,12 +1,13 @@
 <script setup lang="ts">
 import { computed, onMounted, ref } from 'vue'
 
-type SegmentType = 'active' | 'rollout' | 'semi' | 'phase1' | 'phase4' | 'planning'
+type SegmentType = 'active' | 'rollout' | 'semi' | 'phase1' | 'phase4' | 'planning' | 'eol'
 
 type Segment = {
   start: string
   end?: string
   untilToday?: boolean
+  capAtToday?: boolean
   type: SegmentType
   label: string
 }
@@ -46,16 +47,14 @@ const groups: Group[] = [
         name: 'HongXing Online 1',
         segments: [
           { start: '2022-01-01', end: '2022-12-31', type: 'active', label: '运行' },
-          { start: '2023-01-01', end: '2026-12-31', type: 'semi', label: '半关闭状态' }
-        ],
-        milestones: [
-          { date: '2026-12-31', label: 'EOL 2026', kind: 'eol' }
+          { start: '2023-01-01', end: '2025-12-31', type: 'semi', label: '半关闭状态' },
+          { start: '2026-01-01', end: '2026-12-31', type: 'eol', label: 'EOL 2026' }
         ]
       },
       {
         name: 'HongXing Online 2',
         segments: [
-          { start: '2026-01-01', end: '2027-12-31', type: 'rollout', label: '正在发布' }
+          { start: '2026-01-01', end: '2027-12-31', capAtToday: true, type: 'rollout', label: '正在发布' }
         ],
         milestones: [
           { date: '2027-12-31', label: '预计完成 2027', kind: 'planned' },
@@ -70,29 +69,29 @@ const groups: Group[] = [
       {
         name: 'HongXingOS 1',
         segments: [
-          { start: '2022-01-01', end: '2023-12-31', type: 'active', label: '2022–2023' }
-        ],
-        milestones: [{ date: '2023-12-31', label: 'EOL 2023', kind: 'eol' }]
+          { start: '2022-01-01', end: '2022-12-31', type: 'active', label: '已发布' },
+          { start: '2023-01-01', end: '2023-12-31', type: 'eol', label: 'EOL 2023' }
+        ]
       },
       {
         name: 'HongXingOS 2',
         segments: [
-          { start: '2023-01-01', end: '2024-12-31', type: 'active', label: '2023–2024' }
-        ],
-        milestones: [{ date: '2024-12-31', label: 'EOL 2024', kind: 'eol' }]
+          { start: '2023-01-01', end: '2023-12-31', type: 'active', label: '已发布' },
+          { start: '2024-01-01', end: '2024-12-31', type: 'eol', label: 'EOL 2024' }
+        ]
       },
       {
         name: 'HongXingOS 3',
         segments: [
-          { start: '2024-01-01', end: '2025-12-31', type: 'active', label: '2024–2025' }
-        ],
-        milestones: [{ date: '2025-12-31', label: 'EOL 2025', kind: 'eol' }]
+          { start: '2024-01-01', end: '2024-12-31', type: 'active', label: '已发布' },
+          { start: '2025-01-01', end: '2025-12-31', type: 'eol', label: 'EOL 2025' }
+        ]
       },
       {
         name: 'HongXingOS 4',
         segments: [
           { start: '2024-01-01', end: '2025-12-31', type: 'active', label: '已发布' },
-          { start: '2026-01-01', end: '2027-12-31', type: 'phase4', label: '第四生命周期' }
+          { start: '2026-01-01', untilToday: true, type: 'phase4', label: '第四生命周期' }
         ],
         milestones: [{ date: '2027-12-31', label: '预计 EOL 2027', kind: 'planned' }]
       },
@@ -100,7 +99,7 @@ const groups: Group[] = [
         name: 'HongXingOS 5',
         segments: [
           { start: '2024-01-01', end: '2024-12-31', type: 'active', label: '已发布' },
-          { start: '2025-01-01', end: '2026-12-31', type: 'phase4', label: '第四生命周期' }
+          { start: '2025-01-01', untilToday: true, type: 'phase4', label: '第四生命周期' }
         ],
         milestones: [{ date: '2026-12-31', label: '预计 EOL 2026', kind: 'planned' }]
       },
@@ -120,21 +119,22 @@ const groups: Group[] = [
       {
         name: 'HongXing o1 Firmware',
         segments: [
-          { start: '2022-01-01', end: '2026-12-31', type: 'active', label: '2022–2026' }
-        ],
-        milestones: [{ date: '2026-12-31', label: 'EOL 2026', kind: 'eol' }]
+          { start: '2022-01-01', end: '2025-12-31', type: 'active', label: '已发布' },
+          { start: '2026-01-01', end: '2026-12-31', type: 'eol', label: 'EOL 2026' }
+        ]
       },
       {
         name: 'HongXing o2 Firmware',
         segments: [
-          { start: '2026-01-01', end: '2027-12-31', type: 'active', label: '维护中' }
+          { start: '2026-01-01', untilToday: true, type: 'active', label: '已发布' }
         ],
         milestones: [{ date: '2027-12-31', label: 'EOL 2027', kind: 'planned' }]
       },
       {
         name: 'HongXing o3 Firmware',
         segments: [
-          { start: '2026-01-01', end: '2026-08-12', type: 'rollout', label: '正在推送' }
+          { start: '2026-01-01', end: '2026-08-12', capAtToday: true, type: 'rollout', label: '正在推送' },
+          { start: '2026-08-12', untilToday: true, type: 'active', label: '维护中' }
         ],
         milestones: [
           { date: '2026-08-12', label: '全版本推送 08-12', kind: 'info' },
@@ -149,14 +149,13 @@ const groups: Group[] = [
       {
         name: 'HongXing AuthLit 3',
         segments: [
-          { start: '2025-01-01', end: '2025-12-31', type: 'active', label: '2025' }
-        ],
-        milestones: [{ date: '2025-12-31', label: 'EOL 2025', kind: 'eol' }]
+          { start: '2025-01-01', end: '2025-12-31', type: 'eol', label: '发布并于 2025 EOL' }
+        ]
       },
       {
         name: 'HongXing AuthLit 4',
         segments: [
-          { start: '2026-01-01', end: '2027-12-31', type: 'active', label: '已发布' }
+          { start: '2026-01-01', untilToday: true, type: 'active', label: '已发布' }
         ],
         milestones: [{ date: '2027-12-31', label: '预计 EOL 2027', kind: 'planned' }]
       },
@@ -169,7 +168,7 @@ const groups: Group[] = [
     ]
   },
   {
-    name: 'Other Services',
+    name: '其他服务',
     products: [
       {
         name: 'Nano Lab',
@@ -181,7 +180,7 @@ const groups: Group[] = [
       {
         name: 'Ospalin',
         segments: [
-          { start: '2026-01-01', end: '2026-12-31', type: 'active', label: '运营中' }
+          { start: '2026-01-01', untilToday: true, type: 'active', label: '运营中' }
         ],
         milestones: [
           { date: '2026-12-31', label: '预计 2026 年底结束运营', kind: 'planned' }
@@ -215,12 +214,24 @@ const todayText = computed(() => {
   }).format(now.value)
 })
 
+function segmentVisible(segment: Segment) {
+  if (!now.value) return true
+  return parseDate(segment.start).getTime() <= now.value.getTime() || (!segment.untilToday && !segment.capAtToday)
+}
+
 function segmentStyle(segment: Segment) {
   const left = percentForDate(parseDate(segment.start))
-  const endDate = segment.untilToday && now.value
-    ? now.value
-    : parseDate(segment.end ?? segment.start)
-  const right = percentForDate(endDate)
+  let endDate = parseDate(segment.end ?? segment.start)
+
+  if (segment.untilToday && now.value) {
+    endDate = now.value
+  }
+
+  if (segment.capAtToday && now.value && now.value.getTime() < endDate.getTime()) {
+    endDate = now.value
+  }
+
+  const right = Math.max(left, percentForDate(endDate))
 
   return {
     left: `${left}%`,
@@ -233,8 +244,7 @@ function milestoneStyle(milestone: Milestone) {
 }
 
 function yearStyle(year: number) {
-  const left = ((year - 2022) / 9) * 100
-  return { left: `${left}%` }
+  return { left: `${((year - 2022) / 9) * 100}%` }
 }
 </script>
 
@@ -245,9 +255,10 @@ function yearStyle(year: number) {
         <p class="hx-life-kicker">HongXing Lifecycle</p>
         <h3>HongXing 产品与服务生命周期</h3>
         <p class="hx-life-summary">
-          时间范围覆盖 2022–2030。未规划的 HongXing Online 3 不显示；未知的未来生命周期阶段不补画。
+          时间范围覆盖 2022–2030。HongXing Online 3 当前没有规划，因此不显示；未知的未来生命周期阶段不会推测补画。
         </p>
       </div>
+
       <div class="hx-life-legend" aria-label="生命周期图例">
         <span><i class="legend active"></i>已发布 / 运行</span>
         <span><i class="legend rollout"></i>正在发布</span>
@@ -255,7 +266,7 @@ function yearStyle(year: number) {
         <span><i class="legend phase1"></i>第一生命周期</span>
         <span><i class="legend phase4"></i>第四生命周期</span>
         <span><i class="legend planning"></i>规划中</span>
-        <span><i class="legend eol"></i>EOL / 停止运营</span>
+        <span><i class="legend eol"></i>EOL</span>
       </div>
     </div>
 
@@ -270,6 +281,7 @@ function yearStyle(year: number) {
               class="hx-year"
               :style="yearStyle(year)"
             >{{ year }}</span>
+
             <template v-if="todayPercent !== null">
               <span class="hx-today-label" :style="{ left: `${todayPercent}%` }">
                 Today · {{ todayText }}
@@ -297,6 +309,7 @@ function yearStyle(year: number) {
 
               <span
                 v-for="(segment, index) in product.segments"
+                v-show="segmentVisible(segment)"
                 :key="`${product.name}-${index}`"
                 class="hx-segment"
                 :class="`hx-segment--${segment.type}`"
@@ -325,8 +338,8 @@ function yearStyle(year: number) {
 
     <div class="hx-life-footnote">
       <strong>显示规则：</strong>
-      仅提供年份的节点按整年宽度定位，用于表达“发生于该年”，不代表 1 月 1 日或 12 月 31 日是正式生效日。
-      已明确的预计完成、预计 EOL 与停止运营节点会保留，但不会为未知阶段推测日期。
+      只有年份、没有具体日期的 EOL 会用对应年份的红色区段表示“EOL 发生于该年”，不代表整年都处于 EOL。
+      当前阶段只绘制到 Today；明确给出的预计完成、预计 EOL 与维护截止节点保留为标记，不会补画未知的未来阶段。
     </div>
   </div>
 </template>
@@ -404,7 +417,7 @@ function yearStyle(year: number) {
 .legend.phase1 { background: #10b981; }
 .legend.phase4 { background: #f59e0b; }
 .legend.planning { height: 9px; border: 1.5px solid #8b5cf6; background: transparent; }
-.legend.eol { width: 8px; height: 8px; background: #ef4444; }
+.legend.eol { background: #ef4444; }
 
 .hx-life-scroll {
   overflow-x: auto;
@@ -584,6 +597,7 @@ function yearStyle(year: number) {
   box-shadow: none;
 }
 .hx-segment--planning > span { color: #8b5cf6; }
+.hx-segment--eol { background: #ef4444; }
 
 .hx-milestone {
   position: absolute;
