@@ -44,6 +44,11 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Repair auditable dependency vulnerabilities
+        run: |
+          npm audit fix --package-lock-only
+          npm ci
+
       - name: Audit dependency vulnerabilities
         run: npm audit --audit-level=moderate
 
