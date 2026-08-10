@@ -1,22 +1,6 @@
-/* HongXing 生命周期图：桌面端铺满内容区，移动端保留横向滚动 */
+/* HongXing 生命周期：桌面端优先利用可用宽度，手机端保留横向时间轴 */
 
-/*
- * status 页包含生命周期图时，桌面端隐藏右侧 On this page，
- * 把原本留给 aside 的宽度还给生命周期时间轴。
- */
-@media (min-width: 1101px) {
-  .VPDoc:has(.hx-life-card) .aside {
-    display: none !important;
-  }
-
-  .VPDoc:has(.hx-life-card) .content,
-  .VPDoc:has(.hx-life-card) .content-container {
-    width: 100% !important;
-    max-width: 1000px !important;
-  }
-}
-
-/* 分组标题属于左侧信息层，不属于时间轴本身。 */
+/* 分组标题属于左侧信息层，不跟随时间轴横向滚动。 */
 .hx-group-row {
   position: sticky !important;
   left: 0 !important;
@@ -24,18 +8,46 @@
   background: var(--vp-c-bg-soft) !important;
 }
 
-/* 桌面端：不要强制 1180px 宽度，也不要出现横向滚动条。 */
+/* 桌面端：status 页去掉右侧目录，并把正文真正扩到剩余可用区域。 */
 @media (min-width: 1101px) {
+  .VPDoc:has(.hx-life-card) .aside {
+    display: none !important;
+  }
+
+  .VPDoc:has(.hx-life-card) .container {
+    width: 100% !important;
+    max-width: 1540px !important;
+    margin: 0 auto !important;
+  }
+
+  .VPDoc:has(.hx-life-card) .content {
+    width: 100% !important;
+    max-width: none !important;
+    flex: 1 1 auto !important;
+  }
+
+  .VPDoc:has(.hx-life-card) .content-container {
+    width: 100% !important;
+    max-width: none !important;
+  }
+
   .hx-life-card {
     width: 100% !important;
+    max-width: none !important;
     margin: 18px 0 28px !important;
     border-radius: 14px !important;
   }
 
   .hx-life-header {
-    flex-direction: column !important;
-    gap: 11px !important;
+    flex-direction: row !important;
+    align-items: flex-start !important;
+    gap: 24px !important;
     padding: 18px 20px 16px !important;
+  }
+
+  .hx-life-header > div:first-child {
+    flex: 1 1 540px !important;
+    min-width: 0 !important;
   }
 
   .hx-life-summary {
@@ -45,9 +57,9 @@
   }
 
   .hx-life-legend {
-    width: 100% !important;
-    max-width: none !important;
-    justify-content: flex-start !important;
+    flex: 0 1 520px !important;
+    max-width: 520px !important;
+    justify-content: flex-end !important;
     gap: 7px 14px !important;
   }
 
@@ -62,36 +74,36 @@
 
   .hx-axis-row,
   .hx-product-row {
-    grid-template-columns: 168px minmax(0, 1fr) !important;
+    grid-template-columns: 176px minmax(0, 1fr) !important;
   }
 
   .hx-axis-row {
-    min-height: 48px !important;
+    min-height: 50px !important;
   }
 
   .hx-name-axis {
-    padding: 0 12px !important;
+    padding: 0 13px !important;
     font-size: 11px !important;
   }
 
   .hx-axis-track {
-    min-height: 48px !important;
+    min-height: 50px !important;
   }
 
   .hx-year {
-    top: 27px !important;
-    font-size: 9px !important;
+    top: 28px !important;
+    font-size: 9.5px !important;
     transform: translateX(5px) !important;
   }
 
   .hx-today-label {
     top: 3px !important;
-    padding: 3px 6px !important;
+    padding: 3px 7px !important;
     font-size: 8.5px !important;
   }
 
   .hx-today-line {
-    top: 21px !important;
+    top: 22px !important;
     width: 1px !important;
   }
 
@@ -100,19 +112,19 @@
   }
 
   .hx-group-row {
-    padding: 6px 12px !important;
+    padding: 6px 13px !important;
     font-size: 9.5px !important;
     line-height: 1.35 !important;
   }
 
   .hx-product-row,
   .hx-track {
-    min-height: 42px !important;
+    min-height: 43px !important;
   }
 
   .hx-product-name {
     gap: 1px !important;
-    padding: 7px 10px 7px 12px !important;
+    padding: 7px 10px 7px 13px !important;
   }
 
   .hx-product-name strong {
@@ -124,13 +136,13 @@
   }
 
   .hx-segment {
-    height: 15px !important;
-    min-width: 7px !important;
+    height: 16px !important;
+    min-width: 8px !important;
   }
 
   .hx-segment > span {
-    padding: 0 5px !important;
-    font-size: 7.5px !important;
+    padding: 0 6px !important;
+    font-size: 8px !important;
   }
 
   .hx-milestone i {
@@ -141,18 +153,28 @@
   .hx-milestone em {
     left: 8px !important;
     top: 5px !important;
-    max-width: 96px !important;
-    font-size: 7px !important;
+    max-width: 110px !important;
+    font-size: 7.5px !important;
   }
 
   .hx-life-footnote {
-    padding: 10px 12px 12px !important;
+    padding: 10px 13px 12px !important;
     font-size: 9px !important;
   }
 }
 
-/* 中等宽度：仍然优先让 2022–2030 一次显示完整。 */
+/* 中等宽度：仍尽量一次显示完整时间轴。 */
 @media (min-width: 761px) and (max-width: 1100px) {
+  .VPDoc:has(.hx-life-card) .aside {
+    display: none !important;
+  }
+
+  .VPDoc:has(.hx-life-card) .content,
+  .VPDoc:has(.hx-life-card) .content-container {
+    width: 100% !important;
+    max-width: none !important;
+  }
+
   .hx-life-header {
     flex-direction: column !important;
     gap: 9px !important;
@@ -197,7 +219,7 @@
   }
 }
 
-/* 手机端：时间跨度太长，保留紧凑横向滚动。 */
+/* 手机端：9 年跨度保留紧凑横向滚动。 */
 @media (max-width: 760px) {
   .hx-life-card {
     margin: 12px -6px 20px !important;
