@@ -48,7 +48,7 @@ const groups: Group[] = [
         segments: [
           { start: '2022-01-01', end: '2022-12-31', type: 'active', label: '运行' },
           { start: '2023-01-01', end: '2025-12-31', type: 'semi', label: '半关闭状态' },
-          { start: '2026-01-01', end: '2026-12-31', type: 'eol', label: 'EOL 2026' }
+          { start: '2026-01-01', end: '2030-12-31', type: 'eol', label: 'EOL · 2026 起' }
         ]
       },
       {
@@ -70,21 +70,21 @@ const groups: Group[] = [
         name: 'HongXingOS 1',
         segments: [
           { start: '2022-01-01', end: '2022-12-31', type: 'active', label: '已发布' },
-          { start: '2023-01-01', end: '2023-12-31', type: 'eol', label: 'EOL 2023' }
+          { start: '2023-01-01', end: '2030-12-31', type: 'eol', label: 'EOL · 2023 起' }
         ]
       },
       {
         name: 'HongXingOS 2',
         segments: [
           { start: '2023-01-01', end: '2023-12-31', type: 'active', label: '已发布' },
-          { start: '2024-01-01', end: '2024-12-31', type: 'eol', label: 'EOL 2024' }
+          { start: '2024-01-01', end: '2030-12-31', type: 'eol', label: 'EOL · 2024 起' }
         ]
       },
       {
         name: 'HongXingOS 3',
         segments: [
           { start: '2024-01-01', end: '2024-12-31', type: 'active', label: '已发布' },
-          { start: '2025-01-01', end: '2025-12-31', type: 'eol', label: 'EOL 2025' }
+          { start: '2025-01-01', end: '2030-12-31', type: 'eol', label: 'EOL · 2025 起' }
         ]
       },
       {
@@ -120,7 +120,7 @@ const groups: Group[] = [
         name: 'HongXing o1 Firmware',
         segments: [
           { start: '2022-01-01', end: '2025-12-31', type: 'active', label: '已发布' },
-          { start: '2026-01-01', end: '2026-12-31', type: 'eol', label: 'EOL 2026' }
+          { start: '2026-01-01', end: '2030-12-31', type: 'eol', label: 'EOL · 2026 起' }
         ]
       },
       {
@@ -149,7 +149,7 @@ const groups: Group[] = [
       {
         name: 'HongXing AuthLit 3',
         segments: [
-          { start: '2025-01-01', end: '2025-12-31', type: 'eol', label: '发布并于 2025 EOL' }
+          { start: '2025-01-01', end: '2030-12-31', type: 'eol', label: 'EOL · 2025 起' }
         ]
       },
       {
@@ -266,7 +266,7 @@ function yearStyle(year: number) {
         <span><i class="legend phase1"></i>第一生命周期</span>
         <span><i class="legend phase4"></i>第四生命周期</span>
         <span><i class="legend planning"></i>规划中</span>
-        <span><i class="legend eol"></i>EOL</span>
+        <span><i class="legend eol"></i>EOL（持续状态）</span>
       </div>
     </div>
 
@@ -338,8 +338,8 @@ function yearStyle(year: number) {
 
     <div class="hx-life-footnote">
       <strong>显示规则：</strong>
-      只有年份、没有具体日期的 EOL 会用对应年份的红色区段表示“EOL 发生于该年”，不代表整年都处于 EOL。
-      当前阶段只绘制到 Today；明确给出的预计完成、预计 EOL 与维护截止节点保留为标记，不会补画未知的未来阶段。
+      已确认的 EOL 是持续状态：从确认停止的年份开始，红色区域会一直延伸到时间轴末端，表示此后该版本已处于生命周期结束状态。
+      预计 EOL 仍只保留为预计节点，不会在实际停止前提前涂红；当前阶段只绘制到 Today。
     </div>
   </div>
 </template>
