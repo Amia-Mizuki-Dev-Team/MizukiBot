@@ -10,11 +10,11 @@ description: Amia_晓山瑞希赞助者名单与支持记录。
 <div class="sponsor-hero">
   <div class="sponsor-hero-stats">
     <div class="sponsor-stat">
-      <span class="sponsor-stat-num">5</span>
+      <span class="sponsor-stat-num">6</span>
       <span class="sponsor-stat-label">赞助者</span>
     </div>
     <div class="sponsor-stat">
-      <span class="sponsor-stat-num">2</span>
+      <span class="sponsor-stat-num">3</span>
       <span class="sponsor-stat-label">核心赞助</span>
     </div>
   </div>
@@ -60,6 +60,16 @@ description: Amia_晓山瑞希赞助者名单与支持记录。
 <div class="sponsor-grid">
   <div class="sponsor-card">
     <div class="sponsor-card-avatar">
+      <img src="https://pic1.afdiancdn.com/default/avatar/avatar-purple.png?imageView2/1/" alt="爱发电用户_7176c" class="sponsor-card-avatar-img" />
+    </div>
+    <div class="sponsor-card-body">
+      <h3>爱发电用户_7176c</h3>
+      <span class="sponsor-tag sponsor-tag--gold">核心赞助商</span>
+      <p>累计赞助 ¥50.00</p>
+    </div>
+  </div>
+  <div class="sponsor-card">
+    <div class="sponsor-card-avatar">
       <img src="https://pic1.afdiancdn.com/default/avatar/avatar-blue.png" alt="kinnk" class="sponsor-card-avatar-img" />
     </div>
     <div class="sponsor-card-body">
@@ -92,7 +102,7 @@ description: Amia_晓山瑞希赞助者名单与支持记录。
 <!-- SPONSORS_END -->
 
 <div style="margin-top: 40px; text-align: center; color: var(--vp-c-text-2); font-size: 14px;">
-  <p>名单由爱发电 API 自动同步，更新时间：2026/8/27 20:23:00</p>
+  <p>名单由爱发电 API 自动同步，更新时间：2026/8/28 21:50:01</p>
   <p style="margin-top: 8px;">
     <a href="https://ifdian.net/a/wrdzgzs" target="_blank" style="color: var(--vp-c-brand-1); font-weight: bold;">
       前往爱发电赞助 →
