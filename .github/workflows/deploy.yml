@@ -7,6 +7,7 @@ on:
     paths:
       - 'docs/**'
       - 'scripts/**'
+      - '.github/assets/avatar-home/**'
       - 'package.json'
       - 'package-lock.json'
       - '.node-version'
@@ -44,13 +45,14 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Rebuild homepage hero image
+      - name: Restore transparent homepage hero
         run: |
-          base64 --decode docs/public/Picture/avatar-base64.txt > docs/public/Picture/avatar.webp
+          cat .github/assets/avatar-home/part-*.b64 | tr -d '\r\n' | base64 --decode > docs/public/Picture/avatar.webp
           test -s docs/public/Picture/avatar.webp
           bytes="$(stat -c '%s' docs/public/Picture/avatar.webp)"
           echo "Homepage hero bytes: ${bytes}"
-          test "${bytes}" -lt 307200
+          test "${bytes}" -eq 28270
+          echo "707d9e52c28de904cf3708a7bd4f226aa15dd297ce1d2fa62e0fd3c9da972974  docs/public/Picture/avatar.webp" | sha256sum --check --strict
 
       - name: Repair auditable dependency vulnerabilities
         run: |
