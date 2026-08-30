@@ -4,7 +4,7 @@ const siteUrl = 'https://help.mizuki.top'
 const siteName = 'Amia_晓山瑞希帮助文档'
 const siteDescription = 'Amia_晓山瑞希官方帮助文档，提供 PJSK、舞萌 DX、中二节奏、经济系统、群聊工具、Minecraft 服务器和项目生态说明。'
 const siteImage = `${siteUrl}/Picture/banner.jpg`
-const siteLogoPath = '/Picture/logo.webp?v=animated-20260803c'
+const siteLogoPath = '/Picture/logo.webp?v=animated-20260830a'
 const siteLogo = `${siteUrl}${siteLogoPath}`
 
 const mainSections = [
@@ -23,7 +23,6 @@ const relatedProjects = [
   { text: '项目总览', link: '/projects/' },
   { text: 'Amia-plugin-maimaidx', link: '/projects/amia-plugin-maimaidx' },
   { text: 'Amia-plugin-pjskhelp', link: '/projects/amia-plugin-pjskhelp' },
-  { text: 'Amia-plugin-homo-qso', link: '/projects/amia-plugin-homo-qso' },
   { text: 'Amia-plugin-qbind', link: '/projects/amia-plugin-qbind' },
   { text: 'Amia Sync Android', link: '/projects/mizuki-sync' },
   { text: 'HX-Pjsk-Gateway', link: '/projects/hx-pjsk-gateway' },
@@ -275,7 +274,7 @@ export default defineConfig({
   },
 
   head: [
-    ['link', { rel: 'icon', type: 'image/x-icon', href: '/Picture/favicon.ico' }],
+    ['link', { rel: 'icon', type: 'image/gif', href: '/Picture/logo.gif?v=animated-20260830a' }],
     ['link', { rel: 'apple-touch-icon', type: 'image/png', href: '/Picture/logo-180.png' }],
     ['meta', { name: 'robots', content: 'index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1' }],
     ['meta', { name: 'googlebot', content: 'index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1' }],
