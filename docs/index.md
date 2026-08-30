@@ -35,7 +35,7 @@ features:
     details: 查看模块依赖、数据来源、维护窗口与部署差异。
     link: /status
   - title: 项目生态
-    details: 查看插件、网关、客户端与基础组件。
+    details: 查看 Bot、插件、网关、客户端与基础组件。
     link: /projects/
 ---
 
@@ -85,7 +85,7 @@ Amia_晓山瑞希，原名 **Mizuki Bot**，是由 Amia-Mizuki Dev Team 维护�
   <a href="/projects/" class="support-card">
     <div class="support-info">
       <strong>项目生态</strong>
-      <span>查看插件、网关、客户端和基础组件</span>
+      <span>查看 Bot、插件、网关、客户端和基础组件</span>
     </div>
   </a>
 
@@ -133,10 +133,10 @@ Amia_晓山瑞希，原名 **Mizuki Bot**，是由 Amia-Mizuki Dev Team 维护�
     </div>
   </a>
 
-  <a href="/recruiting" class="support-card">
+  <a href="/contribution" class="support-card">
     <div class="support-info">
-      <strong>开发者专区</strong>
-      <span>查看仓库职责、协作规范和参与方式</span>
+      <strong>开发团队</strong>
+      <span>查看维护成员、技术支持与基础设施支持信息</span>
     </div>
   </a>
 

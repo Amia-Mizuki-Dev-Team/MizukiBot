@@ -22,6 +22,9 @@ const mainSections = [
 const relatedProjects = [
   { text: '项目总览', link: '/projects/' },
   { text: 'Amia-plugin-maimaidx', link: '/projects/amia-plugin-maimaidx' },
+  { text: 'Amia-plugin-pjskhelp', link: '/projects/amia-plugin-pjskhelp' },
+  { text: 'Amia-plugin-homo-qso', link: '/projects/amia-plugin-homo-qso' },
+  { text: 'Amia-plugin-qbind', link: '/projects/amia-plugin-qbind' },
   { text: 'Amia Sync Android', link: '/projects/mizuki-sync' },
   { text: 'HX-Pjsk-Gateway', link: '/projects/hx-pjsk-gateway' },
   { text: 'Gensokyo NewQQ', link: '/projects/gensokyo-newqq' }
@@ -110,7 +113,6 @@ const nav = [
     text: '关于与规范',
     items: [
       { text: '开发团队', link: '/contribution' },
-      { text: '开发者招募', link: '/recruiting' },
       { text: '免责声明', link: '/disclaimer' },
       { text: '用户使用协议', link: '/agreement' },
       { text: '群规与公告', link: '/rules' },
@@ -159,7 +161,6 @@ const sidebar = [
     text: '关于与规范',
     items: [
       { text: '开发团队', link: '/contribution' },
-      { text: '开发者招募', link: '/recruiting' },
       { text: '免责声明', link: '/disclaimer' },
       { text: '用户使用协议', link: '/agreement' },
       { text: '群规与公告', link: '/rules' },
