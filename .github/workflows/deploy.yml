@@ -44,6 +44,14 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Rebuild homepage hero image
+        run: |
+          base64 --decode docs/public/Picture/avatar-base64.txt > docs/public/Picture/avatar.webp
+          test -s docs/public/Picture/avatar.webp
+          bytes="$(stat -c '%s' docs/public/Picture/avatar.webp)"
+          echo "Homepage hero bytes: ${bytes}"
+          test "${bytes}" -lt 307200
+
       - name: Repair auditable dependency vulnerabilities
         run: |
           npm audit fix --package-lock-only
