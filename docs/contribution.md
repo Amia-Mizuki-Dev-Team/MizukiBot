@@ -6,26 +6,26 @@ description: Amia_晓山瑞希维护团队、技术支持、数据支持、软�
 # 开发团队
 <br>
 <div class="mzk-card">
-<div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
-  <div class="mzk-dev-card">
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; max-width: 620px; margin: 0 auto; align-items: stretch;">
+  <div class="mzk-dev-card" style="width: 100%; min-width: 0; box-sizing: border-box;">
     <img src="/Picture/HX-Wrdzgzs.jpg" alt="HX-Wrdzgzs 头像" style="width: 70px; height: 70px; border-radius: 50%; border: 2px solid #E97EB3; object-fit: cover; margin: 0 auto;">
     <h4 style="margin: 10px 0 5px; font-size: 1rem;">HX-Wrdzgzs</h4>
     <span style="font-size: 12px; color: #E97EB3; font-weight: bold; display:block; margin-bottom: 5px;">核心开发者</span>
     <details style="font-size: 12px; opacity: 0.8;"><summary>介绍</summary><p>主导开发<br>Bot 开发与设计<br>UI设计与文档编写</p></details>
   </div>
-  <div class="mzk-dev-card">
+  <div class="mzk-dev-card" style="width: 100%; min-width: 0; box-sizing: border-box;">
     <img src="/Picture/TeRiver.jpg" alt="Te River 头像" style="width: 70px; height: 70px; border-radius: 50%; border: 2px solid #66ccff; object-fit: cover; margin: 0 auto;">
     <h4 style="margin: 10px 0 5px; font-size: 1rem;">Te:River</h4>
     <span style="font-size: 12px; color: #66ccff; font-weight: bold; display:block; margin-bottom: 5px;">技术支持</span>
     <details style="font-size: 12px; opacity: 0.8;"><summary>介绍</summary><p>网站设计 / 数据支持<br><strong>维护机器人正常运行</strong></p></details>
   </div>
-  <div class="mzk-dev-card">
-    <img src="/Picture/HZK_CN.jpg" alt="HZK CN 头像" style="width: 70px; height: 70px; border-radius: 50%; border: 2px solid #faad14; object-fit: cover; margin: 0 auto;">
+  <div class="mzk-dev-card" style="width: 100%; min-width: 0; box-sizing: border-box;">
+    <img src="/Picture/HZK_CN.jpg?v=20260830b" alt="HZK CN 头像" style="width: 70px; height: 70px; border-radius: 50%; border: 2px solid #faad14; object-fit: cover; margin: 0 auto;">
     <h4 style="margin: 10px 0 5px; font-size: 1rem;">HZK_CN</h4>
     <span style="font-size: 12px; color: #faad14; font-weight: bold; display:block; margin-bottom: 5px;">开发顾问</span>
     <details style="font-size: 12px; opacity: 0.8;"><summary>状态</summary><p>暂停开发</p></details>
   </div>
-  <div class="mzk-dev-card">
+  <div class="mzk-dev-card" style="width: 100%; min-width: 0; box-sizing: border-box;">
     <img src="/Picture/MC_FanBuFan.jpg" alt="MC FanBuFan 头像" style="width: 70px; height: 70px; border-radius: 50%; border: 2px solid #52c41a; object-fit: cover; margin: 0 auto;">
     <h4 style="margin: 10px 0 5px; font-size: 1rem;">MC_FanBuFan</h4>
     <span style="font-size: 12px; color: #52c41a; font-weight: bold; display:block; margin-bottom: 5px;">后勤管理</span>
@@ -74,13 +74,6 @@ Amia_晓山瑞希并不是单一仓库项目。当前生态由 Bot 文档入口�
     <div class="support-info">
       <strong>PJSK</strong>
       <span>帮助、菜单、后端路由与 PJSK 相关能力</span>
-    </div>
-  </a>
-
-  <a href="/projects/amia-plugin-homo-qso" class="support-card">
-    <div class="support-info">
-      <strong>无线电 / QSO</strong>
-      <span>HAM 通联记录、呼号与中继数据相关功能</span>
     </div>
   </a>
 
