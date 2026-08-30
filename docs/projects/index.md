@@ -29,10 +29,6 @@ description: Amia_晓山瑞希及 Amia-Mizuki Dev Team 当前 Bot、公开插件
 
 PJSK 综合帮助与后端指令网关，提供 QQ 官方 Bot 的 Markdown/按钮菜单、普通 Bot 图片帮助、区域前缀指令和后端路由能力。项目详情见 [PJSK Help](/projects/amia-plugin-pjskhelp)。
 
-### Amia-plugin-homo-qso
-
-无线电日志与 QSO 通联管理插件，覆盖呼号、通联记录、智能文本解析、中继数据和导出能力。项目详情见 [Amia Plugin Homo QSO](/projects/amia-plugin-homo-qso)。
-
 ### Amia Sync Android
 
 用于舞萌 DX 成绩同步相关操作的 Android 客户端。客户端状态、下载方式和支持范围见 [Amia Sync Android](/projects/mizuki-sync)。
@@ -61,8 +57,7 @@ QQ 官方机器人身份绑定基础设施，负责会话身份与真实 QQ 号�
 - [`Amia-plugin-group`](/projects/amia-plugin-group)：群公告管理与自动分发；
 - [`Amia-plugin-welcome`](https://github.com/Amia-Mizuki-Dev-Team/Amia-plugin-welcome)：成员加入与离开提示；
 - [`Amia-plugin-send`](https://github.com/Amia-Mizuki-Dev-Team/Amia-plugin-send)：消息活动统计、群活排行与统计 Provider；
-- `Amia-plugin-pjskcarteam`：PJSK 协力车队与跨群广播；
-- [`Amia-plugin-homo-qso`](/projects/amia-plugin-homo-qso)：HAM 通联日志、呼号、中继与导出功能。
+- `Amia-plugin-pjskcarteam`：PJSK 协力车队与跨群广播。
 
 ## 核心与治理组件
 
