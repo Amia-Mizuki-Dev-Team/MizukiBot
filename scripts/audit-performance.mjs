@@ -12,7 +12,7 @@ if (!existsSync(DIST_DIR)) {
 const homepage = resolve(DIST_DIR, 'index.html')
 const friendsPage = resolve(DIST_DIR, 'friends.html')
 const headersFile = resolve(DIST_DIR, '_headers')
-const heroImagePath = '/Picture/avatar.webp?v=20260830a'
+const heroImagePath = '/Picture/avatar.webp?v=20260830b'
 const logoImagePath = '/Picture/logo.webp?v=animated-20260803c'
 const criticalImages = new Set([heroImagePath, logoImagePath])
 
