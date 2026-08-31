@@ -3,7 +3,7 @@ import { join, resolve } from 'node:path'
 
 const DIST_DIR = resolve(process.argv[2] || 'docs/.vitepress/dist')
 const homepage = resolve(DIST_DIR, 'index.html')
-const heroImage = '/Picture/avatar.webp?v=20260830c'
+const heroImage = '/Picture/avatar.webp?v=20260831a'
 const criticalImages = new Set([
   heroImage,
   '/Picture/logo.gif',
