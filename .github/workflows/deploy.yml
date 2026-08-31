@@ -63,6 +63,7 @@ jobs:
           echo "Homepage hero bytes: ${bytes}"
           test "${bytes}" -eq 23024
           echo "5ff0b0ab381f3b380f101f7a921109ad6acf2c377734281ec816f4dfef1f36b3  docs/public/Picture/avatar.webp" | sha256sum --check --strict
+
           ffmpeg -hide_banner -loglevel error -y \
             -i docs/public/Picture/avatar.webp \
             -vf "format=yuvj420p" \
@@ -70,15 +71,23 @@ jobs:
             docs/public/Picture/avatar.jpg
           test -s docs/public/Picture/avatar.jpg
 
+          ffmpeg -hide_banner -loglevel error -y \
+            -i docs/public/Picture/avatar.webp \
+            -vf "scale=512:512:flags=lanczos,format=rgba" \
+            -frames:v 1 \
+            avatar.png
+          test -s avatar.png
+          file avatar.png | grep -q 'PNG image data'
+
       - name: Sync homepage hero files back to repository
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add docs/public/Picture/avatar.webp docs/public/Picture/avatar.jpg
+          git add docs/public/Picture/avatar.webp docs/public/Picture/avatar.jpg avatar.png
           if git diff --cached --quiet; then
-            echo "Homepage hero files already match the deployment source."
+            echo "Homepage hero files and root avatar already match the deployment source."
           else
-            git commit -m "chore: sync homepage hero assets"
+            git commit -m "chore: sync homepage hero and root avatar"
             git push origin HEAD:main
           fi
 
