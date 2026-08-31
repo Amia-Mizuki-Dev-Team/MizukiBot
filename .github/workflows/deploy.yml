@@ -26,7 +26,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     permissions:
-      contents: read
+      contents: write
       deployments: write
 
     steps:
@@ -45,23 +45,6 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Restore transparent homepage hero
-        run: |
-          cat .github/assets/avatar-home/part-*.b64 | tr -d '\r\n' | base64 --decode > docs/public/Picture/avatar.webp
-          test -s docs/public/Picture/avatar.webp
-          bytes="$(stat -c '%s' docs/public/Picture/avatar.webp)"
-          echo "Homepage hero bytes: ${bytes}"
-          test "${bytes}" -eq 28270
-          echo "707d9e52c28de904cf3708a7bd4f226aa15dd297ce1d2fa62e0fd3c9da972974  docs/public/Picture/avatar.webp" | sha256sum --check --strict
-
-      - name: Repair auditable dependency vulnerabilities
-        run: |
-          npm audit fix --package-lock-only
-          npm ci
-
-      - name: Audit dependency vulnerabilities
-        run: npm audit --audit-level=moderate
-
       - name: Ensure FFmpeg is available
         run: |
           if command -v ffmpeg >/dev/null 2>&1; then
@@ -71,6 +54,41 @@ jobs:
 
           sudo apt-get update
           sudo apt-get install --yes --no-install-recommends ffmpeg
+
+      - name: Restore homepage hero assets
+        run: |
+          cat .github/assets/avatar-home/part-*.b64 | tr -d '\r\n' | base64 --decode > docs/public/Picture/avatar.webp
+          test -s docs/public/Picture/avatar.webp
+          bytes="$(stat -c '%s' docs/public/Picture/avatar.webp)"
+          echo "Homepage hero bytes: ${bytes}"
+          test "${bytes}" -eq 23024
+          echo "5ff0b0ab381f3b380f101f7a921109ad6acf2c377734281ec816f4dfef1f36b3  docs/public/Picture/avatar.webp" | sha256sum --check --strict
+          ffmpeg -hide_banner -loglevel error -y \
+            -i docs/public/Picture/avatar.webp \
+            -vf "format=yuvj420p" \
+            -q:v 3 \
+            docs/public/Picture/avatar.jpg
+          test -s docs/public/Picture/avatar.jpg
+
+      - name: Sync homepage hero files back to repository
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/public/Picture/avatar.webp docs/public/Picture/avatar.jpg
+          if git diff --cached --quiet; then
+            echo "Homepage hero files already match the deployment source."
+          else
+            git commit -m "chore: sync homepage hero assets"
+            git push origin HEAD:main
+          fi
+
+      - name: Repair auditable dependency vulnerabilities
+        run: |
+          npm audit fix --package-lock-only
+          npm ci
+
+      - name: Audit dependency vulnerabilities
+        run: npm audit --audit-level=moderate
 
       - name: Generate animated WebP logo
         run: |
