@@ -52,14 +52,14 @@ description: Amia_晓山瑞希维护团队、技术支持、数据支持、软�
 
 ## 项目生态
 
-Amia_晓山瑞希并不是单一仓库项目。当前生态由 Bot 文档入口、业务插件、协议桥接、网关、Android 客户端与基础治理组件组成，统一在项目总览中维护。
+Amia_晓山瑞希并不是单一仓库项目。当前生态由 Bot 文档入口、音游业务插件、协议与身份组件、网关、Android 客户端、治理组件和开发研究文档共同组成，并关联 HongXingOS7 等基础环境项目。
 
 <div class="support-grid support-grid--compact">
 
   <a href="/projects/" class="support-card">
     <div class="support-info">
       <strong>生态总览</strong>
-      <span>查看 Bot、插件、网关、客户端与基础组件的职责关系</span>
+      <span>查看 Bot、插件、网关、客户端、基础组件与关联项目</span>
     </div>
   </a>
 
@@ -88,6 +88,13 @@ Amia_晓山瑞希并不是单一仓库项目。当前生态由 Bot 文档入口�
     <div class="support-info">
       <strong>Amia Sync Android</strong>
       <span>舞萌 DX 成绩同步相关 Android 客户端</span>
+    </div>
+  </a>
+
+  <a href="/projects/hongxingos7" class="support-card">
+    <div class="support-info">
+      <strong>HongXingOS7</strong>
+      <span>关联运行环境、基础设施配套与技术体系项目</span>
     </div>
   </a>
 
