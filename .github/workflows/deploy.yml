@@ -26,7 +26,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     permissions:
-      contents: read
+      contents: write
       deployments: write
 
     steps:
@@ -55,15 +55,35 @@ jobs:
           sudo apt-get update
           sudo apt-get install --yes --no-install-recommends ffmpeg
 
-      - name: Validate HD homepage hero
+      - name: Generate HD homepage hero
         run: |
-          test -s docs/public/Picture/avatar.webp
+          test -s avatar.png
+          ffmpeg -hide_banner -loglevel error -y \
+            -i avatar.png \
+            -vf "scale=1024:1024:flags=lanczos,unsharp=5:5:0.6:5:5:0.0,format=rgba" \
+            -c:v libwebp \
+            -q:v 92 \
+            -compression_level 6 \
+            docs/public/Picture/avatar.webp
+
           dimensions="$(ffprobe -v error -select_streams v:0 -show_entries stream=width,height -of csv=s=x:p=0 docs/public/Picture/avatar.webp)"
           bytes="$(stat -c '%s' docs/public/Picture/avatar.webp)"
           echo "Homepage hero dimensions: ${dimensions}"
           echo "Homepage hero bytes: ${bytes}"
           test "${dimensions}" = "1024x1024"
           test "${bytes}" -lt 307200
+
+      - name: Sync HD homepage hero back to repository
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/public/Picture/avatar.webp
+          if git diff --cached --quiet; then
+            echo "HD homepage hero already matches the generated asset."
+          else
+            git commit -m "chore: sync HD homepage hero"
+            git push origin HEAD:main
+          fi
 
       - name: Repair auditable dependency vulnerabilities
         run: |
