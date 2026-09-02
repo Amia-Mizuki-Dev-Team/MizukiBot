@@ -7,7 +7,7 @@ on:
     paths:
       - 'docs/**'
       - 'scripts/**'
-      - '.github/assets/avatar-home/**'
+      - 'avatar.png'
       - 'package.json'
       - 'package-lock.json'
       - '.node-version'
@@ -26,7 +26,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     permissions:
-      contents: write
+      contents: read
       deployments: write
 
     steps:
@@ -55,41 +55,15 @@ jobs:
           sudo apt-get update
           sudo apt-get install --yes --no-install-recommends ffmpeg
 
-      - name: Restore homepage hero assets
+      - name: Validate HD homepage hero
         run: |
-          cat .github/assets/avatar-home/part-*.b64 | tr -d '\r\n' | base64 --decode > docs/public/Picture/avatar.webp
           test -s docs/public/Picture/avatar.webp
+          dimensions="$(ffprobe -v error -select_streams v:0 -show_entries stream=width,height -of csv=s=x:p=0 docs/public/Picture/avatar.webp)"
           bytes="$(stat -c '%s' docs/public/Picture/avatar.webp)"
+          echo "Homepage hero dimensions: ${dimensions}"
           echo "Homepage hero bytes: ${bytes}"
-          test "${bytes}" -eq 23024
-          echo "5ff0b0ab381f3b380f101f7a921109ad6acf2c377734281ec816f4dfef1f36b3  docs/public/Picture/avatar.webp" | sha256sum --check --strict
-
-          ffmpeg -hide_banner -loglevel error -y \
-            -i docs/public/Picture/avatar.webp \
-            -vf "format=yuvj420p" \
-            -q:v 3 \
-            docs/public/Picture/avatar.jpg
-          test -s docs/public/Picture/avatar.jpg
-
-          ffmpeg -hide_banner -loglevel error -y \
-            -i docs/public/Picture/avatar.webp \
-            -vf "scale=512:512:flags=lanczos,format=rgba" \
-            -frames:v 1 \
-            avatar.png
-          test -s avatar.png
-          file avatar.png | grep -q 'PNG image data'
-
-      - name: Sync homepage hero files back to repository
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add docs/public/Picture/avatar.webp docs/public/Picture/avatar.jpg avatar.png
-          if git diff --cached --quiet; then
-            echo "Homepage hero files and root avatar already match the deployment source."
-          else
-            git commit -m "chore: sync homepage hero and root avatar"
-            git push origin HEAD:main
-          fi
+          test "${dimensions}" = "1024x1024"
+          test "${bytes}" -lt 307200
 
       - name: Repair auditable dependency vulnerabilities
         run: |
@@ -138,10 +112,11 @@ jobs:
             --branch=${{ github.ref_name }}
             --commit-dirty=true
 
-      - name: Submit changed URLs to IndexNow
+      - name: Submit full sitemap to IndexNow
         if: github.ref == 'refs/heads/main'
         continue-on-error: true
         env:
+          INDEXNOW_FORCE_ALL: 'true'
           INDEXNOW_BEFORE_SHA: ${{ github.event.before }}
           INDEXNOW_AFTER_SHA: ${{ github.sha }}
         run: npm run seo:indexnow
