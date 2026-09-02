@@ -58,6 +58,7 @@ jobs:
       - name: Generate HD homepage hero
         run: |
           test -s avatar.png
+
           ffmpeg -hide_banner -loglevel error -y \
             -i avatar.png \
             -vf "scale=1024:1024:flags=lanczos,unsharp=5:5:0.6:5:5:0.0,format=rgba" \
@@ -66,22 +67,36 @@ jobs:
             -compression_level 6 \
             docs/public/Picture/avatar.webp
 
-          dimensions="$(ffprobe -v error -select_streams v:0 -show_entries stream=width,height -of csv=s=x:p=0 docs/public/Picture/avatar.webp)"
-          bytes="$(stat -c '%s' docs/public/Picture/avatar.webp)"
-          echo "Homepage hero dimensions: ${dimensions}"
-          echo "Homepage hero bytes: ${bytes}"
-          test "${dimensions}" = "1024x1024"
-          test "${bytes}" -lt 307200
+          ffmpeg -hide_banner -loglevel error -y \
+            -f lavfi -i color=c=white:s=1024x1024 \
+            -i avatar.png \
+            -filter_complex "[1:v]scale=1024:1024:flags=lanczos,unsharp=5:5:0.6:5:5:0.0,format=rgba[fg];[0:v][fg]overlay=format=auto,format=yuvj420p[out]" \
+            -map "[out]" \
+            -frames:v 1 \
+            -q:v 3 \
+            docs/public/Picture/avatar.jpg
+
+          webp_dimensions="$(ffprobe -v error -select_streams v:0 -show_entries stream=width,height -of csv=s=x:p=0 docs/public/Picture/avatar.webp)"
+          jpg_dimensions="$(ffprobe -v error -select_streams v:0 -show_entries stream=width,height -of csv=s=x:p=0 docs/public/Picture/avatar.jpg)"
+          webp_bytes="$(stat -c '%s' docs/public/Picture/avatar.webp)"
+          jpg_bytes="$(stat -c '%s' docs/public/Picture/avatar.jpg)"
+
+          echo "Homepage hero WebP: ${webp_dimensions}, ${webp_bytes} bytes"
+          echo "Homepage hero JPEG: ${jpg_dimensions}, ${jpg_bytes} bytes"
+          test "${webp_dimensions}" = "1024x1024"
+          test "${jpg_dimensions}" = "1024x1024"
+          test "${webp_bytes}" -lt 307200
+          test "${jpg_bytes}" -lt 184320
 
       - name: Sync HD homepage hero back to repository
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add docs/public/Picture/avatar.webp
+          git add docs/public/Picture/avatar.webp docs/public/Picture/avatar.jpg
           if git diff --cached --quiet; then
-            echo "HD homepage hero already matches the generated asset."
+            echo "HD homepage hero files already match the generated assets."
           else
-            git commit -m "chore: sync HD homepage hero"
+            git commit -m "chore: sync HD homepage hero assets"
             git push origin HEAD:main
           fi
 
