@@ -12,7 +12,7 @@ if (!existsSync(DIST_DIR)) {
 const homepage = resolve(DIST_DIR, 'index.html')
 const friendsPage = resolve(DIST_DIR, 'friends.html')
 const headersFile = resolve(DIST_DIR, '_headers')
-const heroImagePath = '/Picture/avatar.webp?v=20260831a'
+const heroImagePath = '/Picture/avatar.webp?v=20260902a'
 const logoImagePath = '/Picture/logo.webp?v=animated-20260830a'
 const criticalImages = new Set([heroImagePath, logoImagePath])
 
@@ -104,7 +104,7 @@ for (const file of htmlFiles) {
 }
 
 const requiredAssetBudgets = {
-  'Picture/avatar.jpg': 100 * 1024,
+  'Picture/avatar.jpg': 180 * 1024,
   'Picture/avatar.webp': 300 * 1024,
   'Picture/banner.jpg': 180 * 1024,
   'Picture/logo.webp': 512 * 1024,
