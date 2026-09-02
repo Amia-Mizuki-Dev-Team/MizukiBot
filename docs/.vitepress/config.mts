@@ -2,7 +2,7 @@ import { defineConfig } from 'vitepress'
 
 const siteUrl = 'https://help.mizuki.top'
 const siteName = 'Amia_晓山瑞希帮助文档'
-const siteDescription = 'Amia_晓山瑞希官方帮助文档，提供 PJSK、舞萌 DX、中二节奏、经济系统、群聊工具、Minecraft 服务器和项目生态说明。'
+const siteDescription = 'Amia_晓山瑞希官方帮助文档，覆盖 PJSK、舞萌 DX、中二节奏、群聊功能、协议与身份组件、开发文档以及 HongXingOS7 等关联项目。'
 const siteImage = `${siteUrl}/Picture/banner.jpg`
 const siteLogoPath = '/Picture/logo.webp?v=animated-20260830a'
 const siteLogo = `${siteUrl}${siteLogoPath}`
@@ -26,7 +26,8 @@ const relatedProjects = [
   { text: 'Amia-plugin-qbind', link: '/projects/amia-plugin-qbind' },
   { text: 'Amia Sync Android', link: '/projects/mizuki-sync' },
   { text: 'HX-Pjsk-Gateway', link: '/projects/hx-pjsk-gateway' },
-  { text: 'Gensokyo NewQQ', link: '/projects/gensokyo-newqq' }
+  { text: 'Gensokyo NewQQ', link: '/projects/gensokyo-newqq' },
+  { text: 'HongXingOS7', link: '/projects/hongxingos7' }
 ]
 
 const websiteStructuredData = {
@@ -282,7 +283,7 @@ export default defineConfig({
     ['meta', { name: 'theme-color', content: '#E97EB3' }],
     ['meta', { name: 'application-name', content: siteName }],
     ['meta', { name: 'apple-mobile-web-app-title', content: siteName }],
-    ['meta', { name: 'keywords', content: 'Amia_晓山瑞希, Amia Bot, Mizuki Bot, PJSK, Project Sekai, 舞萌DX, maimai, 中二节奏, 音游Bot, QQ Bot, 经济系统, 群聊工具, Minecraft, 帮助文档' }],
+    ['meta', { name: 'keywords', content: 'Amia_晓山瑞希, Amia Bot, Mizuki Bot, PJSK, Project Sekai, 舞萌DX, maimai, 中二节奏, 音游Bot, QQ Bot, 插件生态, 身份绑定, 权限系统, HongXingOS7, Minecraft, 帮助文档' }],
     ['meta', { name: 'author', content: 'Amia-Mizuki Dev Team' }],
     ['meta', { property: 'og:type', content: 'website' }],
     ['meta', { property: 'og:site_name', content: siteName }],
