@@ -1,12 +1,12 @@
 ---
 layout: home
-title: Amia_晓山瑞希｜PJSK 与舞萌 DX 综合 QQ Bot
-description: Amia_晓山瑞希，原 Mizuki Bot，支持 PJSK 查询与车队辅助、舞萌 DX 成绩同步、B50、AP50、成绩分析及群聊娱乐功能。
+title: Amia_晓山瑞希｜综合型 QQ Bot 与项目生态
+description: Amia_晓山瑞希是由 Amia-Mizuki Dev Team 维护的综合型 QQ Bot，覆盖 PJSK、舞萌 DX、中二节奏、群聊功能、协议桥接与插件生态。
 
 hero:
   name: "Amia_晓山瑞希"
-  text: "PJSK × 舞萌 DX"
-  tagline: "成绩同步、查询分析与群聊娱乐"
+  text: "综合型 QQ Bot 与项目生态"
+  tagline: "PJSK、舞萌 DX、群聊功能与文档支持"
   actions:
     - theme: brand
       text: 开始使用
@@ -15,27 +15,27 @@ hero:
       text: 功能状态
       link: /status
     - theme: alt
-      text: 服务监控
-      link: https://komari.mizuki.top
+      text: 项目生态
+      link: /projects/
 
 features:
-  - title: 音游专项
-    details: PJSK、舞萌 DX 与中二节奏相关查询。
+  - title: PJSK
+    details: 帮助菜单、查询能力、Haruki / Sakura 路由与车队相关功能。
     link: /features/pjsk
-  - title: 经济系统
-    details: 群内积分、任务、收集与互动玩法。
-    link: /features/economy
-  - title: 群聊工具
-    details: 表情包、公告、欢迎提示和活动统计。
+  - title: 舞萌 DX
+    details: B50、AP50、成绩同步、曲库检索、分析与互动功能。
+    link: /features/maimai
+  - title: 中二节奏
+    details: 成绩、歌曲信息和谱面查询。
+    link: /features/chunithm
+  - title: 群聊与经济
+    details: 经济、公告、欢迎、统计、表情包与群聊工具。
     link: /features/tools
-  - title: Minecraft
-    details: 公益 Minecraft 服务器说明。
-    link: /features/minecraft
   - title: 功能状态
     details: 查看模块依赖、数据来源、维护窗口与部署差异。
     link: /status
   - title: 项目生态
-    details: 查看 Bot、插件、网关、客户端与基础组件。
+    details: 查看 Bot、插件、网关、客户端、基础组件与关联项目。
     link: /projects/
 ---
 
@@ -43,28 +43,30 @@ features:
 
 ## 官方帮助入口
 
-Amia_晓山瑞希，原名 **Mizuki Bot**，是由 Amia-Mizuki Dev Team 维护的综合型 QQ Bot，提供 PJSK 查询与车队辅助、舞萌 DX 成绩同步、B50 与 AP50、成绩分析、音游互动、经济系统及群聊管理功能。本站集中整理使用说明、功能文档、更新记录和问题反馈入口。
+**Amia_晓山瑞希** 是由 **Amia-Mizuki Dev Team** 维护的综合型 QQ Bot 与插件生态项目。当前公开能力覆盖 PJSK、舞萌 DX、中二节奏、群聊管理与互动，同时由协议桥接、身份绑定、权限与审计等基础组件协同支撑。
+
+本站用于统一整理使用说明、功能状态、更新记录、项目生态和问题反馈入口。仓库或组件已经存在，并不代表对应能力已经作为稳定服务开放；生产状态以功能状态页和具体项目文档为准。
 
 <div class="support-grid support-grid--compact">
 
   <a href="/usage" class="support-card">
     <div class="support-info">
       <strong>开始使用</strong>
-      <span>将 Bot 拉入群聊、配置权限并触发常用指令</span>
+      <span>接入 Bot、配置权限并查看常用指令</span>
     </div>
   </a>
 
   <a href="/features/pjsk" class="support-card">
     <div class="support-info">
       <strong>PJSK 专项功能</strong>
-      <span>查分、查榜、绑定、歌曲、卡牌与活动功能</span>
+      <span>帮助菜单、查询、后端路由与车队相关能力</span>
     </div>
   </a>
 
   <a href="/features/maimai" class="support-card">
     <div class="support-info">
       <strong>舞萌 DX 专项</strong>
-      <span>B50、AP50、查歌、成绩同步和分析功能</span>
+      <span>B50、AP50、成绩同步、曲库检索与分析</span>
     </div>
   </a>
 
@@ -85,7 +87,7 @@ Amia_晓山瑞希，原名 **Mizuki Bot**，是由 Amia-Mizuki Dev Team 维护�
   <a href="/projects/" class="support-card">
     <div class="support-info">
       <strong>项目生态</strong>
-      <span>查看 Bot、插件、网关、客户端和基础组件</span>
+      <span>Bot、插件、网关、客户端、基础组件与关联项目</span>
     </div>
   </a>
 
@@ -108,7 +110,7 @@ Amia_晓山瑞希，原名 **Mizuki Bot**，是由 Amia-Mizuki Dev Team 维护�
   <a href="https://komari.mizuki.top" class="support-card" target="_blank" rel="noopener noreferrer">
     <div class="support-info">
       <strong>服务器监控</strong>
-      <span>打开 Komari 面板，查看服务器在线状态与资源指标</span>
+      <span>查看服务器在线状态与资源指标</span>
     </div>
   </a>
 
@@ -136,7 +138,7 @@ Amia_晓山瑞希，原名 **Mizuki Bot**，是由 Amia-Mizuki Dev Team 维护�
   <a href="/contribution" class="support-card">
     <div class="support-info">
       <strong>开发团队</strong>
-      <span>查看维护成员、技术支持与基础设施支持信息</span>
+      <span>维护成员、技术支持与基础设施支持信息</span>
     </div>
   </a>
 
