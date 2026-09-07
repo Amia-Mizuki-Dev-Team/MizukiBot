@@ -2,6 +2,7 @@ import DefaultTheme from 'vitepress/theme'
 import { h, onMounted, ref, nextTick } from 'vue'
 import HomeSponsorBanner from './HomeSponsorBanner.vue'
 import HongXingLifecycle from './HongXingLifecycle.vue'
+import MizukiParticleHero from './MizukiParticleHero.vue'
 import './custom.css'
 import './friends.css'
 import './performance.css'
@@ -53,19 +54,7 @@ export default {
 
     return h(DefaultTheme.Layout, null, {
       'home-hero-before': () => h(HomeSponsorBanner),
-      'home-hero-image': () => h('div', { class: 'hero-wrapper' }, [
-        h('img', {
-          src: '/Picture/avatar.webp?v=20260902a',
-          class: 'random-hero-avatar',
-          alt: 'Amia_晓山瑞希',
-          width: 350,
-          height: 350,
-          loading: 'eager',
-          decoding: 'async',
-          fetchpriority: 'high'
-        }),
-        h('div', { class: 'my-custom-quote', innerHTML: currentQuote.value })
-      ]),
+      'home-hero-image': () => h(MizukiParticleHero, { quote: currentQuote.value }),
       'layout-top': () => {
         if (!showAnnouncement.value) return null
         return h('div', {
