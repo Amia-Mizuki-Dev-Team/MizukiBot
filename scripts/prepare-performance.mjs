@@ -14,19 +14,22 @@ if (!existsSync(homepage)) {
   throw new Error(`缺少首页构建文件：${homepage}`)
 }
 
+const homepageSource = readFileSync(homepage, 'utf8')
+const homepageUsesParticleHero = /<div\b[^>]*class=["'][^"']*\bmzk-particle-hero\b[^"']*["'][^>]*>/i.test(homepageSource)
 const preloadTag = `<link rel="preload" as="image" href="${heroImage}" fetchpriority="high">`
 let updatedPages = 0
 let lazyImages = 0
 
 for (const file of walk(DIST_DIR).filter(path => path.endsWith('.html'))) {
   const original = readFileSync(file, 'utf8')
+  const isHomepage = file === homepage
   let html = original.replace(/<img\b[^>]*>/gi, tag => {
     const src = getAttribute(tag, 'src') || ''
     if (!src || src.startsWith('data:')) return tag
 
     let next = setAttribute(tag, 'decoding', 'async')
 
-    if (src === heroImage) {
+    if (src === heroImage && isHomepage && !homepageUsesParticleHero) {
       next = removeAttribute(next, 'loading')
       next = setAttribute(next, 'fetchpriority', 'high')
       return next
@@ -34,6 +37,9 @@ for (const file of walk(DIST_DIR).filter(path => path.endsWith('.html'))) {
 
     if (criticalImages.has(src)) {
       next = removeAttribute(next, 'loading')
+      if (src === heroImage && homepageUsesParticleHero) {
+        next = removeAttribute(next, 'fetchpriority')
+      }
       return next
     }
 
@@ -43,7 +49,7 @@ for (const file of walk(DIST_DIR).filter(path => path.endsWith('.html'))) {
     return setAttribute(next, 'loading', 'lazy')
   })
 
-  if (file === homepage && !hasImagePreload(html, heroImage)) {
+  if (isHomepage && !homepageUsesParticleHero && !hasImagePreload(html, heroImage)) {
     if (!/<\/head>/i.test(html)) {
       throw new Error('首页缺少 </head>，无法写入首屏图片预加载标签')
     }
@@ -56,8 +62,11 @@ for (const file of walk(DIST_DIR).filter(path => path.endsWith('.html'))) {
   }
 }
 
+const heroStrategy = homepageUsesParticleHero
+  ? '粒子 Hero（不强制预加载头像）'
+  : `${heroImage} 图片预加载`
 console.log(
-  `性能输出处理完成：更新 ${updatedPages} 个页面，为 ${lazyImages} 张非首屏图片补充懒加载，并确保 ${heroImage} 预加载。`
+  `性能输出处理完成：更新 ${updatedPages} 个页面，为 ${lazyImages} 张非首屏图片补充懒加载；首页使用 ${heroStrategy}。`
 )
 
 function walk(directory) {
