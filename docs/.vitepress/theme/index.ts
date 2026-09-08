@@ -8,6 +8,7 @@ import './friends.css'
 import './performance.css'
 import './overflow-fix.css'
 import './hongxing-lifecycle-compact.css'
+import './particle-hero.css'
 
 export default {
   extends: DefaultTheme,
