@@ -20,34 +20,45 @@ if (!existsSync(homepage)) {
   errors.push('缺少首页 index.html')
 } else {
   const html = readFileSync(homepage, 'utf8')
+  const usesParticleHero = /<div\b[^>]*class=["'][^"']*\bmzk-particle-hero\b[^"']*["'][^>]*>/i.test(html)
+  const hasParticleCanvas = /<canvas\b[^>]*class=["'][^"']*\bmzk-particle-canvas\b[^"']*["'][^>]*>/i.test(html)
   const hero = [...html.matchAll(/<img\b[^>]*>/gi)]
     .map(match => match[0])
     .find(tag => getAttribute(tag, 'src') === heroImagePath)
 
-  if (!hero) {
-    errors.push(`首页缺少首屏图片：${heroImagePath}`)
+  if (usesParticleHero) {
+    if (!hasParticleCanvas) {
+      errors.push('首页粒子 Hero 缺少 Canvas 渲染层')
+    }
+    if (hero && String(getAttribute(hero, 'loading') || '').toLowerCase() === 'lazy') {
+      errors.push('首页粒子 Hero 内的品牌图标不能使用 loading="lazy"')
+    }
   } else {
-    if (getAttribute(hero, 'width') !== '350' || getAttribute(hero, 'height') !== '350') {
-      errors.push('首页首屏图片必须保留 350×350 固定尺寸')
+    if (!hero) {
+      errors.push(`首页缺少首屏图片：${heroImagePath}`)
+    } else {
+      if (getAttribute(hero, 'width') !== '350' || getAttribute(hero, 'height') !== '350') {
+        errors.push('首页首屏图片必须保留 350×350 固定尺寸')
+      }
+      if (String(getAttribute(hero, 'fetchpriority') || '').toLowerCase() !== 'high') {
+        errors.push('首页首屏图片缺少 fetchpriority="high"')
+      }
+      if (String(getAttribute(hero, 'loading') || '').toLowerCase() === 'lazy') {
+        errors.push('首页首屏图片不能使用 loading="lazy"')
+      }
     }
-    if (String(getAttribute(hero, 'fetchpriority') || '').toLowerCase() !== 'high') {
-      errors.push('首页首屏图片缺少 fetchpriority="high"')
-    }
-    if (String(getAttribute(hero, 'loading') || '').toLowerCase() === 'lazy') {
-      errors.push('首页首屏图片不能使用 loading="lazy"')
-    }
-  }
 
-  const hasPreload = [...html.matchAll(/<link\b[^>]*>/gi)]
-    .map(match => match[0])
-    .some(tag =>
-      String(getAttribute(tag, 'rel') || '').toLowerCase() === 'preload' &&
-      String(getAttribute(tag, 'as') || '').toLowerCase() === 'image' &&
-      getAttribute(tag, 'href') === heroImagePath
-    )
+    const hasPreload = [...html.matchAll(/<link\b[^>]*>/gi)]
+      .map(match => match[0])
+      .some(tag =>
+        String(getAttribute(tag, 'rel') || '').toLowerCase() === 'preload' &&
+        String(getAttribute(tag, 'as') || '').toLowerCase() === 'image' &&
+        getAttribute(tag, 'href') === heroImagePath
+      )
 
-  if (!hasPreload) {
-    errors.push(`首页缺少 ${heroImagePath} 的图片预加载标签`)
+    if (!hasPreload) {
+      errors.push(`首页缺少 ${heroImagePath} 的图片预加载标签`)
+    }
   }
 
   if (!html.includes(logoImagePath)) {
