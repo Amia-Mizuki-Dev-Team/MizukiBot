@@ -371,7 +371,7 @@ onBeforeUnmount(() => {
 .mzk-particle-mark::after {
   right: -16px;
   bottom: 16px;
-  box-shadow: 11px -24px 0 rgba(102, 183, 201, 0.7), -3px -50px 0 rgba(233, 126,179, 0.55);
+  box-shadow: 11px -24px 0 rgba(102, 183, 201, 0.7), -3px -50px 0 rgba(233, 126, 179, 0.55);
 }
 
 .mzk-particle-mark img {
