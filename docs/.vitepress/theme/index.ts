@@ -2,13 +2,11 @@ import DefaultTheme from 'vitepress/theme'
 import { h, onMounted, ref, nextTick } from 'vue'
 import HomeSponsorBanner from './HomeSponsorBanner.vue'
 import HongXingLifecycle from './HongXingLifecycle.vue'
-import MizukiParticleHero from './MizukiParticleHero.vue'
 import './custom.css'
 import './friends.css'
 import './performance.css'
 import './overflow-fix.css'
 import './hongxing-lifecycle-compact.css'
-import './particle-hero.css'
 
 export default {
   extends: DefaultTheme,
@@ -16,18 +14,9 @@ export default {
     app.component('HongXingLifecycle', HongXingLifecycle)
   },
   Layout() {
-    const currentQuote = ref('')
     const showAnnouncement = ref(false)
 
     onMounted(() => {
-      const quotes = [
-        'ボクは……ボクでいたいだけ。<br>我只是想做我自己。',
-        '秘密って、なんだかワクワクしない？<br>秘密，总会让人有点期待。',
-        '25時、ナイトコードで。<br>25 时，在 Nightcord 见。',
-        'かわいいは正義。<br>可爱即正义。'
-      ]
-      currentQuote.value = quotes[Math.floor(Math.random() * quotes.length)]
-
       if (!sessionStorage.getItem('hide_announcement')) {
         showAnnouncement.value = true
         nextTick(() => {
@@ -55,7 +44,15 @@ export default {
 
     return h(DefaultTheme.Layout, null, {
       'home-hero-before': () => h(HomeSponsorBanner),
-      'home-hero-image': () => h(MizukiParticleHero, { quote: currentQuote.value }),
+      'home-hero-image': () => h('img', {
+        src: '/Picture/avatar.webp?v=20260902a',
+        alt: 'Amia_晓山瑞希',
+        width: '350',
+        height: '350',
+        decoding: 'async',
+        fetchpriority: 'high',
+        class: 'VPImage image-src'
+      }),
       'layout-top': () => {
         if (!showAnnouncement.value) return null
         return h('div', {
