@@ -17,6 +17,15 @@ export default {
     const showAnnouncement = ref(false)
 
     onMounted(() => {
+      nextTick(() => {
+        document
+          .querySelectorAll<HTMLElement>('.VPHero .image, .VPHero .image-container, .VPHero .image-src')
+          .forEach(element => {
+            element.style.setProperty('-webkit-tap-highlight-color', 'transparent')
+            element.style.setProperty('outline', 'none')
+          })
+      })
+
       if (!sessionStorage.getItem('hide_announcement')) {
         showAnnouncement.value = true
         nextTick(() => {
@@ -51,7 +60,16 @@ export default {
         height: '350',
         decoding: 'async',
         fetchpriority: 'high',
-        class: 'VPImage image-src'
+        draggable: false,
+        class: 'VPImage image-src',
+        style: {
+          pointerEvents: 'none',
+          userSelect: 'none',
+          WebkitUserSelect: 'none',
+          WebkitUserDrag: 'none',
+          WebkitTapHighlightColor: 'transparent',
+          outline: 'none'
+        }
       }),
       'layout-top': () => {
         if (!showAnnouncement.value) return null
