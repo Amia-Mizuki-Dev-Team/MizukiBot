@@ -61,7 +61,14 @@ const groups: Group[] = [
           { start: '2025-01-01', end: '2030-12-31', type: 'eol', label: 'EOL · 2025 起' }
         ]
       },
-      { name: 'HongXing 3.1', note: '时间待补充', segments: [] }
+      {
+        name: 'HongXing 3.1',
+        note: '3.0 发布半年后推出 · 2026-08 EOL',
+        segments: [
+          { start: '2024-07-01', end: '2026-07-31', type: 'active', label: '已发布' },
+          { start: '2026-08-01', end: '2030-12-31', type: 'eol', label: 'EOL · 2026-08 起' }
+        ]
+      }
     ]
   },
   {
