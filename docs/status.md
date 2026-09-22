@@ -18,8 +18,6 @@ aside: false
 
 ## HongXing 产品与服务生命周期
 
-以下时间轴展示 HongXing Online、HongXingOS、HongXing Firmware、HongXing AuthLit 以及相关实验服务的公开生命周期信息。HongXing Online 3 当前没有规划，因此不纳入时间轴；未知的未来生命周期阶段不会推测填写。
-
 <HongXingLifecycle />
 
 ## 状态说明
