@@ -16,6 +16,20 @@ description: 服务器的更新和维护日志
 
 <!-- 卡片内容 -->
 
+<div class="mzk-card mzk-card--blue">
+  <h3>v2.0.4</h3>
+  <p>
+    📅 更新日期：2026.9.25 &nbsp;|&nbsp; ✍️ 作者：MC_FanBuFan
+  </p>
+
+  <ul>
+    <li>优化连接速度，降低掉线率</li>
+    <li>添加多个分流节点，确保多人在线数据并行</li>
+    <li>客户端数据版本：<code>2.0.1</code></li>
+    <li>服务端数据版本：<code>2.0.4b</code></li>
+  </ul>
+</div>
+
 <div class="mzk-card mzk-card--purple">
   <h3>v1.6.3</h3>
   <p>
