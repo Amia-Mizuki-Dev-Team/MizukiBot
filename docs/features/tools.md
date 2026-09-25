@@ -1,4 +1,4 @@
----
+<img width="1116" height="316" alt="image" src="https://github.com/user-attachments/assets/ff2da2eb-b813-4334-a0d9-74ab17bd106c" />---
 title: 通用工具与娱乐
 description: 群活统计、MC 服务器、群聊播报与常用生成器说明。
 ---
@@ -37,15 +37,12 @@ description: 群活统计、MC 服务器、群聊播报与常用生成器说明�
 
 <div class="mzk-card">
   <h3>Minecraft 服务器</h3>
-  
-<div class="mzk-table-wrapper">
 
-<p style="font-weight:bold;">
-<a href="https://help.mizuki.top/features/mc_update.html" target="_blank" style="color:var(--vp-c-brand-1);text-decoration:underline;">👉 点我查看</a>
-</p>
-</div>
-
-</div>
+  <div class="mzk-table-wrapper">
+    <p style="font-weight:bold;">
+      <a href="https://help.mizuki.top/features/mc_update.html" target="_blank" style="color:var(--vp-c-brand-1);text-decoration:underline;">👉 点我查看 </a>
+    </p>
+  </div>
 </div>
 
 ## 指令示例
