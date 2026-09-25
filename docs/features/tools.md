@@ -1,4 +1,3 @@
-<img width="1116" height="316" alt="image" src="https://github.com/user-attachments/assets/ff2da2eb-b813-4334-a0d9-74ab17bd106c" />---
 title: 通用工具与娱乐
 description: 群活统计、MC 服务器、群聊播报与常用生成器说明。
 ---
