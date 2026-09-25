@@ -8,15 +8,16 @@ description: 介绍 MizukiBot 的 Minecraft 服务器相关功能。
 这里是关于 Minecraft 服务器功能的说明
 
 <div class="mzk-card mzk-card--green">
-<h3>🟩 Minecraft 服务器</h3>
+<h3>🟩 Mzk MC 二周目！</h3>
 
 <div class="mzk-table-wrapper">
 
 | 项目 | 内容 |
 | :--- | :--- |
-| **版本** | Fabric 1.21.4 |
+| **版本** | Paper 1.21.11 |
 | **查询** | `mc status` |
-| **加入** | 请在群公告获取 IP |
+| **加入** | 用户群注册玩家身份ID |
+| **连接** | 用户群公告 |
 
 </div>
 </div>
