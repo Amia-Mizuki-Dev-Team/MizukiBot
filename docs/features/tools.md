@@ -40,11 +40,10 @@ description: 群活统计、MC 服务器、群聊播报与常用生成器说明�
   
 <div class="mzk-table-wrapper">
 
-| 项目 | 内容 |
-| :--- | :--- |
-| **版本** | Fabric 1.21.4 |
-| **查询** | `mc status` |
-| **加入** | 请在群公告获取 IP |
+<p style="font-weight:bold;">
+<a href="https://help.mizuki.top/features/mc_update.html" target="_blank" style="color:var(--vp-c-brand-1);text-decoration:underline;">👉 点我查看</a>
+</p>
+</div>
 
 </div>
 </div>
