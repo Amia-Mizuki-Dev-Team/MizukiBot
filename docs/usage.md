@@ -27,6 +27,7 @@ description: 介绍如何将 Amia_晓山瑞希加入 QQ 群、开启群消息权
 <div class="mzk-card mzk-card--orange">
   <h3>3. 开启群消息权限</h3>
   <p>群主需要在机器人管理中为 Bot 开启“获取群内全部消息”权限。开启后，群成员可以直接发送受支持的指令文本。</p>
+  <p>如果还需要定时推送、公告、状态通知等主动消息，请同时开启“机器人主动在群聊内发言”。详细操作见 <a href="/active-messaging">如何允许 Bot 主动在群聊内发消息</a>。</p>
 </div>
 
 <div class="mzk-card mzk-card--purple">
@@ -48,6 +49,7 @@ description: 介绍如何将 Amia_晓山瑞希加入 QQ 群、开启群消息权
 | [中二节奏专项](/features/chunithm) | B30、歌曲信息和谱面查询。 |
 | [Amia 25时经济系统](/features/economy) | 群内虚拟积分、任务、收集与互动系统说明。 |
 | [通用工具与娱乐](/features/tools) | 群管理、欢迎、统计、播报、表情与常用工具。 |
+| [允许 Bot 主动发消息](/active-messaging) | 开启 QQ 群机器人的主动发言权限，并区分消息读取权限与主动发送权限。 |
 | [常见问题与故障排查](/faq) | Bot 无响应、PJSK、舞萌同步、权限和图片问题的排查步骤。 |
 | [功能状态与数据来源](/status) | 查看模块状态、依赖、数据更新方式、维护窗口和隐私边界。 |
 | [项目生态](/projects/) | 查看 Bot、插件、身份绑定、权限、客户端和其他关联项目。 |
