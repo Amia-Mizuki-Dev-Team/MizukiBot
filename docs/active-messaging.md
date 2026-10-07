@@ -37,7 +37,7 @@ description: 详细说明如何在 QQ 群机器人设置中开启 Amia_晓山瑞
 
 你应当能看到类似下面截图中的选项：
 
-![QQ 群机器人主动发言权限设置示例](/Picture/bot-active-message-settings.svg)
+![QQ 群机器人主动发言权限设置示例](/Picture/bot-active-message-settings.jpg)
 
 图中橙色箭头标出了需要重点检查的两个位置。
 
