@@ -9,6 +9,7 @@ const siteLogo = `${siteUrl}${siteLogoPath}`
 
 const mainSections = [
   { name: '如何使用', url: `${siteUrl}/usage` },
+  { name: '允许 Bot 主动发消息', url: `${siteUrl}/active-messaging` },
   { name: '常见问题与故障排查', url: `${siteUrl}/faq` },
   { name: '功能状态与数据来源', url: `${siteUrl}/status` },
   { name: 'PJSK 专项功能', url: `${siteUrl}/features/pjsk` },
@@ -94,6 +95,7 @@ const nav = [
     text: '入门指南',
     items: [
       { text: '如何使用', link: '/usage' },
+      { text: '允许 Bot 主动发消息', link: '/active-messaging' },
       { text: '常见问题与故障排查', link: '/faq' },
       { text: '问题反馈', link: '/feedback' }
     ]
@@ -141,6 +143,7 @@ const sidebar = [
     text: '入门指南',
     items: [
       { text: '如何使用', link: '/usage' },
+      { text: '允许 Bot 主动发消息', link: '/active-messaging' },
       { text: '功能状态与数据来源', link: '/status' },
       { text: '常见问题与故障排查', link: '/faq' },
       { text: '问题反馈', link: '/feedback' }
