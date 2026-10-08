@@ -2,7 +2,7 @@
 
 `Amia-Mizuki-Dev-Team/MizukiBot` 是 [Amia_晓山瑞希帮助文档](https://help.mizuki.top/) 的源码仓库。仓库名称沿用历史项目名；当前对外名称统一为 **Amia_晓山瑞希**。
 
-Amia_晓山瑞希是面向 QQ 群聊场景维护的 Bot 与插件集合。当前公开文档覆盖 PJSK、舞萌 DX、中二节奏、群聊管理与互动、经济系统、身份绑定与权限等能力；部分功能依赖独立插件或后端服务，因此“组织中存在对应仓库”不等于“生产环境已经稳定开放”。实际可用范围以 [功能状态](https://help.mizuki.top/status) 和具体功能页为准。
+Amia_晓山瑞希是面向 QQ 群聊场景维护的 Bot 与插件集合。当前公开文档覆盖 PJSK、舞萌 DX、中二节奏、群聊管理与互动、经济系统、身份绑定与权限等能力；部分功能依赖独立插件或后端服务，因此“组织中存在对应仓库”不等于“生产环境已经稳定开放”。具体功能的可用范围以相应功能页和公告为准，产品支持信息见[系统生命周期](https://help.mizuki.top/status)。
 
 本站基于 [VitePress](https://vitepress.dev/) 构建，通过 GitHub Actions 执行构建与检查，并部署到 Cloudflare Pages。
 
@@ -33,7 +33,7 @@ Amia_晓山瑞希是面向 QQ 群聊场景维护的 Bot 与插件集合。当前
 
 ## 项目定位
 
-本仓库主要负责公开帮助文档、服务公告、功能状态和项目生态说明，**不是 Bot 核心服务端仓库**，也不代表所有组织仓库的运行时逻辑都位于这里。
+本仓库主要负责公开帮助文档、服务公告、系统生命周期和项目生态说明，**不是 Bot 核心服务端仓库**，也不代表所有组织仓库的运行时逻辑都位于这里。
 
 文档维护遵循以下原则：
 
@@ -50,7 +50,7 @@ Amia_晓山瑞希是面向 QQ 群聊场景维护的 Bot 与插件集合。当前
 - [中二节奏专项](https://help.mizuki.top/features/chunithm)
 - [经济系统](https://help.mizuki.top/features/economy)
 - [通用工具与娱乐](https://help.mizuki.top/features/tools)
-- [功能状态与数据来源](https://help.mizuki.top/status)
+- [系统生命周期](https://help.mizuki.top/status)
 - [常见问题](https://help.mizuki.top/faq)
 - [项目生态](https://help.mizuki.top/projects/)
 
