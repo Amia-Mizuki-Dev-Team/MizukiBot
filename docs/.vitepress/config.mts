@@ -11,7 +11,7 @@ const mainSections = [
   { name: '如何使用', url: `${siteUrl}/usage` },
   { name: '允许 Bot 主动发消息', url: `${siteUrl}/active-messaging` },
   { name: '常见问题与故障排查', url: `${siteUrl}/faq` },
-  { name: '功能状态与数据来源', url: `${siteUrl}/status` },
+  { name: '系统生命周期', url: `${siteUrl}/status` },
   { name: 'PJSK 专项功能', url: `${siteUrl}/features/pjsk` },
   { name: '舞萌 DX 专项', url: `${siteUrl}/features/maimai` },
   { name: '中二节奏专项', url: `${siteUrl}/features/chunithm` },
@@ -89,8 +89,7 @@ const homeItemListStructuredData = {
 
 const nav = [
   { text: '首页', link: '/' },
-  { text: '功能状态', link: '/status' },
-  { text: '服务监控', link: 'https://komari.mizuki.top' },
+  { text: '系统生命周期', link: '/status' },
   {
     text: '入门指南',
     items: [
@@ -127,7 +126,6 @@ const nav = [
     text: '更新与公告',
     items: [
       { text: '服务状态与公告', link: '/service-announcements' },
-      { text: '服务器监控', link: 'https://komari.mizuki.top' },
       { text: 'MC 服务器更新', link: '/features/mc_update' },
       { text: 'Bot 更新日志', link: '/features/bot_update' }
     ]
@@ -144,7 +142,7 @@ const sidebar = [
     items: [
       { text: '如何使用', link: '/usage' },
       { text: '允许 Bot 主动发消息', link: '/active-messaging' },
-      { text: '功能状态与数据来源', link: '/status' },
+      { text: '系统生命周期', link: '/status' },
       { text: '常见问题与故障排查', link: '/faq' },
       { text: '问题反馈', link: '/feedback' }
     ]
@@ -176,7 +174,6 @@ const sidebar = [
     text: '更新与公告',
     items: [
       { text: '服务状态与公告', link: '/service-announcements' },
-      { text: '服务器监控', link: 'https://komari.mizuki.top' },
       { text: 'MC 服务器更新', link: '/features/mc_update' },
       { text: 'Bot 更新日志', link: '/features/bot_update' }
     ]
