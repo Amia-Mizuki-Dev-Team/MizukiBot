@@ -6,13 +6,13 @@ description: Amia_晓山瑞希公开帮助文档，涵盖 PJSK、舞萌 DX、中
 hero:
   name: "Amia_晓山瑞希"
   text: "QQ Bot 使用与项目文档"
-  tagline: "功能说明、使用方法、状态与维护记录"
+  tagline: "功能说明、使用方法与维护记录"
   actions:
     - theme: brand
       text: 开始使用
       link: /usage
     - theme: alt
-      text: 功能状态
+      text: 系统生命周期
       link: /status
     - theme: alt
       text: 项目生态
@@ -34,8 +34,8 @@ features:
   - title: 身份与权限
     details: QQ 身份绑定、资料关联、权限判断以及相关基础组件。
     link: /projects/
-  - title: 功能状态
-    details: 区分已开放、测试、维护和依赖外部服务的能力，并列出已知限制。
+  - title: 系统生命周期
+    details: 查看 HongXing 产品与服务的生命周期及维护阶段。
     link: /status
 ---
 
@@ -45,7 +45,7 @@ features:
 
 **Amia_晓山瑞希** 是由 **Amia-Mizuki Dev Team** 维护的 QQ Bot 与插件集合。当前公开能力主要覆盖 PJSK、舞萌 DX、中二节奏、群聊管理与互动，并由身份绑定、权限、消息兼容和其他基础组件协同支撑。
 
-组织中存在对应仓库或组件，不代表该能力已经在生产环境稳定开放。部分项目处于测试、迁移或独立维护状态；实际可用范围请以 [功能状态](/status)、对应功能页和最新公告为准。
+组织中存在对应仓库或组件，不代表该能力已经在生产环境稳定开放。部分项目处于测试、迁移或独立维护状态；具体功能的可用范围以对应功能页和最新公告为准；产品支持周期见[系统生命周期](/status)。
 
 <div class="support-grid support-grid--compact">
 
@@ -96,21 +96,14 @@ features:
 
 <div class="home-section">
 
-## 状态与维护
+## 系统与维护
 
 <div class="support-grid support-grid--compact">
 
   <a href="/status" class="support-card">
     <div class="support-info">
-      <strong>功能状态与数据来源</strong>
-      <span>查看模块状态、依赖服务、更新方式、维护窗口和已知限制</span>
-    </div>
-  </a>
-
-  <a href="https://komari.mizuki.top" class="support-card" target="_blank" rel="noopener noreferrer">
-    <div class="support-info">
-      <strong>服务器监控</strong>
-      <span>查看公开的服务器在线状态与资源指标</span>
+      <strong>系统生命周期</strong>
+      <span>查看 HongXing 产品与服务的生命周期和支持阶段</span>
     </div>
   </a>
 
