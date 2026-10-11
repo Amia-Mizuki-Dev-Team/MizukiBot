@@ -6,6 +6,7 @@ import './custom.css'
 import './performance.css'
 import './overflow-fix.css'
 import './hongxing-lifecycle-compact.css'
+import './interaction-focus.css'
 
 export default {
   extends: DefaultTheme,
