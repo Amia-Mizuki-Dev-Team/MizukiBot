@@ -10,7 +10,7 @@ description: Amia_晓山瑞希赞助者名单与支持记录。
 <div class="sponsor-hero">
   <div class="sponsor-hero-stats">
     <div class="sponsor-stat">
-      <span class="sponsor-stat-num">6</span>
+      <span class="sponsor-stat-num">7</span>
       <span class="sponsor-stat-label">赞助者</span>
     </div>
     <div class="sponsor-stat">
@@ -51,6 +51,16 @@ description: Amia_晓山瑞希赞助者名单与支持记录。
       <h3>Re:tribution</h3>
       <span class="sponsor-tag sponsor-tag--gold">核心赞助商</span>
       <p>感谢大佬对服务器与节点的慷慨支持！</p>
+    </div>
+  </div>
+  <div class="sponsor-card">
+    <div class="sponsor-card-avatar">
+      <span>滑</span>
+    </div>
+    <div class="sponsor-card-body">
+      <h3>滑稽</h3>
+      <span class="sponsor-tag sponsor-tag--silver">赞助商</span>
+      <p>累计赞助 ¥10.00</p>
     </div>
   </div>
 </div>
@@ -102,6 +112,7 @@ description: Amia_晓山瑞希赞助者名单与支持记录。
 <!-- SPONSORS_END -->
 
 <div style="margin-top: 40px; text-align: center; color: var(--vp-c-text-2); font-size: 14px;">
+  <p>赞助名单包含人工登记的支持记录。</p>
   <p>名单由爱发电 API 自动同步，更新时间：2026/10/11 16:20:28</p>
   <p style="margin-top: 8px;">
     <a href="https://ifdian.net/a/wrdzgzs" target="_blank" style="color: var(--vp-c-brand-1); font-weight: bold;">

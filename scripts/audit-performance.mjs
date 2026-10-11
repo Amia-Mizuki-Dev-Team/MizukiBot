@@ -10,7 +10,6 @@ if (!existsSync(DIST_DIR)) {
 }
 
 const homepage = resolve(DIST_DIR, 'index.html')
-const friendsPage = resolve(DIST_DIR, 'friends.html')
 const headersFile = resolve(DIST_DIR, '_headers')
 const heroImagePath = '/Picture/avatar.webp?v=20260902a'
 const logoImagePath = '/Picture/logo.webp?v=animated-20260830a'
@@ -69,18 +68,6 @@ if (!existsSync(homepage)) {
   }
 }
 
-if (!existsSync(friendsPage)) {
-  errors.push('缺少友情链接页面 friends.html')
-} else {
-  const html = readFileSync(friendsPage, 'utf8')
-  if (!html.includes('/Picture/friends/mzyyun.webp')) {
-    errors.push('友情链接页面没有使用本地化的墨染辉夜头像')
-  }
-  if (html.includes('blog.mzyyun.com/images/avatar.jpg')) {
-    errors.push('友情链接页面仍依赖第三方头像地址')
-  }
-}
-
 if (!existsSync(headersFile)) {
   errors.push('构建输出缺少 Cloudflare Pages _headers 文件')
 } else {
@@ -119,8 +106,7 @@ const requiredAssetBudgets = {
   'Picture/avatar.webp': 300 * 1024,
   'Picture/banner.jpg': 180 * 1024,
   'Picture/logo.webp': 512 * 1024,
-  'Picture/logo-180.png': 64 * 1024,
-  'Picture/friends/mzyyun.webp': 32 * 1024
+  'Picture/logo-180.png': 64 * 1024
 }
 
 for (const [name, limit] of Object.entries(requiredAssetBudgets)) {

@@ -17,7 +17,8 @@ const mainSections = [
   { name: '中二节奏专项', url: `${siteUrl}/features/chunithm` },
   { name: 'Amia 25时经济系统', url: `${siteUrl}/features/economy` },
   { name: '通用工具与群聊能力', url: `${siteUrl}/features/tools` },
-  { name: '关联项目', url: `${siteUrl}/projects/` }
+  { name: '关联项目', url: `${siteUrl}/projects/` },
+  { name: '联动合作', url: `${siteUrl}/collaboration` }
 ]
 
 const relatedProjects = [
@@ -119,7 +120,7 @@ const nav = [
       { text: '群规与公告', link: '/rules' },
       { text: '提问的智慧', link: '/asking' },
       { text: '赞助我们', link: '/sponsor' },
-      { text: '友情链接', link: '/friends' }
+      { text: '联动合作', link: '/collaboration' }
     ]
   },
   {
@@ -167,7 +168,7 @@ const sidebar = [
       { text: '群规与公告', link: '/rules' },
       { text: '提问的智慧', link: '/asking' },
       { text: '赞助我们', link: '/sponsor' },
-      { text: '友情链接', link: '/friends' }
+      { text: '联动合作', link: '/collaboration' }
     ]
   },
   {

@@ -135,5 +135,12 @@ features:
     </div>
   </a>
 
+  <a href="/collaboration" class="support-card">
+    <div class="support-info">
+      <strong>联动合作</strong>
+      <span>恋萌萌 × Amia_晓山瑞希，了解最新联动公告与合作项目</span>
+    </div>
+  </a>
+
 </div>
 </div>

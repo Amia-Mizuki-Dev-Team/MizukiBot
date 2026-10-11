@@ -144,7 +144,7 @@ if (!existsSync(homepage)) {
     '/features/minecraft',
     '/features/bot_update',
     '/projects/',
-    '/friends'
+    '/collaboration'
   ]) {
     if (!new RegExp(`<a\\b[^>]*href=["']${escapeRegExp(href)}["']`, 'i').test(homepageHtml)) {
       errors.push(`首页缺少可抓取链接：${href}`)
@@ -152,22 +152,16 @@ if (!existsSync(homepage)) {
   }
 }
 
-const friendsPage = resolve(DIST_DIR, 'friends.html')
-if (!existsSync(friendsPage)) {
-  errors.push('缺少友情链接页面 friends.html')
+const collaborationPage = resolve(DIST_DIR, 'collaboration.html')
+if (!existsSync(collaborationPage)) {
+  errors.push('缺少联动合作页面 collaboration.html')
 } else {
-  const friendsHtml = readFileSync(friendsPage, 'utf8')
-
-  if (!friendsHtml.includes(`${SITE_URL}/friends#friend-sites`)) {
-    errors.push('友情链接页面缺少 ItemList 结构化数据')
+  const collaborationHtml = readFileSync(collaborationPage, 'utf8')
+  if (!collaborationHtml.includes('恋萌萌') || !collaborationHtml.includes('Amia_晓山瑞希')) {
+    errors.push('联动合作页面缺少合作双方名称')
   }
-
-  if (!/<a\b[^>]*href=["']https:\/\/mzyyun\.com\/?["']/i.test(friendsHtml)) {
-    errors.push('友情链接页面缺少墨染辉夜链接')
-  }
-
-  if (!/<img\b[^>]*width=["']64["'][^>]*height=["']64["']/i.test(friendsHtml)) {
-    warnings.push('friends.html: 友链头像未保留固定尺寸，可能产生布局抖动')
+  if (!collaborationHtml.includes('https://docs.qq.com/aio/p/scqh3qjfvlnox20?p=bRNzKs19gjtUhiC9mjptTRQ')) {
+    errors.push('联动合作页面缺少恋萌萌 Bot 文档链接')
   }
 }
 
