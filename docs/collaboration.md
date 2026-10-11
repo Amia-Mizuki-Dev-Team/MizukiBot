@@ -5,6 +5,16 @@ description: 恋萌萌 Bot 与 Amia_晓山瑞希 Bot 正式开启联动合作。
 
 # 联动合作
 
+<img
+  src="/Picture/Koishi-amia-collaboration.webp"
+  alt="Koishi × Amia Bot 联动合作宣传海报"
+  width="1536"
+  height="1152"
+  loading="lazy"
+  decoding="async"
+  style="display: block; width: 100%; height: auto; margin: 20px auto 28px; border-radius: 16px;"
+/>
+
 ## 联动公告｜恋萌萌 × Amia
 
 **双倍可爱，快乐加倍！**
