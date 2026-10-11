@@ -1,0 +1,13 @@
+/* Hide pointer/touch focus flashes without hiding keyboard focus. */
+:where(a, button, [role="button"], input[type="button"], input[type="submit"], input[type="reset"], summary) {
+  -webkit-tap-highlight-color: transparent;
+}
+
+:where(a, button, [role="button"], input[type="button"], input[type="submit"], input[type="reset"], summary):focus:not(:focus-visible) {
+  outline: none;
+}
+
+:where(a, button, [role="button"], input[type="button"], input[type="submit"], input[type="reset"], summary):focus-visible {
+  outline: 2px solid var(--vp-c-brand-1);
+  outline-offset: 3px;
+}
