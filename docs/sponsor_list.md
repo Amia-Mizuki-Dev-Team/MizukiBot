@@ -10,11 +10,11 @@ description: Amia_晓山瑞希赞助者名单与支持记录。
 <div class="sponsor-hero">
   <div class="sponsor-hero-stats">
     <div class="sponsor-stat">
-      <span class="sponsor-stat-num">7</span>
+      <span class="sponsor-stat-num">9</span>
       <span class="sponsor-stat-label">赞助者</span>
     </div>
     <div class="sponsor-stat">
-      <span class="sponsor-stat-num">3</span>
+      <span class="sponsor-stat-num">4</span>
       <span class="sponsor-stat-label">核心赞助</span>
     </div>
   </div>
@@ -70,6 +70,16 @@ description: Amia_晓山瑞希赞助者名单与支持记录。
 <div class="sponsor-grid">
   <div class="sponsor-card">
     <div class="sponsor-card-avatar">
+      <img src="https://pic1.afdiancdn.com/default/avatar/avatar-blue.png" alt="kinnk" class="sponsor-card-avatar-img" />
+    </div>
+    <div class="sponsor-card-body">
+      <h3>kinnk</h3>
+      <span class="sponsor-tag sponsor-tag--platinum">团队赞助</span>
+      <p>累计赞助 ¥100.00</p>
+    </div>
+  </div>
+  <div class="sponsor-card">
+    <div class="sponsor-card-avatar">
       <img src="https://pic1.afdiancdn.com/default/avatar/avatar-purple.png?imageView2/1/" alt="爱发电用户_7176c" class="sponsor-card-avatar-img" />
     </div>
     <div class="sponsor-card-body">
@@ -80,12 +90,22 @@ description: Amia_晓山瑞希赞助者名单与支持记录。
   </div>
   <div class="sponsor-card">
     <div class="sponsor-card-avatar">
-      <img src="https://pic1.afdiancdn.com/default/avatar/avatar-blue.png" alt="kinnk" class="sponsor-card-avatar-img" />
+      <img src="https://pic1.afdiancdn.com/user/5c40f4aec56b11f1919952540025c377/avatar/43b1cf7c8eefbb9c3116c8df73aa8f51_w2054_h1152_s2077.png" alt="咕咚" class="sponsor-card-avatar-img" />
     </div>
     <div class="sponsor-card-body">
-      <h3>kinnk</h3>
+      <h3>咕咚</h3>
       <span class="sponsor-tag sponsor-tag--silver">赞助商</span>
-      <p>累计赞助 ¥40.00</p>
+      <p>累计赞助 ¥10.00</p>
+    </div>
+  </div>
+  <div class="sponsor-card">
+    <div class="sponsor-card-avatar">
+      <img src="https://pic1.afdiancdn.com/default/avatar/avatar-purple.png" alt="爱发电用户_6ThK" class="sponsor-card-avatar-img" />
+    </div>
+    <div class="sponsor-card-body">
+      <h3>爱发电用户_6ThK</h3>
+      <span class="sponsor-tag sponsor-tag--silver">赞助商</span>
+      <p>累计赞助 ¥10.00</p>
     </div>
   </div>
   <div class="sponsor-card">
@@ -113,7 +133,7 @@ description: Amia_晓山瑞希赞助者名单与支持记录。
 
 <div style="margin-top: 40px; text-align: center; color: var(--vp-c-text-2); font-size: 14px;">
   <p>赞助名单包含人工登记的支持记录。</p>
-  <p>名单由爱发电 API 自动同步，更新时间：2026/10/11 16:20:28</p>
+  <p>名单由爱发电 API 自动同步，更新时间：2026/10/12 16:41:38</p>
   <p style="margin-top: 8px;">
     <a href="https://ifdian.net/a/wrdzgzs" target="_blank" style="color: var(--vp-c-brand-1); font-weight: bold;">
       前往爱发电赞助 →
