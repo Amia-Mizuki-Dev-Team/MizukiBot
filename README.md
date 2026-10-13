@@ -83,3 +83,7 @@ Amia-Mizuki Dev Team
 文档功能范围最后核对：2026-09-08。
 
 © 2021-2026 Amia-Mizuki Dev Team. All rights reserved.
+
+## 代码核验与十月状态（2026-10-14）
+
+本仓库是 **Amia_晓山瑞希 的 VitePress 帮助与项目文档站**，不是 Bot 运行时代码仓库。2026 年 10 月新增或调整了主动消息权限指南、Koishi × Amia 联动页面与插图、生命周期/状态展示及交互焦点样式；赞助者列表有工作流自动同步提交。检查维护文档时应优先编辑 `docs/` 原始 Markdown / VitePress 源文件，不直接修改已生成的 `docs/.vitepress/dist/` 或 `node_modules/` 文件。
