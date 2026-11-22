@@ -1,110 +1,146 @@
 ---
 layout: home
-title: Amia_晓山瑞希｜QQ 音游 Bot 与使用指南
-description: Amia_晓山瑞希 QQ Bot 官方入口。了解 PJSK、舞萌 DX、中二节奏与群聊互动功能，查看接入流程、使用指令和服务公告。
+title: Amia_晓山瑞希｜QQ Bot 使用与项目文档
+description: Amia_晓山瑞希公开帮助文档，涵盖 PJSK、舞萌 DX、中二节奏、群聊互动、身份绑定、权限和相关项目状态。
 
 hero:
   name: "Amia_晓山瑞希"
-  text: "QQ 群里的音游助手"
-  tagline: "PJSK、舞萌 DX、中二节奏与群聊工具。查询、管理和互动，都可以从这里开始。"
+  text: "QQ Bot 使用与项目文档"
+  tagline: "功能说明、使用方法与维护记录"
   actions:
     - theme: brand
-      text: 查看接入指南
+      text: 开始使用
       link: /usage
+    - theme: alt
+      text: 系统生命周期
+      link: /status
+    - theme: alt
+      text: 项目生态
+      link: /projects/
 
 features:
   - title: PJSK
-    details: 查找歌曲、卡牌、榜单与账号相关信息，按功能文档了解指令和后端支持范围。
+    details: 查询、榜单、绑定、卡牌、歌曲、MySekai、后端路由与车队相关能力。
     link: /features/pjsk
   - title: 舞萌 DX
-    details: 查看 B50、AP50、成绩与曲库信息，了解成绩同步和分析功能。
+    details: B50、AP50、成绩查询与同步、曲库检索、分析和服务状态。
     link: /features/maimai
   - title: 中二节奏
-    details: 获取 B30、歌曲与谱面查询入口，查看对应指令说明。
+    details: B30、歌曲信息和谱面查询。
     link: /features/chunithm
   - title: 群聊与互动
-    details: 从欢迎、群管理到互动工具，了解群聊日常使用的功能与权限。
+    details: 欢迎、群管理、经济、统计、播报、表情和常用工具。
     link: /features/tools
+  - title: 身份与权限
+    details: QQ 身份绑定、资料关联、权限判断以及相关基础组件。
+    link: /projects/
+  - title: 系统生命周期
+    details: 查看 HongXing 产品与服务的生命周期及维护阶段。
+    link: /status
 ---
 
-<section class="mzk-proof" aria-label="官方项目基本信息">
-  <ul class="mzk-proof-list">
-    <li><span class="mzk-proof-dot" aria-hidden="true"></span><strong>官方 QQ Bot</strong><span>3889004352</span></li>
-    <li><span class="mzk-proof-dot" aria-hidden="true"></span><strong>维护团队</strong><span>Amia-Mizuki Dev Team</span></li>
-    <li><span class="mzk-proof-dot" aria-hidden="true"></span><span>功能开放情况以文档与服务公告为准</span></li>
-  </ul>
-</section>
+<div class="home-section mzk-home-overview">
 
-<HomeTagline />
+## 官方帮助入口
 
-<section class="mzk-landing" aria-labelledby="mzk-how-heading">
-  <span class="mzk-kicker">快速开始</span>
-  <h2 id="mzk-how-heading" class="mzk-heading-2">三步了解如何使用</h2>
-  <p class="mzk-body-3">从添加机器人到发送第一条指令，接入流程及群聊权限都有明确说明。</p>
-  <div class="mzk-steps">
-    <article class="mzk-step">
-      <span class="mzk-step-num" aria-hidden="true">01</span>
-      <h3 class="mzk-title-2">添加 Bot</h3>
-      <p class="mzk-body-3">由群主或有相应权限的管理员将官方 Bot <strong>3889004352</strong> 加入 QQ 群，具体步骤见 <a href="/usage">接入指南</a>。</p>
-    </article>
-    <article class="mzk-step">
-      <span class="mzk-step-num" aria-hidden="true">02</span>
-      <h3 class="mzk-title-2">检查群消息权限</h3>
-      <p class="mzk-body-3">群主开启获取群内全部消息的权限。如需定时播报，再查看 <a href="/active-messaging">主动消息权限</a>。</p>
-    </article>
-    <article class="mzk-step">
-      <span class="mzk-step-num" aria-hidden="true">03</span>
-      <h3 class="mzk-title-2">尝试常用指令</h3>
-      <p class="mzk-body-3">在群内发送 <code>帮助</code>、<code>个人信息</code> 或 <code>PJSK</code>，再从 <a href="/features/pjsk">功能文档</a> 继续探索。</p>
-    </article>
-  </div>
-</section>
+**Amia_晓山瑞希** 是由 **Amia-Mizuki Dev Team** 维护的 QQ Bot 与插件集合。当前公开能力主要覆盖 PJSK、舞萌 DX、中二节奏、群聊管理与互动，并由身份绑定、权限、消息兼容和其他基础组件协同支撑。
 
-<section class="mzk-landing" aria-labelledby="mzk-faq-heading">
-  <span class="mzk-kicker">常见问题</span>
-  <h2 id="mzk-faq-heading" class="mzk-heading-2">使用前，你可能想知道</h2>
-  <p class="mzk-body-3">这些问题覆盖接入、权限和功能边界。更详细的排查步骤见 <a href="/faq">完整 FAQ</a>。</p>
-  <div class="mzk-faq-list">
-    <details>
-      <summary>如何把机器人加入 QQ 群？</summary>
-      <p>查看 <a href="/usage">如何使用</a>。由群主或有相应权限的群管理员添加官方 QQ Bot，号码为 3889004352。</p>
-    </details>
-    <details>
-      <summary>发送指令需要 @ 机器人吗？</summary>
-      <p>多数指令可以直接发送文本，无需 @机器人。个别功能的触发方式不同，请以对应功能页为准。</p>
-    </details>
-    <details>
-      <summary>为什么机器人没有回复？</summary>
-      <p>先检查群消息权限、指令格式和服务公告，再根据 <a href="/faq">故障排查指南</a> 进一步定位。</p>
-    </details>
-    <details>
-      <summary>成绩查询与同步都能直接使用吗？</summary>
-      <p>并非所有相关组件都已在生产环境开放，部分能力需要绑定账号或依赖外部服务。请查看 <a href="/features/maimai">舞萌 DX 专项</a> 和 <a href="/features/pjsk">PJSK 专项</a>。</p>
-    </details>
-    <details>
-      <summary>在哪里查看维护和更新？</summary>
-      <p>到 <a href="/service-announcements">服务公告</a> 查看维护与迁移信息，或到 <a href="/features/bot_update">Bot 更新日志</a> 查看已记录的功能变更。</p>
-    </details>
-    <details>
-      <summary>如何反馈故障或功能建议？</summary>
-      <p>通过 <a href="/feedback">问题反馈</a> 提交复现步骤、触发指令和必要的错误信息。使用前可以阅读 <a href="/agreement">用户使用协议</a>。</p>
-    </details>
-  </div>
-</section>
+组织中存在对应仓库或组件，不代表该能力已经在生产环境稳定开放。部分项目处于测试、迁移或独立维护状态；具体功能的可用范围以对应功能页和最新公告为准；产品支持周期见[系统生命周期](/status)。
 
-<HomeSponsorBanner />
+<div class="support-grid support-grid--compact">
 
-<section class="mzk-landing" aria-labelledby="mzk-final-heading">
-  <div class="mzk-final">
-    <span class="mzk-kicker">从这里开始</span>
-    <h2 id="mzk-final-heading" class="mzk-heading-3">找到你需要的功能，然后开始使用</h2>
-    <p class="mzk-body-3">先了解 QQ 群接入与消息权限，再按游戏或功能分类查找指令。项目维护情况可以从服务公告和项目生态页面查询。</p>
-    <a class="mzk-final-cta" href="/usage">查看接入指南</a>
-    <nav class="mzk-legal" aria-label="相关文档">
-      <a href="/projects/">项目生态</a>
-      <a href="/service-announcements">服务公告</a>
-      <a href="/agreement">用户使用协议</a>
-      <a href="/disclaimer">免责声明</a>
-    </nav>
-  </div>
-</section>
+  <a href="/usage" class="support-card">
+    <div class="support-info">
+      <strong>开始使用</strong>
+      <span>接入 Bot、配置群消息权限并查看常用入口</span>
+    </div>
+  </a>
+
+  <a href="/features/pjsk" class="support-card">
+    <div class="support-info">
+      <strong>PJSK</strong>
+      <span>查询、榜单、绑定、卡牌、歌曲、MySekai 与车队相关说明</span>
+    </div>
+  </a>
+
+  <a href="/features/maimai" class="support-card">
+    <div class="support-info">
+      <strong>舞萌 DX</strong>
+      <span>B50、AP50、成绩同步、曲库检索、分析与服务状态</span>
+    </div>
+  </a>
+
+  <a href="/features/chunithm" class="support-card">
+    <div class="support-info">
+      <strong>中二节奏</strong>
+      <span>B30、歌曲信息与谱面查询</span>
+    </div>
+  </a>
+
+  <a href="/features/economy" class="support-card">
+    <div class="support-info">
+      <strong>群聊与经济</strong>
+      <span>群内积分、任务、收集、互动以及其他群聊功能</span>
+    </div>
+  </a>
+
+  <a href="/projects/" class="support-card">
+    <div class="support-info">
+      <strong>项目与基础组件</strong>
+      <span>Bot、插件、身份绑定、权限、网关、客户端与关联项目</span>
+    </div>
+  </a>
+
+</div>
+</div>
+
+<div class="home-section">
+
+## 系统与维护
+
+<div class="support-grid support-grid--compact">
+
+  <a href="/status" class="support-card">
+    <div class="support-info">
+      <strong>系统生命周期</strong>
+      <span>查看 HongXing 产品与服务的生命周期和支持阶段</span>
+    </div>
+  </a>
+
+  <a href="/faq" class="support-card">
+    <div class="support-info">
+      <strong>常见问题与故障排查</strong>
+      <span>按接入、PJSK、舞萌、权限和图片问题逐项排查</span>
+    </div>
+  </a>
+
+  <a href="/feedback" class="support-card">
+    <div class="support-info">
+      <strong>问题反馈</strong>
+      <span>提交可复现的故障信息、文档问题或功能建议</span>
+    </div>
+  </a>
+
+  <a href="/service-announcements" class="support-card">
+    <div class="support-info">
+      <strong>服务公告</strong>
+      <span>查看维护、迁移和关联基础设施调整</span>
+    </div>
+  </a>
+
+  <a href="/contribution" class="support-card">
+    <div class="support-info">
+      <strong>维护与贡献</strong>
+      <span>查看维护成员、技术支持和贡献说明</span>
+    </div>
+  </a>
+
+  <a href="/collaboration" class="support-card">
+    <div class="support-info">
+      <strong>联动合作</strong>
+      <span>恋萌萌 × Amia_晓山瑞希，了解最新联动公告与合作项目</span>
+    </div>
+  </a>
+
+</div>
+</div>
