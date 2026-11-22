@@ -1,17 +1,21 @@
 import DefaultTheme from 'vitepress/theme'
 import { h, onMounted, ref, nextTick } from 'vue'
 import HomeSponsorBanner from './HomeSponsorBanner.vue'
+import HomeTagline from './HomeTagline.vue'
 import HongXingLifecycle from './HongXingLifecycle.vue'
 import './custom.css'
 import './performance.css'
 import './overflow-fix.css'
 import './hongxing-lifecycle-compact.css'
 import './interaction-focus.css'
+import './home-landing.css'
 
 export default {
   extends: DefaultTheme,
   enhanceApp({ app }) {
     app.component('HongXingLifecycle', HongXingLifecycle)
+    app.component('HomeSponsorBanner', HomeSponsorBanner)
+    app.component('HomeTagline', HomeTagline)
   },
   Layout() {
     const showAnnouncement = ref(false)
@@ -52,7 +56,6 @@ export default {
     }
 
     return h(DefaultTheme.Layout, null, {
-      'home-hero-before': () => h(HomeSponsorBanner),
       'home-hero-image': () => h('img', {
         src: '/Picture/avatar.webp?v=20260902a',
         alt: 'Amia_晓山瑞希',
